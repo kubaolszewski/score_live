@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -16,14 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         'ScoreLive',
         style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
       ),
-      automaticallyImplyLeading: true,
-      leading: IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          Icons.arrow_back_ios,
-          color: Colors.white,
-        ),
-      ),
+      centerTitle: false,
       backgroundColor: const Color.fromARGB(255, 18, 17, 17),
     );
   }

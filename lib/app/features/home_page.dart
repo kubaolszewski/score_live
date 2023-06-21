@@ -26,7 +26,10 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     'Home Page',
-                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   )
                 ],
               ),
@@ -40,7 +43,10 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     'Competition Page',
-                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   )
                 ],
               ),
@@ -52,7 +58,10 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Text(
                   'Account Page',
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 )
               ],
             ),
@@ -60,7 +69,6 @@ class _HomePageState extends State<HomePage> {
         }),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 18, 17, 17),
         currentIndex: currentIndex,
         onTap: (newIndex) {
           setState(() {
@@ -79,7 +87,7 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             activeIcon: Icon(Icons.list),
             icon: Icon(
-              Icons.list_outlined,
+              Icons.table_rows_outlined,
               size: 32,
             ),
             label: 'Competition',
@@ -93,10 +101,11 @@ class _HomePageState extends State<HomePage> {
             label: 'Account',
           ),
         ],
+        backgroundColor: const Color.fromARGB(255, 18, 17, 17),
         selectedFontSize: 16,
         unselectedFontSize: 16,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 81, 80, 80)),
         selectedItemColor: const Color.fromARGB(255, 215, 54, 108),
         unselectedItemColor: const Color.fromARGB(255, 81, 80, 80),
       ),

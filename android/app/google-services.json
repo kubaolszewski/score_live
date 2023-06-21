@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1032561728589",
+    "project_id": "score-live-777",
+    "storage_bucket": "score-live-777.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032561728589:android:90a266c00b92b6e0191004",
+        "android_client_info": {
+          "package_name": "com.example.score_live"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032561728589-v67id42i8ha62m5rih2rjdi5tt2o3o3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3UFk4H3yUwCjMUj5vFtMZqJNnLEimxE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032561728589-v67id42i8ha62m5rih2rjdi5tt2o3o3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
