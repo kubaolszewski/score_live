@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:score_live/app/auth/login_screen/login_screen.dart';
-import 'package:score_live/app/features/home_page.dart';
+import 'package:score_live/app/landing_page.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -15,7 +15,7 @@ class AuthPage extends StatelessWidget {
           if (user == null) {
             return const LoginScreen();
           }
-          return HomePage(user: user);
+          return LandingPage(user: user);
         },
       ),
     );
