@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/competiton_page/competition_page.dart';
+import 'package:score_live/app/features/competiton/competition.dart';
 
-class CompetitionPageModule extends Module{
+class CompetitionModule extends Module{
 @override
   List<ModularRoute> get routes => [
         ChildRoute(

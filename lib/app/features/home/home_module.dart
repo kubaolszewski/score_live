@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/home_page/home_page.dart';
+import 'package:score_live/app/features/home/home.dart';
 
-class HomePageModule extends Module {
+class HomeModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute(

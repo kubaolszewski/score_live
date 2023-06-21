@@ -1,17 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
-import 'package:score_live/app/features/account_page/account_page.dart';
-import 'package:score_live/app/features/competiton_page/competition_page.dart';
-import 'package:score_live/app/features/home_page/home_page.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({
     super.key,
-    required this.user,
   });
-
-  final User user;
 
   @override
   State<LandingPage> createState() => _LandingPageState();
@@ -22,20 +16,9 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 32, 31, 31),
+      backgroundColor: const Color.fromARGB(255, 18, 17, 17),
       appBar: const CustomAppBar(),
-      body: Builder(
-        builder: ((context) {
-          if (currentIndex == 0) {
-            return const HomePage();
-          }
-
-          if (currentIndex == 1) {
-            return const CompetitionPage();
-          }
-          return const AccountPage();
-        }),
-      ),
+      body: const RouterOutlet(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (newIndex) {
@@ -67,7 +50,7 @@ class _LandingPageState extends State<LandingPage> {
         unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 81, 80, 80)),
         selectedItemColor: const Color.fromARGB(255, 215, 54, 108),
         unselectedItemColor: const Color.fromARGB(255, 81, 80, 80),
-      )
+      ),
     );
   }
 }

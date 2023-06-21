@@ -1,8 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/account_page/account_page.dart';
+import 'package:score_live/app/features/account/account.dart';
 
-class AccountPageModule extends Module {
-@override
+class AccountModule extends Module {
+  @override
   List<ModularRoute> get routes => [
         ChildRoute(
           AccountPagePath.path,
