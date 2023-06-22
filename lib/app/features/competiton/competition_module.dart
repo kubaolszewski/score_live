@@ -5,12 +5,12 @@ class CompetitionModule extends Module{
 @override
   List<ModularRoute> get routes => [
         ChildRoute(
-          CompetitionPagePath.path,
+          CompetitionPath.path,
           child: ((context, args) => const CompetitionPage()),
         ),
       ];
 }
 
-mixin CompetitionPagePath {
+mixin CompetitionPath {
   static String path = '/competition';
 }

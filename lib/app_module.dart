@@ -13,12 +13,12 @@ class AppModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ModuleRoute(
-          AppModulePaths.landingPageModulePath,
+          AppModulePaths.landingModulePath,
           module: LandingModule(),
         ),
       ];
 }
 
 mixin AppModulePaths {
-  static String landingPageModulePath = '/';
+  static String landingModulePath = '/';
 }

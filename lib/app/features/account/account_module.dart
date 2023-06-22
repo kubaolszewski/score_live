@@ -5,12 +5,12 @@ class AccountModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute(
-          AccountPagePath.path,
+          AccountPath.path,
           child: ((context, args) => const AccountPage()),
         ),
       ];
 }
 
-mixin AccountPagePath {
+mixin AccountPath {
   static String path = '/account';
 }

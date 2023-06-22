@@ -5,12 +5,12 @@ class HomeModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute(
-          HomePagePath.path,
+          HomePath.path,
           child: ((context, args) => const HomePage()),
         ),
       ];
 }
 
-mixin HomePagePath {
+mixin HomePath {
   static String path = '/home';
 }
