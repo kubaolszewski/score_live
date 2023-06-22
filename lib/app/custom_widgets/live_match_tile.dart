@@ -14,12 +14,12 @@ class LiveMatchTile extends StatelessWidget {
           color: const Color.fromARGB(255, 44, 42, 42),
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Row(
                 children: [
                   const Row(
                     children: [
@@ -37,6 +37,9 @@ class LiveMatchTile extends StatelessWidget {
                       )
                     ],
                   ),
+                  const SizedBox(
+                    width: 150,
+                  ),
                   Container(
                     height: 30,
                     width: 50,
@@ -44,29 +47,23 @@ class LiveMatchTile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(24),
                       color: const Color.fromARGB(255, 215, 235, 216),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CircleAvatar(
-                            radius: 5,
-                            backgroundColor: Colors.green,
-                          ),
-                          Text(
-                            '78',
-                            style: TextStyle(color: Colors.green),
-                          ),
-                        ],
-                      ),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        CircleAvatar(
+                          radius: 5,
+                          backgroundColor: Colors.green,
+                        ),
+                        Text(
+                          '78',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Placeholder(
@@ -89,10 +86,10 @@ class LiveMatchTile extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(380, 50),
                   shape: RoundedRectangleBorder(
@@ -109,9 +106,9 @@ class LiveMatchTile extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

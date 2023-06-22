@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -62,7 +62,8 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
+          SizedBox(
+            height: 200,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: const [
@@ -129,17 +130,11 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            child: ListView(
-              children: const [
-                WideMatchListTile(),
-                WideMatchListTile(),
-                WideMatchListTile(),
-                WideMatchListTile(),
-                WideMatchListTile(),
-              ],
-            ),
-          )
+          const WideMatchListTile(),
+          const WideMatchListTile(),
+          const WideMatchListTile(),
+          const WideMatchListTile(),
+          const WideMatchListTile(),
         ],
       ),
     );
