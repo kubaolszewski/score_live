@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CompetitionPage extends StatelessWidget {
-  const CompetitionPage({
+class CompetitionScreen extends StatelessWidget {
+  const CompetitionScreen({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class CompetitionPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Competition Page',
+            'Competition Screen',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,

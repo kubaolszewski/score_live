@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
     super.key,
   });
 
@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Home Page',
+            'Home Screen',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,

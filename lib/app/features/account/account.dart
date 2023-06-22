@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AccountPage extends StatelessWidget {
-  const AccountPage({
+class AccountScreen extends StatelessWidget {
+  const AccountScreen({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class AccountPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Account Page',
+            'Account Screen',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,

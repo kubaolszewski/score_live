@@ -6,7 +6,7 @@ class HomeModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           HomePath.path,
-          child: ((context, args) => const HomePage()),
+          child: ((context, args) => const HomeScreen()),
         ),
       ];
 }
