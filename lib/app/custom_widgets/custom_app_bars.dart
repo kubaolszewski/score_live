@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({
+class AppBarWithActions extends StatelessWidget implements PreferredSizeWidget {
+  const AppBarWithActions({
     super.key,
+    required this.title,
+    required this.actions,
   });
+
+  final String title;
+  final List<Widget> actions;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -11,9 +16,13 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text(
-        'scorelive',
-        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 24),
+      title: Text(
+        title,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+          fontSize: 24,
+        ),
       ),
       centerTitle: false,
       backgroundColor: const Color.fromARGB(255, 18, 17, 17),
@@ -21,26 +30,38 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: Row(
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.search_rounded,
-                    color: Colors.white,
-                    size: 32,
-                  )),
-              const SizedBox(width: 10),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.notifications_none,
-                    color: Colors.white,
-                    size: 32,
-                  ))
-            ],
+            children: actions,
           ),
         ),
       ],
+    );
+  }
+}
+
+class AppBarWithNoActions extends StatelessWidget implements PreferredSizeWidget {
+  const AppBarWithNoActions({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: Text(
+        title,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+          fontSize: 24,
+        ),
+      ),
+      centerTitle: false,
+      backgroundColor: const Color.fromARGB(255, 18, 17, 17),
     );
   }
 }

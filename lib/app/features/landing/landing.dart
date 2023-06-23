@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/custom_widgets/custom_app_bars.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing_module.dart';
 
@@ -32,7 +31,6 @@ class _LandingPageState extends State<LandingPage> {
         builder: (context, state) {
           return Scaffold(
             backgroundColor: const Color.fromARGB(255, 18, 17, 17),
-            appBar: const HomeAppBar(),
             body: const RouterOutlet(),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: state.currentIndex,
