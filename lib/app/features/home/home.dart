@@ -12,8 +12,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 18, 17, 17),
-      appBar: AppBarWithActions(
-        title: 'scorelive',
+      appBar: CustomAppBar(
+        title: const Text(
+          'scorelive',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
         actions: [
           IconButton(
             onPressed: () {},

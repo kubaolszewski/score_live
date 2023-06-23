@@ -10,7 +10,12 @@ class CompetitionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Color.fromARGB(255, 18, 17, 17),
-      appBar: AppBarWithNoActions(title: 'Browse Competition'),
+      appBar: CustomAppBar(
+        title: Text(
+          'Browse Competition',
+          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

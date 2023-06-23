@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:score_live/app/features/home/home_module.dart';
 
-class LiveMatchTile extends StatelessWidget {
+class LiveMatchTile extends StatefulWidget {
   const LiveMatchTile({
     super.key,
   });
 
+  @override
+  State<LiveMatchTile> createState() => _LiveMatchTileState();
+}
+
+class _LiveMatchTileState extends State<LiveMatchTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -97,7 +104,9 @@ class LiveMatchTile extends StatelessWidget {
                   ),
                   backgroundColor: const Color.fromARGB(255, 215, 54, 108),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Modular.to.pushNamed(HomePath.matchDetailsPath);
+                },
                 child: const Text(
                   'Details',
                   style: TextStyle(

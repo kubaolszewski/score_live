@@ -10,7 +10,11 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Color.fromARGB(255, 18, 17, 17),
-      appBar: AppBarWithNoActions(title: 'My Account'),
+      appBar: CustomAppBar(
+          title: Text(
+        'My Account',
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      )),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
