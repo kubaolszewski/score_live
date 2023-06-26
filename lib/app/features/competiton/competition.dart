@@ -13,7 +13,7 @@ class CompetitionPage extends StatelessWidget {
       appBar: CustomAppBar(
         title: Text(
           'Browse Competition',
-          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
       body: Center(
