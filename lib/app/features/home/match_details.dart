@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/app/core/enums.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 
 class MatchDetails extends StatefulWidget {
@@ -8,12 +9,11 @@ class MatchDetails extends StatefulWidget {
   State<MatchDetails> createState() => _MatchDetailsState();
 }
 
-enum Options { summary, lineUp, stats, h2H, standings }
 
 class _MatchDetailsState extends State<MatchDetails> {
   final _detailsTitle = const DetailsTitle();
-  Options options = Options.summary;
-  Set<Options> allOptions = <Options>{Options.summary};
+  DetailsOptions options = DetailsOptions.summary;
+  Set<DetailsOptions> allDetailsOptions = <DetailsOptions>{DetailsOptions.summary};
 
   @override
   Widget build(BuildContext context) {
@@ -165,47 +165,47 @@ class _MatchDetailsState extends State<MatchDetails> {
                         ),
                         backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
                       ),
-                      segments: const <ButtonSegment<Options>>[
+                      segments: const <ButtonSegment<DetailsOptions>>[
                         ButtonSegment(
-                          value: Options.summary,
+                          value: DetailsOptions.summary,
                           label: Text(
                             'Summary',
                             style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
                         ButtonSegment(
-                          value: Options.lineUp,
+                          value: DetailsOptions.lineUp,
                           label: Text(
                             'Line Up',
                             style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
                         ButtonSegment(
-                          value: Options.stats,
+                          value: DetailsOptions.stats,
                           label: Text(
                             'Stats',
                             style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
                         ButtonSegment(
-                          value: Options.h2H,
+                          value: DetailsOptions.h2H,
                           label: Text(
                             'H2H',
                             style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
                         ButtonSegment(
-                          value: Options.standings,
+                          value: DetailsOptions.standings,
                           label: Text(
                             'Standings',
                             style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
-                      selected: allOptions,
-                      onSelectionChanged: (Set<Options> selectedOption) {
+                      selected: allDetailsOptions,
+                      onSelectionChanged: (Set<DetailsOptions> selectedOption) {
                         setState(() {
-                          allOptions = selectedOption;
+                          allDetailsOptions = selectedOption;
                         });
                       },
                     ),
