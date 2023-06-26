@@ -96,8 +96,8 @@ class HomePage extends StatelessWidget {
               const _LiveNowView(),
               const _HomeOptionsTapBar(),
               BlocBuilder<HomeCubit, HomeState>(
-                builder: ((context, state) {
-                  switch (state.options) {
+                builder: (context, state) {
+                  switch (state.homeOptions) {
                     case HomeOptions.upcoming:
                       return const UpcomingDetails();
                     case HomeOptions.score:
@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
                     case HomeOptions.favorites:
                       return const FavoritesDetails();
                   }
-                }),
+                },
               ),
             ],
           ),
@@ -139,71 +139,67 @@ class _HomeOptionsTapBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  context.read<HomeCubit>().switchHomeOptions(HomeOptions.upcoming);
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 4.0),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                    width: 3.0,
-                    color: Colors.pink,
-                  ))),
-                  child: const Text(
-                    'Upcoming',
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          GestureDetector(
+            onTap: () {
+              context.read<HomeCubit>().switchHomeOptions(HomeOptions.upcoming);
+            },
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                width: 3.0,
+                color: Colors.pink,
+              ))),
+              child: const Text(
+                'Upcoming',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              GestureDetector(
-                onTap: () {
-                  context.read<HomeCubit>().switchHomeOptions(HomeOptions.score);
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 4.0),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                    width: 3.0,
-                    color: Colors.pink,
-                  ))),
-                  child: const Text(
-                    'Score',
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  context.read<HomeCubit>().switchHomeOptions(HomeOptions.favorites);
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 4.0),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                    width: 3.0,
-                    color: Colors.pink,
-                  ))),
-                  child: const Text(
-                    'Favorites',
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
-        );
-      },
+          GestureDetector(
+            onTap: () {
+              context.read<HomeCubit>().switchHomeOptions(HomeOptions.score);
+            },
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                width: 3.0,
+                color: Colors.pink,
+              ))),
+              child: const Text(
+                'Score',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              context.read<HomeCubit>().switchHomeOptions(HomeOptions.favorites);
+            },
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                width: 3.0,
+                color: Colors.pink,
+              ))),
+              child: const Text(
+                'Favorites',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

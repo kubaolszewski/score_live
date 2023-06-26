@@ -8,6 +8,9 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(const HomeState());
 
   void switchHomeOptions(HomeOptions chosenOption) {
-    emit(HomeState(options: chosenOption));
+    emit(HomeState(homeOptions: chosenOption));
+  }
+  void switchDetailsOptions (DetailsOptions chosenOption) {
+    emit(HomeState(detailsOptions: chosenOption));
   }
 }
