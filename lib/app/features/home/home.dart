@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/custom_app_bars.dart';
+import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/custom_widgets/live_match_tile.dart';
 import 'package:score_live/app/custom_widgets/wide_match_tile.dart';
 

@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/custom_app_bars.dart';
+import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 
-class MatchDetails extends StatelessWidget {
+class MatchDetails extends StatefulWidget {
   const MatchDetails({super.key});
 
+  @override
+  State<MatchDetails> createState() => _MatchDetailsState();
+}
+
+enum Options { summary, lineUp, stats, h2H, standings }
+
+class _MatchDetailsState extends State<MatchDetails> {
   final _detailsTitle = const DetailsTitle();
+  Options options = Options.summary;
+  Set<Options> allOptions = <Options>{Options.summary};
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +25,12 @@ class MatchDetails extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
-            )),
+            icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
         actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.share,
-                color: Colors.white,
-              )),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.share, color: Colors.white)),
           IconButton(
             onPressed: () {},
-            icon: const Icon(
-              Icons.star_rate_rounded,
-              color: Colors.white,
-            ),
+            icon: const Icon(Icons.star_rate_rounded, color: Colors.white),
           ),
         ],
       ),
@@ -46,7 +44,7 @@ class MatchDetails extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -60,15 +58,11 @@ class MatchDetails extends StatelessWidget {
                             SizedBox(width: 10),
                             Text(
                               'League name',
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
-                        const SizedBox(width: 210),
+                        const SizedBox(width: 190),
                         Container(
                           height: 30,
                           width: 50,
@@ -92,6 +86,7 @@ class MatchDetails extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 10),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -109,18 +104,110 @@ class MatchDetails extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 30),
-                        Placeholder(
-                          fallbackHeight: 50,
-                          fallbackWidth: 50,
-                        ),
+                        Placeholder(fallbackHeight: 50, fallbackWidth: 50),
                       ],
                     ),
                     const SizedBox(height: 15),
-                    const Divider(
-                      color: Colors.grey,
-                      thickness: 0.5,
-                      indent: 50.0,
-                      endIndent: 50.0,
+                    const Divider(color: Colors.grey, thickness: 0.5, indent: 5.0, endIndent: 5.0),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "Antony 32'",
+                              style: TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                            Text(
+                              "Diogo Dalot 76'",
+                              style: TextStyle(color: Colors.white, fontSize: 16),
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(
+                              Icons.sports_soccer,
+                              color: Color.fromARGB(255, 104, 102, 102),
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Antony 32'",
+                              style: TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                            Text(
+                              "Diogo Dalot 76'",
+                              style: TextStyle(color: Colors.white, fontSize: 16),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: SizedBox(
+                height: 50,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    SegmentedButton(
+                      showSelectedIcon: false,
+                      style: ButtonStyle(
+                        side: MaterialStateProperty.all<BorderSide>(
+                          const BorderSide(width: 0.0),
+                        ),
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                      ),
+                      segments: const <ButtonSegment<Options>>[
+                        ButtonSegment(
+                          value: Options.summary,
+                          label: Text(
+                            'Summary',
+                            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        ButtonSegment(
+                          value: Options.lineUp,
+                          label: Text(
+                            'Line Up',
+                            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        ButtonSegment(
+                          value: Options.stats,
+                          label: Text(
+                            'Stats',
+                            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        ButtonSegment(
+                          value: Options.h2H,
+                          label: Text(
+                            'H2H',
+                            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        ButtonSegment(
+                          value: Options.standings,
+                          label: Text(
+                            'Standings',
+                            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                      selected: allOptions,
+                      onSelectionChanged: (Set<Options> selectedOption) {
+                        setState(() {
+                          allOptions = selectedOption;
+                        });
+                      },
                     ),
                   ],
                 ),
