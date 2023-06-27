@@ -257,114 +257,112 @@ class _MatchStandingsView extends StatelessWidget {
 class _MatchDetailsTapBar extends StatelessWidget {
   const _MatchDetailsTapBar();
 
+  HomeCubit _homeCubit(BuildContext context) => context.read<HomeCubit>();
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        return SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  context.read<HomeCubit>().switchDetailsOptions(DetailsOptions.summary);
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 4.0),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                    width: 3.0,
-                    color: Colors.pink,
-                  ))),
-                  child: const Text(
-                    'Summary',
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          GestureDetector(
+            onTap: () {
+              _homeCubit(context).switchDetailsOptions(DetailsOptions.summary);
+            },
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                width: 3.0,
+                color: Colors.pink,
+              ))),
+              child: const Text(
+                'Summary',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(width: 30),
-              GestureDetector(
-                onTap: () {
-                  context.read<HomeCubit>().switchDetailsOptions(DetailsOptions.lineUp);
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 4.0),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                    width: 3.0,
-                    color: Colors.pink,
-                  ))),
-                  child: const Text(
-                    'Line Up',
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 30),
-              GestureDetector(
-                onTap: () {
-                  context.read<HomeCubit>().switchDetailsOptions(DetailsOptions.stats);
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 4.0),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                    width: 3.0,
-                    color: Colors.pink,
-                  ))),
-                  child: const Text(
-                    'Stats',
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 30),
-              GestureDetector(
-                onTap: () {
-                  context.read<HomeCubit>().switchDetailsOptions(DetailsOptions.h2H);
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 4.0),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                    width: 3.0,
-                    color: Colors.pink,
-                  ))),
-                  child: const Text(
-                    'H2H',
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 30),
-              GestureDetector(
-                onTap: () {
-                  context.read<HomeCubit>().switchDetailsOptions(DetailsOptions.standings);
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(bottom: 4.0),
-                  decoration: const BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(
-                    width: 3.0,
-                    color: Colors.pink,
-                  ))),
-                  child: const Text(
-                    'Standings',
-                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
-        );
-      },
+          const SizedBox(width: 30),
+          GestureDetector(
+            onTap: () {
+              _homeCubit(context).switchDetailsOptions(DetailsOptions.lineUp);
+            },
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                width: 3.0,
+                color: Colors.pink,
+              ))),
+              child: const Text(
+                'Line Up',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          const SizedBox(width: 30),
+          GestureDetector(
+            onTap: () {
+              _homeCubit(context).switchDetailsOptions(DetailsOptions.stats);
+            },
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                width: 3.0,
+                color: Colors.pink,
+              ))),
+              child: const Text(
+                'Stats',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          const SizedBox(width: 30),
+          GestureDetector(
+            onTap: () {
+              _homeCubit(context).switchDetailsOptions(DetailsOptions.h2H);
+            },
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                width: 3.0,
+                color: Colors.pink,
+              ))),
+              child: const Text(
+                'H2H',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          const SizedBox(width: 30),
+          GestureDetector(
+            onTap: () {
+              _homeCubit(context).switchDetailsOptions(DetailsOptions.standings);
+            },
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              decoration: const BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                width: 3.0,
+                color: Colors.pink,
+              ))),
+              child: const Text(
+                'Standings',
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

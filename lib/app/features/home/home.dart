@@ -4,9 +4,9 @@ import 'package:score_live/app/core/enums.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/custom_widgets/live_match_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
-import 'package:score_live/app/features/home/home_details/favorites_details.dart';
-import 'package:score_live/app/features/home/home_details/score_details.dart';
-import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
+import 'package:score_live/app/features/home/match_details/favorites_details.dart';
+import 'package:score_live/app/features/home/match_details/score_details.dart';
+import 'package:score_live/app/features/home/match_details/upcoming_details.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -137,6 +137,8 @@ class _LiveNowView extends StatelessWidget {
 class _HomeOptionsTapBar extends StatelessWidget {
   const _HomeOptionsTapBar();
 
+  HomeCubit _homeCubit(BuildContext context) => context.read<HomeCubit>();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -146,7 +148,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              context.read<HomeCubit>().switchHomeOptions(HomeOptions.upcoming);
+              _homeCubit(context).switchHomeOptions(HomeOptions.upcoming);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -164,7 +166,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              context.read<HomeCubit>().switchHomeOptions(HomeOptions.score);
+              _homeCubit(context).switchHomeOptions(HomeOptions.score);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -182,7 +184,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              context.read<HomeCubit>().switchHomeOptions(HomeOptions.favorites);
+              _homeCubit(context).switchHomeOptions(HomeOptions.favorites);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),

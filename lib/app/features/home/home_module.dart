@@ -1,11 +1,13 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home.dart';
-import 'package:score_live/app/features/home/match_details.dart';
+import 'package:score_live/app/features/home/match_details/match_details.dart';
 
 class HomeModule extends Module {
   @override
-  List<Bind> get binds => [Bind.singleton((i) => HomeCubit())];
+  List<Bind> get binds => [
+        Bind.lazySingleton((i) => HomeCubit()),
+      ];
 
   @override
   List<ModularRoute> get routes => [
