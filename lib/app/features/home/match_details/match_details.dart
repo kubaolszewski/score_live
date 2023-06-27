@@ -3,6 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/core/enums.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_h2h_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_lineup_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_standings_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_stats_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_summary_view.dart';
 
 class MatchDetails extends StatelessWidget {
   const MatchDetails({super.key});
@@ -134,15 +139,15 @@ class MatchDetails extends StatelessWidget {
                 builder: (context, state) {
                   switch (state.detailsOptions) {
                     case DetailsOptions.summary:
-                      return const _MatchSummaryView();
+                      return const MatchSummaryView();
                     case DetailsOptions.lineUp:
-                      return const _MatchLineUpView();
+                      return const MatchLineUpView();
                     case DetailsOptions.stats:
-                      return const _MatchStatsView();
+                      return const MatchStatsView();
                     case DetailsOptions.h2H:
-                      return const _MatchH2HView();
+                      return const MatchH2HView();
                     case DetailsOptions.standings:
-                      return const _MatchStandingsView();
+                      return const MatchStandingsView();
                   }
                 },
               ),
@@ -154,105 +159,6 @@ class MatchDetails extends StatelessWidget {
   }
 }
 
-class _MatchSummaryView extends StatelessWidget {
-  const _MatchSummaryView();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          Container(
-            decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(12), color: const Color.fromARGB(255, 44, 42, 42)),
-            height: 200,
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: SizedBox(
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Half Time',
-                        style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Team #1 Home - Away Team #2',
-                        style: TextStyle(color: Colors.grey, fontSize: 16),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ),
-          Container(
-            decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(12), color: const Color.fromARGB(255, 44, 42, 42)),
-            height: 200,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _MatchLineUpView extends StatelessWidget {
-  const _MatchLineUpView();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 1000,
-      color: const Color.fromARGB(255, 44, 42, 42),
-    );
-  }
-}
-
-class _MatchStatsView extends StatelessWidget {
-  const _MatchStatsView();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 1000,
-      color: const Color.fromARGB(255, 44, 42, 42),
-    );
-  }
-}
-
-class _MatchH2HView extends StatelessWidget {
-  const _MatchH2HView();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 1000,
-      color: const Color.fromARGB(255, 44, 42, 42),
-    );
-  }
-}
-
-class _MatchStandingsView extends StatelessWidget {
-  const _MatchStandingsView();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 1000,
-      color: const Color.fromARGB(255, 44, 42, 42),
-    );
-  }
-}
 
 class _MatchDetailsTapBar extends StatelessWidget {
   const _MatchDetailsTapBar();

@@ -4,9 +4,9 @@ import 'package:score_live/app/core/enums.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/custom_widgets/live_match_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
-import 'package:score_live/app/features/home/match_details/favorites_details.dart';
-import 'package:score_live/app/features/home/match_details/score_details.dart';
-import 'package:score_live/app/features/home/match_details/upcoming_details.dart';
+import 'package:score_live/app/features/home/home_details/favorites_details.dart';
+import 'package:score_live/app/features/home/home_details/score_details.dart';
+import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
