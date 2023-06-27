@@ -120,7 +120,7 @@ class MatchDetails extends StatelessWidget {
                               ],
                             ),
                             Column(
-                              children: [Icon(Icons.sports_soccer, color: Color.fromARGB(255, 104, 102, 102))],
+                              children: [Icon(Icons.sports_soccer, color: Colors.grey)],
                             ),
                             Column(
                               children: [

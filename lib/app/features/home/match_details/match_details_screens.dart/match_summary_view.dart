@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchSummaryView extends StatelessWidget {
   const MatchSummaryView({super.key});
@@ -10,8 +11,7 @@ class MatchSummaryView extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(12), color: const Color.fromARGB(255, 44, 42, 42)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColors.listTileGrey),
             height: 200,
           ),
           const Padding(
@@ -42,8 +42,7 @@ class MatchSummaryView extends StatelessWidget {
             ),
           ),
           Container(
-            decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(12), color: const Color.fromARGB(255, 44, 42, 42)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColors.listTileGrey),
             height: 200,
           ),
         ],

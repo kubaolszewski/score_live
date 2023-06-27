@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchStandingsView extends StatelessWidget {
   const MatchStandingsView({super.key});
@@ -7,7 +8,7 @@ class MatchStandingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 1000,
-      color: const Color.fromARGB(255, 44, 42, 42),
+      color: AppColors.listTileGrey,
     );
   }
 }
