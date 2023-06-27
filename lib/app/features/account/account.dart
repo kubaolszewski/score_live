@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -9,19 +10,19 @@ class AccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
           title: Text(
-        'My Account',
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        context.localizations.accountAppBarTitle,
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       )),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Account Page',
+              'Sample text',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
