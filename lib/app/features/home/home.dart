@@ -1,3 +1,4 @@
+import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
@@ -101,19 +102,36 @@ class _HomeScreenDatePicker extends StatefulWidget {
 class _HomeScreenDatePickerState extends State<_HomeScreenDatePicker> {
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(8.0),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(
+          const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
           SizedBox(
-            height: 50,
+            width: 350,
+            child: DatePicker(
+              DateTime.now().subtract(const Duration(days: 2)),
+              initialSelectedDate: DateTime.now(),
+              daysCount: 8,
+              monthTextStyle: const TextStyle(
+                color: Colors.white,
+              ),
+              dayTextStyle: const TextStyle(
+                color: Colors.white,
+              ),
+              dateTextStyle: const TextStyle(
+                color: Colors.white,
+              ),
+              height: 85,
+              deactivatedColor: Colors.grey,
+              onDateChange: (newDate) {},
+            ),
           ),
-          Icon(
+          const Icon(
             Icons.arrow_forward_ios,
             color: Colors.white,
           ),
