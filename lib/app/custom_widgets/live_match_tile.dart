@@ -3,16 +3,11 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
-class LiveMatchTile extends StatefulWidget {
+class LiveMatchTile extends StatelessWidget {
   const LiveMatchTile({
     super.key,
   });
 
-  @override
-  State<LiveMatchTile> createState() => _LiveMatchTileState();
-}
-
-class _LiveMatchTileState extends State<LiveMatchTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
