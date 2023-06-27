@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 
-class AccountPage extends StatelessWidget {
-  const AccountPage({
+class AccountScreen extends StatelessWidget {
+  const AccountScreen({
     super.key,
   });
 

@@ -4,13 +4,13 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing_module.dart';
 
-class LandingPage extends StatefulWidget {
-  const LandingPage({
+class LandingScreen extends StatefulWidget {
+  const LandingScreen({
     super.key,
   });
 
   @override
-  State<LandingPage> createState() => _LandingPageState();
+  State<LandingScreen> createState() => _LandingScreenState();
 }
 
 @override
@@ -18,25 +18,21 @@ void dispose() {
   Modular.dispose<LandingCubit>();
 }
 
-class _LandingPageState extends State<LandingPage> {
+class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
     LandingCubit landingCubit = Modular.get<LandingCubit>();
     return BlocProvider(
       create: (context) => landingCubit,
       child: BlocConsumer<LandingCubit, LandingState>(
-        listener: (context, state) {
-          screenSwitching(state.currentIndex);
-        },
+        listener: _landingScreenListener,
         builder: (context, state) {
           return Scaffold(
             backgroundColor: const Color.fromARGB(255, 18, 17, 17),
             body: const RouterOutlet(),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: state.currentIndex,
-              onTap: (newIndex) {
-                landingCubit.screenSwitch(newIndex);
-              },
+              onTap: landingCubit.screenSwitch,
               items: const [
                 BottomNavigationBarItem(
                   activeIcon: Icon(Icons.home_filled),
@@ -69,23 +65,16 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
-  void screenSwitching(int currentIndex) {
-    // if (currentIndex == 0) {
-    //   Modular.to.navigate(LandingPagePaths.homeModulePath);
-    // } else if (currentIndex == 1) {
-    //   Modular.to.navigate(LandingPagePaths.competitionModulePath);
-    // } else {
-    //   Modular.to.navigate(LandingPagePaths.accountModulePath);
-    // }
-    switch (currentIndex) {
+  void _landingScreenListener(BuildContext context, LandingState state) {
+    switch (state.currentIndex) {
       case 0:
-        Modular.to.navigate(LandingPagePaths.homeModulePath);
+        Modular.to.navigate(LandingScreenPaths.homeModulePath);
       case 1:
-        Modular.to.navigate(LandingPagePaths.competitionModulePath);
+        Modular.to.navigate(LandingScreenPaths.competitionModulePath);
       case 2:
-        Modular.to.navigate(LandingPagePaths.accountModulePath);
+        Modular.to.navigate(LandingScreenPaths.accountModulePath);
       default:
-        Modular.to.navigate(LandingPagePaths.homeModulePath);
+        Modular.to.navigate(LandingScreenPaths.homeModulePath);
     }
   }
 }

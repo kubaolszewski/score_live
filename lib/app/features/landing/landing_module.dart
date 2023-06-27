@@ -27,32 +27,32 @@ class LandingModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute(
-          LandingPagePaths.mainPath,
+          LandingScreenPaths.mainPath,
           transition: TransitionType.noTransition,
-          child: (context, args) => const LandingPage(),
+          child: (context, args) => const LandingScreen(),
           children: [
             ChildRoute(
-              LandingPagePaths.homeModulePath,
-              child: (context, args) => const HomePage(),
+              LandingScreenPaths.homeModulePath,
+              child: (context, args) => const HomeScreen(),
             ),
             ChildRoute(
-              LandingPagePaths.competitionModulePath,
-              child: (context, args) => const CompetitionPage(),
+              LandingScreenPaths.competitionModulePath,
+              child: (context, args) => const CompetitionScreen(),
             ),
             ChildRoute(
-              LandingPagePaths.accountModulePath,
-              child: (context, args) => const AccountPage(),
+              LandingScreenPaths.accountModulePath,
+              child: (context, args) => const AccountScreen(),
             ),
             ModuleRoute(
-              LandingPagePaths.homeModulePath,
+              LandingScreenPaths.homeModulePath,
               module: HomeModule(),
             ),
             ModuleRoute(
-              LandingPagePaths.competitionModulePath,
+              LandingScreenPaths.competitionModulePath,
               module: CompetitionModule(),
             ),
             ModuleRoute(
-              LandingPagePaths.accountModulePath,
+              LandingScreenPaths.accountModulePath,
               module: AccountModule(),
             ),
           ],
@@ -60,7 +60,7 @@ class LandingModule extends Module {
       ];
 }
 
-mixin LandingPagePaths {
+mixin LandingScreenPaths {
   static String mainPath = '/';
   static String homeModulePath = '/home';
   static String competitionModulePath = '/competition';

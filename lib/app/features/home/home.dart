@@ -8,8 +8,8 @@ import 'package:score_live/app/features/home/home_details/favorites_details.dart
 import 'package:score_live/app/features/home/home_details/score_details.dart';
 import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
     super.key,
   });
 

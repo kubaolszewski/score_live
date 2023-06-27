@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 
-class CompetitionPage extends StatelessWidget {
-  const CompetitionPage({
+class CompetitionScreen extends StatelessWidget {
+  const CompetitionScreen({
     super.key,
   });
 
