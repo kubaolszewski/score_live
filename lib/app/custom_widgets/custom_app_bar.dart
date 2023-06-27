@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -21,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       centerTitle: false,
       leading: leading,
-      backgroundColor: const Color.fromARGB(255, 18, 17, 17),
+      backgroundColor: AppColors.backgroundBlack,
       actions: actions != null && (actions?.isNotEmpty ?? false)
           ? [
               Padding(

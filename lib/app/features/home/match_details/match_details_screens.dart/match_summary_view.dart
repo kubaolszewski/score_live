@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchSummaryView extends StatelessWidget {
   const MatchSummaryView({super.key});
@@ -10,12 +12,11 @@ class MatchSummaryView extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(12), color: const Color.fromARGB(255, 44, 42, 42)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColors.listTileGrey),
             height: 200,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: SizedBox(
               child: Column(
                 children: [
@@ -23,12 +24,12 @@ class MatchSummaryView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Half Time',
-                        style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                        context.localizations.halfTime,
+                        style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                       )
                     ],
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -42,8 +43,7 @@ class MatchSummaryView extends StatelessWidget {
             ),
           ),
           Container(
-            decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(12), color: const Color.fromARGB(255, 44, 42, 42)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColors.listTileGrey),
             height: 200,
           ),
         ],

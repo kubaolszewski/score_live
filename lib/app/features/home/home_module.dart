@@ -13,7 +13,7 @@ class HomeModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           HomePath.homePath,
-          child: (context, args) => const HomePage(),
+          child: (context, args) => const HomeScreen(),
         ),
         ChildRoute(
           HomePath.matchDetailsScreen,

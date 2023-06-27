@@ -8,9 +8,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Modular.setInitialRoute(
-      LandingPagePaths.homeModulePath,
-    );
+    Modular.setInitialRoute(LandingScreenPaths.homeModulePath);
     return MaterialApp.router(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

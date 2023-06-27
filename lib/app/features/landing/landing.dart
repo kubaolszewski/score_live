@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/core/applocalization_context.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing_module.dart';
+import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
-class LandingPage extends StatefulWidget {
-  const LandingPage({
+class LandingScreen extends StatefulWidget {
+  const LandingScreen({
     super.key,
   });
 
   @override
-  State<LandingPage> createState() => _LandingPageState();
+  State<LandingScreen> createState() => _LandingScreenState();
 }
 
 @override
@@ -19,25 +20,21 @@ void dispose() {
   Modular.dispose<LandingCubit>();
 }
 
-class _LandingPageState extends State<LandingPage> {
+class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
     LandingCubit landingCubit = Modular.get<LandingCubit>();
     return BlocProvider(
       create: (context) => landingCubit,
       child: BlocConsumer<LandingCubit, LandingState>(
-        listener: (context, state) {
-          screenSwitching(state.currentIndex);
-        },
+        listener: _landingScreenListener,
         builder: (context, state) {
           return Scaffold(
-            backgroundColor: const Color.fromARGB(255, 18, 17, 17),
+            backgroundColor: AppColors.backgroundBlack,
             body: const RouterOutlet(),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: state.currentIndex,
-              onTap: (newIndex) {
-                landingCubit.screenSwitch(newIndex);
-              },
+              onTap: landingCubit.screenSwitch,
               items:  [
                 BottomNavigationBarItem(
                   activeIcon: const Icon(Icons.home_filled),
@@ -55,14 +52,13 @@ class _LandingPageState extends State<LandingPage> {
                   label: context.localizations.navAccount,
                 ),
               ],
-              backgroundColor: const Color.fromARGB(255, 18, 17, 17),
+              backgroundColor: AppColors.backgroundBlack,
               selectedFontSize: 16,
               unselectedFontSize: 16,
               selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-              unselectedLabelStyle:
-                  const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 81, 80, 80)),
-              selectedItemColor: const Color.fromARGB(255, 215, 54, 108),
-              unselectedItemColor: const Color.fromARGB(255, 81, 80, 80),
+              unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.unselectedItemGrey),
+              selectedItemColor: AppColors.mainThemePink,
+              unselectedItemColor: AppColors.unselectedItemGrey,
             ),
           );
         },
@@ -70,23 +66,16 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
-  void screenSwitching(int currentIndex) {
-    // if (currentIndex == 0) {
-    //   Modular.to.navigate(LandingPagePaths.homeModulePath);
-    // } else if (currentIndex == 1) {
-    //   Modular.to.navigate(LandingPagePaths.competitionModulePath);
-    // } else {
-    //   Modular.to.navigate(LandingPagePaths.accountModulePath);
-    // }
-    switch (currentIndex) {
+  void _landingScreenListener(BuildContext context, LandingState state) {
+    switch (state.currentIndex) {
       case 0:
-        Modular.to.navigate(LandingPagePaths.homeModulePath);
+        Modular.to.navigate(LandingScreenPaths.homeModulePath);
       case 1:
-        Modular.to.navigate(LandingPagePaths.competitionModulePath);
+        Modular.to.navigate(LandingScreenPaths.competitionModulePath);
       case 2:
-        Modular.to.navigate(LandingPagePaths.accountModulePath);
+        Modular.to.navigate(LandingScreenPaths.accountModulePath);
       default:
-        Modular.to.navigate(LandingPagePaths.homeModulePath);
+        Modular.to.navigate(LandingScreenPaths.homeModulePath);
     }
   }
 }

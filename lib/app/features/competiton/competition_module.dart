@@ -6,7 +6,7 @@ class CompetitionModule extends Module{
   List<ModularRoute> get routes => [
         ChildRoute(
           CompetitionPath.path,
-          child: ((context, args) => const CompetitionPage()),
+          child: ((context, args) => const CompetitionScreen()),
         ),
       ];
 }

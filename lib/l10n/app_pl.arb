@@ -13,6 +13,7 @@
 
   "currentDay" : "Today",
   "matchDetailsSummary" : "Przebieg",
+  "halfTime" : "Przerwa",
   "matchDetailsLineUp" : "Składy",
   "matchDetailsStats" : "Statystyki",
   "matchDetailsH2H" : "H2H",

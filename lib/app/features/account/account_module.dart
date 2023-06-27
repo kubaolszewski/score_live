@@ -6,7 +6,7 @@ class AccountModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           AccountPath.path,
-          child: ((context, args) => const AccountPage()),
+          child: ((context, args) => const AccountScreen()),
         ),
       ];
 }

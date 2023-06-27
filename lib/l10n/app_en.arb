@@ -13,6 +13,7 @@
 
   "currentDay" : "Today",
   "matchDetailsSummary" : "Summary",
+  "halfTime" : "Half Time",
   "matchDetailsLineUp" : "Line Up",
   "matchDetailsStats" : "Stats",
   "matchDetailsH2H" : "H2H",

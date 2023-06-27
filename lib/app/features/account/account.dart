@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/core/applocalization_context.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
+import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
-class AccountPage extends StatelessWidget {
-  const AccountPage({
+class AccountScreen extends StatelessWidget {
+  const AccountScreen({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 18, 17, 17),
+      backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
           title: Text(
         context.localizations.accountAppBarTitle,

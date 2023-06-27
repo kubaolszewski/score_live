@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/core/applocalization_context.dart';
-import 'package:score_live/app/core/enums.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/custom_widgets/live_match_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_details/favorites_details.dart';
 import 'package:score_live/app/features/home/home_details/score_details.dart';
 import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
+import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/core/enums.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
     super.key,
   });
 
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
     return BlocProvider(
       create: (context) => HomeCubit(),
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 18, 17, 17),
+        backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
           title: const Text(
             'scorelive',
@@ -157,7 +158,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(
                 width: 3.0,
-                color: Colors.pink,
+                color: AppColors.mainThemePink,
               ))),
               child:  Text(
                 context.localizations.homeUpcoming,
@@ -175,7 +176,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(
                 width: 3.0,
-                color: Colors.pink,
+                color: AppColors.mainThemePink,
               ))),
               child:  Text(
                 context.localizations.homeScore,
@@ -193,7 +194,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(
                 width: 3.0,
-                color: Colors.pink,
+                color: AppColors.mainThemePink,
               ))),
               child:  Text(
                 context.localizations.homeFavorites,
