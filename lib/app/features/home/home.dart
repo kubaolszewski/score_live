@@ -41,39 +41,13 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 100,
-                      height: 50,
-                      child: ListView(),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                      ),
-                    )
-                  ],
-                ),
-              ),
+              const _HomeScreenDatePicker(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     Text(
+                    Text(
                       context.localizations.liveNow,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
@@ -83,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child:  Text(
+                      child: Text(
                         context.localizations.seeMore,
                         style: const TextStyle(
                           color: Color.fromARGB(255, 215, 54, 108),
@@ -112,6 +86,38 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _HomeScreenDatePicker extends StatefulWidget {
+  const _HomeScreenDatePicker();
+
+  @override
+  State<_HomeScreenDatePicker> createState() => _HomeScreenDatePickerState();
+}
+
+class _HomeScreenDatePickerState extends State<_HomeScreenDatePicker> {
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          Icon(
+            Icons.arrow_forward_ios,
+            color: Colors.white,
+          ),
+        ],
       ),
     );
   }
@@ -160,7 +166,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: AppColors.mainThemePink,
               ))),
-              child:  Text(
+              child: Text(
                 context.localizations.homeUpcoming,
                 style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
@@ -178,7 +184,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: AppColors.mainThemePink,
               ))),
-              child:  Text(
+              child: Text(
                 context.localizations.homeScore,
                 style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
@@ -196,7 +202,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: AppColors.mainThemePink,
               ))),
-              child:  Text(
+              child: Text(
                 context.localizations.homeFavorites,
                 style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
