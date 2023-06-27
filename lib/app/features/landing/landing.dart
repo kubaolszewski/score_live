@@ -26,9 +26,7 @@ class _LandingScreenState extends State<LandingScreen> {
     return BlocProvider(
       create: (context) => landingCubit,
       child: BlocConsumer<LandingCubit, LandingState>(
-        listener: (context, state) {
-          _landingScreenListener(context, state);
-        },
+        listener: _landingScreenListener,
         builder: (context, state) {
           return Scaffold(
             backgroundColor: const Color.fromARGB(255, 18, 17, 17),
@@ -36,9 +34,7 @@ class _LandingScreenState extends State<LandingScreen> {
             body: const RouterOutlet(),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: state.currentIndex,
-              onTap: (newIndex) {
-                landingCubit.screenSwitch(newIndex);
-              },
+              onTap: landingCubit.screenSwitch,
               items: const [
                 BottomNavigationBarItem(
                   activeIcon: Icon(Icons.home_filled),
