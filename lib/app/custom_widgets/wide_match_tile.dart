@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class WideMatchListTile extends StatelessWidget {
   const WideMatchListTile({
@@ -11,7 +12,7 @@ class WideMatchListTile extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 44, 42, 42),
+          color: AppColors.backgroundBlack,
           borderRadius: BorderRadius.circular(12),
         ),
         child: const Row(

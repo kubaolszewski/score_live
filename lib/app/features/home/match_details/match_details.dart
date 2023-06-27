@@ -8,6 +8,7 @@ import 'package:score_live/app/features/home/match_details/match_details_screens
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_standings_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_stats_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_summary_view.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchDetails extends StatelessWidget {
   const MatchDetails({super.key});
@@ -19,7 +20,7 @@ class MatchDetails extends StatelessWidget {
     return BlocProvider(
       create: (context) => HomeCubit(),
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 18, 17, 17),
+        backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
           title: _detailsTitle,
           leading: IconButton(
@@ -40,7 +41,7 @@ class MatchDetails extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 44, 42, 42),
+                    color: AppColors.listTileGrey,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
@@ -68,7 +69,7 @@ class MatchDetails extends StatelessWidget {
                               width: 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(24),
-                                color: const Color.fromARGB(255, 215, 235, 216),
+                                color: AppColors.liveTimerBackground,
                               ),
                               child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -158,7 +159,6 @@ class MatchDetails extends StatelessWidget {
     );
   }
 }
-
 
 class _MatchDetailsTapBar extends StatelessWidget {
   const _MatchDetailsTapBar();

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({
@@ -9,7 +10,7 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 18, 17, 17),
+      backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
           title: Text(
         'My Account',

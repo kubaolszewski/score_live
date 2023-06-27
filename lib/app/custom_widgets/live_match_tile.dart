@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/home_module.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class LiveMatchTile extends StatefulWidget {
   const LiveMatchTile({
@@ -18,7 +19,7 @@ class _LiveMatchTileState extends State<LiveMatchTile> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 44, 42, 42),
+          color: AppColors.listTileGrey,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
@@ -52,7 +53,7 @@ class _LiveMatchTileState extends State<LiveMatchTile> {
                     width: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
-                      color: const Color.fromARGB(255, 215, 235, 216),
+                      color: AppColors.liveTimerBackground,
                     ),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -102,7 +103,7 @@ class _LiveMatchTileState extends State<LiveMatchTile> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  backgroundColor: const Color.fromARGB(255, 215, 54, 108),
+                  backgroundColor: AppColors.mainThemePink,
                 ),
                 onPressed: () {
                   Modular.to.pushNamed(HomePath.matchDetailsPath);

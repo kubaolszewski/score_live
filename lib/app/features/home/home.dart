@@ -7,6 +7,7 @@ import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_details/favorites_details.dart';
 import 'package:score_live/app/features/home/home_details/score_details.dart';
 import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => HomeCubit(),
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 18, 17, 17),
+        backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
           title: const Text(
             'scorelive',
@@ -84,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                       child: const Text(
                         'See more',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 215, 54, 108),
+                          color: AppColors.mainThemePink,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -156,7 +157,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(
                 width: 3.0,
-                color: Colors.pink,
+                color: AppColors.mainThemePink,
               ))),
               child: const Text(
                 'Upcoming',
@@ -174,7 +175,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(
                 width: 3.0,
-                color: Colors.pink,
+                color: AppColors.mainThemePink,
               ))),
               child: const Text(
                 'Score',
@@ -192,7 +193,7 @@ class _HomeOptionsTapBar extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(
                 width: 3.0,
-                color: Colors.pink,
+                color: AppColors.mainThemePink,
               ))),
               child: const Text(
                 'Favorites',

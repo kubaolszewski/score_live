@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing_module.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({
@@ -28,7 +29,7 @@ class _LandingScreenState extends State<LandingScreen> {
         listener: _landingScreenListener,
         builder: (context, state) {
           return Scaffold(
-            backgroundColor: const Color.fromARGB(255, 18, 17, 17),
+            backgroundColor: AppColors.backgroundBlack,
             body: const RouterOutlet(),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: state.currentIndex,
@@ -50,14 +51,13 @@ class _LandingScreenState extends State<LandingScreen> {
                   label: 'Account',
                 ),
               ],
-              backgroundColor: const Color.fromARGB(255, 18, 17, 17),
+              backgroundColor: AppColors.backgroundBlack,
               selectedFontSize: 16,
               unselectedFontSize: 16,
               selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-              unselectedLabelStyle:
-                  const TextStyle(fontWeight: FontWeight.bold, color: Color.fromARGB(255, 81, 80, 80)),
-              selectedItemColor: const Color.fromARGB(255, 215, 54, 108),
-              unselectedItemColor: const Color.fromARGB(255, 81, 80, 80),
+              unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.unselectedItemGrey),
+              selectedItemColor: AppColors.mainThemePink,
+              unselectedItemColor: AppColors.unselectedItemGrey,
             ),
           );
         },
