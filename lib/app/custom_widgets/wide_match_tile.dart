@@ -12,7 +12,7 @@ class WideMatchListTile extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.backgroundBlack,
+          color: AppColors.listTileGrey,
           borderRadius: BorderRadius.circular(12),
         ),
         child: const Row(

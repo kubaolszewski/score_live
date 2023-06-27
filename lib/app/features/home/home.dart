@@ -105,29 +105,24 @@ class _HomeScreenDatePickerState extends State<_HomeScreenDatePicker> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
-          SizedBox(
-            width: 350,
+          Expanded(
             child: DatePicker(
               DateTime.now().subtract(const Duration(days: 2)),
+              locale: context.myLocale.toString(),
               initialSelectedDate: DateTime.now(),
               daysCount: 8,
-              monthTextStyle: const TextStyle(
-                color: Colors.white,
-              ),
-              dayTextStyle: const TextStyle(
-                color: Colors.white,
-              ),
-              dateTextStyle: const TextStyle(
-                color: Colors.white,
-              ),
+              monthTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
+              dayTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
+              dateTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
+              selectedTextColor: Colors.white,
+              deactivatedColor: AppColors.inactiveItemGrey,
               height: 85,
-              deactivatedColor: Colors.grey,
+              width: 75,
               onDateChange: (newDate) {},
             ),
           ),
