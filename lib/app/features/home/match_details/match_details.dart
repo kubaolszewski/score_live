@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/core/enums.dart';
+import 'package:score_live/core/enums.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_h2h_view.dart';
