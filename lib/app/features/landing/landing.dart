@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:score_live/app/core/applocalization_context.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing_module.dart';
 
@@ -37,21 +38,21 @@ class _LandingPageState extends State<LandingPage> {
               onTap: (newIndex) {
                 landingCubit.screenSwitch(newIndex);
               },
-              items: const [
+              items:  [
                 BottomNavigationBarItem(
-                  activeIcon: Icon(Icons.home_filled),
-                  icon: Icon(Icons.home_outlined, size: 32),
-                  label: 'Home',
+                  activeIcon: const Icon(Icons.home_filled),
+                  icon: const Icon(Icons.home_outlined, size: 32),
+                  label: context.localizations.navHome,
                 ),
                 BottomNavigationBarItem(
-                  activeIcon: Icon(Icons.list),
-                  icon: Icon(Icons.table_rows_outlined, size: 32),
-                  label: 'Competition',
+                  activeIcon: const Icon(Icons.list),
+                  icon: const Icon(Icons.table_rows_outlined, size: 32),
+                  label:context.localizations.navCompetition,
                 ),
                 BottomNavigationBarItem(
-                  activeIcon: Icon(Icons.person),
-                  icon: Icon(Icons.person_outlined, size: 32),
-                  label: 'Account',
+                  activeIcon: const Icon(Icons.person),
+                  icon: const Icon(Icons.person_outlined, size: 32),
+                  label: context.localizations.navAccount,
                 ),
               ],
               backgroundColor: const Color.fromARGB(255, 18, 17, 17),

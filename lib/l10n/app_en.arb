@@ -1,6 +1,24 @@
 {
-  "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+  "navHome" : "Home",
+  "navCompetition" : "Competition",
+  "navAccount" : "Account",
+
+  "liveNow" : "Live Now",
+  "seeMore" : "See more",
+  "homeUpcoming" : "Upcoming",
+  "homeScore" : "Score",
+  "homeFavorites" : "Favorites",
+
+  "matchDetailsButton" : "Details",
+
+  "currentDay" : "Today",
+  "matchDetailsSummary" : "Summary",
+  "matchDetailsLineUp" : "Line Up",
+  "matchDetailsStats" : "Stats",
+  "matchDetailsH2H" : "H2H",
+  "matchDetailsStandings" : "Standings",
+
+  "competitionAppBarTitle" : "Browse Competition",
+
+  "accountAppBarTitle" : "My Account"
 }

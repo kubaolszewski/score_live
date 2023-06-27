@@ -1,3 +1,24 @@
 {
-    "helloWorld": "Witaj świecie!"
+  "navHome" : "Strona główna",
+  "navCompetition" : "Rozgrywki",
+  "navAccount" : "Moje konto",
+
+  "liveNow" : "Na żywo",
+  "seeMore" : "Więcej",
+  "homeUpcoming" : "Nadchodzące",
+  "homeScore" : "Wyniki",
+  "homeFavorites" : "Obserwowane",
+
+  "matchDetailsButton" : "Szczegóły",
+
+  "currentDay" : "Today",
+  "matchDetailsSummary" : "Przebieg",
+  "matchDetailsLineUp" : "Składy",
+  "matchDetailsStats" : "Statystyki",
+  "matchDetailsH2H" : "H2H",
+  "matchDetailsStandings" : "Tabela",
+
+  "competitionAppBarTitle" : "Wyszukaj rozgrywki",
+
+  "accountAppBarTitle" : "Moje konto"
 }

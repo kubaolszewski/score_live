@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:score_live/app/core/applocalization_context.dart';
 import 'package:score_live/app/core/enums.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/custom_widgets/live_match_tile.dart';
@@ -71,9 +72,9 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Live Now',
-                      style: TextStyle(
+                     Text(
+                      context.localizations.liveNow,
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                         color: Colors.white,
@@ -81,9 +82,9 @@ class HomePage extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
-                        'See more',
-                        style: TextStyle(
+                      child:  Text(
+                        context.localizations.seeMore,
+                        style: const TextStyle(
                           color: Color.fromARGB(255, 215, 54, 108),
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -158,9 +159,9 @@ class _HomeOptionsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: Colors.pink,
               ))),
-              child: const Text(
-                'Upcoming',
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              child:  Text(
+                context.localizations.homeUpcoming,
+                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -176,9 +177,9 @@ class _HomeOptionsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: Colors.pink,
               ))),
-              child: const Text(
-                'Score',
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              child:  Text(
+                context.localizations.homeScore,
+                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -194,9 +195,9 @@ class _HomeOptionsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: Colors.pink,
               ))),
-              child: const Text(
-                'Favorites',
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              child:  Text(
+                context.localizations.homeFavorites,
+                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),

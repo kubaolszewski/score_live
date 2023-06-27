@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/app/core/applocalization_context.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 
 class CompetitionPage extends StatelessWidget {
@@ -8,20 +9,20 @@ class CompetitionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 18, 17, 17),
+    return  Scaffold(
+      backgroundColor: const Color.fromARGB(255, 18, 17, 17),
       appBar: CustomAppBar(
         title: Text(
-          'Browse Competition',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          context.localizations.competitionAppBarTitle,
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Competition Page',
+              'Sample text',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:score_live/app/core/applocalization_context.dart';
 import 'package:score_live/app/core/enums.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
@@ -185,9 +186,9 @@ class _MatchDetailsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: Colors.pink,
               ))),
-              child: const Text(
-                'Summary',
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              child:  Text(
+                context.localizations.matchDetailsSummary,
+                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -204,9 +205,9 @@ class _MatchDetailsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: Colors.pink,
               ))),
-              child: const Text(
-                'Line Up',
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              child:  Text(
+                context.localizations.matchDetailsLineUp,
+                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -223,9 +224,9 @@ class _MatchDetailsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: Colors.pink,
               ))),
-              child: const Text(
-                'Stats',
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              child:  Text(
+                context.localizations.matchDetailsStats,
+                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -242,9 +243,9 @@ class _MatchDetailsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: Colors.pink,
               ))),
-              child: const Text(
-                'H2H',
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              child:  Text(
+                context.localizations.matchDetailsH2H,
+                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -261,9 +262,9 @@ class _MatchDetailsTapBar extends StatelessWidget {
                 width: 3.0,
                 color: Colors.pink,
               ))),
-              child: const Text(
-                'Standings',
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              child:  Text(
+                context.localizations.matchDetailsStandings,
+                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -280,10 +281,10 @@ class DetailsTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return  SizedBox(
       child: Column(
         children: [
-          Row(
+          const Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -293,14 +294,14 @@ class DetailsTitle extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Today',
-                style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 16),
+                context.localizations.currentDay,
+                style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 16),
               )
             ],
           )
