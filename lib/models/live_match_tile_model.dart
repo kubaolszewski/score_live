@@ -1,20 +1,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'live_match_tile.freezed.dart';
-part 'live_match_tile.g.dart';
+part 'live_match_tile_model.freezed.dart';
+part 'live_match_tile_model.g.dart';
 
 @freezed
-class LiveMatchTile with _$LiveMatchTile {
-    const factory LiveMatchTile({
+class LiveMatchTileModel with _$LiveMatchTileModel {
+    const factory LiveMatchTileModel({
         required String liveMatchTileGet,
         required Parameters parameters,
         required List<dynamic> errors,
         required int results,
         required Paging paging,
         required List<Response> response,
-    }) = _LiveMatchTile;
+    }) = _LiveMatchTileModel;
 
-    factory LiveMatchTile.fromJson(Map<String, dynamic> json) => _$LiveMatchTileFromJson(json);
+    factory LiveMatchTileModel.fromJson(Map<String, dynamic> json) => _$LiveMatchTileModelFromJson(json);
 }
 
 @freezed

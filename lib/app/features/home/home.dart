@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:score_live/app/features/home/home_details/score_details.dart';
 import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
+// import 'package:score_live/models/live_match_tile_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -143,13 +145,12 @@ class _LiveNowView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
-      child: ListView(
+      child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        children: const [
-          LiveMatchTile(),
-          LiveMatchTile(),
-          LiveMatchTile(),
-        ],
+        itemCount: Random().nextInt(10) + 5,
+        itemBuilder: (context, index) {
+          return const LiveMatchTile();
+        },
       ),
     );
   }

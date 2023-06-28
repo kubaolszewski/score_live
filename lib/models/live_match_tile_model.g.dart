@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'live_match_tile.dart';
+part of 'live_match_tile_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LiveMatchTile _$$_LiveMatchTileFromJson(Map<String, dynamic> json) =>
-    _$_LiveMatchTile(
+_$_LiveMatchTileModel _$$_LiveMatchTileModelFromJson(
+        Map<String, dynamic> json) =>
+    _$_LiveMatchTileModel(
       liveMatchTileGet: json['liveMatchTileGet'] as String,
       parameters:
           Parameters.fromJson(json['parameters'] as Map<String, dynamic>),
@@ -19,7 +20,8 @@ _$_LiveMatchTile _$$_LiveMatchTileFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_LiveMatchTileToJson(_$_LiveMatchTile instance) =>
+Map<String, dynamic> _$$_LiveMatchTileModelToJson(
+        _$_LiveMatchTileModel instance) =>
     <String, dynamic>{
       'liveMatchTileGet': instance.liveMatchTileGet,
       'parameters': instance.parameters,

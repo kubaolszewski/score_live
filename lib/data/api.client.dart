@@ -12,7 +12,7 @@ class ApiClient {
   Dio _configureDio() {
     final dio = Dio(
       BaseOptions(
-        baseUrl: 'https://v2.nba.api-sports.io/',
+        baseUrl: 'https://v3.football.api-sports.io/',
         headers: {
           "x-apisports-key": "8b5fbf35cd73e51e95aad1bc370283ee",
         },

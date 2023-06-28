@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'live_match_tile.dart';
+part of 'live_match_tile_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-LiveMatchTile _$LiveMatchTileFromJson(Map<String, dynamic> json) {
-  return _LiveMatchTile.fromJson(json);
+LiveMatchTileModel _$LiveMatchTileModelFromJson(Map<String, dynamic> json) {
+  return _LiveMatchTileModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$LiveMatchTile {
+mixin _$LiveMatchTileModel {
   String get liveMatchTileGet => throw _privateConstructorUsedError;
   Parameters get parameters => throw _privateConstructorUsedError;
   List<dynamic> get errors => throw _privateConstructorUsedError;
@@ -29,15 +29,15 @@ mixin _$LiveMatchTile {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LiveMatchTileCopyWith<LiveMatchTile> get copyWith =>
+  $LiveMatchTileModelCopyWith<LiveMatchTileModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LiveMatchTileCopyWith<$Res> {
-  factory $LiveMatchTileCopyWith(
-          LiveMatchTile value, $Res Function(LiveMatchTile) then) =
-      _$LiveMatchTileCopyWithImpl<$Res, LiveMatchTile>;
+abstract class $LiveMatchTileModelCopyWith<$Res> {
+  factory $LiveMatchTileModelCopyWith(
+          LiveMatchTileModel value, $Res Function(LiveMatchTileModel) then) =
+      _$LiveMatchTileModelCopyWithImpl<$Res, LiveMatchTileModel>;
   @useResult
   $Res call(
       {String liveMatchTileGet,
@@ -52,9 +52,9 @@ abstract class $LiveMatchTileCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LiveMatchTileCopyWithImpl<$Res, $Val extends LiveMatchTile>
-    implements $LiveMatchTileCopyWith<$Res> {
-  _$LiveMatchTileCopyWithImpl(this._value, this._then);
+class _$LiveMatchTileModelCopyWithImpl<$Res, $Val extends LiveMatchTileModel>
+    implements $LiveMatchTileModelCopyWith<$Res> {
+  _$LiveMatchTileModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -117,11 +117,11 @@ class _$LiveMatchTileCopyWithImpl<$Res, $Val extends LiveMatchTile>
 }
 
 /// @nodoc
-abstract class _$$_LiveMatchTileCopyWith<$Res>
-    implements $LiveMatchTileCopyWith<$Res> {
-  factory _$$_LiveMatchTileCopyWith(
-          _$_LiveMatchTile value, $Res Function(_$_LiveMatchTile) then) =
-      __$$_LiveMatchTileCopyWithImpl<$Res>;
+abstract class _$$_LiveMatchTileModelCopyWith<$Res>
+    implements $LiveMatchTileModelCopyWith<$Res> {
+  factory _$$_LiveMatchTileModelCopyWith(_$_LiveMatchTileModel value,
+          $Res Function(_$_LiveMatchTileModel) then) =
+      __$$_LiveMatchTileModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -139,11 +139,11 @@ abstract class _$$_LiveMatchTileCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LiveMatchTileCopyWithImpl<$Res>
-    extends _$LiveMatchTileCopyWithImpl<$Res, _$_LiveMatchTile>
-    implements _$$_LiveMatchTileCopyWith<$Res> {
-  __$$_LiveMatchTileCopyWithImpl(
-      _$_LiveMatchTile _value, $Res Function(_$_LiveMatchTile) _then)
+class __$$_LiveMatchTileModelCopyWithImpl<$Res>
+    extends _$LiveMatchTileModelCopyWithImpl<$Res, _$_LiveMatchTileModel>
+    implements _$$_LiveMatchTileModelCopyWith<$Res> {
+  __$$_LiveMatchTileModelCopyWithImpl(
+      _$_LiveMatchTileModel _value, $Res Function(_$_LiveMatchTileModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -156,7 +156,7 @@ class __$$_LiveMatchTileCopyWithImpl<$Res>
     Object? paging = null,
     Object? response = null,
   }) {
-    return _then(_$_LiveMatchTile(
+    return _then(_$_LiveMatchTileModel(
       liveMatchTileGet: null == liveMatchTileGet
           ? _value.liveMatchTileGet
           : liveMatchTileGet // ignore: cast_nullable_to_non_nullable
@@ -187,8 +187,8 @@ class __$$_LiveMatchTileCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LiveMatchTile implements _LiveMatchTile {
-  const _$_LiveMatchTile(
+class _$_LiveMatchTileModel implements _LiveMatchTileModel {
+  const _$_LiveMatchTileModel(
       {required this.liveMatchTileGet,
       required this.parameters,
       required final List<dynamic> errors,
@@ -198,8 +198,8 @@ class _$_LiveMatchTile implements _LiveMatchTile {
       : _errors = errors,
         _response = response;
 
-  factory _$_LiveMatchTile.fromJson(Map<String, dynamic> json) =>
-      _$$_LiveMatchTileFromJson(json);
+  factory _$_LiveMatchTileModel.fromJson(Map<String, dynamic> json) =>
+      _$$_LiveMatchTileModelFromJson(json);
 
   @override
   final String liveMatchTileGet;
@@ -227,14 +227,14 @@ class _$_LiveMatchTile implements _LiveMatchTile {
 
   @override
   String toString() {
-    return 'LiveMatchTile(liveMatchTileGet: $liveMatchTileGet, parameters: $parameters, errors: $errors, results: $results, paging: $paging, response: $response)';
+    return 'LiveMatchTileModel(liveMatchTileGet: $liveMatchTileGet, parameters: $parameters, errors: $errors, results: $results, paging: $paging, response: $response)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LiveMatchTile &&
+            other is _$_LiveMatchTileModel &&
             (identical(other.liveMatchTileGet, liveMatchTileGet) ||
                 other.liveMatchTileGet == liveMatchTileGet) &&
             (identical(other.parameters, parameters) ||
@@ -259,28 +259,29 @@ class _$_LiveMatchTile implements _LiveMatchTile {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LiveMatchTileCopyWith<_$_LiveMatchTile> get copyWith =>
-      __$$_LiveMatchTileCopyWithImpl<_$_LiveMatchTile>(this, _$identity);
+  _$$_LiveMatchTileModelCopyWith<_$_LiveMatchTileModel> get copyWith =>
+      __$$_LiveMatchTileModelCopyWithImpl<_$_LiveMatchTileModel>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LiveMatchTileToJson(
+    return _$$_LiveMatchTileModelToJson(
       this,
     );
   }
 }
 
-abstract class _LiveMatchTile implements LiveMatchTile {
-  const factory _LiveMatchTile(
+abstract class _LiveMatchTileModel implements LiveMatchTileModel {
+  const factory _LiveMatchTileModel(
       {required final String liveMatchTileGet,
       required final Parameters parameters,
       required final List<dynamic> errors,
       required final int results,
       required final Paging paging,
-      required final List<Response> response}) = _$_LiveMatchTile;
+      required final List<Response> response}) = _$_LiveMatchTileModel;
 
-  factory _LiveMatchTile.fromJson(Map<String, dynamic> json) =
-      _$_LiveMatchTile.fromJson;
+  factory _LiveMatchTileModel.fromJson(Map<String, dynamic> json) =
+      _$_LiveMatchTileModel.fromJson;
 
   @override
   String get liveMatchTileGet;
@@ -296,7 +297,7 @@ abstract class _LiveMatchTile implements LiveMatchTile {
   List<Response> get response;
   @override
   @JsonKey(ignore: true)
-  _$$_LiveMatchTileCopyWith<_$_LiveMatchTile> get copyWith =>
+  _$$_LiveMatchTileModelCopyWith<_$_LiveMatchTileModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
