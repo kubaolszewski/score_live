@@ -56,9 +56,9 @@ class _LandingScreenState extends State<LandingScreen> {
               selectedFontSize: 16,
               unselectedFontSize: 16,
               selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-              unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.unselectedItemGrey),
+              unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.inactiveItemGrey),
               selectedItemColor: AppColors.mainThemePink,
-              unselectedItemColor: AppColors.unselectedItemGrey,
+              unselectedItemColor: AppColors.inactiveItemGrey,
             ),
           );
         },

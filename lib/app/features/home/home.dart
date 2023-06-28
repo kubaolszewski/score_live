@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
-import 'package:score_live/app/custom_widgets/live_match_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_details/favorites_details.dart';
+import 'package:score_live/app/features/home/home_details/home_widgets/home_options_tap_bar.dart';
+import 'package:score_live/app/features/home/home_details/home_widgets/home_screen_date_picker.dart';
+import 'package:score_live/app/features/home/home_details/home_widgets/home_live_now_view.dart';
 import 'package:score_live/app/features/home/home_details/score_details.dart';
 import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
 import 'package:score_live/core/applocalization_context.dart';
@@ -41,39 +43,13 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 100,
-                      height: 50,
-                      child: ListView(),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                      ),
-                    )
-                  ],
-                ),
-              ),
+              const HomeScreenDatePicker(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     Text(
+                    Text(
                       context.localizations.liveNow,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
@@ -83,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child:  Text(
+                      child: Text(
                         context.localizations.seeMore,
                         style: const TextStyle(
                           color: Color.fromARGB(255, 215, 54, 108),
@@ -95,8 +71,8 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const _LiveNowView(),
-              const _HomeOptionsTapBar(),
+              const LiveNowView(),
+              const HomeOptionsTapBar(),
               BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
                   switch (state.homeOptions) {
@@ -112,97 +88,6 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _LiveNowView extends StatelessWidget {
-  const _LiveNowView();
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: const [
-          LiveMatchTile(),
-          LiveMatchTile(),
-          LiveMatchTile(),
-        ],
-      ),
-    );
-  }
-}
-
-class _HomeOptionsTapBar extends StatelessWidget {
-  const _HomeOptionsTapBar();
-
-  HomeCubit _homeCubit(BuildContext context) => context.read<HomeCubit>();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchHomeOptions(HomeOptions.upcoming);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: AppColors.mainThemePink,
-              ))),
-              child:  Text(
-                context.localizations.homeUpcoming,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchHomeOptions(HomeOptions.score);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: AppColors.mainThemePink,
-              ))),
-              child:  Text(
-                context.localizations.homeScore,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchHomeOptions(HomeOptions.favorites);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: AppColors.mainThemePink,
-              ))),
-              child:  Text(
-                context.localizations.homeFavorites,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
