@@ -1,7 +1,7 @@
-import 'dart:math';
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/custom_widgets/live_match_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
@@ -10,8 +10,10 @@ import 'package:score_live/app/features/home/home_details/score_details.dart';
 import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
-// import 'package:score_live/models/live_match_tile_model.dart';
+import 'package:score_live/data/api.client.dart';
+import 'package:score_live/data/live_matches_remote_service.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/repositories/home_screen_repository.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -20,8 +22,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(),
+    return BlocProvider.value(
+      value: HomeCubit(
+        HomeScreenRepository(LiveMatchesRemoteService.create(ApiClient())),
+      ),
+      // ..fetchLiveMatches(),
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
@@ -143,15 +148,32 @@ class _LiveNowView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: Random().nextInt(10) + 5,
-        itemBuilder: (context, index) {
-          return const LiveMatchTile();
-        },
-      ),
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        final liveMatches = state.liveMatchResponse;
+        if (liveMatches!.isEmpty) {
+          return const SizedBox(
+            height: 200,
+            child: Center(
+              child: Text('Nothing here :(', style: TextStyle(color: Colors.white, fontSize: 24)),
+            ),
+          );
+        }
+        return SizedBox(
+          height: 200,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: liveMatches.length,
+            itemBuilder: (context, index) {
+              final liveMatch = liveMatches[index];
+              return LiveMatchTile(
+                liveMatch: liveMatch,
+                index: index,
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

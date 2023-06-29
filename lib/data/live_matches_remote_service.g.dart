@@ -19,13 +19,21 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
   String? baseUrl;
 
   @override
-  Future<LiveMatchesResponse> fetchLiveMatches(String live) async {
+  Future<LiveMatchesFixtures> fetchLiveMatches({
+    required String league,
+    required String season,
+    required String date,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'live=all': live};
+    final queryParameters = <String, dynamic>{
+      r'league': league,
+      r'season': season,
+      r'date': date,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<LiveMatchesResponse>(Options(
+        _setStreamType<LiveMatchesFixtures>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -41,7 +49,7 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = LiveMatchesResponse.fromJson(_result.data!);
+    final value = LiveMatchesFixtures.fromJson(_result.data!);
     return value;
   }
 

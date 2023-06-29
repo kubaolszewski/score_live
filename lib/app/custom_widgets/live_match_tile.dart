@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/core/applocalization_context.dart';
-// import 'package:score_live/models/live_match_tile_model.dart';
+import 'package:score_live/models/live_match_response.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class LiveMatchTile extends StatelessWidget {
   const LiveMatchTile({
     super.key,
+    required this.liveMatch,
+    required this.index,
   });
+
+  final LiveMatchResponse liveMatch;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +31,16 @@ class LiveMatchTile extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Row(
+                  Row(
                     children: [
                       CircleAvatar(
+                        backgroundImage: NetworkImage(liveMatch.league!.logo!),
                         radius: 15,
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(
-                        'League name',
-                        style: TextStyle(
+                        liveMatch.league!.name!,
+                        style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -60,34 +66,45 @@ class LiveMatchTile extends StatelessWidget {
                           backgroundColor: Colors.green,
                         ),
                         Text(
-                          '78',
-                          style: TextStyle(color: Colors.green),
+                          'FT',
+                          style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Placeholder(
-                    fallbackHeight: 50,
-                    fallbackWidth: 50,
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(liveMatch.teams!.home!.logo!),
+                      ),
+                    ),
                   ),
-                  SizedBox(width: 30),
+                  const SizedBox(width: 30),
                   Text(
-                    'Result',
-                    style: TextStyle(
+                    '${liveMatch.goals!.home} -'
+                    '${liveMatch.goals!.away}',
+                    style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(width: 30),
-                  Placeholder(
-                    fallbackHeight: 50,
-                    fallbackWidth: 50,
+                  const SizedBox(width: 30),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(liveMatch.teams!.away!.logo!),
+                      ),
+                    ),
                   ),
                 ],
               ),

@@ -1,19 +1,25 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:score_live/repositories/home_screen_repository.dart';
 import 'package:score_live/core/enums.dart';
-import 'package:score_live/models/live_match_tile_model.dart';
+import 'package:score_live/models/live_match_response.dart';
 
 part 'home_state.dart';
 
-class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(const HomeState());
+part 'home_cubit.freezed.dart';
 
-  Future<void> fetchLiveMatches () async {
-    // try {final liveMatches = await 
-      
-    // } catch (error) {
-      
-    // }
+class HomeCubit extends Cubit<HomeState> {
+  HomeCubit(this.homeScreenRepository) : super(const HomeState());
+
+  final HomeScreenRepository homeScreenRepository;
+
+  Future<void> fetchLiveMatches() async {
+    try {
+      final liveMatches = await homeScreenRepository.fetchLiveMatches();
+      emit(state.copyWith(liveMatchResponse: liveMatches));
+    } catch (error) {
+      emit(state.copyWith(errorMessage: error.toString()));
+    }
   }
 
   void switchHomeOptions(HomeOptions chosenOption) {

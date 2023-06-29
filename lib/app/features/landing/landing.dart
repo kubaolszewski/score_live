@@ -23,7 +23,7 @@ void dispose() {
 class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
-    LandingCubit landingCubit = Modular.get<LandingCubit>();
+    final landingCubit = Modular.get<LandingCubit>();
     return BlocProvider(
       create: (context) => landingCubit,
       child: BlocConsumer<LandingCubit, LandingState>(
@@ -35,7 +35,7 @@ class _LandingScreenState extends State<LandingScreen> {
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: state.currentIndex,
               onTap: landingCubit.screenSwitch,
-              items:  [
+              items: [
                 BottomNavigationBarItem(
                   activeIcon: const Icon(Icons.home_filled),
                   icon: const Icon(Icons.home_outlined, size: 32),
@@ -44,7 +44,7 @@ class _LandingScreenState extends State<LandingScreen> {
                 BottomNavigationBarItem(
                   activeIcon: const Icon(Icons.list),
                   icon: const Icon(Icons.table_rows_outlined, size: 32),
-                  label:context.localizations.navCompetition,
+                  label: context.localizations.navCompetition,
                 ),
                 BottomNavigationBarItem(
                   activeIcon: const Icon(Icons.person),

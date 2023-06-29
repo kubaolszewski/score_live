@@ -1,14 +1,11 @@
 part of 'home_cubit.dart';
 
-@immutable
-class HomeState {
-  const HomeState({
-    this.liveMatchTileModel = const [],
-    this.homeOptions = HomeOptions.score,
-    this.detailsOptions = DetailsOptions.summary,
-  });
-
-  final List<LiveMatchTileModel> liveMatchTileModel;
-  final HomeOptions homeOptions;
-  final DetailsOptions detailsOptions;
+@freezed
+class HomeState with _$HomeState {
+  const factory HomeState({
+    @Default([]) List<LiveMatchResponse>? liveMatchResponse,
+    @Default(HomeOptions.score) HomeOptions homeOptions,
+    @Default(DetailsOptions.summary) DetailsOptions detailsOptions,
+    String? errorMessage,
+  }) = _HomeState;
 }
