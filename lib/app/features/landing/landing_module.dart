@@ -40,7 +40,7 @@ class LandingModule extends Module {
           children: [
             ChildRoute(
               LandingScreenPaths.homeModulePath,
-              child: (context, args) => const HomeScreen(),
+              child: (context, args) =>  const HomeScreen(),
             ),
             ChildRoute(
               LandingScreenPaths.competitionModulePath,

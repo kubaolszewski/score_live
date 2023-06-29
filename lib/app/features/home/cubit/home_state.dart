@@ -6,6 +6,7 @@ class HomeState with _$HomeState {
     @Default([]) List<LiveMatchResponse>? liveMatchResponse,
     @Default(HomeOptions.score) HomeOptions homeOptions,
     @Default(DetailsOptions.summary) DetailsOptions detailsOptions,
+    @Default(false) bool isLoading,
     String? errorMessage,
   }) = _HomeState;
 }

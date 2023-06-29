@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/custom_widgets/wide_match_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ScoreDetails extends StatelessWidget {
   const ScoreDetails({
@@ -14,6 +15,9 @@ class ScoreDetails extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
+        if (state.isLoading == true) {
+          return const Center(child: CircularProgressIndicator());
+        }
         final liveMatches = state.liveMatchResponse;
         if (liveMatches!.isEmpty) {
           return const SizedBox(
@@ -23,19 +27,30 @@ class ScoreDetails extends StatelessWidget {
             ),
           );
         }
+        final String assetName = liveMatches[0].league!.flag!;
         return Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
                   CircleAvatar(
-                    radius: 15,
+                    child: ClipOval(
+                      child: SvgPicture.network(
+                        assetName,
+                        fit: BoxFit.cover,
+                        placeholderBuilder: (BuildContext context) => Container(
+                            padding: const EdgeInsets.all(30.0),
+                            child: const CircularProgressIndicator(
+                              backgroundColor: Colors.redAccent,
+                            )),
+                      ),
+                    ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Text(
-                    'League name',
-                    style: TextStyle(
+                    liveMatches[0].league!.name!,
+                    style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -48,6 +63,8 @@ class ScoreDetails extends StatelessWidget {
               width: width,
               height: height,
               child: ListView.builder(
+                shrinkWrap: true,
+                physics: const ScrollPhysics(),
                 itemCount: liveMatches.length,
                 itemBuilder: (context, index) {
                   final liveMatch = liveMatches[index];

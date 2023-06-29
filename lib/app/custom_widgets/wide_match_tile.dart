@@ -23,15 +23,15 @@ class WideMatchListTile extends StatelessWidget {
           children: [
             Expanded(
               flex: 0.5.toInt(),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
                 child: Column(
                   children: [
                     Text(
-                      'FT',
-                      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+                      liveMatch.fixture!.status!.short!,
+                      style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
                     ),
-                    Text(
+                    const Text(
                       '14/8',
                       style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
                     ),
@@ -89,8 +89,8 @@ class WideMatchListTile extends StatelessWidget {
             ),
             Expanded(
               flex: 0.5.toInt(),
-              child: const Padding(
-                padding: EdgeInsets.only(right: 24.0),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 24.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -98,9 +98,9 @@ class WideMatchListTile extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          // '${liveMatch.goals!.home}',
-                          '2',
-                          style: TextStyle(
+                          '${liveMatch.goals!.home}',
+                          // '2',
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -108,13 +108,13 @@ class WideMatchListTile extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     Row(
                       children: [
                         Text(
-                          // '${liveMatch.goals!.away}',
-                          '2',
-                          style: TextStyle(
+                          '${liveMatch.goals!.away}',
+                          // '2',
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,

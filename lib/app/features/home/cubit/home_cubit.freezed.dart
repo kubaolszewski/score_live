@@ -20,6 +20,7 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   HomeOptions get homeOptions => throw _privateConstructorUsedError;
   DetailsOptions get detailsOptions => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -36,6 +37,7 @@ abstract class $HomeStateCopyWith<$Res> {
       {List<LiveMatchResponse>? liveMatchResponse,
       HomeOptions homeOptions,
       DetailsOptions detailsOptions,
+      bool isLoading,
       String? errorMessage});
 }
 
@@ -55,6 +57,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? liveMatchResponse = freezed,
     Object? homeOptions = null,
     Object? detailsOptions = null,
+    Object? isLoading = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -70,6 +73,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.detailsOptions
           : detailsOptions // ignore: cast_nullable_to_non_nullable
               as DetailsOptions,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -89,6 +96,7 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       {List<LiveMatchResponse>? liveMatchResponse,
       HomeOptions homeOptions,
       DetailsOptions detailsOptions,
+      bool isLoading,
       String? errorMessage});
 }
 
@@ -106,6 +114,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? liveMatchResponse = freezed,
     Object? homeOptions = null,
     Object? detailsOptions = null,
+    Object? isLoading = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_$_HomeState(
@@ -121,6 +130,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.detailsOptions
           : detailsOptions // ignore: cast_nullable_to_non_nullable
               as DetailsOptions,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -136,6 +149,7 @@ class _$_HomeState implements _HomeState {
       {final List<LiveMatchResponse>? liveMatchResponse = const [],
       this.homeOptions = HomeOptions.score,
       this.detailsOptions = DetailsOptions.summary,
+      this.isLoading = false,
       this.errorMessage})
       : _liveMatchResponse = liveMatchResponse;
 
@@ -158,11 +172,14 @@ class _$_HomeState implements _HomeState {
   @JsonKey()
   final DetailsOptions detailsOptions;
   @override
+  @JsonKey()
+  final bool isLoading;
+  @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'HomeState(liveMatchResponse: $liveMatchResponse, homeOptions: $homeOptions, detailsOptions: $detailsOptions, errorMessage: $errorMessage)';
+    return 'HomeState(liveMatchResponse: $liveMatchResponse, homeOptions: $homeOptions, detailsOptions: $detailsOptions, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -176,6 +193,8 @@ class _$_HomeState implements _HomeState {
                 other.homeOptions == homeOptions) &&
             (identical(other.detailsOptions, detailsOptions) ||
                 other.detailsOptions == detailsOptions) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -186,6 +205,7 @@ class _$_HomeState implements _HomeState {
       const DeepCollectionEquality().hash(_liveMatchResponse),
       homeOptions,
       detailsOptions,
+      isLoading,
       errorMessage);
 
   @JsonKey(ignore: true)
@@ -200,6 +220,7 @@ abstract class _HomeState implements HomeState {
       {final List<LiveMatchResponse>? liveMatchResponse,
       final HomeOptions homeOptions,
       final DetailsOptions detailsOptions,
+      final bool isLoading,
       final String? errorMessage}) = _$_HomeState;
 
   @override
@@ -208,6 +229,8 @@ abstract class _HomeState implements HomeState {
   HomeOptions get homeOptions;
   @override
   DetailsOptions get detailsOptions;
+  @override
+  bool get isLoading;
   @override
   String? get errorMessage;
   @override

@@ -14,9 +14,10 @@ class HomeCubit extends Cubit<HomeState> {
   final HomeScreenRepository homeScreenRepository;
 
   Future<void> fetchLiveMatches() async {
+    emit(state.copyWith(isLoading: true));
     try {
       final liveMatches = await homeScreenRepository.fetchLiveMatches();
-      emit(state.copyWith(liveMatchResponse: liveMatches));
+      emit(state.copyWith(liveMatchResponse: liveMatches,isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_response.dart';
@@ -9,14 +10,13 @@ class LiveMatchTile extends StatelessWidget {
   const LiveMatchTile({
     super.key,
     required this.liveMatch,
-    required this.index,
   });
 
   final LiveMatchResponse liveMatch;
-  final int index;
 
   @override
   Widget build(BuildContext context) {
+    final String assetName = liveMatch.league!.flag!;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -34,8 +34,17 @@ class LiveMatchTile extends StatelessWidget {
                   Row(
                     children: [
                       CircleAvatar(
-                        backgroundImage: NetworkImage(liveMatch.league!.logo!),
-                        radius: 15,
+                        child: ClipOval(
+                          child: SvgPicture.network(
+                            assetName,
+                            fit: BoxFit.cover,
+                            placeholderBuilder: (BuildContext context) => Container(
+                                padding: const EdgeInsets.all(30.0),
+                                child: const CircularProgressIndicator(
+                                  backgroundColor: Colors.redAccent,
+                                )),
+                          ),
+                        ),
                       ),
                       const SizedBox(width: 10),
                       Text(
