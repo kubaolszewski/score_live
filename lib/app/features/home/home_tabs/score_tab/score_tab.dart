@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/custom_widgets/wide_match_tile.dart';
-import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class ScoreTab extends StatelessWidget {
@@ -14,7 +14,7 @@ class ScoreTab extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<ScoreTabCubit, ScoreTabState>(
       builder: (context, state) {
         if (state.isLoading == true) {
           return const Center(
@@ -27,7 +27,10 @@ class ScoreTab extends StatelessWidget {
           return const SizedBox(
             height: 200,
             child: Center(
-              child: Text('Nothing here :(', style: TextStyle(color: Colors.white, fontSize: 24)),
+              child: Text(
+                'Nothing here :(',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
             ),
           );
         }

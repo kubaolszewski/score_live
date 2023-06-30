@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
@@ -9,10 +8,9 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 class HomeOptionsTapBar extends StatelessWidget {
   const HomeOptionsTapBar({super.key});
 
-  HomeCubit _homeCubit(BuildContext context) => context.read<HomeCubit>();
-
   @override
   Widget build(BuildContext context) {
+    final homeCubit = Modular.get<HomeCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -20,7 +18,7 @@ class HomeOptionsTapBar extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              _homeCubit(context).switchHomeOptions(HomeOptions.upcoming);
+              homeCubit.switchHomeOptions(HomeOptions.upcoming);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -38,7 +36,7 @@ class HomeOptionsTapBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              _homeCubit(context).switchHomeOptions(HomeOptions.score);
+              homeCubit.switchHomeOptions(HomeOptions.score);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -56,7 +54,7 @@ class HomeOptionsTapBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              _homeCubit(context).switchHomeOptions(HomeOptions.favorites);
+              homeCubit.switchHomeOptions(HomeOptions.favorites);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),

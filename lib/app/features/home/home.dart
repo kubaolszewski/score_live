@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
+import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/home_options_tap_bar/home_options_tap_bar.dart';
 import 'package:score_live/app/features/home/home_widgets/home_screen_date_picker/home_screen_date_picker.dart';
+import 'package:score_live/app/features/home/home_widgets/live_now_view/cubit/live_now_view_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now_view/live_now_view.dart';
 import 'package:score_live/app/features/home/home_tabs/upcoming_tab/upcoming_tab.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/score_tab.dart';
@@ -21,8 +23,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeCubit = Modular.get<HomeCubit>();
-    return BlocProvider(
-      create: (context) => homeCubit..fetchLiveMatches(),
+    final liveNowViewCubit = Modular.get<LiveNowViewCubit>();
+    final scoreTabcubit = Modular.get<ScoreTabCubit>();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => homeCubit),
+        BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
+        BlocProvider(create: (context) => scoreTabcubit..fetchLiveMatches()),
+      ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
