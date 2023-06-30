@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/custom_widgets/wide_match_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class ScoreDetails extends StatelessWidget {
   const ScoreDetails({
@@ -16,7 +17,10 @@ class ScoreDetails extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         if (state.isLoading == true) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: CircularProgressIndicator(
+            color: AppColors.mainThemePink,
+          ));
         }
         final liveMatches = state.liveMatchResponse;
         if (liveMatches!.isEmpty) {

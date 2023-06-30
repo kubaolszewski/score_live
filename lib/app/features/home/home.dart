@@ -1,11 +1,12 @@
-import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
-import 'package:score_live/app/custom_widgets/live_match_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_details/favorites_details.dart';
+import 'package:score_live/app/features/home/home_details/home_widgets/home_options_tap_bar.dart';
+import 'package:score_live/app/features/home/home_details/home_widgets/home_screen_date_picker.dart';
+import 'package:score_live/app/features/home/home_details/home_widgets/live_now_view.dart';
 import 'package:score_live/app/features/home/home_details/score_details.dart';
 import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
 import 'package:score_live/core/applocalization_context.dart';
@@ -44,7 +45,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const _HomeScreenDatePicker(),
+              const HomeScreenDatePicker(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
@@ -72,8 +73,8 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const _LiveNowView(),
-              const _HomeOptionsTapBar(),
+              const LiveNowView(),
+              const HomeOptionsTapBar(),
               BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
                   switch (state.homeOptions) {
@@ -89,161 +90,6 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _HomeScreenDatePicker extends StatefulWidget {
-  const _HomeScreenDatePicker();
-
-  @override
-  State<_HomeScreenDatePicker> createState() => _HomeScreenDatePickerState();
-}
-
-class _HomeScreenDatePickerState extends State<_HomeScreenDatePicker> {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-          ),
-          Expanded(
-            child: DatePicker(
-              DateTime.now().subtract(const Duration(days: 2)),
-              locale: context.myLocale.toString(),
-              initialSelectedDate: DateTime.now(),
-              daysCount: 8,
-              monthTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
-              dayTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
-              dateTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
-              selectedTextColor: Colors.white,
-              deactivatedColor: AppColors.inactiveItemGrey,
-              height: 85,
-              width: 75,
-              onDateChange: (newDate) {},
-            ),
-          ),
-          const Icon(
-            Icons.arrow_forward_ios,
-            color: Colors.white,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _LiveNowView extends StatelessWidget {
-  const _LiveNowView();
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        if (state.isLoading == true) {
-          return const Center(child: CircularProgressIndicator());
-        }
-
-        final liveMatches = state.liveMatchResponse;
-
-        if (liveMatches!.isEmpty) {
-          return const SizedBox(
-            height: 200,
-            child: Center(
-              child: Text('Nothing here :(', style: TextStyle(color: Colors.white, fontSize: 24)),
-            ),
-          );
-        }
-        return SizedBox(
-          height: 250,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: liveMatches.length,
-            itemBuilder: (context, index) {
-              final liveMatch = liveMatches[index];
-              return LiveMatchTile(
-                liveMatch: liveMatch,
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
-}
-
-class _HomeOptionsTapBar extends StatelessWidget {
-  const _HomeOptionsTapBar();
-
-  @override
-  Widget build(BuildContext context) {
-    final homeCubit = Modular.get<HomeCubit>();
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          GestureDetector(
-            onTap: () {
-              homeCubit.switchHomeOptions(HomeOptions.upcoming);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: AppColors.mainThemePink,
-              ))),
-              child: Text(
-                context.localizations.homeUpcoming,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              homeCubit.switchHomeOptions(HomeOptions.score);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: AppColors.mainThemePink,
-              ))),
-              child: Text(
-                context.localizations.homeScore,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              homeCubit.switchHomeOptions(HomeOptions.favorites);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: AppColors.mainThemePink,
-              ))),
-              child: Text(
-                context.localizations.homeFavorites,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
