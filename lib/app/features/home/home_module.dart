@@ -4,13 +4,18 @@ import 'package:score_live/app/features/home/match_details/match_details.dart';
 
 class HomeModule extends Module {
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+      ];
+
+  @override
+  List<Module> get imports => [
+      ];
 
   @override
   List<ModularRoute> get routes => [
         ChildRoute(
           HomePath.homePath,
-          child: (context, args) =>  const HomeScreen(),
+          child: (context, args) => const HomeScreen(),
         ),
         ChildRoute(
           HomePath.matchDetailsScreen,
@@ -22,6 +27,9 @@ class HomeModule extends Module {
 mixin HomePath {
   static String homePath = '/home';
   static String matchDetailsScreen = '/match-details';
+  static String upcomingTab = '/upcoming';
+  static String scoreTab = '/score';
+  static String favoritesTab = '/favorites';
 
   static String matchDetailsPath = '$homePath$matchDetailsScreen';
 }

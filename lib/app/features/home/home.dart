@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
-import 'package:score_live/app/features/home/home_details/favorites_details.dart';
-import 'package:score_live/app/features/home/home_details/home_widgets/home_options_tap_bar.dart';
-import 'package:score_live/app/features/home/home_details/home_widgets/home_screen_date_picker.dart';
-import 'package:score_live/app/features/home/home_details/home_widgets/live_now_view.dart';
-import 'package:score_live/app/features/home/home_details/score_details.dart';
-import 'package:score_live/app/features/home/home_details/upcoming_details.dart';
+import 'package:score_live/app/features/home/home_widgets/home_options_tap_bar/home_options_tap_bar.dart';
+import 'package:score_live/app/features/home/home_widgets/home_screen_date_picker/home_screen_date_picker.dart';
+import 'package:score_live/app/features/home/home_widgets/live_now_view/live_now_view.dart';
+import 'package:score_live/app/features/home/home_tabs/upcoming_tab/upcoming_tab.dart';
+import 'package:score_live/app/features/home/home_tabs/score_tab/score_tab.dart';
+import 'package:score_live/app/features/home/home_tabs/favorites_tab/favorites_tab.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeCubit = Modular.get<HomeCubit>();
-    return BlocProvider<HomeCubit>(
+    return BlocProvider(
       create: (context) => homeCubit..fetchLiveMatches(),
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
@@ -79,11 +79,11 @@ class HomeScreen extends StatelessWidget {
                 builder: (context, state) {
                   switch (state.homeOptions) {
                     case HomeOptions.upcoming:
-                      return const UpcomingDetails();
+                      return const UpcomingTab();
                     case HomeOptions.score:
-                      return const ScoreDetails();
+                      return const ScoreTab();
                     case HomeOptions.favorites:
-                      return const FavoritesDetails();
+                      return const FavoritesTab();
                   }
                 },
               ),

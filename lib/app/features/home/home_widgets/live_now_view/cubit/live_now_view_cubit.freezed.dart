@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'home_cubit.dart';
+part of 'live_now_view_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,36 +15,33 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$HomeState {
+mixin _$LiveNowViewState {
   List<LiveMatchResponse>? get liveMatchResponse =>
       throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
-  HomeOptions get homeOptions => throw _privateConstructorUsedError;
-  DetailsOptions get detailsOptions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HomeStateCopyWith<HomeState> get copyWith =>
+  $LiveNowViewStateCopyWith<LiveNowViewState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HomeStateCopyWith<$Res> {
-  factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res, HomeState>;
+abstract class $LiveNowViewStateCopyWith<$Res> {
+  factory $LiveNowViewStateCopyWith(
+          LiveNowViewState value, $Res Function(LiveNowViewState) then) =
+      _$LiveNowViewStateCopyWithImpl<$Res, LiveNowViewState>;
   @useResult
   $Res call(
       {List<LiveMatchResponse>? liveMatchResponse,
       bool isLoading,
-      String? errorMessage,
-      HomeOptions homeOptions,
-      DetailsOptions detailsOptions});
+      String? errorMessage});
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
-    implements $HomeStateCopyWith<$Res> {
-  _$HomeStateCopyWithImpl(this._value, this._then);
+class _$LiveNowViewStateCopyWithImpl<$Res, $Val extends LiveNowViewState>
+    implements $LiveNowViewStateCopyWith<$Res> {
+  _$LiveNowViewStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -57,8 +54,6 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? liveMatchResponse = freezed,
     Object? isLoading = null,
     Object? errorMessage = freezed,
-    Object? homeOptions = null,
-    Object? detailsOptions = null,
   }) {
     return _then(_value.copyWith(
       liveMatchResponse: freezed == liveMatchResponse
@@ -73,39 +68,30 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      homeOptions: null == homeOptions
-          ? _value.homeOptions
-          : homeOptions // ignore: cast_nullable_to_non_nullable
-              as HomeOptions,
-      detailsOptions: null == detailsOptions
-          ? _value.detailsOptions
-          : detailsOptions // ignore: cast_nullable_to_non_nullable
-              as DetailsOptions,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
-  factory _$$_HomeStateCopyWith(
-          _$_HomeState value, $Res Function(_$_HomeState) then) =
-      __$$_HomeStateCopyWithImpl<$Res>;
+abstract class _$$_LiveNowViewStateCopyWith<$Res>
+    implements $LiveNowViewStateCopyWith<$Res> {
+  factory _$$_LiveNowViewStateCopyWith(
+          _$_LiveNowViewState value, $Res Function(_$_LiveNowViewState) then) =
+      __$$_LiveNowViewStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {List<LiveMatchResponse>? liveMatchResponse,
       bool isLoading,
-      String? errorMessage,
-      HomeOptions homeOptions,
-      DetailsOptions detailsOptions});
+      String? errorMessage});
 }
 
 /// @nodoc
-class __$$_HomeStateCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$_HomeState>
-    implements _$$_HomeStateCopyWith<$Res> {
-  __$$_HomeStateCopyWithImpl(
-      _$_HomeState _value, $Res Function(_$_HomeState) _then)
+class __$$_LiveNowViewStateCopyWithImpl<$Res>
+    extends _$LiveNowViewStateCopyWithImpl<$Res, _$_LiveNowViewState>
+    implements _$$_LiveNowViewStateCopyWith<$Res> {
+  __$$_LiveNowViewStateCopyWithImpl(
+      _$_LiveNowViewState _value, $Res Function(_$_LiveNowViewState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,10 +100,8 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? liveMatchResponse = freezed,
     Object? isLoading = null,
     Object? errorMessage = freezed,
-    Object? homeOptions = null,
-    Object? detailsOptions = null,
   }) {
-    return _then(_$_HomeState(
+    return _then(_$_LiveNowViewState(
       liveMatchResponse: freezed == liveMatchResponse
           ? _value._liveMatchResponse
           : liveMatchResponse // ignore: cast_nullable_to_non_nullable
@@ -130,27 +114,17 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      homeOptions: null == homeOptions
-          ? _value.homeOptions
-          : homeOptions // ignore: cast_nullable_to_non_nullable
-              as HomeOptions,
-      detailsOptions: null == detailsOptions
-          ? _value.detailsOptions
-          : detailsOptions // ignore: cast_nullable_to_non_nullable
-              as DetailsOptions,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_HomeState implements _HomeState {
-  const _$_HomeState(
+class _$_LiveNowViewState implements _LiveNowViewState {
+  const _$_LiveNowViewState(
       {final List<LiveMatchResponse>? liveMatchResponse = const [],
       this.isLoading = false,
-      this.errorMessage,
-      this.homeOptions = HomeOptions.score,
-      this.detailsOptions = DetailsOptions.summary})
+      this.errorMessage})
       : _liveMatchResponse = liveMatchResponse;
 
   final List<LiveMatchResponse>? _liveMatchResponse;
@@ -170,33 +144,23 @@ class _$_HomeState implements _HomeState {
   final bool isLoading;
   @override
   final String? errorMessage;
-  @override
-  @JsonKey()
-  final HomeOptions homeOptions;
-  @override
-  @JsonKey()
-  final DetailsOptions detailsOptions;
 
   @override
   String toString() {
-    return 'HomeState(liveMatchResponse: $liveMatchResponse, isLoading: $isLoading, errorMessage: $errorMessage, homeOptions: $homeOptions, detailsOptions: $detailsOptions)';
+    return 'LiveNowViewState(liveMatchResponse: $liveMatchResponse, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HomeState &&
+            other is _$_LiveNowViewState &&
             const DeepCollectionEquality()
                 .equals(other._liveMatchResponse, _liveMatchResponse) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage) &&
-            (identical(other.homeOptions, homeOptions) ||
-                other.homeOptions == homeOptions) &&
-            (identical(other.detailsOptions, detailsOptions) ||
-                other.detailsOptions == detailsOptions));
+                other.errorMessage == errorMessage));
   }
 
   @override
@@ -204,24 +168,20 @@ class _$_HomeState implements _HomeState {
       runtimeType,
       const DeepCollectionEquality().hash(_liveMatchResponse),
       isLoading,
-      errorMessage,
-      homeOptions,
-      detailsOptions);
+      errorMessage);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
-      __$$_HomeStateCopyWithImpl<_$_HomeState>(this, _$identity);
+  _$$_LiveNowViewStateCopyWith<_$_LiveNowViewState> get copyWith =>
+      __$$_LiveNowViewStateCopyWithImpl<_$_LiveNowViewState>(this, _$identity);
 }
 
-abstract class _HomeState implements HomeState {
-  const factory _HomeState(
+abstract class _LiveNowViewState implements LiveNowViewState {
+  const factory _LiveNowViewState(
       {final List<LiveMatchResponse>? liveMatchResponse,
       final bool isLoading,
-      final String? errorMessage,
-      final HomeOptions homeOptions,
-      final DetailsOptions detailsOptions}) = _$_HomeState;
+      final String? errorMessage}) = _$_LiveNowViewState;
 
   @override
   List<LiveMatchResponse>? get liveMatchResponse;
@@ -230,11 +190,7 @@ abstract class _HomeState implements HomeState {
   @override
   String? get errorMessage;
   @override
-  HomeOptions get homeOptions;
-  @override
-  DetailsOptions get detailsOptions;
-  @override
   @JsonKey(ignore: true)
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
+  _$$_LiveNowViewStateCopyWith<_$_LiveNowViewState> get copyWith =>
       throw _privateConstructorUsedError;
 }

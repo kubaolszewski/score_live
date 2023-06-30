@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class FavoritesDetails extends StatelessWidget {
-  const FavoritesDetails({super.key});
+class UpcomingTab extends StatelessWidget {
+  const UpcomingTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Placeholder(
-      color: Colors.grey,
+      color: Colors.pink,
       fallbackHeight: 500,
     );
   }

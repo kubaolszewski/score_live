@@ -1,17 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/live_match_response.dart';
 import 'package:score_live/repositories/home_screen_repository.dart';
 
-part 'home_state.dart';
+part 'live_now_view_state.dart';
+part 'live_now_view_cubit.freezed.dart';
 
-part 'home_cubit.freezed.dart';
+class LiveNowViewCubit extends Cubit<LiveNowViewState> {
+  LiveNowViewCubit(this.homeScreenRepository) : super(const LiveNowViewState());
 
-class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this.homeScreenRepository) : super(const HomeState());
-
- final HomeScreenRepository homeScreenRepository;
+  final HomeScreenRepository homeScreenRepository;
 
   Future<void> fetchLiveMatches() async {
     emit(state.copyWith(isLoading: true));
@@ -21,13 +19,5 @@ class HomeCubit extends Cubit<HomeState> {
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
-  }
-
-  void switchHomeOptions(HomeOptions chosenOption) async {
-    emit(state.copyWith(homeOptions: chosenOption));
-  }
-
-  void switchDetailsOptions(DetailsOptions chosenOption) async {
-    emit(state.copyWith(detailsOptions: chosenOption));
   }
 }

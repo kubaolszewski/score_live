@@ -5,8 +5,8 @@ import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
-class ScoreDetails extends StatelessWidget {
-  const ScoreDetails({
+class ScoreTab extends StatelessWidget {
+  const ScoreTab({
     super.key,
   });
 
@@ -31,7 +31,6 @@ class ScoreDetails extends StatelessWidget {
             ),
           );
         }
-        final String assetName = liveMatches[0].league!.flag!;
         return Column(
           children: [
             Padding(
@@ -42,7 +41,7 @@ class ScoreDetails extends StatelessWidget {
                     radius: 15,
                     child: ClipOval(
                       child: SvgPicture.network(
-                        assetName,
+                        liveMatches[0].league!.flag!,
                         fit: BoxFit.cover,
                         placeholderBuilder: (BuildContext context) => Container(
                           padding: const EdgeInsets.all(30.0),
