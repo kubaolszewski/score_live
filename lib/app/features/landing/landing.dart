@@ -15,6 +15,19 @@ class LandingScreen extends StatefulWidget {
   State<LandingScreen> createState() => _LandingScreenState();
 }
 
+void _landingScreenListener(BuildContext context, LandingState state) {
+  switch (state.currentIndex) {
+    case 0:
+      Modular.to.navigate(LandingScreenPaths.homeModulePath);
+    case 1:
+      Modular.to.navigate(LandingScreenPaths.competitionModulePath);
+    case 2:
+      Modular.to.navigate(LandingScreenPaths.accountModulePath);
+    default:
+      Modular.to.navigate(LandingScreenPaths.homeModulePath);
+  }
+}
+
 @override
 void dispose() {
   Modular.dispose<LandingCubit>();
@@ -64,18 +77,5 @@ class _LandingScreenState extends State<LandingScreen> {
         },
       ),
     );
-  }
-
-  void _landingScreenListener(BuildContext context, LandingState state) {
-    switch (state.currentIndex) {
-      case 0:
-        Modular.to.navigate(LandingScreenPaths.homeModulePath);
-      case 1:
-        Modular.to.navigate(LandingScreenPaths.competitionModulePath);
-      case 2:
-        Modular.to.navigate(LandingScreenPaths.accountModulePath);
-      default:
-        Modular.to.navigate(LandingScreenPaths.homeModulePath);
-    }
   }
 }

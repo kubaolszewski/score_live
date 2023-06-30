@@ -4,12 +4,10 @@ import 'package:score_live/app/features/home/match_details/match_details.dart';
 
 class HomeModule extends Module {
   @override
-  List<Bind> get binds => [
-      ];
+  List<Bind> get binds => [];
 
   @override
-  List<Module> get imports => [
-      ];
+  List<Module> get imports => [];
 
   @override
   List<ModularRoute> get routes => [

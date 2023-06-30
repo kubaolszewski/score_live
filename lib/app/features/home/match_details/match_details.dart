@@ -29,7 +29,7 @@ class MatchDetails extends StatelessWidget {
           title: _detailsTitle,
           leading: IconButton(
               onPressed: () {
-                Modular.to.pop(context);
+                Navigator.of(context).pop();
               },
               icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
           actions: [
@@ -83,7 +83,7 @@ class MatchDetails extends StatelessWidget {
                                     backgroundColor: Colors.green,
                                   ),
                                   Text(
-                                    '78',
+                                    'FT',
                                     style: TextStyle(color: Colors.green),
                                   ),
                                 ],
