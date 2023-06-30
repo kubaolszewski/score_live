@@ -1,12 +1,12 @@
 import 'package:score_live/data/live_matches_remote_service.dart';
-import 'package:score_live/models/live_match_response.dart';
+import 'package:score_live/models/live_match_model.dart';
 
 class HomeScreenRepository {
   HomeScreenRepository(this.liveMatchesRemoteService);
 
   final LiveMatchesRemoteService liveMatchesRemoteService;
 
-  Future<List<LiveMatchResponse>?> fetchLiveMatches() async {
+  Future<List<LiveMatchModel>?> fetchLiveMatches() async {
     // return (await liveMatchesRemoteService.fetchLiveMatches(league: "39", season: '2021', date: '2021-08-14')).response;
     final response = [
       {
@@ -304,10 +304,10 @@ class HomeScreenRepository {
         }
       }
     ];
-    return response.map(LiveMatchResponse.fromJson).toList();
+    return response.map(LiveMatchModel.fromJson).toList();
   }
 
-  Future<List<LiveMatchResponse>?> fetchAllMatches() async {
+  Future<List<LiveMatchModel>?> fetchAllMatches() async {
     // return (await liveMatchesRemoteService.fetchAllMatches(league: "39", season: '2021', date: '2021-08-14')).response;
     final response = [
       {
@@ -605,6 +605,6 @@ class HomeScreenRepository {
         }
       }
     ];
-    return response.map(LiveMatchResponse.fromJson).toList();
+    return response.map(LiveMatchModel.fromJson).toList();
   }
 }

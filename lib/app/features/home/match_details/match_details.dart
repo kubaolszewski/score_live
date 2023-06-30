@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_h2h_view.dart';
@@ -8,19 +9,25 @@ import 'package:score_live/app/features/home/match_details/match_details_screens
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_standings_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_stats_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_summary_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_tab_bar.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
+import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchDetails extends StatelessWidget {
-  const MatchDetails({super.key});
+  const MatchDetails({
+    super.key,
+    required this.liveMatch,
+  });
 
-  final _detailsTitle = const DetailsTitle();
+  final _detailsTitle = const _DetailsTitle();
+  final LiveMatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {
     final homeCubit = Modular.get<HomeCubit>();
-
+    final assetName = liveMatch.league!.flag!;
     return BlocProvider<HomeCubit>(
       create: (context) => homeCubit,
       child: Scaffold(
@@ -55,19 +62,33 @@ class MatchDetails extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const Row(
+                            Row(
                               children: [
                                 CircleAvatar(
                                   radius: 15,
+                                  child: ClipOval(
+                                    child: SvgPicture.network(
+                                      assetName,
+                                      fit: BoxFit.cover,
+                                      placeholderBuilder: (BuildContext context) => Container(
+                                        padding: const EdgeInsets.all(30.0),
+                                        child: const Center(
+                                          child: CircularProgressIndicator(
+                                            backgroundColor: Colors.red,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                                SizedBox(width: 10),
+                                const SizedBox(width: 10),
                                 Text(
-                                  'League name',
-                                  style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
+                                  liveMatch.league!.name!,
+                                  style: const TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
                                 )
                               ],
                             ),
-                            const SizedBox(width: 180),
+                            const SizedBox(width: 150),
                             Container(
                               height: 30,
                               width: 50,
@@ -92,24 +113,43 @@ class MatchDetails extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 10),
-                        const Row(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Placeholder(
-                              fallbackHeight: 50,
-                              fallbackWidth: 50,
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image(
+                                  image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
+                                ),
+                                Text(liveMatch.teams!.home!.name!,
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                              ],
                             ),
-                            SizedBox(width: 30),
+                            const SizedBox(width: 30),
                             Text(
-                              'Result',
-                              style: TextStyle(
+                              '${liveMatch.goals!.home} -'
+                              '${liveMatch.goals!.away}',
+                              style: const TextStyle(
                                 color: Colors.white,
-                                fontSize: 20,
+                                fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(width: 30),
-                            Placeholder(fallbackHeight: 50, fallbackWidth: 50),
+                            const SizedBox(width: 30),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image(
+                                  image: NetworkImage(
+                                    liveMatch.teams!.away!.logo!,
+                                    scale: 3,
+                                  ),
+                                ),
+                                Text(liveMatch.teams!.away!.name!,
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                              ],
+                            ),
                           ],
                         ),
                         const SizedBox(height: 15),
@@ -117,20 +157,23 @@ class MatchDetails extends StatelessWidget {
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              children: [
-                                Text("Antony 32'", style: TextStyle(color: Colors.white, fontSize: 16)),
-                                Text("Diogo Dalot 76'", style: TextStyle(color: Colors.white, fontSize: 16))
-                              ],
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                children: [],
+                              ),
                             ),
-                            Column(
-                              children: [Icon(Icons.sports_soccer, color: Colors.grey)],
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                children: [Icon(Icons.sports_soccer, color: Colors.grey)],
+                              ),
                             ),
-                            Column(
-                              children: [
-                                Text("Antony 32'", style: TextStyle(color: Colors.white, fontSize: 16)),
-                                Text("Diogo Dalot 76'", style: TextStyle(color: Colors.white, fontSize: 16))
-                              ],
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                children: [],
+                              ),
                             )
                           ],
                         ),
@@ -139,7 +182,7 @@ class MatchDetails extends StatelessWidget {
                   ),
                 ),
               ),
-              const _MatchDetailsTapBar(),
+              const MatchDetailsTabBar(),
               BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
                   switch (state.detailsOptions) {
@@ -164,123 +207,8 @@ class MatchDetails extends StatelessWidget {
   }
 }
 
-class _MatchDetailsTapBar extends StatelessWidget {
-  const _MatchDetailsTapBar();
-
-  @override
-  Widget build(BuildContext context) {
-    final homeCubit = Modular.get<HomeCubit>();
-
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.all(16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          GestureDetector(
-            onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.summary);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child: Text(
-                context.localizations.matchDetailsSummary,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.lineUp);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child: Text(
-                context.localizations.matchDetailsLineUp,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.stats);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child: Text(
-                context.localizations.matchDetailsStats,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.h2H);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child: Text(
-                context.localizations.matchDetailsH2H,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.standings);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child: Text(
-                context.localizations.matchDetailsStandings,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class DetailsTitle extends StatelessWidget {
-  const DetailsTitle({
-    super.key,
-  });
+class _DetailsTitle extends StatelessWidget {
+  const _DetailsTitle();
 
   @override
   Widget build(BuildContext context) {

@@ -20,7 +20,7 @@ LiveMatchesFixtures _$LiveMatchesFixturesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LiveMatchesFixtures {
-  List<LiveMatchResponse>? get response => throw _privateConstructorUsedError;
+  List<LiveMatchModel>? get response => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $LiveMatchesFixturesCopyWith<$Res> {
           LiveMatchesFixtures value, $Res Function(LiveMatchesFixtures) then) =
       _$LiveMatchesFixturesCopyWithImpl<$Res, LiveMatchesFixtures>;
   @useResult
-  $Res call({List<LiveMatchResponse>? response});
+  $Res call({List<LiveMatchModel>? response});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$LiveMatchesFixturesCopyWithImpl<$Res, $Val extends LiveMatchesFixtures>
       response: freezed == response
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchResponse>?,
+              as List<LiveMatchModel>?,
     ) as $Val);
   }
 }
@@ -69,7 +69,7 @@ abstract class _$$_LiveMatchesFixturesCopyWith<$Res>
       __$$_LiveMatchesFixturesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<LiveMatchResponse>? response});
+  $Res call({List<LiveMatchModel>? response});
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ class __$$_LiveMatchesFixturesCopyWithImpl<$Res>
       response: freezed == response
           ? _value._response
           : response // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchResponse>?,
+              as List<LiveMatchModel>?,
     ));
   }
 }
@@ -97,15 +97,15 @@ class __$$_LiveMatchesFixturesCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_LiveMatchesFixtures implements _LiveMatchesFixtures {
-  _$_LiveMatchesFixtures({final List<LiveMatchResponse>? response})
+  _$_LiveMatchesFixtures({final List<LiveMatchModel>? response})
       : _response = response;
 
   factory _$_LiveMatchesFixtures.fromJson(Map<String, dynamic> json) =>
       _$$_LiveMatchesFixturesFromJson(json);
 
-  final List<LiveMatchResponse>? _response;
+  final List<LiveMatchModel>? _response;
   @override
-  List<LiveMatchResponse>? get response {
+  List<LiveMatchModel>? get response {
     final value = _response;
     if (value == null) return null;
     if (_response is EqualUnmodifiableListView) return _response;
@@ -147,14 +147,14 @@ class _$_LiveMatchesFixtures implements _LiveMatchesFixtures {
 }
 
 abstract class _LiveMatchesFixtures implements LiveMatchesFixtures {
-  factory _LiveMatchesFixtures({final List<LiveMatchResponse>? response}) =
+  factory _LiveMatchesFixtures({final List<LiveMatchModel>? response}) =
       _$_LiveMatchesFixtures;
 
   factory _LiveMatchesFixtures.fromJson(Map<String, dynamic> json) =
       _$_LiveMatchesFixtures.fromJson;
 
   @override
-  List<LiveMatchResponse>? get response;
+  List<LiveMatchModel>? get response;
   @override
   @JsonKey(ignore: true)
   _$$_LiveMatchesFixturesCopyWith<_$_LiveMatchesFixtures> get copyWith =>

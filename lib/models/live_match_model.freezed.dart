@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'live_match_response.dart';
+part of 'live_match_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-LiveMatchResponse _$LiveMatchResponseFromJson(Map<String, dynamic> json) {
-  return _LiveMatchResponse.fromJson(json);
+LiveMatchModel _$LiveMatchModelFromJson(Map<String, dynamic> json) {
+  return _LiveMatchModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$LiveMatchResponse {
+mixin _$LiveMatchModel {
   Fixture? get fixture => throw _privateConstructorUsedError;
   League? get league => throw _privateConstructorUsedError;
   Teams? get teams => throw _privateConstructorUsedError;
@@ -28,15 +28,15 @@ mixin _$LiveMatchResponse {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LiveMatchResponseCopyWith<LiveMatchResponse> get copyWith =>
+  $LiveMatchModelCopyWith<LiveMatchModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LiveMatchResponseCopyWith<$Res> {
-  factory $LiveMatchResponseCopyWith(
-          LiveMatchResponse value, $Res Function(LiveMatchResponse) then) =
-      _$LiveMatchResponseCopyWithImpl<$Res, LiveMatchResponse>;
+abstract class $LiveMatchModelCopyWith<$Res> {
+  factory $LiveMatchModelCopyWith(
+          LiveMatchModel value, $Res Function(LiveMatchModel) then) =
+      _$LiveMatchModelCopyWithImpl<$Res, LiveMatchModel>;
   @useResult
   $Res call(
       {Fixture? fixture,
@@ -53,9 +53,9 @@ abstract class $LiveMatchResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LiveMatchResponseCopyWithImpl<$Res, $Val extends LiveMatchResponse>
-    implements $LiveMatchResponseCopyWith<$Res> {
-  _$LiveMatchResponseCopyWithImpl(this._value, this._then);
+class _$LiveMatchModelCopyWithImpl<$Res, $Val extends LiveMatchModel>
+    implements $LiveMatchModelCopyWith<$Res> {
+  _$LiveMatchModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -157,11 +157,11 @@ class _$LiveMatchResponseCopyWithImpl<$Res, $Val extends LiveMatchResponse>
 }
 
 /// @nodoc
-abstract class _$$_LiveMatchResponseCopyWith<$Res>
-    implements $LiveMatchResponseCopyWith<$Res> {
-  factory _$$_LiveMatchResponseCopyWith(_$_LiveMatchResponse value,
-          $Res Function(_$_LiveMatchResponse) then) =
-      __$$_LiveMatchResponseCopyWithImpl<$Res>;
+abstract class _$$_LiveMatchModelCopyWith<$Res>
+    implements $LiveMatchModelCopyWith<$Res> {
+  factory _$$_LiveMatchModelCopyWith(
+          _$_LiveMatchModel value, $Res Function(_$_LiveMatchModel) then) =
+      __$$_LiveMatchModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -184,11 +184,11 @@ abstract class _$$_LiveMatchResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LiveMatchResponseCopyWithImpl<$Res>
-    extends _$LiveMatchResponseCopyWithImpl<$Res, _$_LiveMatchResponse>
-    implements _$$_LiveMatchResponseCopyWith<$Res> {
-  __$$_LiveMatchResponseCopyWithImpl(
-      _$_LiveMatchResponse _value, $Res Function(_$_LiveMatchResponse) _then)
+class __$$_LiveMatchModelCopyWithImpl<$Res>
+    extends _$LiveMatchModelCopyWithImpl<$Res, _$_LiveMatchModel>
+    implements _$$_LiveMatchModelCopyWith<$Res> {
+  __$$_LiveMatchModelCopyWithImpl(
+      _$_LiveMatchModel _value, $Res Function(_$_LiveMatchModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -200,7 +200,7 @@ class __$$_LiveMatchResponseCopyWithImpl<$Res>
     Object? goals = freezed,
     Object? score = freezed,
   }) {
-    return _then(_$_LiveMatchResponse(
+    return _then(_$_LiveMatchModel(
       fixture: freezed == fixture
           ? _value.fixture
           : fixture // ignore: cast_nullable_to_non_nullable
@@ -227,12 +227,12 @@ class __$$_LiveMatchResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LiveMatchResponse implements _LiveMatchResponse {
-  const _$_LiveMatchResponse(
+class _$_LiveMatchModel implements _LiveMatchModel {
+  const _$_LiveMatchModel(
       {this.fixture, this.league, this.teams, this.goals, this.score});
 
-  factory _$_LiveMatchResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_LiveMatchResponseFromJson(json);
+  factory _$_LiveMatchModel.fromJson(Map<String, dynamic> json) =>
+      _$$_LiveMatchModelFromJson(json);
 
   @override
   final Fixture? fixture;
@@ -247,14 +247,14 @@ class _$_LiveMatchResponse implements _LiveMatchResponse {
 
   @override
   String toString() {
-    return 'LiveMatchResponse(fixture: $fixture, league: $league, teams: $teams, goals: $goals, score: $score)';
+    return 'LiveMatchModel(fixture: $fixture, league: $league, teams: $teams, goals: $goals, score: $score)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LiveMatchResponse &&
+            other is _$_LiveMatchModel &&
             (identical(other.fixture, fixture) || other.fixture == fixture) &&
             (identical(other.league, league) || other.league == league) &&
             (identical(other.teams, teams) || other.teams == teams) &&
@@ -270,28 +270,27 @@ class _$_LiveMatchResponse implements _LiveMatchResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LiveMatchResponseCopyWith<_$_LiveMatchResponse> get copyWith =>
-      __$$_LiveMatchResponseCopyWithImpl<_$_LiveMatchResponse>(
-          this, _$identity);
+  _$$_LiveMatchModelCopyWith<_$_LiveMatchModel> get copyWith =>
+      __$$_LiveMatchModelCopyWithImpl<_$_LiveMatchModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LiveMatchResponseToJson(
+    return _$$_LiveMatchModelToJson(
       this,
     );
   }
 }
 
-abstract class _LiveMatchResponse implements LiveMatchResponse {
-  const factory _LiveMatchResponse(
+abstract class _LiveMatchModel implements LiveMatchModel {
+  const factory _LiveMatchModel(
       {final Fixture? fixture,
       final League? league,
       final Teams? teams,
       final Goals? goals,
-      final Score? score}) = _$_LiveMatchResponse;
+      final Score? score}) = _$_LiveMatchModel;
 
-  factory _LiveMatchResponse.fromJson(Map<String, dynamic> json) =
-      _$_LiveMatchResponse.fromJson;
+  factory _LiveMatchModel.fromJson(Map<String, dynamic> json) =
+      _$_LiveMatchModel.fromJson;
 
   @override
   Fixture? get fixture;
@@ -305,7 +304,7 @@ abstract class _LiveMatchResponse implements LiveMatchResponse {
   Score? get score;
   @override
   @JsonKey(ignore: true)
-  _$$_LiveMatchResponseCopyWith<_$_LiveMatchResponse> get copyWith =>
+  _$$_LiveMatchModelCopyWith<_$_LiveMatchModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/home_module.dart';
-import 'package:score_live/models/live_match_response.dart';
+import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class WideMatchListTile extends StatelessWidget {
@@ -10,7 +10,7 @@ class WideMatchListTile extends StatelessWidget {
     required this.liveMatch,
   });
 
-  final LiveMatchResponse liveMatch;
+  final LiveMatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class WideMatchListTile extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
-          Modular.to.pushNamed(HomePath.matchDetailsPath);
+          Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: liveMatch);
         },
         child: Container(
           decoration: BoxDecoration(
@@ -105,7 +105,6 @@ class WideMatchListTile extends StatelessWidget {
                         children: [
                           Text(
                             '${liveMatch.goals!.home}',
-                            // '2',
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -119,7 +118,6 @@ class WideMatchListTile extends StatelessWidget {
                         children: [
                           Text(
                             '${liveMatch.goals!.away}',
-                            // '2',
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 16,

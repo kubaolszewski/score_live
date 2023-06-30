@@ -19,7 +19,7 @@ class LiveNowView extends StatelessWidget {
           );
         }
 
-        final liveMatches = state.liveMatchResponse;
+        final liveMatches = state.liveMatchModel;
 
         if (liveMatches!.isEmpty) {
           return const SizedBox(

@@ -1,19 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'live_match_response.freezed.dart';
-part 'live_match_response.g.dart';
+part 'live_match_model.freezed.dart';
+part 'live_match_model.g.dart';
 
 @freezed
-class LiveMatchResponse with _$LiveMatchResponse {
-    const factory LiveMatchResponse({
+class LiveMatchModel with _$LiveMatchModel {
+    const factory LiveMatchModel({
         Fixture? fixture,
         League? league,
         Teams? teams,
         Goals? goals,
         Score? score,
-    }) = _LiveMatchResponse;
+    }) = _LiveMatchModel;
 
-    factory LiveMatchResponse.fromJson(Map<String, dynamic> json) => _$LiveMatchResponseFromJson(json);
+    factory LiveMatchModel.fromJson(Map<String, dynamic> json) => _$LiveMatchModelFromJson(json);
 }
 
 @freezed

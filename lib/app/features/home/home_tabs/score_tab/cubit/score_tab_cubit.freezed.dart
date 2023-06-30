@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ScoreTabState {
-  List<LiveMatchResponse>? get liveMatchResponse =>
+  List<LiveMatchModel>? get liveMatchModel =>
       throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
@@ -33,7 +33,7 @@ abstract class $ScoreTabStateCopyWith<$Res> {
       _$ScoreTabStateCopyWithImpl<$Res, ScoreTabState>;
   @useResult
   $Res call(
-      {List<LiveMatchResponse>? liveMatchResponse,
+      {List<LiveMatchModel>? liveMatchModel,
       bool isLoading,
       String? errorMessage});
 }
@@ -51,15 +51,15 @@ class _$ScoreTabStateCopyWithImpl<$Res, $Val extends ScoreTabState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? liveMatchResponse = freezed,
+    Object? liveMatchModel = freezed,
     Object? isLoading = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
-      liveMatchResponse: freezed == liveMatchResponse
-          ? _value.liveMatchResponse
-          : liveMatchResponse // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchResponse>?,
+      liveMatchModel: freezed == liveMatchModel
+          ? _value.liveMatchModel
+          : liveMatchModel // ignore: cast_nullable_to_non_nullable
+              as List<LiveMatchModel>?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -81,7 +81,7 @@ abstract class _$$_ScoreTabStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<LiveMatchResponse>? liveMatchResponse,
+      {List<LiveMatchModel>? liveMatchModel,
       bool isLoading,
       String? errorMessage});
 }
@@ -97,15 +97,15 @@ class __$$_ScoreTabStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? liveMatchResponse = freezed,
+    Object? liveMatchModel = freezed,
     Object? isLoading = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_$_ScoreTabState(
-      liveMatchResponse: freezed == liveMatchResponse
-          ? _value._liveMatchResponse
-          : liveMatchResponse // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchResponse>?,
+      liveMatchModel: freezed == liveMatchModel
+          ? _value._liveMatchModel
+          : liveMatchModel // ignore: cast_nullable_to_non_nullable
+              as List<LiveMatchModel>?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -122,19 +122,18 @@ class __$$_ScoreTabStateCopyWithImpl<$Res>
 
 class _$_ScoreTabState implements _ScoreTabState {
   const _$_ScoreTabState(
-      {final List<LiveMatchResponse>? liveMatchResponse = const [],
+      {final List<LiveMatchModel>? liveMatchModel = const [],
       this.isLoading = false,
       this.errorMessage})
-      : _liveMatchResponse = liveMatchResponse;
+      : _liveMatchModel = liveMatchModel;
 
-  final List<LiveMatchResponse>? _liveMatchResponse;
+  final List<LiveMatchModel>? _liveMatchModel;
   @override
   @JsonKey()
-  List<LiveMatchResponse>? get liveMatchResponse {
-    final value = _liveMatchResponse;
+  List<LiveMatchModel>? get liveMatchModel {
+    final value = _liveMatchModel;
     if (value == null) return null;
-    if (_liveMatchResponse is EqualUnmodifiableListView)
-      return _liveMatchResponse;
+    if (_liveMatchModel is EqualUnmodifiableListView) return _liveMatchModel;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -147,7 +146,7 @@ class _$_ScoreTabState implements _ScoreTabState {
 
   @override
   String toString() {
-    return 'ScoreTabState(liveMatchResponse: $liveMatchResponse, isLoading: $isLoading, errorMessage: $errorMessage)';
+    return 'ScoreTabState(liveMatchModel: $liveMatchModel, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -156,7 +155,7 @@ class _$_ScoreTabState implements _ScoreTabState {
         (other.runtimeType == runtimeType &&
             other is _$_ScoreTabState &&
             const DeepCollectionEquality()
-                .equals(other._liveMatchResponse, _liveMatchResponse) &&
+                .equals(other._liveMatchModel, _liveMatchModel) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -166,7 +165,7 @@ class _$_ScoreTabState implements _ScoreTabState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_liveMatchResponse),
+      const DeepCollectionEquality().hash(_liveMatchModel),
       isLoading,
       errorMessage);
 
@@ -179,12 +178,12 @@ class _$_ScoreTabState implements _ScoreTabState {
 
 abstract class _ScoreTabState implements ScoreTabState {
   const factory _ScoreTabState(
-      {final List<LiveMatchResponse>? liveMatchResponse,
+      {final List<LiveMatchModel>? liveMatchModel,
       final bool isLoading,
       final String? errorMessage}) = _$_ScoreTabState;
 
   @override
-  List<LiveMatchResponse>? get liveMatchResponse;
+  List<LiveMatchModel>? get liveMatchModel;
   @override
   bool get isLoading;
   @override

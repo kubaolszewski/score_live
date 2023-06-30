@@ -22,7 +22,7 @@ class ScoreTab extends StatelessWidget {
             color: AppColors.mainThemePink,
           ));
         }
-        final liveMatches = state.liveMatchResponse;
+        final liveMatches = state.liveMatchModel;
         if (liveMatches!.isEmpty) {
           return const SizedBox(
             height: 200,

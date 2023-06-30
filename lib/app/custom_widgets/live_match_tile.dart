@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/models/live_match_response.dart';
+import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class LiveMatchTile extends StatelessWidget {
@@ -12,7 +12,7 @@ class LiveMatchTile extends StatelessWidget {
     required this.liveMatch,
   });
 
-  final LiveMatchResponse liveMatch;
+  final LiveMatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {
@@ -152,7 +152,7 @@ class LiveMatchTile extends StatelessWidget {
                     backgroundColor: AppColors.mainThemePink,
                   ),
                   onPressed: () {
-                    Modular.to.pushNamed(HomePath.matchDetailsPath);
+                    Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: liveMatch);
                   },
                   child: Text(
                     context.localizations.matchDetailsButton,

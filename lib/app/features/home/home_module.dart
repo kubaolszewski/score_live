@@ -17,7 +17,7 @@ class HomeModule extends Module {
         ),
         ChildRoute(
           HomePath.matchDetailsScreen,
-          child: (context, args) =>  const MatchDetails(),
+          child: (context, args) => MatchDetails(liveMatch: args.data),
         ),
       ];
 }

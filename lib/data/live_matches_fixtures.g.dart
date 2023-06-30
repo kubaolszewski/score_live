@@ -10,7 +10,7 @@ _$_LiveMatchesFixtures _$$_LiveMatchesFixturesFromJson(
         Map<String, dynamic> json) =>
     _$_LiveMatchesFixtures(
       response: (json['response'] as List<dynamic>?)
-          ?.map((e) => LiveMatchResponse.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => LiveMatchModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

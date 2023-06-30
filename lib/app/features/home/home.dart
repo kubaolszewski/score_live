@@ -15,11 +15,16 @@ import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
   });
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final homeCubit = Modular.get<HomeCubit>();
