@@ -35,15 +35,19 @@ class ScoreDetails extends StatelessWidget {
               child: Row(
                 children: [
                   CircleAvatar(
+                    radius: 15,
                     child: ClipOval(
                       child: SvgPicture.network(
                         assetName,
                         fit: BoxFit.cover,
                         placeholderBuilder: (BuildContext context) => Container(
-                            padding: const EdgeInsets.all(30.0),
-                            child: const CircularProgressIndicator(
-                              backgroundColor: Colors.redAccent,
-                            )),
+                          padding: const EdgeInsets.all(30.0),
+                          child: const Center(
+                            child: CircularProgressIndicator(
+                              backgroundColor: Colors.red,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),

@@ -17,21 +17,20 @@ class HomeCubit extends Cubit<HomeState> {
     emit(state.copyWith(isLoading: true));
     try {
       final liveMatches = await homeScreenRepository.fetchLiveMatches();
-      emit(state.copyWith(liveMatchResponse: liveMatches,isLoading: false));
+      emit(state.copyWith(liveMatchResponse: liveMatches, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
   }
 
-  void switchHomeOptions(HomeOptions chosenOption) {
-    emit(
-      HomeState(homeOptions: chosenOption),
-    );
+  void switchHomeOptions(HomeOptions chosenOption) async {
+    final liveMatches = await homeScreenRepository.fetchLiveMatches();
+    emit(state.copyWith(liveMatchResponse: liveMatches, homeOptions: chosenOption));
   }
 
-  void switchDetailsOptions(DetailsOptions chosenOption) {
-    emit(
-      HomeState(detailsOptions: chosenOption),
-    );
+  void switchDetailsOptions(DetailsOptions chosenOption) async {
+    final liveMatches = await homeScreenRepository.fetchLiveMatches();
+
+    emit(state.copyWith(liveMatchResponse: liveMatches, detailsOptions: chosenOption));
   }
 }

@@ -29,114 +29,138 @@ class LiveMatchTile extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        child: ClipOval(
-                          child: SvgPicture.network(
-                            assetName,
-                            fit: BoxFit.cover,
-                            placeholderBuilder: (BuildContext context) => Container(
-                                padding: const EdgeInsets.all(30.0),
-                                child: const CircularProgressIndicator(
-                                  backgroundColor: Colors.redAccent,
-                                )),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        liveMatch.league!.name!,
-                        style: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 150,
-                  ),
-                  Container(
-                    height: 30,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      color: AppColors.liveTimerBackground,
-                    ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+              Expanded(
+                flex: 1,
+                child: Row(
+                  children: [
+                    Row(
                       children: [
                         CircleAvatar(
-                          radius: 5,
-                          backgroundColor: Colors.green,
+                          radius: 15,
+                          child: ClipOval(
+                            child: SvgPicture.network(
+                              assetName,
+                              fit: BoxFit.cover,
+                              placeholderBuilder: (BuildContext context) => Container(
+                                padding: const EdgeInsets.all(30.0),
+                                child: const Center(
+                                  child: CircularProgressIndicator(
+                                    backgroundColor: Colors.red,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
+                        const SizedBox(width: 10),
                         Text(
-                          'FT',
-                          style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+                          liveMatch.league!.name!,
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 150,
+                    ),
+                    Container(
+                      height: 30,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24),
+                        color: AppColors.liveTimerBackground,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const CircleAvatar(
+                            radius: 5,
+                            backgroundColor: Colors.green,
+                          ),
+                          Text(
+                            liveMatch.fixture!.status!.short!,
+                            style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 10),
+              Expanded(
+                flex: 2,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(
+                          image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
+                        ),
+                        Text(liveMatch.teams!.home!.name!,
+                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                    const SizedBox(width: 30),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '${liveMatch.goals!.home} -'
+                          '${liveMatch.goals!.away}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(liveMatch.teams!.home!.logo!),
-                      ),
+                    const SizedBox(width: 30),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(
+                          image: NetworkImage(
+                            liveMatch.teams!.away!.logo!,
+                            scale: 3,
+                          ),
+                        ),
+                        Text(liveMatch.teams!.away!.name!,
+                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                      ],
                     ),
-                  ),
-                  const SizedBox(width: 30),
-                  Text(
-                    '${liveMatch.goals!.home} -'
-                    '${liveMatch.goals!.away}',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(width: 30),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(liveMatch.teams!.away!.logo!),
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(380, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+              Expanded(
+                flex: 1,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: const Size(380, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    backgroundColor: AppColors.mainThemePink,
                   ),
-                  backgroundColor: AppColors.mainThemePink,
-                ),
-                onPressed: () {
-                  Modular.to.pushNamed(HomePath.matchDetailsPath);
-                },
-                child: Text(
-                  context.localizations.matchDetailsButton,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                  onPressed: () {
+                    Modular.to.pushNamed(HomePath.matchDetailsPath);
+                  },
+                  child: Text(
+                    context.localizations.matchDetailsButton,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               )

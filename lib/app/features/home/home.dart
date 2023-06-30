@@ -21,9 +21,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final homeCubit = Modular.get<HomeCubit>();
     return BlocProvider<HomeCubit>(
-      create: (context) => homeCubit
-      ..fetchLiveMatches()
-      ,
+      create: (context) => homeCubit..fetchLiveMatches(),
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
@@ -162,7 +160,7 @@ class _LiveNowView extends StatelessWidget {
           );
         }
         return SizedBox(
-          height: 200,
+          height: 250,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: liveMatches.length,
