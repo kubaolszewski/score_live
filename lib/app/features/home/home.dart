@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => homeCubit),
         BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
-        BlocProvider(create: (context) => scoreTabcubit..fetchLiveMatches()),
+        BlocProvider(create: (context) => scoreTabcubit..fetchAllMatches()),
       ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,

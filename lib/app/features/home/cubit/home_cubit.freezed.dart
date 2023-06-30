@@ -16,10 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeState {
-  List<LiveMatchResponse>? get liveMatchResponse =>
-      throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
   HomeOptions get homeOptions => throw _privateConstructorUsedError;
   DetailsOptions get detailsOptions => throw _privateConstructorUsedError;
 
@@ -34,11 +31,7 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
   $Res call(
-      {List<LiveMatchResponse>? liveMatchResponse,
-      bool isLoading,
-      String? errorMessage,
-      HomeOptions homeOptions,
-      DetailsOptions detailsOptions});
+      {String date, HomeOptions homeOptions, DetailsOptions detailsOptions});
 }
 
 /// @nodoc
@@ -54,25 +47,15 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? liveMatchResponse = freezed,
-    Object? isLoading = null,
-    Object? errorMessage = freezed,
+    Object? date = null,
     Object? homeOptions = null,
     Object? detailsOptions = null,
   }) {
     return _then(_value.copyWith(
-      liveMatchResponse: freezed == liveMatchResponse
-          ? _value.liveMatchResponse
-          : liveMatchResponse // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchResponse>?,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
       homeOptions: null == homeOptions
           ? _value.homeOptions
           : homeOptions // ignore: cast_nullable_to_non_nullable
@@ -93,11 +76,7 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {List<LiveMatchResponse>? liveMatchResponse,
-      bool isLoading,
-      String? errorMessage,
-      HomeOptions homeOptions,
-      DetailsOptions detailsOptions});
+      {String date, HomeOptions homeOptions, DetailsOptions detailsOptions});
 }
 
 /// @nodoc
@@ -111,25 +90,15 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? liveMatchResponse = freezed,
-    Object? isLoading = null,
-    Object? errorMessage = freezed,
+    Object? date = null,
     Object? homeOptions = null,
     Object? detailsOptions = null,
   }) {
     return _then(_$_HomeState(
-      liveMatchResponse: freezed == liveMatchResponse
-          ? _value._liveMatchResponse
-          : liveMatchResponse // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchResponse>?,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
       homeOptions: null == homeOptions
           ? _value.homeOptions
           : homeOptions // ignore: cast_nullable_to_non_nullable
@@ -146,30 +115,13 @@ class __$$_HomeStateCopyWithImpl<$Res>
 
 class _$_HomeState implements _HomeState {
   const _$_HomeState(
-      {final List<LiveMatchResponse>? liveMatchResponse = const [],
-      this.isLoading = false,
-      this.errorMessage,
+      {this.date = '',
       this.homeOptions = HomeOptions.score,
-      this.detailsOptions = DetailsOptions.summary})
-      : _liveMatchResponse = liveMatchResponse;
-
-  final List<LiveMatchResponse>? _liveMatchResponse;
-  @override
-  @JsonKey()
-  List<LiveMatchResponse>? get liveMatchResponse {
-    final value = _liveMatchResponse;
-    if (value == null) return null;
-    if (_liveMatchResponse is EqualUnmodifiableListView)
-      return _liveMatchResponse;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+      this.detailsOptions = DetailsOptions.summary});
 
   @override
   @JsonKey()
-  final bool isLoading;
-  @override
-  final String? errorMessage;
+  final String date;
   @override
   @JsonKey()
   final HomeOptions homeOptions;
@@ -179,7 +131,7 @@ class _$_HomeState implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(liveMatchResponse: $liveMatchResponse, isLoading: $isLoading, errorMessage: $errorMessage, homeOptions: $homeOptions, detailsOptions: $detailsOptions)';
+    return 'HomeState(date: $date, homeOptions: $homeOptions, detailsOptions: $detailsOptions)';
   }
 
   @override
@@ -187,12 +139,7 @@ class _$_HomeState implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
-            const DeepCollectionEquality()
-                .equals(other._liveMatchResponse, _liveMatchResponse) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage) &&
+            (identical(other.date, date) || other.date == date) &&
             (identical(other.homeOptions, homeOptions) ||
                 other.homeOptions == homeOptions) &&
             (identical(other.detailsOptions, detailsOptions) ||
@@ -200,13 +147,8 @@ class _$_HomeState implements _HomeState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_liveMatchResponse),
-      isLoading,
-      errorMessage,
-      homeOptions,
-      detailsOptions);
+  int get hashCode =>
+      Object.hash(runtimeType, date, homeOptions, detailsOptions);
 
   @JsonKey(ignore: true)
   @override
@@ -217,18 +159,12 @@ class _$_HomeState implements _HomeState {
 
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
-      {final List<LiveMatchResponse>? liveMatchResponse,
-      final bool isLoading,
-      final String? errorMessage,
+      {final String date,
       final HomeOptions homeOptions,
       final DetailsOptions detailsOptions}) = _$_HomeState;
 
   @override
-  List<LiveMatchResponse>? get liveMatchResponse;
-  @override
-  bool get isLoading;
-  @override
-  String? get errorMessage;
+  String get date;
   @override
   HomeOptions get homeOptions;
   @override
