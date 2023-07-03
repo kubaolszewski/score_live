@@ -1,7 +1,6 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now_view/cubit/live_now_view_cubit.dart';
@@ -45,8 +44,7 @@ class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
                     context.read<HomeCubit>().switchDate(
                           pickedDate,
                         );
-                    String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
-                    context.read<ScoreTabCubit>().fetchMatchesByDate(formattedDate);
+                    context.read<ScoreTabCubit>().fetchMatchesByDate(pickedDate);
                     context.read<LiveNowViewCubit>().fetchLiveMatches();
                   },
                 ),
