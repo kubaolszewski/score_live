@@ -16,7 +16,8 @@ class LiveMatchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String assetName = liveMatch.league!.flag!;
+    const String defaultFlag =
+        'https://img.freepik.com/darmowe-wektory/na-bialym-tle-ziemia-na-bialym-tle_1308-55360.jpg?w=2000';
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -38,18 +39,20 @@ class LiveMatchTile extends StatelessWidget {
                         CircleAvatar(
                           radius: 15,
                           child: ClipOval(
-                            child: SvgPicture.network(
-                              assetName,
-                              fit: BoxFit.cover,
-                              placeholderBuilder: (BuildContext context) => Container(
-                                padding: const EdgeInsets.all(30.0),
-                                child: const Center(
-                                  child: CircularProgressIndicator(
-                                    backgroundColor: Colors.red,
+                            child: liveMatch.league!.flag == null
+                                ? const Image(image: NetworkImage(defaultFlag))
+                                : SvgPicture.network(
+                                    liveMatch.league!.flag!,
+                                    fit: BoxFit.cover,
+                                    placeholderBuilder: (BuildContext context) => Container(
+                                      padding: const EdgeInsets.all(30.0),
+                                      child: const Center(
+                                        child: CircularProgressIndicator(
+                                          backgroundColor: Colors.red,
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            ),
                           ),
                         ),
                         const SizedBox(width: 10),
@@ -120,15 +123,25 @@ class LiveMatchTile extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              '${liveMatch.goals!.home} -'
-                              '${liveMatch.goals!.away}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            liveMatch.fixture!.status!.short == 'NS' || liveMatch.fixture!.status!.short == 'TBD'
+                                ? Text(
+                                    liveMatch.fixture!.status!.long!,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                : Text(
+                                    '${liveMatch.goals!.home} -'
+                                    '${liveMatch.goals!.away}',
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                           ],
                         ),
                       ),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
-import 'package:score_live/app/features/home/home_widgets/live_now_view/cubit/live_now_view_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
@@ -45,7 +44,6 @@ class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
                           pickedDate,
                         );
                     context.read<ScoreTabCubit>().fetchMatchesByDate(pickedDate);
-                    context.read<LiveNowViewCubit>().fetchLiveMatches();
                   },
                 ),
               ),

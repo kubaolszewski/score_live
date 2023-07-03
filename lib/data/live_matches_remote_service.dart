@@ -17,7 +17,6 @@ abstract class LiveMatchesRemoteService {
   });
   @GET('/fixtures')
   Future<LiveMatchesFixtures> fetchLiveMatches({
-    @Query("league") required String league,
     @Query("season") required String season,
     @Query("date") required String date,
   });

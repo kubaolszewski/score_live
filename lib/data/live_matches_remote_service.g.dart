@@ -55,13 +55,11 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
 
   @override
   Future<LiveMatchesFixtures> fetchLiveMatches({
-    required String league,
     required String season,
     required String date,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'league': league,
       r'season': season,
       r'date': date,
     };
