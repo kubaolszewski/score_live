@@ -10,6 +10,12 @@ abstract class LiveMatchesRemoteService {
   static LiveMatchesRemoteService create(ApiClient dio) => _LiveMatchesRemoteService(dio.dio);
 
   @GET('/fixtures')
+  Future<LiveMatchesFixtures> fetchMatchesByDate({
+    @Query("league") required String league,
+    @Query("season") required String season,
+    @Query("date") required String date,
+  });
+  @GET('/fixtures')
   Future<LiveMatchesFixtures> fetchLiveMatches({
     @Query("league") required String league,
     @Query("season") required String season,

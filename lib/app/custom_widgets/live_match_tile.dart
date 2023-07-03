@@ -135,6 +135,7 @@ class LiveMatchTile extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: SizedBox.square(
+                          dimension: 100,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -154,9 +155,6 @@ class LiveMatchTile extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
               ),
               Expanded(
                 flex: 1,

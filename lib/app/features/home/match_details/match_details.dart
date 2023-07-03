@@ -21,7 +21,6 @@ class MatchDetails extends StatelessWidget {
     required this.liveMatch,
   });
 
-  final _detailsTitle = const _DetailsTitle();
   final LiveMatchModel liveMatch;
 
   @override
@@ -33,7 +32,7 @@ class MatchDetails extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
-          title: _detailsTitle,
+          title: _DetailsTitle(liveMatch.league!.name!),
           leading: IconButton(
               onPressed: () {
                 Navigator.of(context).pop();
@@ -96,16 +95,16 @@ class MatchDetails extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(24),
                                 color: AppColors.liveTimerBackground,
                               ),
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
-                                  CircleAvatar(
+                                  const CircleAvatar(
                                     radius: 5,
                                     backgroundColor: Colors.green,
                                   ),
                                   Text(
-                                    'FT',
-                                    style: TextStyle(color: Colors.green),
+                                    liveMatch.fixture!.status!.short!,
+                                    style: const TextStyle(color: Colors.green),
                                   ),
                                 ],
                               ),
@@ -113,44 +112,69 @@ class MatchDetails extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image(
-                                  image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
-                                ),
-                                Text(liveMatch.teams!.home!.name!,
-                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                              ],
-                            ),
-                            const SizedBox(width: 30),
-                            Text(
-                              '${liveMatch.goals!.home} -'
-                              '${liveMatch.goals!.away}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(width: 30),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image(
-                                  image: NetworkImage(
-                                    liveMatch.teams!.away!.logo!,
-                                    scale: 3,
+                        SizedBox(
+                          width: 370,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: SizedBox.square(
+                                  dimension: 100,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image(
+                                        image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
+                                      ),
+                                      Text(liveMatch.teams!.home!.name!,
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                    ],
                                   ),
                                 ),
-                                Text(liveMatch.teams!.away!.name!,
-                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                              ],
-                            ),
-                          ],
+                              ),
+                              const SizedBox(width: 30),
+                              Expanded(
+                                flex: 1,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      '${liveMatch.goals!.home} -'
+                                      '${liveMatch.goals!.away}',
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: 30),
+                              Expanded(
+                                flex: 1,
+                                child: SizedBox.square(
+                                  dimension: 100,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image(
+                                        image: NetworkImage(
+                                          liveMatch.teams!.away!.logo!,
+                                          scale: 3,
+                                        ),
+                                      ),
+                                      Text(liveMatch.teams!.away!.name!,
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(height: 15),
                         const Divider(color: Colors.grey, thickness: 0.5, indent: 5.0, endIndent: 5.0),
@@ -166,7 +190,12 @@ class MatchDetails extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Column(
-                                children: [Icon(Icons.sports_soccer, color: Colors.grey)],
+                                children: [
+                                  Icon(
+                                    Icons.sports_soccer,
+                                    color: Colors.grey,
+                                  ),
+                                ],
                               ),
                             ),
                             Expanded(
@@ -208,20 +237,22 @@ class MatchDetails extends StatelessWidget {
 }
 
 class _DetailsTitle extends StatelessWidget {
-  const _DetailsTitle();
+  const _DetailsTitle(this.title);
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: Column(
         children: [
-          const Row(
+          Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Premier League',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                title,
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
               )
             ],
           ),

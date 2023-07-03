@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:intl/intl.dart';
 import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
@@ -14,6 +15,8 @@ class WideMatchListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime date = DateTime.parse(liveMatch.fixture!.date!);
+    String formattedDate = DateFormat('dd/MM').format(date);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
@@ -37,9 +40,9 @@ class WideMatchListTile extends StatelessWidget {
                         liveMatch.fixture!.status!.short!,
                         style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
                       ),
-                      const Text(
-                        '14/8',
-                        style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+                      Text(
+                        formattedDate.toString(),
+                        style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),

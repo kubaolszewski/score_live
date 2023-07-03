@@ -11,10 +11,10 @@ class ScoreTabCubit extends Cubit<ScoreTabState> {
 
   final HomeScreenRepository homeScreenRepository;
 
-  Future<void> fetchAllMatches() async {
+  Future<void> fetchMatchesByDate(String date) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final liveMatches = await homeScreenRepository.fetchAllMatches();
+      final liveMatches = await homeScreenRepository.fetchMatchesByDate(date);
       emit(state.copyWith(liveMatchModel: liveMatches, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));

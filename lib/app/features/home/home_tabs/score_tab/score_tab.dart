@@ -28,7 +28,8 @@ class ScoreTab extends StatelessWidget {
             height: 200,
             child: Center(
               child: Text(
-                'Nothing here :(',
+                'No matches were played on this date.',
+                textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 24),
               ),
             ),

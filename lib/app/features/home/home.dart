@@ -29,78 +29,81 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final homeCubit = Modular.get<HomeCubit>();
     final liveNowViewCubit = Modular.get<LiveNowViewCubit>();
-    final scoreTabcubit = Modular.get<ScoreTabCubit>();
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => homeCubit),
-        BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
-        BlocProvider(create: (context) => scoreTabcubit..fetchAllMatches()),
-      ],
-      child: Scaffold(
-        backgroundColor: AppColors.backgroundBlack,
-        appBar: CustomAppBar(
-          title: const Text(
-            'scorelive',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.search_rounded, color: Colors.white, size: 32),
+    final scoreTabCubit = Modular.get<ScoreTabCubit>();
+    return BlocProvider(
+      create: (context) => homeCubit,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => homeCubit),
+          BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
+          BlocProvider(create: (context) => scoreTabCubit),
+        ],
+        child: Scaffold(
+          backgroundColor: AppColors.backgroundBlack,
+          appBar: CustomAppBar(
+            title: const Text(
+              'scorelive',
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.notifications_none, color: Colors.white, size: 32),
-            ),
-          ],
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const HomeScreenDatePicker(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      context.localizations.liveNow,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        context.localizations.seeMore,
-                        style: const TextStyle(
-                          color: Color.fromARGB(255, 215, 54, 108),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.search_rounded, color: Colors.white, size: 32),
               ),
-              const LiveNowView(),
-              const HomeOptionsTapBar(),
-              BlocBuilder<HomeCubit, HomeState>(
-                builder: (context, state) {
-                  switch (state.homeOptions) {
-                    case HomeOptions.upcoming:
-                      return const UpcomingTab();
-                    case HomeOptions.score:
-                      return const ScoreTab();
-                    case HomeOptions.favorites:
-                      return const FavoritesTab();
-                  }
-                },
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.notifications_none, color: Colors.white, size: 32),
               ),
             ],
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const HomeScreenDatePicker(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        context.localizations.liveNow,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          color: Colors.white,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          context.localizations.seeMore,
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 215, 54, 108),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                const LiveNowView(),
+                const HomeOptionsTapBar(),
+                BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    switch (state.homeOptions) {
+                      case HomeOptions.upcoming:
+                        return const UpcomingTab();
+                      case HomeOptions.score:
+                        return const ScoreTab();
+                      case HomeOptions.favorites:
+                        return const FavoritesTab();
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
