@@ -16,11 +16,13 @@ class LiveMatchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final assetName = liveMatch.league!.flag;
     const String defaultFlag =
         'https://img.freepik.com/darmowe-wektory/na-bialym-tle-ziemia-na-bialym-tle_1308-55360.jpg?w=2000';
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+        width: 400,
         decoration: BoxDecoration(
           color: AppColors.listTileGrey,
           borderRadius: BorderRadius.circular(12),
@@ -28,21 +30,21 @@ class LiveMatchTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Expanded(
                 flex: 1,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
                         CircleAvatar(
                           radius: 15,
                           child: ClipOval(
-                            child: liveMatch.league!.flag == null
+                            child: assetName == null
                                 ? const Image(image: NetworkImage(defaultFlag))
                                 : SvgPicture.network(
-                                    liveMatch.league!.flag!,
+                                    assetName,
                                     fit: BoxFit.cover,
                                     placeholderBuilder: (BuildContext context) => Container(
                                       padding: const EdgeInsets.all(30.0),
@@ -66,9 +68,6 @@ class LiveMatchTile extends StatelessWidget {
                         )
                       ],
                     ),
-                    const SizedBox(
-                      width: 150,
-                    ),
                     Container(
                       height: 30,
                       width: 50,
@@ -79,13 +78,23 @@ class LiveMatchTile extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          const CircleAvatar(
+                          CircleAvatar(
                             radius: 5,
-                            backgroundColor: Colors.green,
+                            backgroundColor: liveMatch.fixture!.status!.short! == 'TBD' ||
+                                    liveMatch.fixture!.status!.short! == 'NS' ||
+                                    liveMatch.fixture!.status!.short! == 'SUSP'
+                                ? Colors.red
+                                : Colors.green,
                           ),
                           Text(
                             liveMatch.fixture!.status!.short!,
-                            style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                color: liveMatch.fixture!.status!.short! == 'TBD' ||
+                                        liveMatch.fixture!.status!.short! == 'NS' ||
+                                        liveMatch.fixture!.status!.short! == 'SUSP'
+                                    ? Colors.black
+                                    : Colors.green,
+                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -104,7 +113,7 @@ class LiveMatchTile extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: SizedBox.square(
-                          dimension: 100.00,
+                          dimension: 110,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -148,7 +157,7 @@ class LiveMatchTile extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: SizedBox.square(
-                          dimension: 100,
+                          dimension: 110,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
