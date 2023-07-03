@@ -93,49 +93,66 @@ class LiveMatchTile extends StatelessWidget {
               const SizedBox(height: 10),
               Expanded(
                 flex: 2,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
-                        ),
-                        Text(liveMatch.teams!.home!.name!,
-                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                      ],
-                    ),
-                    const SizedBox(width: 30),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '${liveMatch.goals!.home} -'
-                          '${liveMatch.goals!.away}',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
+                child: SizedBox(
+                  width: 370,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: SizedBox.square(
+                          dimension: 100.00,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image(
+                                image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
+                              ),
+                              Text(liveMatch.teams!.home!.name!,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
-                    const SizedBox(width: 30),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: NetworkImage(
-                            liveMatch.teams!.away!.logo!,
-                            scale: 3,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${liveMatch.goals!.home} -'
+                              '${liveMatch.goals!.away}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: SizedBox.square(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image(
+                                image: NetworkImage(
+                                  liveMatch.teams!.away!.logo!,
+                                  scale: 3,
+                                ),
+                              ),
+                              Text(liveMatch.teams!.away!.name!,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                            ],
                           ),
                         ),
-                        Text(liveMatch.teams!.away!.name!,
-                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                      ],
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(

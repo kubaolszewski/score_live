@@ -25,9 +25,6 @@ class HomeModule extends Module {
 mixin HomePath {
   static String homePath = '/home';
   static String matchDetailsScreen = '/match-details';
-  static String upcomingTab = '/upcoming';
-  static String scoreTab = '/score';
-  static String favoritesTab = '/favorites';
 
   static String matchDetailsPath = '$homePath$matchDetailsScreen';
 }

@@ -11,9 +11,10 @@
 
   "matchDetailsButton" : "Szczegóły",
 
-  "currentDay" : "Today",
+  "currentDay" : "Dziś",
   "matchDetailsSummary" : "Przebieg",
   "halfTime" : "Przerwa",
+  "fullTime" : "Koniec czasu",
   "matchDetailsLineUp" : "Składy",
   "matchDetailsStats" : "Statystyki",
   "matchDetailsH2H" : "H2H",

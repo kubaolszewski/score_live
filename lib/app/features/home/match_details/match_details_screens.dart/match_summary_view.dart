@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchSummaryView extends StatelessWidget {
-  const MatchSummaryView({super.key});
+  const MatchSummaryView({
+    super.key,
+    required this.liveMatch,
+  });
+
+  final LiveMatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +35,13 @@ class MatchSummaryView extends StatelessWidget {
                       )
                     ],
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Team #1 Home - Away Team #2',
-                        style: TextStyle(color: Colors.grey, fontSize: 16),
+                        '${liveMatch.teams!.home!.name} ${liveMatch.score!.halftime!.home} - '
+                        '${liveMatch.score!.halftime!.away} ${liveMatch.teams!.away!.name}',
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       )
                     ],
                   )
@@ -45,6 +52,32 @@ class MatchSummaryView extends StatelessWidget {
           Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColors.listTileGrey),
             height: 200,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      context.localizations.fullTime,
+                      style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '${liveMatch.teams!.home!.name} ${liveMatch.score!.fulltime!.home} - '
+                      '${liveMatch.score!.fulltime!.away} ${liveMatch.teams!.away!.name}',
+                      style: const TextStyle(color: Colors.white, fontSize: 16),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ],
       ),

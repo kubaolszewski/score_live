@@ -187,7 +187,7 @@ class MatchDetails extends StatelessWidget {
                 builder: (context, state) {
                   switch (state.detailsOptions) {
                     case DetailsOptions.summary:
-                      return const MatchSummaryView();
+                      return MatchSummaryView(liveMatch: liveMatch);
                     case DetailsOptions.lineUp:
                       return const MatchLineUpView();
                     case DetailsOptions.stats:
