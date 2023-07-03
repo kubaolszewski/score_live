@@ -207,34 +207,7 @@ class MatchDetails extends StatelessWidget {
                         ),
                         const SizedBox(height: 15),
                         const Divider(color: Colors.grey, thickness: 0.5, indent: 5.0, endIndent: 5.0),
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: Column(
-                                children: [],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.sports_soccer,
-                                    color: Colors.grey,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: Column(
-                                children: [],
-                              ),
-                            )
-                          ],
-                        ),
+                        const _EventsWidget(),
                       ],
                     ),
                   ),
@@ -261,6 +234,42 @@ class MatchDetails extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _EventsWidget extends StatelessWidget {
+  const _EventsWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          flex: 2,
+          child: Column(
+            children: [],
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Column(
+            children: [
+              Icon(
+                Icons.sports_soccer,
+                color: Colors.grey,
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: Column(
+            children: [],
+          ),
+        )
+      ],
     );
   }
 }
