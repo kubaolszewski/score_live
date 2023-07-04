@@ -51,21 +51,18 @@ class MatchEventsWidget extends StatelessWidget {
                       itemCount: matchEvents.length,
                       itemBuilder: (context, index) {
                         final event = matchEvents[index];
-                        if (liveMatch.teams!.home!.id == event.team!.id) {
-                          if (event.type == 'Goal') {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(event.time!.elapsed.toString(),
-                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                const SizedBox(width: 5),
-                                Text(event.player!.name!,
-                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                              ],
-                            );
-                          }
-                        }
-                        return const SizedBox.shrink();
+                        // if (liveMatch.teams!.home!.id == event.team!.id) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(event.time!.elapsed.toString(),
+                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                            const SizedBox(width: 5),
+                            Text(event.player!.name!,
+                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          ],
+                        );
+                        // }
                       },
                     ),
                   ),
@@ -91,24 +88,22 @@ class MatchEventsWidget extends StatelessWidget {
                   SizedBox(
                     height: 150,
                     child: ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: matchEvents.length,
                       itemBuilder: (context, index) {
                         final event = matchEvents[index];
-                        if (liveMatch.teams!.away!.id == event.team!.id) {
-                          if (event.type == 'Goal') {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(event.player!.name!,
-                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                const SizedBox(width: 5),
-                                Text(event.time!.elapsed.toString(),
-                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                              ],
-                            );
-                          }
-                        }
-                        return const SizedBox.shrink();
+                        // if (liveMatch.teams!.away!.id == event.team!.id) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(event.player!.name!,
+                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                            const SizedBox(width: 5),
+                            Text(event.time!.elapsed.toString(),
+                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          ],
+                        );
+                        //   }
                       },
                     ),
                   ),

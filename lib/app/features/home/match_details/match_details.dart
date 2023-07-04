@@ -32,13 +32,18 @@ class MatchDetails extends StatelessWidget {
     const String defaultFlag =
         'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     final assetName = liveMatch.league!.flag;
+    double width = MediaQuery.sizeOf(context).width;
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeCubit>(
           create: (context) => homeCubit,
         ),
         BlocProvider(
-          create: (context) => matchDetailsCubit..fetchMatchEvents(liveMatch.fixture!.id!.toString()),
+          create: (context) => matchDetailsCubit
+            ..fetchMatchGoals(
+                // liveMatch.fixture!.id!.toString(),
+                ),
+          // ..fetchMatchEvents(),
         ),
       ],
       child: Scaffold(
@@ -58,9 +63,9 @@ class MatchDetails extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 25),
               Container(
-                width: 400,
+                width: width,
                 decoration: BoxDecoration(
                   color: AppColors.listTileGrey,
                   borderRadius: BorderRadius.circular(12),
@@ -138,79 +143,76 @@ class MatchDetails extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 10),
-                      SizedBox(
-                        width: 370,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: SizedBox.square(
-                                dimension: 110,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Image(
-                                      image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
-                                    ),
-                                    Text(liveMatch.teams!.home!.name!,
-                                        textAlign: TextAlign.center,
-                                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 30),
-                            Expanded(
-                              flex: 1,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: SizedBox.square(
+                              dimension: 110,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  liveMatch.fixture!.status!.short == 'NS' || liveMatch.fixture!.status!.short == 'TBD'
-                                      ? Text(
-                                          liveMatch.fixture!.status!.long!,
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        )
-                                      : Text(
-                                          '${liveMatch.goals!.home} -'
-                                          '${liveMatch.goals!.away}',
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 28,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                                  Image(
+                                    image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
+                                  ),
+                                  Text(liveMatch.teams!.home!.name!,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                                 ],
                               ),
                             ),
-                            const SizedBox(width: 30),
-                            Expanded(
-                              flex: 1,
-                              child: SizedBox.square(
-                                dimension: 110,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Image(
-                                      image: NetworkImage(
-                                        liveMatch.teams!.away!.logo!,
-                                        scale: 3,
-                                      ),
-                                    ),
-                                    Text(liveMatch.teams!.away!.name!,
+                          ),
+                          const SizedBox(width: 30),
+                          Expanded(
+                            flex: 1,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                liveMatch.fixture!.status!.short == 'NS' || liveMatch.fixture!.status!.short == 'TBD'
+                                    ? Text(
+                                        liveMatch.fixture!.status!.long!,
                                         textAlign: TextAlign.center,
-                                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                  ],
-                                ),
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    : Text(
+                                        '${liveMatch.goals!.home} -'
+                                        '${liveMatch.goals!.away}',
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 30),
+                          Expanded(
+                            flex: 1,
+                            child: SizedBox.square(
+                              dimension: 110,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image(
+                                    image: NetworkImage(
+                                      liveMatch.teams!.away!.logo!,
+                                      scale: 3,
+                                    ),
+                                  ),
+                                  Text(liveMatch.teams!.away!.name!,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 15),
                       const Divider(color: Colors.grey, thickness: 0.5),
@@ -225,7 +227,7 @@ class MatchDetails extends StatelessWidget {
                 ),
               ),
               const MatchDetailsTabBar(),
-              BlocBuilder<HomeCubit, HomeState>(
+              BlocBuilder<MatchDetailsCubit, MatchDetailsState>(
                 builder: (context, state) {
                   switch (state.detailsOptions) {
                     case DetailsOptions.summary:

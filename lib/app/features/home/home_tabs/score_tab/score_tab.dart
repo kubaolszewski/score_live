@@ -12,8 +12,8 @@ class ScoreTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.sizeOf(context).height;
+    double width = MediaQuery.sizeOf(context).width;
     return BlocBuilder<ScoreTabCubit, ScoreTabState>(
       builder: (context, state) {
         if (state.isLoading == true) {
@@ -22,7 +22,9 @@ class ScoreTab extends StatelessWidget {
             color: AppColors.mainThemePink,
           ));
         }
+
         final liveMatches = state.liveMatchModel;
+
         if (liveMatches!.isEmpty) {
           return const SizedBox(
             height: 200,
@@ -35,6 +37,7 @@ class ScoreTab extends StatelessWidget {
             ),
           );
         }
+
         return Column(
           children: [
             Padding(

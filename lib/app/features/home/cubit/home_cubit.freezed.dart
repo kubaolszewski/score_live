@@ -22,7 +22,6 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   DateTime? get date => throw _privateConstructorUsedError;
   HomeOptions get homeOptions => throw _privateConstructorUsedError;
-  DetailsOptions get detailsOptions => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
@@ -41,7 +40,6 @@ abstract class $HomeStateCopyWith<$Res> {
       List<MatchEventsModel>? matchEventsModel,
       DateTime? date,
       HomeOptions homeOptions,
-      DetailsOptions detailsOptions,
       bool isLoading,
       String? errorMessage});
 }
@@ -63,7 +61,6 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? matchEventsModel = freezed,
     Object? date = freezed,
     Object? homeOptions = null,
-    Object? detailsOptions = null,
     Object? isLoading = null,
     Object? errorMessage = freezed,
   }) {
@@ -84,10 +81,6 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.homeOptions
           : homeOptions // ignore: cast_nullable_to_non_nullable
               as HomeOptions,
-      detailsOptions: null == detailsOptions
-          ? _value.detailsOptions
-          : detailsOptions // ignore: cast_nullable_to_non_nullable
-              as DetailsOptions,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -112,7 +105,6 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       List<MatchEventsModel>? matchEventsModel,
       DateTime? date,
       HomeOptions homeOptions,
-      DetailsOptions detailsOptions,
       bool isLoading,
       String? errorMessage});
 }
@@ -132,7 +124,6 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? matchEventsModel = freezed,
     Object? date = freezed,
     Object? homeOptions = null,
-    Object? detailsOptions = null,
     Object? isLoading = null,
     Object? errorMessage = freezed,
   }) {
@@ -153,10 +144,6 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.homeOptions
           : homeOptions // ignore: cast_nullable_to_non_nullable
               as HomeOptions,
-      detailsOptions: null == detailsOptions
-          ? _value.detailsOptions
-          : detailsOptions // ignore: cast_nullable_to_non_nullable
-              as DetailsOptions,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -177,7 +164,6 @@ class _$_HomeState implements _HomeState {
       final List<MatchEventsModel>? matchEventsModel = const [],
       this.date,
       this.homeOptions = HomeOptions.score,
-      this.detailsOptions = DetailsOptions.summary,
       this.isLoading = false,
       this.errorMessage})
       : _liveMatchModel = liveMatchModel,
@@ -213,16 +199,13 @@ class _$_HomeState implements _HomeState {
   final HomeOptions homeOptions;
   @override
   @JsonKey()
-  final DetailsOptions detailsOptions;
-  @override
-  @JsonKey()
   final bool isLoading;
   @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'HomeState(liveMatchModel: $liveMatchModel, matchEventsModel: $matchEventsModel, date: $date, homeOptions: $homeOptions, detailsOptions: $detailsOptions, isLoading: $isLoading, errorMessage: $errorMessage)';
+    return 'HomeState(liveMatchModel: $liveMatchModel, matchEventsModel: $matchEventsModel, date: $date, homeOptions: $homeOptions, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -237,8 +220,6 @@ class _$_HomeState implements _HomeState {
             (identical(other.date, date) || other.date == date) &&
             (identical(other.homeOptions, homeOptions) ||
                 other.homeOptions == homeOptions) &&
-            (identical(other.detailsOptions, detailsOptions) ||
-                other.detailsOptions == detailsOptions) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -252,7 +233,6 @@ class _$_HomeState implements _HomeState {
       const DeepCollectionEquality().hash(_matchEventsModel),
       date,
       homeOptions,
-      detailsOptions,
       isLoading,
       errorMessage);
 
@@ -269,7 +249,6 @@ abstract class _HomeState implements HomeState {
       final List<MatchEventsModel>? matchEventsModel,
       final DateTime? date,
       final HomeOptions homeOptions,
-      final DetailsOptions detailsOptions,
       final bool isLoading,
       final String? errorMessage}) = _$_HomeState;
 
@@ -281,8 +260,6 @@ abstract class _HomeState implements HomeState {
   DateTime? get date;
   @override
   HomeOptions get homeOptions;
-  @override
-  DetailsOptions get detailsOptions;
   @override
   bool get isLoading;
   @override

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/home/cubit/home_cubit.dart';
+import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 
@@ -10,7 +10,7 @@ class MatchDetailsTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeCubit = Modular.get<HomeCubit>();
+    final matchDetailsCubit = Modular.get<MatchDetailsCubit>();
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -20,7 +20,7 @@ class MatchDetailsTabBar extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.summary);
+              matchDetailsCubit.switchDetailsOptions(DetailsOptions.summary);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -39,7 +39,7 @@ class MatchDetailsTabBar extends StatelessWidget {
           const SizedBox(width: 30),
           GestureDetector(
             onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.lineUp);
+              matchDetailsCubit.switchDetailsOptions(DetailsOptions.lineUp);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -58,7 +58,7 @@ class MatchDetailsTabBar extends StatelessWidget {
           const SizedBox(width: 30),
           GestureDetector(
             onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.stats);
+              matchDetailsCubit.switchDetailsOptions(DetailsOptions.stats);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -77,7 +77,7 @@ class MatchDetailsTabBar extends StatelessWidget {
           const SizedBox(width: 30),
           GestureDetector(
             onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.h2H);
+              matchDetailsCubit.switchDetailsOptions(DetailsOptions.h2H);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -96,7 +96,7 @@ class MatchDetailsTabBar extends StatelessWidget {
           const SizedBox(width: 30),
           GestureDetector(
             onTap: () {
-              homeCubit.switchDetailsOptions(DetailsOptions.standings);
+              matchDetailsCubit.switchDetailsOptions(DetailsOptions.standings);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),

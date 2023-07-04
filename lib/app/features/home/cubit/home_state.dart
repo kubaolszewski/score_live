@@ -7,7 +7,6 @@ class HomeState with _$HomeState {
     @Default([]) List<MatchEventsModel>? matchEventsModel,
     DateTime? date,
     @Default(HomeOptions.score) HomeOptions homeOptions,
-    @Default(DetailsOptions.summary) DetailsOptions detailsOptions,
     @Default(false) bool isLoading,
     String? errorMessage,
   }) = _HomeState;
