@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
+import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_h2h_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_lineup_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_standings_view.dart';
@@ -26,11 +27,19 @@ class MatchDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeCubit = Modular.get<HomeCubit>();
+    final matchDetailsCubit = Modular.get<MatchDetailsCubit>();
     const String defaultFlag =
-        'https://img.freepik.com/darmowe-wektory/na-bialym-tle-ziemia-na-bialym-tle_1308-55360.jpg?w=2000';
+        'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     final assetName = liveMatch.league!.flag;
-    return BlocProvider<HomeCubit>(
-      create: (context) => homeCubit,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<HomeCubit>(
+          create: (context) => homeCubit,
+        ),
+        BlocProvider(
+          create: (context) => matchDetailsCubit..fetchMatchEvents(liveMatch.fixture!.id!.toString()),
+        ),
+      ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
@@ -49,167 +58,168 @@ class MatchDetails extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 50),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: 400,
-                  decoration: BoxDecoration(
-                    color: AppColors.listTileGrey,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 15,
-                                  child: ClipOval(
-                                    child: assetName == null
-                                        ? const Image(image: NetworkImage(defaultFlag))
-                                        : SvgPicture.network(
-                                            assetName,
-                                            fit: BoxFit.cover,
-                                            placeholderBuilder: (BuildContext context) => Container(
-                                              padding: const EdgeInsets.all(30.0),
-                                              child: const Center(
-                                                child: CircularProgressIndicator(
-                                                  backgroundColor: Colors.red,
-                                                ),
+              Container(
+                width: 400,
+                decoration: BoxDecoration(
+                  color: AppColors.listTileGrey,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 15,
+                                child: ClipOval(
+                                  child: assetName == null
+                                      ? const Image(image: NetworkImage(defaultFlag))
+                                      : SvgPicture.network(
+                                          assetName,
+                                          fit: BoxFit.cover,
+                                          placeholderBuilder: (BuildContext context) => Container(
+                                            padding: const EdgeInsets.all(30.0),
+                                            child: const Center(
+                                              child: CircularProgressIndicator(
+                                                backgroundColor: Colors.red,
                                               ),
                                             ),
                                           ),
-                                  ),
+                                        ),
                                 ),
-                                const SizedBox(width: 10),
+                              ),
+                              const SizedBox(width: 10),
+                              Text(
+                                liveMatch.league!.name!,
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            ],
+                          ),
+                          Container(
+                            height: 30,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(24),
+                              color: AppColors.liveTimerBackground,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                CircleAvatar(
+                                  radius: 5,
+                                  backgroundColor: liveMatch.fixture!.status!.short! == 'TBD' ||
+                                          liveMatch.fixture!.status!.short! == 'NS' ||
+                                          liveMatch.fixture!.status!.short! == 'SUSP'
+                                      ? Colors.red
+                                      : Colors.green,
+                                ),
                                 Text(
-                                  liveMatch.league!.name!,
-                                  style: const TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
+                                  liveMatch.fixture!.status!.short!,
+                                  style: TextStyle(
+                                      color: liveMatch.fixture!.status!.short! == 'TBD' ||
+                                              liveMatch.fixture!.status!.short! == 'NS' ||
+                                              liveMatch.fixture!.status!.short! == 'SUSP'
+                                          ? Colors.black
+                                          : Colors.green,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ],
                             ),
-                            Container(
-                              height: 30,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(24),
-                                color: AppColors.liveTimerBackground,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: 370,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: SizedBox.square(
+                                dimension: 110,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                      image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
+                                    ),
+                                    Text(liveMatch.teams!.home!.name!,
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                  ],
+                                ),
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            ),
+                            const SizedBox(width: 30),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  CircleAvatar(
-                                    radius: 5,
-                                    backgroundColor: liveMatch.fixture!.status!.short! == 'TBD' ||
-                                            liveMatch.fixture!.status!.short! == 'NS' ||
-                                            liveMatch.fixture!.status!.short! == 'SUSP'
-                                        ? Colors.red
-                                        : Colors.green,
-                                  ),
-                                  Text(
-                                    liveMatch.fixture!.status!.short!,
-                                    style: TextStyle(
-                                        color: liveMatch.fixture!.status!.short! == 'TBD' ||
-                                                liveMatch.fixture!.status!.short! == 'NS' ||
-                                                liveMatch.fixture!.status!.short! == 'SUSP'
-                                            ? Colors.black
-                                            : Colors.green,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                  liveMatch.fixture!.status!.short == 'NS' || liveMatch.fixture!.status!.short == 'TBD'
+                                      ? Text(
+                                          liveMatch.fixture!.status!.long!,
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        )
+                                      : Text(
+                                          '${liveMatch.goals!.home} -'
+                                          '${liveMatch.goals!.away}',
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 28,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
                                 ],
+                              ),
+                            ),
+                            const SizedBox(width: 30),
+                            Expanded(
+                              flex: 1,
+                              child: SizedBox.square(
+                                dimension: 110,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image(
+                                      image: NetworkImage(
+                                        liveMatch.teams!.away!.logo!,
+                                        scale: 3,
+                                      ),
+                                    ),
+                                    Text(liveMatch.teams!.away!.name!,
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 10),
-                        SizedBox(
-                          width: 370,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: SizedBox.square(
-                                  dimension: 110,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image(
-                                        image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
-                                      ),
-                                      Text(liveMatch.teams!.home!.name!,
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 30),
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    liveMatch.fixture!.status!.short == 'NS' ||
-                                            liveMatch.fixture!.status!.short == 'TBD'
-                                        ? Text(
-                                            liveMatch.fixture!.status!.long!,
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          )
-                                        : Text(
-                                            '${liveMatch.goals!.home} -'
-                                            '${liveMatch.goals!.away}',
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 28,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(width: 30),
-                              Expanded(
-                                flex: 1,
-                                child: SizedBox.square(
-                                  dimension: 110,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image(
-                                        image: NetworkImage(
-                                          liveMatch.teams!.away!.logo!,
-                                          scale: 3,
-                                        ),
-                                      ),
-                                      Text(liveMatch.teams!.away!.name!,
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        const Divider(color: Colors.grey, thickness: 0.5, indent: 5.0, endIndent: 5.0),
-                        const _EventsWidget(),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(height: 15),
+                      const Divider(color: Colors.grey, thickness: 0.5),
+                      const SizedBox(height: 5),
+                      BlocBuilder<HomeCubit, HomeState>(
+                        builder: (context, state) {
+                          return _EventsWidget(liveMatch);
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -239,37 +249,119 @@ class MatchDetails extends StatelessWidget {
 }
 
 class _EventsWidget extends StatelessWidget {
-  const _EventsWidget();
+  const _EventsWidget(this.liveMatch);
+
+  final LiveMatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          flex: 2,
-          child: Column(
-            children: [],
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Column(
-            children: [
-              Icon(
-                Icons.sports_soccer,
-                color: Colors.grey,
+    return BlocBuilder<MatchDetailsCubit, MatchDetailsState>(
+      builder: (context, state) {
+        if (state.isLoading == true) {
+          return const Center(
+            child: CircularProgressIndicator(
+              color: AppColors.mainThemePink,
+            ),
+          );
+        }
+
+        final matchEvents = state.matchEvents;
+
+        if (matchEvents.isEmpty) {
+          return const SizedBox(
+            height: 150,
+            child: Center(
+              child: Text(
+                'No details about this match',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
               ),
-            ],
-          ),
-        ),
-        Expanded(
-          flex: 2,
-          child: Column(
-            children: [],
-          ),
-        )
-      ],
+            ),
+          );
+        }
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              flex: 2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 150,
+                    child: ListView.builder(
+                      itemCount: matchEvents.length,
+                      itemBuilder: (context, index) {
+                        final event = matchEvents[index];
+                        if (liveMatch.teams!.home!.id == event.team!.id) {
+                          if (event.type == 'Goal') {
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(event.time!.elapsed.toString(),
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                const SizedBox(width: 5),
+                                Text(event.player!.name!,
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                              ],
+                            );
+                          }
+                        }
+                        return const SizedBox.shrink();
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Expanded(
+              flex: 1,
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.sports_soccer,
+                    color: Colors.grey,
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 150,
+                    child: ListView.builder(
+                      itemCount: matchEvents.length,
+                      itemBuilder: (context, index) {
+                        final event = matchEvents[index];
+                        if (liveMatch.teams!.away!.id == event.team!.id) {
+                          if (event.type == 'Goal') {
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(event.player!.name!,
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                const SizedBox(width: 5),
+                                Text(event.time!.elapsed.toString(),
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                              ],
+                            );
+                          }
+                        }
+                        return const SizedBox.shrink();
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 }
@@ -285,18 +377,17 @@ class _DetailsTitle extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 title,
+                textAlign: TextAlign.center,
                 style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
               )
             ],
           ),
           const SizedBox(height: 5),
           Row(
-            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(

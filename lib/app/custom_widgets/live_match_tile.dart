@@ -18,7 +18,7 @@ class LiveMatchTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final assetName = liveMatch.league!.flag;
     const String defaultFlag =
-        'https://img.freepik.com/darmowe-wektory/na-bialym-tle-ziemia-na-bialym-tle_1308-55360.jpg?w=2000';
+        'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(

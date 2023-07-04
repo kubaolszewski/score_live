@@ -4,10 +4,11 @@ part of 'home_cubit.dart';
 class HomeState with _$HomeState {
   const factory HomeState({
     @Default([]) List<LiveMatchModel>? liveMatchModel,
-    @Default(false) bool isLoading,
+    @Default([]) List<MatchEventsModel>? matchEventsModel,
     DateTime? date,
     @Default(HomeOptions.score) HomeOptions homeOptions,
     @Default(DetailsOptions.summary) DetailsOptions detailsOptions,
+    @Default(false) bool isLoading,
     String? errorMessage,
   }) = _HomeState;
 }

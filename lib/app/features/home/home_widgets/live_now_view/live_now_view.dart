@@ -38,6 +38,7 @@ class LiveNowView extends StatelessWidget {
         return SizedBox(
           height: 250,
           child: ListView.builder(
+            physics: const PageScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: liveMatches.length,
             itemBuilder: (context, index) {
