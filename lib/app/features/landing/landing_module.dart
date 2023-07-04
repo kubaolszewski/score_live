@@ -27,13 +27,6 @@ class LandingModule extends Module {
       ];
 
   @override
-  List<Module> get imports => [
-        HomeModule(),
-        CompetitionModule(),
-        AccountModule(),
-      ];
-
-  @override
   List<ModularRoute> get routes => [
         ChildRoute(
           LandingScreenPaths.mainPath,
@@ -52,6 +45,8 @@ class LandingModule extends Module {
               LandingScreenPaths.accountModulePath,
               child: (context, args) => const AccountScreen(),
             ),
+          ],
+        ),
             ModuleRoute(
               LandingScreenPaths.homeModulePath,
               module: HomeModule(),
@@ -64,8 +59,6 @@ class LandingModule extends Module {
               LandingScreenPaths.accountModulePath,
               module: AccountModule(),
             ),
-          ],
-        ),
       ];
 }
 

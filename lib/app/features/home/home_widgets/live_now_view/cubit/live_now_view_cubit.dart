@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:intl/intl.dart';
 import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/repositories/home_screen_repository.dart';
 
@@ -12,13 +11,10 @@ class LiveNowViewCubit extends Cubit<LiveNowViewState> {
 
   final HomeScreenRepository homeScreenRepository;
 
-  Future<void> fetchLiveMatches(DateTime date) async {
-
-    String formattedDate = DateFormat('yyyy-MM-dd').format(date);
-    String season = DateFormat('yyyy').format(date);
+  Future<void> fetchLiveMatches() async {
     emit(state.copyWith(isLoading: true));
     try {
-      final liveMatches = await homeScreenRepository.fetchLiveMatches(season, formattedDate);
+      final liveMatches = await homeScreenRepository.fetchLiveMatches();
       emit(state.copyWith(liveMatchModel: liveMatches, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));

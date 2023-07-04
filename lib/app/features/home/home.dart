@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => homeCubit),
-          BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches(DateTime.now())),
+          BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
           BlocProvider(create: (context) => scoreTabCubit..fetchMatchesByDate(DateTime(2023, 2, 11))),
         ],
         child: Scaffold(
