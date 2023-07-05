@@ -27,12 +27,12 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
   }
 
   Future<void> fetchMatchGoals(
-      // String matchID,
+      String matchID,
       ) async {
     emit(state.copyWith(isLoading: true));
     try {
       final matchEvents = await matchDetailsRepository.fetchMatchGoals(
-          // matchID,
+          matchID,
           );
       emit(state.copyWith(matchEvents: matchEvents, isLoading: false));
     } catch (error) {

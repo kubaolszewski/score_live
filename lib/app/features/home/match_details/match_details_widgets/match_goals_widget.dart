@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
+import 'package:score_live/app/custom_widgets/event_text_samples.dart';
 import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
-class MatchEventsWidget extends StatelessWidget {
-  const MatchEventsWidget(this.liveMatch, {super.key});
+class MatchGoalsWidget extends StatelessWidget {
+  const MatchGoalsWidget(this.liveMatch, {super.key});
 
   final LiveMatchModel liveMatch;
 
@@ -47,23 +48,15 @@ class MatchEventsWidget extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: 150,
-                    child: ListView.builder(
-                      itemCount: matchEvents.length,
-                      itemBuilder: (context, index) {
-                        final event = matchEvents[index];
-                        // if (liveMatch.teams!.home!.id == event.team!.id) {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(event.time!.elapsed.toString(),
-                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                            const SizedBox(width: 5),
-                            Text(event.player!.name!,
-                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                          ],
-                        );
-                        // }
-                      },
+                    child: ListView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: [
+                        for (final event in matchEvents) ...[
+                          liveMatch.teams!.home!.id == event.team!.id && event.type == 'Goal'
+                              ? HomeEventTextSample(time: event.time!.elapsed.toString(), player: event.player!.name!)
+                              : const SizedBox(height: 0),
+                        ]
+                      ],
                     ),
                   ),
                 ],
@@ -87,24 +80,15 @@ class MatchEventsWidget extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: 150,
-                    child: ListView.builder(
+                    child: ListView(
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: matchEvents.length,
-                      itemBuilder: (context, index) {
-                        final event = matchEvents[index];
-                        // if (liveMatch.teams!.away!.id == event.team!.id) {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(event.player!.name!,
-                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                            const SizedBox(width: 5),
-                            Text(event.time!.elapsed.toString(),
-                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                          ],
-                        );
-                        //   }
-                      },
+                      children: [
+                        for (final event in matchEvents) ...[
+                          liveMatch.teams!.away!.id == event.team!.id && event.type == 'Goal'
+                              ? AwayEventTextSample(time: event.time!.elapsed.toString(), player: event.player!.name!)
+                              : const SizedBox(height: 0),
+                        ]
+                      ],
                     ),
                   ),
                 ],
