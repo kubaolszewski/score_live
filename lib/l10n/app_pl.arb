@@ -15,6 +15,7 @@
   "matchDetailsSummary" : "Przebieg",
   "halfTime" : "Przerwa",
   "fullTime" : "Koniec czasu",
+  "matchNotEnded" : "Mecz jeszcze się nie zakończył.",
   "matchDetailsLineUp" : "Składy",
   "matchDetailsStats" : "Statystyki",
   "matchDetailsH2H" : "H2H",

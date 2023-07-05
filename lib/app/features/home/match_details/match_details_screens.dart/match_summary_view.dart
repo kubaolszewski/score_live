@@ -43,7 +43,8 @@ class MatchSummaryView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                                   child: HomeEventTextSample(
-                                      time: event.time!.elapsed.toString(), player: event.player!.name!),
+                                      time: event.time!.elapsed.toString(),
+                                      player: event.player!.name == null ? 'Unknown player' : event.player!.name!),
                                 )
                               else
                                 const SizedBox(height: 0),
@@ -69,7 +70,7 @@ class MatchSummaryView extends StatelessWidget {
                                   padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                                   child: AwayEventTextSample(
                                     time: event.time!.elapsed.toString(),
-                                    player: event.player!.name!,
+                                    player: event.player!.name == null ? 'Unknown player' : event.player!.name!,
                                   ),
                                 )
                               else
@@ -143,7 +144,8 @@ class MatchSummaryView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                                   child: HomeEventTextSample(
-                                      time: event.time!.elapsed.toString(), player: event.player!.name!),
+                                      time: event.time!.elapsed.toString(),
+                                      player: event.player!.name == null ? 'Unknown player' : event.player!.name!),
                                 )
                               else
                                 const SizedBox(height: 0),
@@ -169,7 +171,7 @@ class MatchSummaryView extends StatelessWidget {
                                   padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                                   child: AwayEventTextSample(
                                     time: event.time!.elapsed.toString(),
-                                    player: event.player!.name!,
+                                    player: event.player!.name == null ? 'Unknown player' : event.player!.name!,
                                   ),
                                 )
                               else
@@ -201,8 +203,8 @@ class MatchSummaryView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     liveMatch.score!.fulltime!.home == null || liveMatch.score!.fulltime!.away == null
-                        ? Text(
-                            liveMatch.fixture!.status!.long!,
+                        ?  Text(
+                            context.localizations.matchNotEnded,
                             textAlign: TextAlign.center,
                             style: const TextStyle(color: Colors.white, fontSize: 16),
                           )
