@@ -305,3 +305,141 @@ abstract class _MatchEvents implements MatchEvents {
   _$$_MatchEventsCopyWith<_$_MatchEvents> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+League _$LeagueFromJson(Map<String, dynamic> json) {
+  return _League.fromJson(json);
+}
+
+/// @nodoc
+mixin _$League {
+  List<LeagueModel> get response => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LeagueCopyWith<League> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LeagueCopyWith<$Res> {
+  factory $LeagueCopyWith(League value, $Res Function(League) then) =
+      _$LeagueCopyWithImpl<$Res, League>;
+  @useResult
+  $Res call({List<LeagueModel> response});
+}
+
+/// @nodoc
+class _$LeagueCopyWithImpl<$Res, $Val extends League>
+    implements $LeagueCopyWith<$Res> {
+  _$LeagueCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_value.copyWith(
+      response: null == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<LeagueModel>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_LeagueCopyWith<$Res> implements $LeagueCopyWith<$Res> {
+  factory _$$_LeagueCopyWith(_$_League value, $Res Function(_$_League) then) =
+      __$$_LeagueCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<LeagueModel> response});
+}
+
+/// @nodoc
+class __$$_LeagueCopyWithImpl<$Res>
+    extends _$LeagueCopyWithImpl<$Res, _$_League>
+    implements _$$_LeagueCopyWith<$Res> {
+  __$$_LeagueCopyWithImpl(_$_League _value, $Res Function(_$_League) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_$_League(
+      response: null == response
+          ? _value._response
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<LeagueModel>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_League implements _League {
+  _$_League({final List<LeagueModel> response = const []})
+      : _response = response;
+
+  factory _$_League.fromJson(Map<String, dynamic> json) =>
+      _$$_LeagueFromJson(json);
+
+  final List<LeagueModel> _response;
+  @override
+  @JsonKey()
+  List<LeagueModel> get response {
+    if (_response is EqualUnmodifiableListView) return _response;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_response);
+  }
+
+  @override
+  String toString() {
+    return 'League(response: $response)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_League &&
+            const DeepCollectionEquality().equals(other._response, _response));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_response));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LeagueCopyWith<_$_League> get copyWith =>
+      __$$_LeagueCopyWithImpl<_$_League>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_LeagueToJson(
+      this,
+    );
+  }
+}
+
+abstract class _League implements League {
+  factory _League({final List<LeagueModel> response}) = _$_League;
+
+  factory _League.fromJson(Map<String, dynamic> json) = _$_League.fromJson;
+
+  @override
+  List<LeagueModel> get response;
+  @override
+  @JsonKey(ignore: true)
+  _$$_LeagueCopyWith<_$_League> get copyWith =>
+      throw _privateConstructorUsedError;
+}

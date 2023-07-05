@@ -41,7 +41,7 @@ class MatchDetails extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => matchDetailsCubit
-            ..fetchMatchGoals(
+            ..fetchMatchEvents(
               liveMatch.fixture!.id!.toString(),
             ),
         ),
