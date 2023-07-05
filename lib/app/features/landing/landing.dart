@@ -18,13 +18,13 @@ class LandingScreen extends StatefulWidget {
 void _landingScreenListener(BuildContext context, LandingState state) {
   switch (state.currentIndex) {
     case 0:
-      Modular.to.navigate(LandingScreenPaths.homeModulePath);
+      Modular.to.pushNamed(LandingScreenPaths.homeModulePath);
     case 1:
-      Modular.to.navigate(LandingScreenPaths.competitionModulePath);
+      Modular.to.pushNamed(LandingScreenPaths.competitionModulePath);
     case 2:
-      Modular.to.navigate(LandingScreenPaths.accountModulePath);
+      Modular.to.pushNamed(LandingScreenPaths.accountModulePath);
     default:
-      Modular.to.navigate(LandingScreenPaths.homeModulePath);
+      Modular.to.pushNamed(LandingScreenPaths.homeModulePath);
   }
 }
 

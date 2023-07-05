@@ -12,17 +12,14 @@ import 'package:score_live/repositories/match_details_repository.dart';
 class HomeModule extends Module {
   @override
   List<Bind> get binds => [
+        Bind.singleton((i) => HomeCubit()),
         Bind.factory((i) => ApiClient()),
         Bind.factory((i) => LiveMatchesRemoteService.create(i())),
         Bind.factory((i) => MatchDetailsRepository(i())),
         Bind.singleton((i) => MatchDetailsCubit(i())),
         Bind.singleton((i) => LiveNowViewCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i())),
-        Bind.factory((i) => HomeCubit()),
       ];
-
-  @override
-  List<Module> get imports => [];
 
   @override
   List<ModularRoute> get routes => [

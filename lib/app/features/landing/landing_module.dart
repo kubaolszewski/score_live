@@ -35,30 +35,33 @@ class LandingModule extends Module {
           children: [
             ChildRoute(
               LandingScreenPaths.homeModulePath,
+              transition: TransitionType.noTransition,
               child: (context, args) => const HomeScreen(),
             ),
             ChildRoute(
               LandingScreenPaths.competitionModulePath,
+              transition: TransitionType.noTransition,
               child: (context, args) => const CompetitionScreen(),
             ),
             ChildRoute(
               LandingScreenPaths.accountModulePath,
+              transition: TransitionType.noTransition,
               child: (context, args) => const AccountScreen(),
             ),
           ],
         ),
-            ModuleRoute(
-              LandingScreenPaths.homeModulePath,
-              module: HomeModule(),
-            ),
-            ModuleRoute(
-              LandingScreenPaths.competitionModulePath,
-              module: CompetitionModule(),
-            ),
-            ModuleRoute(
-              LandingScreenPaths.accountModulePath,
-              module: AccountModule(),
-            ),
+        ModuleRoute(
+          LandingScreenPaths.homeModulePath,
+          module: HomeModule(),
+        ),
+        ModuleRoute(
+          LandingScreenPaths.competitionModulePath,
+          module: CompetitionModule(),
+        ),
+        ModuleRoute(
+          LandingScreenPaths.accountModulePath,
+          module: AccountModule(),
+        ),
       ];
 }
 
