@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/league_model.dart';
+import 'package:score_live/models/league_model/league_model.dart';
 
 part 'competition_state.dart';
 part 'competition_cubit.freezed.dart';

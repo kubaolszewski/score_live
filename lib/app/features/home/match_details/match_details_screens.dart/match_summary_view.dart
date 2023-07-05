@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/event_text_samples.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/models/live_match_model.dart';
-import 'package:score_live/models/match_events_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchSummaryView extends StatelessWidget {

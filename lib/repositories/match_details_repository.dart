@@ -1,5 +1,5 @@
 import 'package:score_live/data/live_matches_remote_service.dart';
-import 'package:score_live/models/match_events_model.dart';
+import 'package:score_live/models/match_events_model/match_events_model.dart';
 
 class MatchDetailsRepository {
   MatchDetailsRepository(this.liveMatchesRemoteService);

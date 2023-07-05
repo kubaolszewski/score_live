@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:score_live/core/enums.dart';
-import 'package:score_live/models/match_events_model.dart';
+import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/repositories/match_details_repository.dart';
 
 part 'match_details_state.dart';
