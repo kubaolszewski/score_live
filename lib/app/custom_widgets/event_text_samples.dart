@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class HomeEventTextSample extends StatelessWidget {
   const HomeEventTextSample({super.key, required this.time, required this.player});
@@ -11,9 +12,9 @@ class HomeEventTextSample extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(time, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        Text(time, style: CommonTextStyles.basicWhiteText),
         const SizedBox(width: 5),
-        Text(player, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        Text(player, style: CommonTextStyles.basicWhiteText),
       ],
     );
   }
@@ -30,9 +31,9 @@ class AwayEventTextSample extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Text(player, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        Text(player, style: CommonTextStyles.basicWhiteText),
         const SizedBox(width: 5),
-        Text(time, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        Text(time, style: CommonTextStyles.basicWhiteText),
       ],
     );
   }

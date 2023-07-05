@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({
@@ -15,7 +16,7 @@ class AccountScreen extends StatelessWidget {
       appBar: CustomAppBar(
           title: Text(
         context.localizations.accountAppBarTitle,
-        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        style: CommonTextStyles.basicWhiteText,
       )),
       body: const Center(
         child: Column(

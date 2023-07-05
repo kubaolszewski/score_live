@@ -14,6 +14,7 @@ import 'package:score_live/app/features/home/home_tabs/favorites_tab/favorites_t
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: CustomAppBar(
             title: const Text(
               'scorelive',
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: CommonTextStyles.basicWhiteText,
             ),
             actions: [
               IconButton(

@@ -5,6 +5,7 @@ import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class LiveMatchTile extends StatelessWidget {
   const LiveMatchTile({
@@ -121,7 +122,7 @@ class LiveMatchTile extends StatelessWidget {
                             ),
                             Text(liveMatch.teams!.home!.name!,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                style: CommonTextStyles.basicWhiteText),
                           ],
                         ),
                       ),
@@ -168,7 +169,7 @@ class LiveMatchTile extends StatelessWidget {
                             ),
                             Text(liveMatch.teams!.away!.name!,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                style: CommonTextStyles.basicWhiteText),
                           ],
                         ),
                       ),

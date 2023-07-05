@@ -16,6 +16,7 @@ import 'package:score_live/app/features/home/match_details/match_details_widgets
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class MatchDetails extends StatelessWidget {
   const MatchDetails({
@@ -159,7 +160,7 @@ class MatchDetails extends StatelessWidget {
                                     ),
                                     Text(liveMatch.teams!.home!.name!,
                                         textAlign: TextAlign.center,
-                                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                        style: CommonTextStyles.basicWhiteText),
                                   ],
                                 ),
                               ),
@@ -208,7 +209,7 @@ class MatchDetails extends StatelessWidget {
                                     ),
                                     Text(liveMatch.teams!.away!.name!,
                                         textAlign: TextAlign.center,
-                                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                                        style: CommonTextStyles.basicWhiteText),
                                   ],
                                 ),
                               ),
