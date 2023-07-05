@@ -31,80 +31,81 @@ class _HomeScreenState extends State<HomeScreen> {
     final homeCubit = Modular.get<HomeCubit>();
     final liveNowViewCubit = Modular.get<LiveNowViewCubit>();
     final scoreTabCubit = Modular.get<ScoreTabCubit>();
-    return BlocProvider(
-      create: (context) => homeCubit,
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (context) => homeCubit),
-          BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
-          BlocProvider(create: (context) => scoreTabCubit..fetchMatchesByDate(DateTime(2023, 2, 11))),
-        ],
-        child: Scaffold(
-          backgroundColor: AppColors.backgroundBlack,
-          appBar: CustomAppBar(
-            title: const Text(
-              'scorelive',
-              style: CommonTextStyles.basicWhiteText,
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.search_rounded, color: Colors.white, size: 32),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.notifications_none, color: Colors.white, size: 32),
-              ),
-            ],
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => homeCubit),
+        BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
+        BlocProvider(create: (context) => scoreTabCubit..fetchMatchesByDate(DateTime(2023, 2, 11))),
+      ],
+      child: Scaffold(
+        backgroundColor: AppColors.backgroundBlack,
+        appBar: CustomAppBar(
+          title: const Text(
+            'scorelive',
+            style: CommonTextStyles.basicWhiteText,
           ),
-          body: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const HomeScreenDatePicker(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        context.localizations.liveNow,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.search_rounded, color: Colors.white, size: 32),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.notifications_none, color: Colors.white, size: 32),
+            ),
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const HomeScreenDatePicker(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      context.localizations.liveNow,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: Colors.white,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        context.localizations.seeMore,
                         style: const TextStyle(
+                          color: Color.fromARGB(255, 215, 54, 108),
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          color: Colors.white,
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          context.localizations.seeMore,
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 215, 54, 108),
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
-                const LiveNowView(),
-                const HomeOptionsTapBar(),
-                BlocBuilder<HomeCubit, HomeState>(
-                  builder: (context, state) {
-                    switch (state.homeOptions) {
-                      case HomeOptions.upcoming:
-                        return const UpcomingTab();
-                      case HomeOptions.score:
-                        return const ScoreTab();
-                      case HomeOptions.favorites:
-                        return const FavoritesTab();
-                    }
-                  },
-                ),
-              ],
-            ),
+              ),
+              const LiveNowView(),
+               BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  return const HomeOptionsTapBar();
+                },
+              ),
+              BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  switch (state.homeOptions) {
+                    case HomeOptions.upcoming:
+                      return const UpcomingTab();
+                    case HomeOptions.score:
+                      return const ScoreTab();
+                    case HomeOptions.favorites:
+                      return const FavoritesTab();
+                  }
+                },
+              ),
+            ],
           ),
         ),
       ),

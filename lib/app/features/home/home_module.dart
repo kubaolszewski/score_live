@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now_view/cubit/live_now_view_cubit.dart';
@@ -16,7 +17,8 @@ class HomeModule extends Module {
         Bind.factory((i) => MatchDetailsRepository(i())),
         Bind.singleton((i) => MatchDetailsCubit(i())),
         Bind.singleton((i) => LiveNowViewCubit(i())),
-        Bind.singleton((i) => ScoreTabCubit(i()))
+        Bind.singleton((i) => ScoreTabCubit(i())),
+        Bind.factory((i) => HomeCubit()),
       ];
 
   @override
