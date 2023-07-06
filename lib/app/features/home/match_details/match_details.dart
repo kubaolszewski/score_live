@@ -31,11 +31,11 @@ class MatchDetails extends StatelessWidget {
         'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     final String leagueName = liveMatch.league!.name ?? 'Unknown league';
     final String homeTeamLogo =
-        liveMatch.teams!.home!.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+        liveMatch.teams?.home?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
     final String awayTeamLogo =
-        liveMatch.teams!.away!.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
-    final String homeTeamName = liveMatch.teams!.home!.name ?? 'Unknown home team';
-    final String awayTeamName = liveMatch.teams!.away!.name ?? 'Unknown away team';
+        liveMatch.teams?.away?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
+    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
     return BlocProvider<HomeCubit>(
       create: (context) => homeCubit,
       child: Scaffold(

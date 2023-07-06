@@ -17,11 +17,11 @@ class WideMatchListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String homeTeamLogo =
-        liveMatch.teams!.home!.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+        liveMatch.teams?.home?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
     final String awayTeamLogo =
-        liveMatch.teams!.away!.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
-    final String homeTeamName = liveMatch.teams!.home!.name ?? 'Unknown home team';
-    final String awayTeamName = liveMatch.teams!.away!.name ?? 'Unknown away team';
+        liveMatch.teams?.away?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
+    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
