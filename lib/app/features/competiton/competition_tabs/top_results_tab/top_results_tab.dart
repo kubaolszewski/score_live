@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
+import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class TopResultsTab extends StatelessWidget {
@@ -13,7 +13,7 @@ class TopResultsTab extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.sizeOf(context).height;
     double width = MediaQuery.sizeOf(context).width;
-    return BlocBuilder<CompetitionCubit, CompetitionState>(
+    return BlocBuilder<TopResultsTabCubit, TopResultsTabState>(
       builder: (context, state) {
         if (state.isLoading == true) {
           return const Center(
@@ -23,7 +23,7 @@ class TopResultsTab extends StatelessWidget {
           );
         }
 
-        final leagues = state.league;
+        final leagues = state.leagueModel;
 
         if (leagues.isEmpty) {
           return const SizedBox(
@@ -62,32 +62,48 @@ class TopResultsTab extends StatelessWidget {
                       final String leagueFlag = league.country?.flag ?? '';
                       final String leagueRegion = league.country?.name ?? '';
                       final String leagueName = league.league?.name ?? '';
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: AppColors.listTileGrey,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              flex: 0.5.toInt(),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
-                                child: Column(
-                                  children: [SvgPicture.network(leagueFlag)],
-                                ),
-                              ),
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: InkWell(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.listTileGrey,
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            Expanded(
-                              flex: 3,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Row(
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 0.5.toInt(),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
+                                    child: Column(
                                       children: [
-                                        Text(leagueRegion),
+                                        CircleAvatar(
+                                          radius: 15,
+                                          child: ClipOval(
+                                            child: SvgPicture.network(leagueFlag, fit: BoxFit.fill,),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1.5.toInt(),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          leagueRegion,
+                                          textAlign: TextAlign.start,
+                                          style: const TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
                                         const SizedBox(width: 10),
                                         Text(
                                           leagueName,
@@ -96,14 +112,14 @@ class TopResultsTab extends StatelessWidget {
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       );
                     },

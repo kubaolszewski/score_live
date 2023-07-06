@@ -3,6 +3,7 @@ import 'package:score_live/app/features/account/account.dart';
 import 'package:score_live/app/features/account/account_module.dart';
 import 'package:score_live/app/features/competiton/competition.dart';
 import 'package:score_live/app/features/competiton/competition_module.dart';
+import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_module.dart';
@@ -13,6 +14,7 @@ import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing.dart';
 import 'package:score_live/data/api.client.dart';
 import 'package:score_live/data/live_matches_remote_service.dart';
+import 'package:score_live/repositories/competition_screen_repository.dart';
 import 'package:score_live/repositories/home_screen_repository.dart';
 
 class LandingModule extends Module {
@@ -22,10 +24,12 @@ class LandingModule extends Module {
         Bind.factory((i) => ApiClient()),
         Bind.factory((i) => LiveMatchesRemoteService.create(i())),
         Bind.factory((i) => HomeScreenRepository(i())),
+        Bind.factory((i) => CompetitionScreenRepository(i())),
         Bind.singleton((i) => CompetitionCubit()),
         Bind.singleton((i) => HomeCubit()),
         Bind.singleton((i) => LiveNowViewCubit(i())),
-        Bind.singleton((i) => ScoreTabCubit(i()))
+        Bind.singleton((i) => ScoreTabCubit(i())),
+        Bind.singleton((i) => TopResultsTabCubit(i()))
       ];
 
   @override
@@ -43,7 +47,7 @@ class LandingModule extends Module {
             ChildRoute(
               LandingScreenPaths.competitionModulePath,
               transition: TransitionType.noTransition,
-              child: (context, args) => const CompetitionScreen(),
+              child: (context, args) =>  CompetitionScreen(),
             ),
             ChildRoute(
               LandingScreenPaths.accountModulePath,

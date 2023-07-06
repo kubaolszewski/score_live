@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TopResultsTabState {
   List<LeagueModel> get leagueModel => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TopResultsTabStateCopyWith<TopResultsTabState> get copyWith =>
@@ -30,7 +31,8 @@ abstract class $TopResultsTabStateCopyWith<$Res> {
           TopResultsTabState value, $Res Function(TopResultsTabState) then) =
       _$TopResultsTabStateCopyWithImpl<$Res, TopResultsTabState>;
   @useResult
-  $Res call({List<LeagueModel> leagueModel, bool isLoading});
+  $Res call(
+      {List<LeagueModel> leagueModel, bool isLoading, String? errorMessage});
 }
 
 /// @nodoc
@@ -48,6 +50,7 @@ class _$TopResultsTabStateCopyWithImpl<$Res, $Val extends TopResultsTabState>
   $Res call({
     Object? leagueModel = null,
     Object? isLoading = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
       leagueModel: null == leagueModel
@@ -58,6 +61,10 @@ class _$TopResultsTabStateCopyWithImpl<$Res, $Val extends TopResultsTabState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -70,7 +77,8 @@ abstract class _$$_TopResultsTabStateCopyWith<$Res>
       __$$_TopResultsTabStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<LeagueModel> leagueModel, bool isLoading});
+  $Res call(
+      {List<LeagueModel> leagueModel, bool isLoading, String? errorMessage});
 }
 
 /// @nodoc
@@ -86,6 +94,7 @@ class __$$_TopResultsTabStateCopyWithImpl<$Res>
   $Res call({
     Object? leagueModel = null,
     Object? isLoading = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_$_TopResultsTabState(
       leagueModel: null == leagueModel
@@ -96,6 +105,10 @@ class __$$_TopResultsTabStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -104,7 +117,9 @@ class __$$_TopResultsTabStateCopyWithImpl<$Res>
 
 class _$_TopResultsTabState implements _TopResultsTabState {
   const _$_TopResultsTabState(
-      {final List<LeagueModel> leagueModel = const [], this.isLoading = false})
+      {final List<LeagueModel> leagueModel = const [],
+      this.isLoading = false,
+      this.errorMessage})
       : _leagueModel = leagueModel;
 
   final List<LeagueModel> _leagueModel;
@@ -119,10 +134,12 @@ class _$_TopResultsTabState implements _TopResultsTabState {
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'TopResultsTabState(leagueModel: $leagueModel, isLoading: $isLoading)';
+    return 'TopResultsTabState(leagueModel: $leagueModel, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -133,12 +150,17 @@ class _$_TopResultsTabState implements _TopResultsTabState {
             const DeepCollectionEquality()
                 .equals(other._leagueModel, _leagueModel) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_leagueModel), isLoading);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_leagueModel),
+      isLoading,
+      errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -151,12 +173,15 @@ class _$_TopResultsTabState implements _TopResultsTabState {
 abstract class _TopResultsTabState implements TopResultsTabState {
   const factory _TopResultsTabState(
       {final List<LeagueModel> leagueModel,
-      final bool isLoading}) = _$_TopResultsTabState;
+      final bool isLoading,
+      final String? errorMessage}) = _$_TopResultsTabState;
 
   @override
   List<LeagueModel> get leagueModel;
   @override
   bool get isLoading;
+  @override
+  String? get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$_TopResultsTabStateCopyWith<_$_TopResultsTabState> get copyWith =>

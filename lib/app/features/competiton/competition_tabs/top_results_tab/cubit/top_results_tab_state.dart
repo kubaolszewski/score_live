@@ -5,5 +5,6 @@ class TopResultsTabState with _$TopResultsTabState {
   const factory TopResultsTabState({
     @Default([]) List<LeagueModel> leagueModel,
     @Default(false) bool isLoading,
+    String? errorMessage,
   }) = _TopResultsTabState;
 }
