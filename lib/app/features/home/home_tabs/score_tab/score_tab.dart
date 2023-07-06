@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/custom_widgets/wide_match_tile.dart';
+import 'package:score_live/app/custom_widgets/live_match_tile/wide_match_tile/wide_match_tile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';

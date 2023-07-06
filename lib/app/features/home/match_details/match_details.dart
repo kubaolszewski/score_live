@@ -16,18 +16,26 @@ import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchDetails extends StatelessWidget {
-  const MatchDetails({
+  MatchDetails({
     super.key,
     required this.liveMatch,
   });
 
   final _detailsTitle = const _DetailsTitle();
   final LiveMatchModel liveMatch;
+  final homeCubit = Modular.get<HomeCubit>();
 
   @override
   Widget build(BuildContext context) {
-    final homeCubit = Modular.get<HomeCubit>();
-    final assetName = liveMatch.league!.flag!;
+    final String assetName = liveMatch.league!.flag ??
+        'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
+    final String leagueName = liveMatch.league!.name ?? 'Unknown league';
+    final String homeTeamLogo =
+        liveMatch.teams!.home!.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String awayTeamLogo =
+        liveMatch.teams!.away!.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String homeTeamName = liveMatch.teams!.home!.name ?? 'Unknown home team';
+    final String awayTeamName = liveMatch.teams!.away!.name ?? 'Unknown away team';
     return BlocProvider<HomeCubit>(
       create: (context) => homeCubit,
       child: Scaffold(
@@ -83,7 +91,7 @@ class MatchDetails extends StatelessWidget {
                                 ),
                                 const SizedBox(width: 10),
                                 Text(
-                                  liveMatch.league!.name!,
+                                  leagueName,
                                   style: const TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
                                 )
                               ],
@@ -120,9 +128,9 @@ class MatchDetails extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image(
-                                  image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
+                                  image: NetworkImage(homeTeamLogo, scale: 3),
                                 ),
-                                Text(liveMatch.teams!.home!.name!,
+                                Text(homeTeamName,
                                     style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                               ],
                             ),
@@ -142,11 +150,11 @@ class MatchDetails extends StatelessWidget {
                               children: [
                                 Image(
                                   image: NetworkImage(
-                                    liveMatch.teams!.away!.logo!,
+                                    awayTeamLogo,
                                     scale: 3,
                                   ),
                                 ),
-                                Text(liveMatch.teams!.away!.name!,
+                                Text(awayTeamName,
                                     style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                               ],
                             ),
