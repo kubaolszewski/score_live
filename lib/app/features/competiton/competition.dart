@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
+import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab.dart';
 import 'package:score_live/app/features/competiton/competition_widgets/competition_options_tap_bar.dart';
 import 'package:score_live/app/features/competiton/competition_widgets/competition_search_bar.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
@@ -37,12 +38,22 @@ class CompetitionScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const CompetitionSearchBar(),
+                const SizedBox(height: 10),
                 const CompetitionOptionsTapBar(),
+                const SizedBox(height: 20),
+                const Text(
+                  'TOP COMPETITIONS',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 BlocBuilder<CompetitionCubit, CompetitionState>(
                   builder: (context, state) {
                     switch (state.browsingOptions) {
                       case BrowsingOptions.top:
-                        return const Placeholder(color: Colors.red);
+                        return const TopResultsTab();
                       case BrowsingOptions.region:
                         return const Placeholder(color: Colors.white);
                       case BrowsingOptions.favorites:
