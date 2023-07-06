@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CompetitionState {
   List<LeagueModel> get league => throw _privateConstructorUsedError;
+  BrowsingOptions get browsingOptions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CompetitionStateCopyWith<CompetitionState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $CompetitionStateCopyWith<$Res> {
           CompetitionState value, $Res Function(CompetitionState) then) =
       _$CompetitionStateCopyWithImpl<$Res, CompetitionState>;
   @useResult
-  $Res call({List<LeagueModel> league});
+  $Res call({List<LeagueModel> league, BrowsingOptions browsingOptions});
 }
 
 /// @nodoc
@@ -46,12 +47,17 @@ class _$CompetitionStateCopyWithImpl<$Res, $Val extends CompetitionState>
   @override
   $Res call({
     Object? league = null,
+    Object? browsingOptions = null,
   }) {
     return _then(_value.copyWith(
       league: null == league
           ? _value.league
           : league // ignore: cast_nullable_to_non_nullable
               as List<LeagueModel>,
+      browsingOptions: null == browsingOptions
+          ? _value.browsingOptions
+          : browsingOptions // ignore: cast_nullable_to_non_nullable
+              as BrowsingOptions,
     ) as $Val);
   }
 }
@@ -64,7 +70,7 @@ abstract class _$$_CompetitionStateCopyWith<$Res>
       __$$_CompetitionStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<LeagueModel> league});
+  $Res call({List<LeagueModel> league, BrowsingOptions browsingOptions});
 }
 
 /// @nodoc
@@ -79,12 +85,17 @@ class __$$_CompetitionStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? league = null,
+    Object? browsingOptions = null,
   }) {
     return _then(_$_CompetitionState(
       league: null == league
           ? _value._league
           : league // ignore: cast_nullable_to_non_nullable
               as List<LeagueModel>,
+      browsingOptions: null == browsingOptions
+          ? _value.browsingOptions
+          : browsingOptions // ignore: cast_nullable_to_non_nullable
+              as BrowsingOptions,
     ));
   }
 }
@@ -92,7 +103,9 @@ class __$$_CompetitionStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CompetitionState implements _CompetitionState {
-  const _$_CompetitionState({final List<LeagueModel> league = const []})
+  const _$_CompetitionState(
+      {final List<LeagueModel> league = const [],
+      this.browsingOptions = BrowsingOptions.top})
       : _league = league;
 
   final List<LeagueModel> _league;
@@ -105,8 +118,12 @@ class _$_CompetitionState implements _CompetitionState {
   }
 
   @override
+  @JsonKey()
+  final BrowsingOptions browsingOptions;
+
+  @override
   String toString() {
-    return 'CompetitionState(league: $league)';
+    return 'CompetitionState(league: $league, browsingOptions: $browsingOptions)';
   }
 
   @override
@@ -114,12 +131,14 @@ class _$_CompetitionState implements _CompetitionState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CompetitionState &&
-            const DeepCollectionEquality().equals(other._league, _league));
+            const DeepCollectionEquality().equals(other._league, _league) &&
+            (identical(other.browsingOptions, browsingOptions) ||
+                other.browsingOptions == browsingOptions));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_league));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_league), browsingOptions);
 
   @JsonKey(ignore: true)
   @override
@@ -129,11 +148,14 @@ class _$_CompetitionState implements _CompetitionState {
 }
 
 abstract class _CompetitionState implements CompetitionState {
-  const factory _CompetitionState({final List<LeagueModel> league}) =
-      _$_CompetitionState;
+  const factory _CompetitionState(
+      {final List<LeagueModel> league,
+      final BrowsingOptions browsingOptions}) = _$_CompetitionState;
 
   @override
   List<LeagueModel> get league;
+  @override
+  BrowsingOptions get browsingOptions;
   @override
   @JsonKey(ignore: true)
   _$$_CompetitionStateCopyWith<_$_CompetitionState> get copyWith =>

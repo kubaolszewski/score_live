@@ -3,6 +3,7 @@ import 'package:score_live/app/features/account/account.dart';
 import 'package:score_live/app/features/account/account_module.dart';
 import 'package:score_live/app/features/competiton/competition.dart';
 import 'package:score_live/app/features/competiton/competition_module.dart';
+import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/app/features/home/home.dart';
@@ -21,6 +22,7 @@ class LandingModule extends Module {
         Bind.factory((i) => ApiClient()),
         Bind.factory((i) => LiveMatchesRemoteService.create(i())),
         Bind.factory((i) => HomeScreenRepository(i())),
+        Bind.singleton((i) => CompetitionCubit()),
         Bind.singleton((i) => HomeCubit()),
         Bind.singleton((i) => LiveNowViewCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i()))
