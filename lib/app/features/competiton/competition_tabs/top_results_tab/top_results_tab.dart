@@ -65,6 +65,7 @@ class TopResultsTab extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: InkWell(
+                          onTap: () {},
                           child: Container(
                             decoration: BoxDecoration(
                               color: AppColors.listTileGrey,
@@ -81,7 +82,10 @@ class TopResultsTab extends StatelessWidget {
                                         CircleAvatar(
                                           radius: 15,
                                           child: ClipOval(
-                                            child: SvgPicture.network(leagueFlag, fit: BoxFit.fill,),
+                                            child: SvgPicture.network(
+                                              leagueFlag,
+                                              fit: BoxFit.fill,
+                                            ),
                                           ),
                                         ),
                                       ],

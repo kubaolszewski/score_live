@@ -11,31 +11,26 @@ class CompetitionScreenRepository {
     final response = [
       {
         "league": {
-          "id": 1020,
-          "name": "Calcutta Premier Division",
+          "id": 39,
+          "name": "Premier League",
           "type": "League",
-          "logo": "https://media-3.api-sports.io/football/leagues/1020.png"
+          "logo": "https://media-2.api-sports.io/football/leagues/39.png"
         },
-        "country": {"name": "India", "code": "IN", "flag": "https://media-1.api-sports.io/flags/in.svg"},
+        "country": {"name": "England", "code": "GB", "flag": "https://media-2.api-sports.io/flags/gb.svg"},
         "seasons": [
           {
-            "year": 2023,
-            "start": "2023-06-25",
-            "end": "2023-07-31",
-            "current": true,
+            "year": 2022,
+            "start": "2022-08-05",
+            "end": "2023-05-28",
+            "current": false,
             "coverage": {
-              "fixtures": {
-                "events": false,
-                "lineups": false,
-                "statistics_fixtures": false,
-                "statistics_players": false
-              },
+              "fixtures": {"events": true, "lineups": true, "statistics_fixtures": true, "statistics_players": true},
               "standings": true,
-              "players": false,
-              "top_scorers": false,
-              "top_assists": false,
-              "top_cards": false,
-              "injuries": false,
+              "players": true,
+              "top_scorers": true,
+              "top_assists": true,
+              "top_cards": true,
+              "injuries": true,
               "predictions": true,
               "odds": false
             }

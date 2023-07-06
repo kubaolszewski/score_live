@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
@@ -6,12 +5,12 @@ import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 
 class MatchDetailsTabBar extends StatelessWidget {
-  const MatchDetailsTabBar({super.key});
+  MatchDetailsTabBar({super.key});
+
+  final matchDetailsCubit = Modular.get<MatchDetailsCubit>();
 
   @override
   Widget build(BuildContext context) {
-    final matchDetailsCubit = Modular.get<MatchDetailsCubit>();
-
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.all(16.0),

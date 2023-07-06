@@ -6,11 +6,12 @@ import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class HomeOptionsTapBar extends StatelessWidget {
-  const HomeOptionsTapBar({super.key});
+  HomeOptionsTapBar({super.key});
+
+  final homeCubit = Modular.get<HomeCubit>();
 
   @override
   Widget build(BuildContext context) {
-    final homeCubit = Modular.get<HomeCubit>();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(

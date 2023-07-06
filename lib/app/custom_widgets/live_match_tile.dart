@@ -45,7 +45,7 @@ class LiveMatchTile extends StatelessWidget {
                               ? const Image(image: NetworkImage(defaultFlag))
                               : SvgPicture.network(
                                   assetName,
-                                  fit: BoxFit.cover,
+                                  fit: BoxFit.fill,
                                   placeholderBuilder: (BuildContext context) => Container(
                                     padding: const EdgeInsets.all(30.0),
                                     child: const Center(
@@ -121,8 +121,7 @@ class LiveMatchTile extends StatelessWidget {
                               image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
                             ),
                             Text(liveMatch.teams!.home!.name!,
-                                textAlign: TextAlign.center,
-                                style: CommonTextStyles.basicWhiteText),
+                                textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
                           ],
                         ),
                       ),
@@ -168,8 +167,7 @@ class LiveMatchTile extends StatelessWidget {
                               ),
                             ),
                             Text(liveMatch.teams!.away!.name!,
-                                textAlign: TextAlign.center,
-                                style: CommonTextStyles.basicWhiteText),
+                                textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
                           ],
                         ),
                       ),
