@@ -13,12 +13,12 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class CompetitionScreen extends StatelessWidget {
-   CompetitionScreen({
+  CompetitionScreen({
     super.key,
   });
 
-    final competitionCubit = Modular.get<CompetitionCubit>();
-    final topResultsTabCubit = Modular.get<TopResultsTabCubit>();
+  final competitionCubit = Modular.get<CompetitionCubit>();
+  final topResultsTabCubit = Modular.get<TopResultsTabCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class CompetitionScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const CompetitionSearchBar(),
+                CompetitionSearchBar(),
                 const SizedBox(height: 10),
                 const CompetitionOptionsTapBar(),
                 BlocBuilder<CompetitionCubit, CompetitionState>(

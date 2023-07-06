@@ -20,13 +20,13 @@ import 'package:score_live/repositories/home_screen_repository.dart';
 class LandingModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind.singleton((i) => LandingCubit()),
         Bind.factory((i) => ApiClient()),
         Bind.factory((i) => LiveMatchesRemoteService.create(i())),
         Bind.factory((i) => HomeScreenRepository(i())),
         Bind.factory((i) => CompetitionScreenRepository(i())),
-        Bind.singleton((i) => CompetitionCubit()),
+        Bind.singleton((i) => LandingCubit()),
         Bind.singleton((i) => HomeCubit()),
+        Bind.singleton((i) => CompetitionCubit()),
         Bind.singleton((i) => LiveNowViewCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i())),
         Bind.singleton((i) => TopResultsTabCubit(i()))
