@@ -6,8 +6,8 @@ class CompetitionScreenRepository {
 
   final LiveMatchesRemoteService liveMatchesRemoteService;
 
-  Future<List<LeagueModel>> fetchLeagues() async {
-    // return (await liveMatchesRemoteService.fetchLeagues(type: 'league', season: '2023', last: '1')).response;
+  Future<List<LeagueModel>> fetchLeagues(String yearFromActualDate) async {
+    // return (await liveMatchesRemoteService.fetchLeagues(type: 'league', season: yearFromActualDate)).response;
     final response = [
       {
         "league": {

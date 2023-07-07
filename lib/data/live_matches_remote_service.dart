@@ -30,6 +30,5 @@ abstract class LiveMatchesRemoteService {
   Future<League> fetchLeagues({
     @Query("type") required String type,
     @Query("season") required String season,
-    @Query("last") required String last,
   });
 }

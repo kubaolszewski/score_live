@@ -5,11 +5,12 @@ import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class CompetitionOptionsTapBar extends StatelessWidget {
-  const CompetitionOptionsTapBar({super.key});
+  CompetitionOptionsTapBar({super.key});
+
+  final competitionCubit = Modular.get<CompetitionCubit>();
 
   @override
   Widget build(BuildContext context) {
-    final competitionCubit = Modular.get<CompetitionCubit>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [

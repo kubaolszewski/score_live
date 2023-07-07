@@ -142,7 +142,7 @@ class LiveMatchTile extends StatelessWidget {
                                   ),
                                 )
                               : Text(
-                                  '${liveMatch.goals!.home} -'
+                                  '${liveMatch.goals!.home} - '
                                   '${liveMatch.goals!.away}',
                                   style: const TextStyle(
                                     color: Colors.white,

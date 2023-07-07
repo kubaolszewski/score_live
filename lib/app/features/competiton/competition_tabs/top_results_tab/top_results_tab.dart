@@ -101,7 +101,6 @@ class TopResultsTab extends StatelessWidget {
                                       children: [
                                         Text(
                                           leagueRegion,
-                                          textAlign: TextAlign.start,
                                           style: const TextStyle(
                                             color: Colors.grey,
                                             fontSize: 16,

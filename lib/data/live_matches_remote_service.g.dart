@@ -111,13 +111,11 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
   Future<League> fetchLeagues({
     required String type,
     required String season,
-    required String last,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'type': type,
       r'season': season,
-      r'last': last,
     };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;

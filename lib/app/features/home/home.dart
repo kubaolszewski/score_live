@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
@@ -57,52 +59,55 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const HomeScreenDatePicker(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      context.localizations.liveNow,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                        color: Colors.white,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        context.localizations.seeMore,
+          child: Padding(
+            padding: EdgeInsets.fromViewPadding(ViewPadding.zero, 1),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const HomeScreenDatePicker(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        context.localizations.liveNow,
                         style: const TextStyle(
-                          color: Color.fromARGB(255, 215, 54, 108),
-                          fontSize: 16,
                           fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                          color: Colors.white,
                         ),
                       ),
-                    )
-                  ],
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          context.localizations.seeMore,
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 215, 54, 108),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              const LiveNowView(),
-              HomeOptionsTapBar(),
-              BlocBuilder<HomeCubit, HomeState>(
-                builder: (context, state) {
-                  switch (state.homeOptions) {
-                    case HomeOptions.upcoming:
-                      return const UpcomingTab();
-                    case HomeOptions.score:
-                      return const ScoreTab();
-                    case HomeOptions.favorites:
-                      return const FavoritesTab();
-                  }
-                },
-              ),
-            ],
+                const LiveNowView(),
+                HomeOptionsTapBar(),
+                BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    switch (state.homeOptions) {
+                      case HomeOptions.upcoming:
+                        return const UpcomingTab();
+                      case HomeOptions.score:
+                        return const ScoreTab();
+                      case HomeOptions.favorites:
+                        return const FavoritesTab();
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

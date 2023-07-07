@@ -25,7 +25,7 @@ class CompetitionScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => competitionCubit),
-        BlocProvider(create: (context) => topResultsTabCubit..fetchLeagues()),
+        BlocProvider(create: (context) => topResultsTabCubit..fetchLeagues(DateTime.now())),
       ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
@@ -36,28 +36,28 @@ class CompetitionScreen extends StatelessWidget {
           ),
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CompetitionSearchBar(),
-                const SizedBox(height: 10),
-                const CompetitionOptionsTapBar(),
-                BlocBuilder<CompetitionCubit, CompetitionState>(
-                  builder: (context, state) {
-                    switch (state.browsingOptions) {
-                      case BrowsingOptions.top:
-                        return const TopResultsTab();
-                      case BrowsingOptions.region:
-                        return const Placeholder(color: Colors.white);
-                      case BrowsingOptions.favorites:
-                        return const Placeholder(color: Colors.blue);
-                    }
-                  },
-                ),
-              ],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CompetitionSearchBar(),
+              const SizedBox(height: 15),
+              CompetitionOptionsTapBar(),
+              BlocBuilder<CompetitionCubit, CompetitionState>(
+                builder: (context, state) {
+                  switch (state.browsingOptions) {
+                    case BrowsingOptions.top:
+                      return const Padding(
+                        padding: EdgeInsets.only(top: 16.0),
+                        child: TopResultsTab(),
+                      );
+                    case BrowsingOptions.region:
+                      return const Placeholder(color: Colors.white);
+                    case BrowsingOptions.favorites:
+                      return const Placeholder(color: Colors.blue);
+                  }
+                },
+              ),
+            ],
           ),
         ),
       ),
