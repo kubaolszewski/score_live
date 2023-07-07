@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/home/home.dart';
+import 'package:score_live/app/features/home/home_screen.dart';
 import 'package:score_live/app/features/home/match_details/match_details.dart';
 
 class HomeModule extends Module {

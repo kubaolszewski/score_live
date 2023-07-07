@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/competiton/competition.dart';
+import 'package:score_live/app/features/competiton/competition_screen.dart';
 
 class CompetitionModule extends Module{
 @override
