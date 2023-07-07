@@ -20,8 +20,11 @@ class CompetitionSearchBar extends StatelessWidget {
             controller: searchController,
             onSubmitted: (nameQuery) {
               searchController.text = nameQuery;
-              competitionCubit.searchingResults(searchController.text);
               searchController.clear();
+            },
+            onEditingComplete: () {
+              competitionCubit.searchingResults(searchController.text);
+              Modular.to.pushNamed('');
             },
             style: const TextStyle(color: Colors.white, fontSize: 14),
             decoration: const InputDecoration(
