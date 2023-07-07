@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CompetitionState {
-  List<LeagueModel> get league => throw _privateConstructorUsedError;
+  List<LeagueModel> get leagues => throw _privateConstructorUsedError;
   BrowsingOptions get browsingOptions => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
@@ -33,7 +33,7 @@ abstract class $CompetitionStateCopyWith<$Res> {
       _$CompetitionStateCopyWithImpl<$Res, CompetitionState>;
   @useResult
   $Res call(
-      {List<LeagueModel> league,
+      {List<LeagueModel> leagues,
       BrowsingOptions browsingOptions,
       String? errorMessage,
       bool isLoading});
@@ -52,15 +52,15 @@ class _$CompetitionStateCopyWithImpl<$Res, $Val extends CompetitionState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? league = null,
+    Object? leagues = null,
     Object? browsingOptions = null,
     Object? errorMessage = freezed,
     Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
-      league: null == league
-          ? _value.league
-          : league // ignore: cast_nullable_to_non_nullable
+      leagues: null == leagues
+          ? _value.leagues
+          : leagues // ignore: cast_nullable_to_non_nullable
               as List<LeagueModel>,
       browsingOptions: null == browsingOptions
           ? _value.browsingOptions
@@ -87,7 +87,7 @@ abstract class _$$_CompetitionStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<LeagueModel> league,
+      {List<LeagueModel> leagues,
       BrowsingOptions browsingOptions,
       String? errorMessage,
       bool isLoading});
@@ -104,15 +104,15 @@ class __$$_CompetitionStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? league = null,
+    Object? leagues = null,
     Object? browsingOptions = null,
     Object? errorMessage = freezed,
     Object? isLoading = null,
   }) {
     return _then(_$_CompetitionState(
-      league: null == league
-          ? _value._league
-          : league // ignore: cast_nullable_to_non_nullable
+      leagues: null == leagues
+          ? _value._leagues
+          : leagues // ignore: cast_nullable_to_non_nullable
               as List<LeagueModel>,
       browsingOptions: null == browsingOptions
           ? _value.browsingOptions
@@ -134,19 +134,19 @@ class __$$_CompetitionStateCopyWithImpl<$Res>
 
 class _$_CompetitionState implements _CompetitionState {
   const _$_CompetitionState(
-      {final List<LeagueModel> league = const [],
+      {final List<LeagueModel> leagues = const [],
       this.browsingOptions = BrowsingOptions.top,
       this.errorMessage,
       this.isLoading = false})
-      : _league = league;
+      : _leagues = leagues;
 
-  final List<LeagueModel> _league;
+  final List<LeagueModel> _leagues;
   @override
   @JsonKey()
-  List<LeagueModel> get league {
-    if (_league is EqualUnmodifiableListView) return _league;
+  List<LeagueModel> get leagues {
+    if (_leagues is EqualUnmodifiableListView) return _leagues;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_league);
+    return EqualUnmodifiableListView(_leagues);
   }
 
   @override
@@ -160,7 +160,7 @@ class _$_CompetitionState implements _CompetitionState {
 
   @override
   String toString() {
-    return 'CompetitionState(league: $league, browsingOptions: $browsingOptions, errorMessage: $errorMessage, isLoading: $isLoading)';
+    return 'CompetitionState(leagues: $leagues, browsingOptions: $browsingOptions, errorMessage: $errorMessage, isLoading: $isLoading)';
   }
 
   @override
@@ -168,7 +168,7 @@ class _$_CompetitionState implements _CompetitionState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CompetitionState &&
-            const DeepCollectionEquality().equals(other._league, _league) &&
+            const DeepCollectionEquality().equals(other._leagues, _leagues) &&
             (identical(other.browsingOptions, browsingOptions) ||
                 other.browsingOptions == browsingOptions) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -180,7 +180,7 @@ class _$_CompetitionState implements _CompetitionState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_league),
+      const DeepCollectionEquality().hash(_leagues),
       browsingOptions,
       errorMessage,
       isLoading);
@@ -194,13 +194,13 @@ class _$_CompetitionState implements _CompetitionState {
 
 abstract class _CompetitionState implements CompetitionState {
   const factory _CompetitionState(
-      {final List<LeagueModel> league,
+      {final List<LeagueModel> leagues,
       final BrowsingOptions browsingOptions,
       final String? errorMessage,
       final bool isLoading}) = _$_CompetitionState;
 
   @override
-  List<LeagueModel> get league;
+  List<LeagueModel> get leagues;
   @override
   BrowsingOptions get browsingOptions;
   @override

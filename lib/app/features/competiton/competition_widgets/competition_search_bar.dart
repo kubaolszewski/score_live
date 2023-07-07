@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
@@ -25,7 +26,7 @@ class CompetitionSearchBar extends StatelessWidget {
             },
             onEditingComplete: () {
               competitionCubit.searchingResults(searchController.text);
-              Modular.to.pushNamed('');
+              Modular.to.pushNamed(CompetitionPath.resultsPath);
             },
             style: const TextStyle(color: Colors.white, fontSize: 14),
             decoration: InputDecoration(

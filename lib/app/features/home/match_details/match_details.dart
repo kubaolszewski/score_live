@@ -5,11 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_h2h_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_lineup_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_standings_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_stats_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_summary_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_views.dart/match_h2h_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_views.dart/match_lineup_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_views.dart/match_standings_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_views.dart/match_stats_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_views.dart/match_summary_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_tab_bar.dart';
 import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_title.dart';
 import 'package:score_live/app/features/home/match_details/match_details_widgets/match_goals_widget.dart';
@@ -53,7 +53,7 @@ class MatchDetails extends StatelessWidget {
           title: MatchDetailsTitle(liveMatch.league!.name!),
           leading: IconButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Modular.to.pop();
               },
               icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
           actions: [

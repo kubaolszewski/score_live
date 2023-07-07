@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/competiton/competition.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
+import 'package:score_live/app/features/competiton/searched_competition_screen/searched_competition_screen.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/data/api.client.dart';
 import 'package:score_live/data/live_matches_remote_service.dart';
@@ -22,9 +23,16 @@ class CompetitionModule extends Module {
           CompetitionPath.path,
           child: ((context, args) => CompetitionScreen()),
         ),
+        ChildRoute(
+          CompetitionPath.resultsScreen,
+          child: ((context, args) => SearchedCompetitionScreen()),
+        ),
       ];
 }
 
 mixin CompetitionPath {
   static String path = '/competition';
+  static String resultsScreen = '/results';
+
+  static String resultsPath = '$path$resultsScreen';
 }

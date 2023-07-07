@@ -18,13 +18,13 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     emit(state.copyWith(isLoading: true));
     try {
       final searchedLeagues = (await competitionScreenRepository.fetchLeaguesByName(nameQuery, yearFromActualDate));
-      emit(state.copyWith(league: searchedLeagues, isLoading: false));
+      emit(state.copyWith(leagues: searchedLeagues, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
   }
 
-  void switchBrowsingOptions(BrowsingOptions chosenOption) {
+  void switchBrowsingOptions(BrowsingOptions chosenOption)  {
     emit(state.copyWith(browsingOptions: chosenOption));
   }
 }
