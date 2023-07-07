@@ -12,7 +12,7 @@ class CompetitionModule extends Module {
         Bind.factory((i) => ApiClient()),
         Bind.factory((i) => LiveMatchesRemoteService.create(i())),
         Bind.factory((i) => CompetitionScreenRepository(i())),
-        Bind.singleton((i) => CompetitionCubit()),
+        Bind.singleton((i) => CompetitionCubit(i())),
         Bind.singleton((i) => TopResultsTabCubit(i()))
       ];
 

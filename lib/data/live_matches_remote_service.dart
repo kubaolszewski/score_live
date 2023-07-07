@@ -31,4 +31,10 @@ abstract class LiveMatchesRemoteService {
     @Query("type") required String type,
     @Query("season") required String season,
   });
+
+  @GET('/leagues')
+  Future<League> fetchLeaguesByName({
+    @Query("name") required String name,
+    @Query("season") required String season,
+  });
 }

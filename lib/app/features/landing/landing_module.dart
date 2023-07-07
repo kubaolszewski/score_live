@@ -26,7 +26,7 @@ class LandingModule extends Module {
         Bind.factory((i) => CompetitionScreenRepository(i())),
         Bind.singleton((i) => LandingCubit()),
         Bind.singleton((i) => HomeCubit()),
-        Bind.singleton((i) => CompetitionCubit()),
+        Bind.singleton((i) => CompetitionCubit(i())),
         Bind.singleton((i) => LiveNowViewCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i())),
         Bind.singleton((i) => TopResultsTabCubit(i()))
