@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_h2h_view.dart';
@@ -7,26 +9,42 @@ import 'package:score_live/app/features/home/match_details/match_details_screens
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_standings_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_stats_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_summary_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_tab_bar.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
+import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchDetails extends StatelessWidget {
-  const MatchDetails({super.key});
+  MatchDetails({
+    super.key,
+    required this.liveMatch,
+  });
 
-  final _detailsTitle = const DetailsTitle();
+  final _detailsTitle = const _DetailsTitle();
+  final LiveMatchModel liveMatch;
+  final homeCubit = Modular.get<HomeCubit>();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(),
+    final String assetName = liveMatch.league!.flag ??
+        'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
+    final String leagueName = liveMatch.league!.name ?? 'Unknown league';
+    final String homeTeamLogo =
+        liveMatch.teams?.home?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String awayTeamLogo =
+        liveMatch.teams?.away?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
+    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
+    return BlocProvider<HomeCubit>(
+      create: (context) => homeCubit,
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
           title: _detailsTitle,
           leading: IconButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
               icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
           actions: [
@@ -52,19 +70,33 @@ class MatchDetails extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const Row(
+                            Row(
                               children: [
                                 CircleAvatar(
                                   radius: 15,
+                                  child: ClipOval(
+                                    child: SvgPicture.network(
+                                      assetName,
+                                      fit: BoxFit.cover,
+                                      placeholderBuilder: (BuildContext context) => Container(
+                                        padding: const EdgeInsets.all(30.0),
+                                        child: const Center(
+                                          child: CircularProgressIndicator(
+                                            backgroundColor: Colors.red,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                                SizedBox(width: 10),
+                                const SizedBox(width: 10),
                                 Text(
-                                  'League name',
-                                  style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
+                                  leagueName,
+                                  style: const TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
                                 )
                               ],
                             ),
-                            const SizedBox(width: 180),
+                            const SizedBox(width: 150),
                             Container(
                               height: 30,
                               width: 50,
@@ -80,7 +112,7 @@ class MatchDetails extends StatelessWidget {
                                     backgroundColor: Colors.green,
                                   ),
                                   Text(
-                                    '78',
+                                    'FT',
                                     style: TextStyle(color: Colors.green),
                                   ),
                                 ],
@@ -89,24 +121,43 @@ class MatchDetails extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 10),
-                        const Row(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Placeholder(
-                              fallbackHeight: 50,
-                              fallbackWidth: 50,
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image(
+                                  image: NetworkImage(homeTeamLogo, scale: 3),
+                                ),
+                                Text(homeTeamName,
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                              ],
                             ),
-                            SizedBox(width: 30),
+                            const SizedBox(width: 30),
                             Text(
-                              'Result',
-                              style: TextStyle(
+                              '${liveMatch.goals!.home} -'
+                              '${liveMatch.goals!.away}',
+                              style: const TextStyle(
                                 color: Colors.white,
-                                fontSize: 20,
+                                fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(width: 30),
-                            Placeholder(fallbackHeight: 50, fallbackWidth: 50),
+                            const SizedBox(width: 30),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image(
+                                  image: NetworkImage(
+                                    awayTeamLogo,
+                                    scale: 3,
+                                  ),
+                                ),
+                                Text(awayTeamName,
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                              ],
+                            ),
                           ],
                         ),
                         const SizedBox(height: 15),
@@ -114,20 +165,23 @@ class MatchDetails extends StatelessWidget {
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              children: [
-                                Text("Antony 32'", style: TextStyle(color: Colors.white, fontSize: 16)),
-                                Text("Diogo Dalot 76'", style: TextStyle(color: Colors.white, fontSize: 16))
-                              ],
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                children: [],
+                              ),
                             ),
-                            Column(
-                              children: [Icon(Icons.sports_soccer, color: Colors.grey)],
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                children: [Icon(Icons.sports_soccer, color: Colors.grey)],
+                              ),
                             ),
-                            Column(
-                              children: [
-                                Text("Antony 32'", style: TextStyle(color: Colors.white, fontSize: 16)),
-                                Text("Diogo Dalot 76'", style: TextStyle(color: Colors.white, fontSize: 16))
-                              ],
+                            Expanded(
+                              flex: 2,
+                              child: Column(
+                                children: [],
+                              ),
                             )
                           ],
                         ),
@@ -136,12 +190,12 @@ class MatchDetails extends StatelessWidget {
                   ),
                 ),
               ),
-              const _MatchDetailsTapBar(),
+              const MatchDetailsTabBar(),
               BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
                   switch (state.detailsOptions) {
                     case DetailsOptions.summary:
-                      return const MatchSummaryView();
+                      return MatchSummaryView(liveMatch: liveMatch);
                     case DetailsOptions.lineUp:
                       return const MatchLineUpView();
                     case DetailsOptions.stats:
@@ -161,127 +215,12 @@ class MatchDetails extends StatelessWidget {
   }
 }
 
-class _MatchDetailsTapBar extends StatelessWidget {
-  const _MatchDetailsTapBar();
-
-  HomeCubit _homeCubit(BuildContext context) => context.read<HomeCubit>();
+class _DetailsTitle extends StatelessWidget {
+  const _DetailsTitle();
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.all(16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchDetailsOptions(DetailsOptions.summary);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child:  Text(
-                context.localizations.matchDetailsSummary,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchDetailsOptions(DetailsOptions.lineUp);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child:  Text(
-                context.localizations.matchDetailsLineUp,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchDetailsOptions(DetailsOptions.stats);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child:  Text(
-                context.localizations.matchDetailsStats,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchDetailsOptions(DetailsOptions.h2H);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child:  Text(
-                context.localizations.matchDetailsH2H,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchDetailsOptions(DetailsOptions.standings);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: Colors.pink,
-              ))),
-              child:  Text(
-                context.localizations.matchDetailsStandings,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class DetailsTitle extends StatelessWidget {
-  const DetailsTitle({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return  SizedBox(
+    return SizedBox(
       child: Column(
         children: [
           const Row(

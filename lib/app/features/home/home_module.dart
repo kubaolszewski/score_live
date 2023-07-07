@@ -1,13 +1,13 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home.dart';
 import 'package:score_live/app/features/home/match_details/match_details.dart';
 
 class HomeModule extends Module {
   @override
-  List<Bind> get binds => [
-        Bind.lazySingleton((i) => HomeCubit()),
-      ];
+  List<Bind> get binds => [];
+
+  @override
+  List<Module> get imports => [];
 
   @override
   List<ModularRoute> get routes => [
@@ -17,7 +17,7 @@ class HomeModule extends Module {
         ),
         ChildRoute(
           HomePath.matchDetailsScreen,
-          child: (context, args) => const MatchDetails(),
+          child: (context, args) => MatchDetails(liveMatch: args.data),
         ),
       ];
 }

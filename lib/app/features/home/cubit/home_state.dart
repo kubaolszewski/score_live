@@ -1,12 +1,10 @@
 part of 'home_cubit.dart';
 
-@immutable
-class HomeState {
-  const HomeState({
-    this.homeOptions = HomeOptions.score,
-    this.detailsOptions = DetailsOptions.summary,
-  });
-
-  final HomeOptions homeOptions;
-  final DetailsOptions detailsOptions;
+@freezed
+class HomeState with _$HomeState {
+  const factory HomeState({
+    @Default('') String date,
+    @Default(HomeOptions.score) HomeOptions homeOptions,
+    @Default(DetailsOptions.summary) DetailsOptions detailsOptions,
+  }) = _HomeState;
 }

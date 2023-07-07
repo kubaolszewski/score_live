@@ -1,10 +1,8 @@
 part of 'landing_cubit.dart';
 
-@immutable
-class LandingState {
-  const LandingState({
-    this.currentIndex = 0,
-  });
-  
-  final int currentIndex;
+@freezed
+class LandingState with _$LandingState {
+  const factory LandingState ({
+    @Default(0) int currentIndex,
+  }) = _LandingState;
 }
