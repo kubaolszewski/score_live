@@ -15,7 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(state.copyWith(date: newDate));
   }
 
-  void switchHomeOptions(HomeOptions chosenOption) async {
+  void switchHomeOptions(HomeOptions chosenOption) {
     emit(state.copyWith(homeOptions: chosenOption));
   }
 }

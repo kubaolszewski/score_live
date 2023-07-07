@@ -12,35 +12,31 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
 
   final MatchDetailsRepository matchDetailsRepository;
 
-  Future<void> fetchMatchEvents(
-    String matchID,
-  ) async {
+  Future<void> fetchMatchEvents(String matchID) async {
     emit(state.copyWith(isLoading: true));
     try {
       final matchEvents = await matchDetailsRepository.fetchMatchEvents(
-          matchID,
-          );
+        matchID,
+      );
       emit(state.copyWith(matchEvents: matchEvents, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
   }
 
-  Future<void> fetchMatchGoals(
-      String matchID,
-      ) async {
+  Future<void> fetchMatchGoals(String matchID) async {
     emit(state.copyWith(isLoading: true));
     try {
       final matchEvents = await matchDetailsRepository.fetchMatchEvents(
-          matchID,
-          );
+        matchID,
+      );
       emit(state.copyWith(matchEvents: matchEvents, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
   }
 
-  void switchDetailsOptions(DetailsOptions chosenOption) async {
+  void switchDetailsOptions(DetailsOptions chosenOption) {
     emit(state.copyWith(detailsOptions: chosenOption));
   }
 }

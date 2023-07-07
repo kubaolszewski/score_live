@@ -6,9 +6,7 @@ class MatchDetailsRepository {
 
   final LiveMatchesRemoteService liveMatchesRemoteService;
 
-  Future<List<MatchEventsModel>> fetchMatchEvents(
-    String matchID,
-  ) async {
+  Future<List<MatchEventsModel>> fetchMatchEvents(String matchID) async {
     // return (await liveMatchesRemoteService.fetchMatchEvents(matchID: matchID)).response;
     final response = [
       {
