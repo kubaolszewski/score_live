@@ -16,19 +16,25 @@ import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchDetails extends StatelessWidget {
-  const MatchDetails({
+  MatchDetails({
     super.key,
     required this.liveMatch,
   });
 
   final LiveMatchModel liveMatch;
+  final homeCubit = Modular.get<HomeCubit>();
 
   @override
   Widget build(BuildContext context) {
-    final homeCubit = Modular.get<HomeCubit>();
-    const String defaultFlag =
-        'https://img.freepik.com/darmowe-wektory/na-bialym-tle-ziemia-na-bialym-tle_1308-55360.jpg?w=2000';
-    final assetName = liveMatch.league!.flag;
+    final String flag = liveMatch.league?.flag ??
+        'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
+    final String leagueName = liveMatch.league!.name ?? 'Unknown league';
+    final String homeTeamLogo =
+        liveMatch.teams?.home?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String awayTeamLogo =
+        liveMatch.teams?.away?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
+    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
     return BlocProvider<HomeCubit>(
       create: (context) => homeCubit,
       child: Scaffold(
@@ -68,11 +74,8 @@ class MatchDetails extends StatelessWidget {
                               children: [
                                 CircleAvatar(
                                   radius: 15,
-                                  child: ClipOval(
-                                    child: assetName == null
-                                        ? const Image(image: NetworkImage(defaultFlag))
-                                        : SvgPicture.network(
-                                            assetName,
+                                  child: ClipOval(child: SvgPicture.network(
+                                            flag,
                                             fit: BoxFit.cover,
                                             placeholderBuilder: (BuildContext context) => Container(
                                               padding: const EdgeInsets.all(30.0),
@@ -87,12 +90,8 @@ class MatchDetails extends StatelessWidget {
                                 ),
                                 const SizedBox(width: 10),
                                 Text(
-                                  liveMatch.league!.name!,
-                                  style: const TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  leagueName,
+                                  style: const TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
                                 )
                               ],
                             ),
@@ -130,80 +129,44 @@ class MatchDetails extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 10),
-                        SizedBox(
-                          width: 370,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: SizedBox.square(
-                                  dimension: 110,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image(
-                                        image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
-                                      ),
-                                      Text(liveMatch.teams!.home!.name!,
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                    ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image(
+                                  image: NetworkImage(homeTeamLogo, scale: 3),
+                                ),
+                                Text(homeTeamName,
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                              ],
+                            ),
+                            const SizedBox(width: 30),
+                            Text(
+                              '${liveMatch.goals!.home} - '
+                              '${liveMatch.goals!.away}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(width: 30),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image(
+                                  image: NetworkImage(
+                                    awayTeamLogo,
+                                    scale: 3,
                                   ),
                                 ),
-                              ),
-                              const SizedBox(width: 30),
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    liveMatch.fixture!.status!.short == 'NS' ||
-                                            liveMatch.fixture!.status!.short == 'TBD'
-                                        ? Text(
-                                            liveMatch.fixture!.status!.long!,
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          )
-                                        : Text(
-                                            '${liveMatch.goals!.home} -'
-                                            '${liveMatch.goals!.away}',
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 28,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(width: 30),
-                              Expanded(
-                                flex: 1,
-                                child: SizedBox.square(
-                                  dimension: 110,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image(
-                                        image: NetworkImage(
-                                          liveMatch.teams!.away!.logo!,
-                                          scale: 3,
-                                        ),
-                                      ),
-                                      Text(liveMatch.teams!.away!.name!,
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                                Text(awayTeamName,
+                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                              ],
+                            ),
+                          ],
                         ),
                         const SizedBox(height: 15),
                         const Divider(color: Colors.grey, thickness: 0.5, indent: 5.0, endIndent: 5.0),
