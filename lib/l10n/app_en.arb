@@ -23,5 +23,14 @@
 
   "competitionAppBarTitle" : "Browse Competition",
 
+  "searchBarHint" : "Search for competition, club etc.",
+
+  "top" : "Top",
+  "region" : "Region",
+  "competitionFavorites" : "Favorites",
+
+  "dataErrorInfo" : "Something went wrong - leagues are not provided yet.",
+  "topHeader" : "TOP COMPETITIONS",
+  
   "accountAppBarTitle" : "My Account"
 }

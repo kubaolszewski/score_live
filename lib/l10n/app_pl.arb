@@ -23,5 +23,14 @@
 
   "competitionAppBarTitle" : "Wyszukaj rozgrywki",
 
+  "searchBarHint" : "Wyszukaj rozgrywki, kluby itp.",
+
+  "top" : "Top",
+  "region" : "Region",
+  "competitionFavorites" : "Obserwowane",
+
+  "dataErrorInfo" : "Coś poszło nie tak - dane nie są obecnie przysyłane.",
+  "topHeader" : "POPULARNE ROZGRYWKI",
+
   "accountAppBarTitle" : "Moje konto"
 }

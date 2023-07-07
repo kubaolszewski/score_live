@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
@@ -26,9 +27,9 @@ class CompetitionOptionsTapBar extends StatelessWidget {
               width: 3.0,
               color: AppColors.mainThemePink,
             ))),
-            child: const Text(
-              'Top',
-              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+            child:  Text(
+              context.localizations.top,
+              style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -44,9 +45,9 @@ class CompetitionOptionsTapBar extends StatelessWidget {
               width: 3.0,
               color: AppColors.mainThemePink,
             ))),
-            child: const Text(
-              'Region',
-              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+            child:  Text(
+              context.localizations.region,
+              style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -62,9 +63,9 @@ class CompetitionOptionsTapBar extends StatelessWidget {
               width: 3.0,
               color: AppColors.mainThemePink,
             ))),
-            child: const Text(
-              'Favorites',
-              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+            child:  Text(
+              context.localizations.competitionFavorites,
+              style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
         ),

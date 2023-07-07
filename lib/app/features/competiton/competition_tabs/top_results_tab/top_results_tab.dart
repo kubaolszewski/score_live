@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class TopResultsTab extends StatelessWidget {
@@ -26,13 +27,13 @@ class TopResultsTab extends StatelessWidget {
         final leagues = state.leagueModel;
 
         if (leagues.isEmpty) {
-          return const SizedBox(
+          return  SizedBox(
             height: 200,
             child: Center(
               child: Text(
-                'Something went wrong - leagues are not provided yet.',
+                context.localizations.dataErrorInfo,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 24),
+                style: const TextStyle(color: Colors.white, fontSize: 24),
               ),
             ),
           );
@@ -42,10 +43,10 @@ class TopResultsTab extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              const Text(
-                'TOP COMPETITIONS',
+               Text(
+                context.localizations.topHeader,
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
                 ),
@@ -74,7 +75,7 @@ class TopResultsTab extends StatelessWidget {
                             child: Row(
                               children: [
                                 Expanded(
-                                  flex: 0.5.toInt(),
+                                  flex: 0,
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
                                     child: Column(
@@ -93,7 +94,7 @@ class TopResultsTab extends StatelessWidget {
                                   ),
                                 ),
                                 Expanded(
-                                  flex: 1.5.toInt(),
+                                  flex: 1,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(

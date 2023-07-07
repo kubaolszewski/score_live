@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class CompetitionSearchBar extends StatelessWidget {
@@ -27,13 +28,13 @@ class CompetitionSearchBar extends StatelessWidget {
               Modular.to.pushNamed('');
             },
             style: const TextStyle(color: Colors.white, fontSize: 14),
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               filled: true,
               fillColor: AppColors.inactiveItemGrey,
               border: InputBorder.none,
-              hintText: 'Search for competition, club etc.',
-              hintStyle: TextStyle(color: Colors.white, fontSize: 14),
-              prefixIcon: Icon(
+              hintText: context.localizations.searchBarHint,
+              hintStyle: const TextStyle(color: Colors.white, fontSize: 14),
+              prefixIcon: const Icon(
                 Icons.search,
                 color: Colors.white,
               ),
