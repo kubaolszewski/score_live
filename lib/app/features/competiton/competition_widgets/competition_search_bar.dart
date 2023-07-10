@@ -23,9 +23,11 @@ class CompetitionSearchBar extends StatelessWidget {
             width: width,
             height: 75,
             child: FloatingSearchBar(
+              automaticallyImplyBackButton: false,
               backgroundColor: AppColors.inactiveItemGrey,
               iconColor: Colors.white,
               hint: context.localizations.searchBarHint,
+              showCursor: false,
               hintStyle: const TextStyle(color: Colors.white, fontSize: 14),
               queryStyle: const TextStyle(color: Colors.white, fontSize: 14),
               transition: CircularFloatingSearchBarTransition(),

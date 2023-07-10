@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
+import 'package:score_live/app/features/competiton/competition_tabs/favorites_tab/favorites_tab.dart';
+import 'package:score_live/app/features/competiton/competition_tabs/region_tab/region_tab.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/top_results_tab.dart';
 import 'package:score_live/app/features/competiton/competition_widgets/competition_options_tap_bar.dart';
@@ -46,14 +48,11 @@ class CompetitionScreen extends StatelessWidget {
                 builder: (context, state) {
                   switch (state.browsingOptions) {
                     case BrowsingOptions.top:
-                      return const Padding(
-                        padding: EdgeInsets.only(top: 16.0),
-                        child: TopResultsTab(),
-                      );
+                      return const TopResultsTab();
                     case BrowsingOptions.region:
-                      return const Placeholder(color: Colors.white);
+                      return const RegionTab();
                     case BrowsingOptions.favorites:
-                      return const Placeholder(color: Colors.blue);
+                      return const FavoritesTab();
                   }
                 },
               ),

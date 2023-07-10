@@ -22,10 +22,6 @@ class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              ),
               Expanded(
                 child: DatePicker(
                   DateTime(2023, 2, 11).subtract(const Duration(days: 3)),
@@ -46,10 +42,6 @@ class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
                     context.read<ScoreTabCubit>().fetchMatchesByDate(pickedDate);
                   },
                 ),
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
               ),
             ],
           ),
