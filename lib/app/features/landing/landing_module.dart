@@ -3,6 +3,7 @@ import 'package:score_live/app/features/account/account.dart';
 import 'package:score_live/app/features/account/account_module.dart';
 import 'package:score_live/app/features/competiton/competition.dart';
 import 'package:score_live/app/features/competiton/competition_module.dart';
+import 'package:score_live/app/features/competiton/competition_tabs/region_tab/cubit/region_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
@@ -29,7 +30,8 @@ class LandingModule extends Module {
         Bind.singleton((i) => CompetitionCubit(i())),
         Bind.singleton((i) => LiveNowViewCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i())),
-        Bind.singleton((i) => TopResultsTabCubit(i()))
+        Bind.singleton((i) => TopResultsTabCubit(i())),
+        Bind.singleton((i) => RegionTabCubit(i())),
       ];
 
   @override
@@ -47,7 +49,7 @@ class LandingModule extends Module {
             ChildRoute(
               LandingScreenPaths.competitionModulePath,
               transition: TransitionType.noTransition,
-              child: (context, args) =>  CompetitionScreen(),
+              child: (context, args) => const CompetitionScreen(),
             ),
             ChildRoute(
               LandingScreenPaths.accountModulePath,

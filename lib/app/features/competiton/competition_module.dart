@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/competiton/competition.dart';
+import 'package:score_live/app/features/competiton/competition_tabs/region_tab/cubit/region_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/searched_competition_screen/searched_competition_screen.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
@@ -14,14 +15,15 @@ class CompetitionModule extends Module {
         Bind.factory((i) => LiveMatchesRemoteService.create(i())),
         Bind.factory((i) => CompetitionScreenRepository(i())),
         Bind.singleton((i) => CompetitionCubit(i())),
-        Bind.singleton((i) => TopResultsTabCubit(i()))
+        Bind.singleton((i) => TopResultsTabCubit(i())),
+        Bind.singleton((i) => RegionTabCubit(i())),
       ];
 
   @override
   List<ModularRoute> get routes => [
         ChildRoute(
           CompetitionPath.path,
-          child: ((context, args) => CompetitionScreen()),
+          child: ((context, args) => const CompetitionScreen()),
         ),
         ChildRoute(
           CompetitionPath.resultsScreen,

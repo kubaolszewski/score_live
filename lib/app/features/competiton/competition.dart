@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/favorites_tab/favorites_tab.dart';
+import 'package:score_live/app/features/competiton/competition_tabs/region_tab/cubit/region_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/region_tab/region_tab.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/top_results_tab.dart';
@@ -15,19 +16,17 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class CompetitionScreen extends StatelessWidget {
-  CompetitionScreen({
+  const CompetitionScreen({
     super.key,
   });
-
-  final competitionCubit = Modular.get<CompetitionCubit>();
-  final topResultsTabCubit = Modular.get<TopResultsTabCubit>();
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => competitionCubit),
-        BlocProvider(create: (context) => topResultsTabCubit..fetchLeagues(DateTime.now())),
+        BlocProvider.value(value: Modular.get<CompetitionCubit>()),
+        BlocProvider.value(value: Modular.get<TopResultsTabCubit>()..fetchLeagues(DateTime.now())),
+        BlocProvider.value(value: Modular.get<RegionTabCubit>()..fetchLeaguesByRegion(DateTime.now())),
       ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
@@ -39,7 +38,6 @@ class CompetitionScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CompetitionSearchBar(),
               const SizedBox(height: 15),

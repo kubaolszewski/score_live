@@ -17,18 +17,18 @@ class LiveMatchesFixtures with _$LiveMatchesFixtures {
 
 @freezed
 class MatchEvents with _$MatchEvents {
-  factory MatchEvents ({
+  factory MatchEvents({
     @Default([]) List<MatchEventsModel> response,
   }) = _MatchEvents;
 
-    factory MatchEvents.fromJson(Map<String, dynamic> json) => _$MatchEventsFromJson(json);
+  factory MatchEvents.fromJson(Map<String, dynamic> json) => _$MatchEventsFromJson(json);
 }
 
 @freezed
 class League with _$League {
-  factory League ({
+  factory League({
     @Default([]) List<LeagueModel> response,
   }) = _League;
 
-    factory League.fromJson(Map<String, dynamic> json) => _$LeagueFromJson(json);
+  factory League.fromJson(Map<String, dynamic> json) => _$LeagueFromJson(json);
 }
