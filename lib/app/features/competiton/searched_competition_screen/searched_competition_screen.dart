@@ -9,9 +9,10 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class SearchedCompetitionScreen extends StatelessWidget {
-  SearchedCompetitionScreen({super.key});
+  SearchedCompetitionScreen(this.nameQuery, {super.key});
 
   final competitionCubit = Modular.get<CompetitionCubit>();
+  final String nameQuery;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class SearchedCompetitionScreen extends StatelessWidget {
         ),
       ),
       body: BlocProvider<CompetitionCubit>(
-        create: (context) => competitionCubit,
+        create: (context) => competitionCubit..searchingResults(nameQuery),
         child: BlocBuilder<CompetitionCubit, CompetitionState>(
           builder: (context, state) {
             if (state.isLoading == true) {

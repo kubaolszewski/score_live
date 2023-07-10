@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
@@ -10,43 +11,66 @@ class CompetitionSearchBar extends StatelessWidget {
   CompetitionSearchBar({super.key});
 
   final competitionCubit = Modular.get<CompetitionCubit>();
-  final searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
+
     return BlocBuilder<CompetitionCubit, CompetitionState>(
       builder: (context, state) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: TextField(
-            controller: searchController,
-            onSubmitted: (nameQuery) {
-              searchController.text = nameQuery;
-              searchController.clear();
-            },
-            onEditingComplete: () {
-              competitionCubit.searchingResults(searchController.text);
-              Modular.to.pushNamed(CompetitionPath.resultsPath);
-            },
-            style: const TextStyle(color: Colors.white, fontSize: 14),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: AppColors.inactiveItemGrey,
-              border: InputBorder.none,
-              hintText: context.localizations.searchBarHint,
+        return SafeArea(
+          child: SizedBox(
+            width: width,
+            height: 75,
+            child: FloatingSearchBar(
+              backgroundColor: AppColors.inactiveItemGrey,
+              iconColor: Colors.white,
+              hint: context.localizations.searchBarHint,
               hintStyle: const TextStyle(color: Colors.white, fontSize: 14),
-              prefixIcon: const Icon(
-                Icons.search,
-                color: Colors.white,
-              ),
+              queryStyle: const TextStyle(color: Colors.white, fontSize: 14),
+              transition: CircularFloatingSearchBarTransition(),
+              transitionDuration: const Duration(milliseconds: 800),
+              transitionCurve: Curves.easeInOut,
+              physics: const BouncingScrollPhysics(),
+              openAxisAlignment: 0.0,
+              debounceDelay: const Duration(milliseconds: 500),
+              onSubmitted: (nameQuery) {
+                Modular.to.pushNamed(CompetitionPath.resultsPath, arguments: nameQuery);
+              },
+              actions: [
+                FloatingSearchBarAction(
+                  showIfOpened: false,
+                  child: CircularButton(
+                    icon: const Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
+                FloatingSearchBarAction.searchToClear(
+                  showIfClosed: false,
+                ),
+              ],
+              builder: (context, transition) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Material(
+                    color: Colors.white,
+                    elevation: 4.0,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: Colors.accents.map((color) {
+                        return Container(height: 112, color: color);
+                      }).toList(),
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         );
       },
     );
-  }
-
-  void dispose() {
-    searchController.dispose();
   }
 }
