@@ -19,15 +19,9 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
   String? baseUrl;
 
   @override
-  Future<Team> fetchTeamsByName({
-    required String name,
-    required String season,
-  }) async {
+  Future<Team> fetchTeamsByName({required String name}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'name': name,
-      r'season': season,
-    };
+    final queryParameters = <String, dynamic>{r'name': name};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result =
@@ -52,15 +46,9 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
   }
 
   @override
-  Future<League> fetchLeagues({
-    required String type,
-    required String season,
-  }) async {
+  Future<League> fetchLeagues({required String season}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'type': type,
-      r'season': season,
-    };
+    final queryParameters = <String, dynamic>{r'season': season};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result =
@@ -119,12 +107,12 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
 
   @override
   Future<League> fetchLeaguesByRegion({
-    required String country,
+    required String last,
     required String season,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'country': country,
+      r'last': last,
       r'season': season,
     };
     final _headers = <String, dynamic>{};

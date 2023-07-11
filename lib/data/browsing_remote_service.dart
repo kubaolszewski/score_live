@@ -12,12 +12,10 @@ abstract class BrowsingRemoteService {
   @GET('/teams')
   Future<Team> fetchTeamsByName({
     @Query("name") required String name,
-    @Query("season") required String season,
   });
 
   @GET('/leagues')
   Future<League> fetchLeagues({
-    @Query("type") required String type,
     @Query("season") required String season,
   });
 
@@ -29,7 +27,7 @@ abstract class BrowsingRemoteService {
 
   @GET('/leagues')
   Future<League> fetchLeaguesByRegion({
-    @Query("country") required String country,
+    @Query("last") required String last,
     @Query("season") required String season,
   });
 }

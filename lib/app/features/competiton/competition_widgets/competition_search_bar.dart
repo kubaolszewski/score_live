@@ -34,8 +34,6 @@ class CompetitionSearchBar extends StatelessWidget {
               transitionDuration: const Duration(milliseconds: 800),
               transitionCurve: Curves.easeInOut,
               physics: const BouncingScrollPhysics(),
-              openAxisAlignment: 0.0,
-              debounceDelay: const Duration(milliseconds: 500),
               onSubmitted: (nameQuery) {
                 Modular.to.pushNamed(CompetitionPath.resultsPath, arguments: nameQuery);
               },

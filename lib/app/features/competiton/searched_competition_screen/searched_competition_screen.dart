@@ -35,7 +35,7 @@ class SearchedCompetitionScreen extends StatelessWidget {
         ),
       ),
       body: BlocProvider<CompetitionCubit>(
-        create: (context) => competitionCubit..searchingResults(nameQuery),
+        create: (context) => competitionCubit..searchingLeagues(nameQuery),
         child: BlocBuilder<CompetitionCubit, CompetitionState>(
           builder: (context, state) {
             if (state.isLoading == true) {
@@ -46,9 +46,9 @@ class SearchedCompetitionScreen extends StatelessWidget {
               );
             }
 
-            final leagues = state.leagues;
+            final results = state.leagueResults;
 
-            if (leagues.isEmpty) {
+            if (results.isEmpty) {
               return SizedBox(
                 height: 200,
                 child: Center(
@@ -73,7 +73,7 @@ class SearchedCompetitionScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SearchedCompetitionView(width: width, height: height, leagues: leagues),
+                  SearchedCompetitionView(width: width, height: height, results: results),
                 ],
               ),
             );

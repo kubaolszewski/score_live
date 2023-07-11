@@ -7,12 +7,12 @@ class SearchedCompetitionView extends StatelessWidget {
     super.key,
     required this.width,
     required this.height,
-    required this.leagues,
+    required this.results,
   });
 
   final double width;
   final double height;
-  final List<LeagueModel> leagues;
+  final List<LeagueModel> results;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +22,9 @@ class SearchedCompetitionView extends StatelessWidget {
         width: width,
         height: height,
         child: ListView.builder(
-          itemCount: leagues.length,
+          itemCount: results.length,
           itemBuilder: (context, index) {
-            final league = leagues[index];
+            final league = results[index];
             final String leagueFlag = league.country?.flag ?? '';
             final String leagueRegion = league.country?.name ?? '';
             final String leagueName = league.league?.name ?? '';

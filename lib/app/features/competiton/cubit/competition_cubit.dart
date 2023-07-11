@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/league_model/league_model.dart';
+import 'package:score_live/models/team_model/team_model.dart';
 import 'package:score_live/repositories/competition_screen_repository.dart';
 
 part 'competition_state.dart';
@@ -13,12 +14,22 @@ class CompetitionCubit extends Cubit<CompetitionState> {
 
   final CompetitionScreenRepository competitionScreenRepository;
 
-  Future<void> searchingResults(String nameQuery) async {
+  Future<void> searchingTeams(String nameQuery) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final searchedResults = await competitionScreenRepository.fetchTeamsByName(nameQuery);
+      emit(state.copyWith(teamResults: searchedResults, isLoading: false));
+    } catch (error) {
+      emit(state.copyWith(errorMessage: error.toString()));
+    }
+  }
+
+  Future<void> searchingLeagues(String nameQuery) async {
     String yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
     emit(state.copyWith(isLoading: true));
     try {
-      final searchedLeagues = (await competitionScreenRepository.fetchLeaguesByName(nameQuery, yearFromActualDate));
-      emit(state.copyWith(leagues: searchedLeagues, isLoading: false));
+      final searchedResults = await competitionScreenRepository.fetchLeaguesByName(nameQuery, yearFromActualDate);
+      emit(state.copyWith(leagueResults: searchedResults, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
