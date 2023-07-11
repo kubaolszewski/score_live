@@ -9,6 +9,11 @@ part 'browsing_remote_service.g.dart';
 abstract class BrowsingRemoteService {
   static BrowsingRemoteService create(ApiClient dio) => _BrowsingRemoteService(dio.dio);
 
+  @GET('/teams')
+  Future<Team> fetchTeamsByName({
+    @Query("name") required String name,
+  });
+
   @GET('/leagues')
   Future<League> fetchLeagues({
     @Query("type") required String type,

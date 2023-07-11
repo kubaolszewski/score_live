@@ -1,10 +1,38 @@
 import 'package:score_live/data/browsing_remote_service.dart';
 import 'package:score_live/models/league_model/league_model.dart';
+import 'package:score_live/models/team_model/team_model.dart';
 
 class CompetitionScreenRepository {
   CompetitionScreenRepository(this.browsingRemoteService);
 
   final BrowsingRemoteService browsingRemoteService;
+
+  Future<List<TeamModel>> fetchTeamsByName(String nameQuery) async {
+    // return (await browsingRemoteService.fetchTeamsByName(name: nameQuery)).response;
+    final response = [
+      {
+        "team": {
+          "id": 33,
+          "name": "Manchester United",
+          "code": "MUN",
+          "country": "England",
+          "founded": 1878,
+          "national": false,
+          "logo": "https://media-1.api-sports.io/football/teams/33.png"
+        },
+        "venue": {
+          "id": 556,
+          "name": "Old Trafford",
+          "address": "Sir Matt Busby Way",
+          "city": "Manchester",
+          "capacity": 76212,
+          "surface": "grass",
+          "image": "https://media-1.api-sports.io/football/venues/556.png"
+        }
+      }
+    ];
+    return response.map(TeamModel.fromJson).toList();
+  }
 
   Future<List<LeagueModel>> fetchLeagues(String yearFromActualDate) async {
     // return (await browsingRemoteService.fetchLeagues(type: 'league', season: yearFromActualDate)).response;
@@ -380,4 +408,13 @@ class CompetitionScreenRepository {
     ];
     return response.map(LeagueModel.fromJson).toList();
   }
+
+  // Future<List<LeagueModel>> fetchLeagues2 (String nameQuery,String yearFromActualDate) async {
+  //   var responses = await Future.wait([
+  //     browsingRemoteService.fetchLeagues(type: 'league', season: yearFromActualDate),
+  //     browsingRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate),
+  //     browsingRemoteService.fetchLeaguesByRegion(country: 'England', season: yearFromActualDate),
+  //   ]);
+  //   return await responses;
+  // }
 }
