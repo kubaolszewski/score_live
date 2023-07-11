@@ -19,9 +19,15 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
   String? baseUrl;
 
   @override
-  Future<Team> fetchTeamsByName({required String name}) async {
+  Future<Team> fetchTeamsByName({
+    required String name,
+    required String season,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'name': name};
+    final queryParameters = <String, dynamic>{
+      r'name': name,
+      r'season': season,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result =

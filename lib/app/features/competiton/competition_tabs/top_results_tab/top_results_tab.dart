@@ -17,10 +17,13 @@ class TopResultsTab extends StatelessWidget {
     return BlocBuilder<TopResultsTabCubit, TopResultsTabState>(
       builder: (context, state) {
         if (state.isLoading == true) {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: AppColors.mainThemePink,
-            ),
+          return const Column(
+            children: [
+              SizedBox(height: 100),
+              CircularProgressIndicator(
+                color: AppColors.mainThemePink,
+              ),
+            ],
           );
         }
 

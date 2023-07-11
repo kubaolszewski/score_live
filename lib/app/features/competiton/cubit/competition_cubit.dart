@@ -24,7 +24,7 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     }
   }
 
-  void switchBrowsingOptions(BrowsingOptions chosenOption)  {
+  void switchBrowsingOptions(BrowsingOptions chosenOption) {
     emit(state.copyWith(browsingOptions: chosenOption));
   }
 }
