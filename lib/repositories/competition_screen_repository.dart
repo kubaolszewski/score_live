@@ -1,13 +1,13 @@
-import 'package:score_live/data/live_matches_remote_service.dart';
+import 'package:score_live/data/browsing_remote_service.dart';
 import 'package:score_live/models/league_model/league_model.dart';
 
 class CompetitionScreenRepository {
-  CompetitionScreenRepository(this.liveMatchesRemoteService);
+  CompetitionScreenRepository(this.browsingRemoteService);
 
-  final LiveMatchesRemoteService liveMatchesRemoteService;
+  final BrowsingRemoteService browsingRemoteService;
 
   Future<List<LeagueModel>> fetchLeagues(String yearFromActualDate) async {
-    // return (await liveMatchesRemoteService.fetchLeagues(type: 'league', season: yearFromActualDate)).response;
+    // return (await browsingRemoteService.fetchLeagues(type: 'league', season: yearFromActualDate)).response;
     final response = [
       {
         "league": {
@@ -42,7 +42,7 @@ class CompetitionScreenRepository {
   }
 
   Future<List<LeagueModel>> fetchLeaguesByName(String nameQuery, String yearFromActualDate) async {
-    // return (await liveMatchesRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate)).response;
+    // return (await browsingRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate)).response;
     final response = [
       {
         "league": {
@@ -77,7 +77,7 @@ class CompetitionScreenRepository {
   }
 
   Future<List<LeagueModel>> fetchLeaguesByRegion(String yearFromActualDate) async {
-    // return (await liveMatchesRemoteService.fetchLeaguesByRegion(country: "England", season: yearFromActualDate))
+    // return (await browsingRemoteService.fetchLeaguesByRegion(country: "England", season: yearFromActualDate))
     //     .response;
     final response = [
       {

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'live_matches_remote_service.dart';
+part of 'browsing_remote_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'live_matches_remote_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
-  _LiveMatchesRemoteService(
+class _BrowsingRemoteService implements BrowsingRemoteService {
+  _BrowsingRemoteService(
     this._dio, {
     this.baseUrl,
   });
@@ -19,28 +19,26 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
   String? baseUrl;
 
   @override
-  Future<LiveMatchesFixtures> fetchMatchesByDate({
-    required String league,
+  Future<League> fetchLeagues({
+    required String type,
     required String season,
-    required String date,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'league': league,
+      r'type': type,
       r'season': season,
-      r'date': date,
     };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<LiveMatchesFixtures>(Options(
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<League>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/fixtures',
+              '/leagues',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -49,25 +47,31 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = LiveMatchesFixtures.fromJson(_result.data!);
+    final value = League.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<LiveMatchesFixtures> fetchLiveMatches({required String live}) async {
+  Future<League> fetchLeaguesByName({
+    required String name,
+    required String season,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'live': live};
+    final queryParameters = <String, dynamic>{
+      r'name': name,
+      r'season': season,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<LiveMatchesFixtures>(Options(
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<League>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/fixtures',
+              '/leagues',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -76,25 +80,31 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = LiveMatchesFixtures.fromJson(_result.data!);
+    final value = League.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<MatchEvents> fetchMatchEvents({required String matchID}) async {
+  Future<League> fetchLeaguesByRegion({
+    required String country,
+    required String season,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'fixture': matchID};
+    final queryParameters = <String, dynamic>{
+      r'country': country,
+      r'season': season,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<MatchEvents>(Options(
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<League>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/fixtures/events',
+              '/leagues',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -103,7 +113,7 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = MatchEvents.fromJson(_result.data!);
+    final value = League.fromJson(_result.data!);
     return value;
   }
 

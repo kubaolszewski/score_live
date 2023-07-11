@@ -45,7 +45,6 @@ class TopResultsTab extends StatelessWidget {
               const SizedBox(height: 20),
               Text(
                 context.localizations.topHeader,
-                textAlign: TextAlign.left,
                 style: const TextStyle(
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
