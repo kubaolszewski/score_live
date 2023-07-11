@@ -27,7 +27,7 @@ class CompetitionModule extends Module {
         ),
         ChildRoute(
           CompetitionPath.resultsScreen,
-          child: ((context, args) => SearchedCompetitionScreen(args.data)),
+          child: ((context, args) => SearchedCompetitionScreen()),
         ),
       ];
 }
