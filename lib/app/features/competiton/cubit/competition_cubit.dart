@@ -14,7 +14,7 @@ class CompetitionCubit extends Cubit<CompetitionState> {
 
   final CompetitionScreenRepository competitionScreenRepository;
 
-  Future<void> searchingTeams(String nameQuery) async {
+  Future<void> searchingTeamsByName(String nameQuery) async {
     emit(state.copyWith(isLoading: true));
     try {
       final searchedResults = await competitionScreenRepository.fetchTeamsByName(nameQuery);
@@ -24,7 +24,7 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     }
   }
 
-  Future<void> searchingLeagues(String nameQuery) async {
+  Future<void> searchingLeaguesByName(String nameQuery) async {
     String yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
     emit(state.copyWith(isLoading: true));
     try {
@@ -32,6 +32,28 @@ class CompetitionCubit extends Cubit<CompetitionState> {
       emit(state.copyWith(leagueResults: searchedResults, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
+    }
+  }
+
+  Future<void> searchingLeaguesByRegion(String regionQuery) async {
+    String yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
+    emit(state.copyWith(isLoading: true));
+    try {
+      final searchedResults = await competitionScreenRepository.fetchLeaguesByRegion(regionQuery, yearFromActualDate);
+      emit(state.copyWith(leagueResults: searchedResults, isLoading: false));
+    } catch (error) {
+      emit(state.copyWith(errorMessage: error.toString()));
+    }
+  }
+
+  void switchSearching(String searchingValue) {
+    switch (searchingValue) {
+      case 'Team':
+        emit(state.copyWith(searchTypes: SearchTypes.teamName));
+      case 'League (name)':
+        emit(state.copyWith(searchTypes: SearchTypes.leagueName));
+      case 'League (regional)':
+        emit(state.copyWith(searchTypes: SearchTypes.leagueRegion));
     }
   }
 

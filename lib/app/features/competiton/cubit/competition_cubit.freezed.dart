@@ -19,6 +19,7 @@ mixin _$CompetitionState {
   List<LeagueModel> get leagueResults => throw _privateConstructorUsedError;
   List<TeamModel> get teamResults => throw _privateConstructorUsedError;
   BrowsingOptions get browsingOptions => throw _privateConstructorUsedError;
+  SearchTypes get searchTypes => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
@@ -37,6 +38,7 @@ abstract class $CompetitionStateCopyWith<$Res> {
       {List<LeagueModel> leagueResults,
       List<TeamModel> teamResults,
       BrowsingOptions browsingOptions,
+      SearchTypes searchTypes,
       String? errorMessage,
       bool isLoading});
 }
@@ -57,6 +59,7 @@ class _$CompetitionStateCopyWithImpl<$Res, $Val extends CompetitionState>
     Object? leagueResults = null,
     Object? teamResults = null,
     Object? browsingOptions = null,
+    Object? searchTypes = null,
     Object? errorMessage = freezed,
     Object? isLoading = null,
   }) {
@@ -73,6 +76,10 @@ class _$CompetitionStateCopyWithImpl<$Res, $Val extends CompetitionState>
           ? _value.browsingOptions
           : browsingOptions // ignore: cast_nullable_to_non_nullable
               as BrowsingOptions,
+      searchTypes: null == searchTypes
+          ? _value.searchTypes
+          : searchTypes // ignore: cast_nullable_to_non_nullable
+              as SearchTypes,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -97,6 +104,7 @@ abstract class _$$_CompetitionStateCopyWith<$Res>
       {List<LeagueModel> leagueResults,
       List<TeamModel> teamResults,
       BrowsingOptions browsingOptions,
+      SearchTypes searchTypes,
       String? errorMessage,
       bool isLoading});
 }
@@ -115,6 +123,7 @@ class __$$_CompetitionStateCopyWithImpl<$Res>
     Object? leagueResults = null,
     Object? teamResults = null,
     Object? browsingOptions = null,
+    Object? searchTypes = null,
     Object? errorMessage = freezed,
     Object? isLoading = null,
   }) {
@@ -131,6 +140,10 @@ class __$$_CompetitionStateCopyWithImpl<$Res>
           ? _value.browsingOptions
           : browsingOptions // ignore: cast_nullable_to_non_nullable
               as BrowsingOptions,
+      searchTypes: null == searchTypes
+          ? _value.searchTypes
+          : searchTypes // ignore: cast_nullable_to_non_nullable
+              as SearchTypes,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -150,6 +163,7 @@ class _$_CompetitionState implements _CompetitionState {
       {final List<LeagueModel> leagueResults = const [],
       final List<TeamModel> teamResults = const [],
       this.browsingOptions = BrowsingOptions.top,
+      this.searchTypes = SearchTypes.teamName,
       this.errorMessage,
       this.isLoading = false})
       : _leagueResults = leagueResults,
@@ -177,6 +191,9 @@ class _$_CompetitionState implements _CompetitionState {
   @JsonKey()
   final BrowsingOptions browsingOptions;
   @override
+  @JsonKey()
+  final SearchTypes searchTypes;
+  @override
   final String? errorMessage;
   @override
   @JsonKey()
@@ -184,7 +201,7 @@ class _$_CompetitionState implements _CompetitionState {
 
   @override
   String toString() {
-    return 'CompetitionState(leagueResults: $leagueResults, teamResults: $teamResults, browsingOptions: $browsingOptions, errorMessage: $errorMessage, isLoading: $isLoading)';
+    return 'CompetitionState(leagueResults: $leagueResults, teamResults: $teamResults, browsingOptions: $browsingOptions, searchTypes: $searchTypes, errorMessage: $errorMessage, isLoading: $isLoading)';
   }
 
   @override
@@ -198,6 +215,8 @@ class _$_CompetitionState implements _CompetitionState {
                 .equals(other._teamResults, _teamResults) &&
             (identical(other.browsingOptions, browsingOptions) ||
                 other.browsingOptions == browsingOptions) &&
+            (identical(other.searchTypes, searchTypes) ||
+                other.searchTypes == searchTypes) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.isLoading, isLoading) ||
@@ -210,6 +229,7 @@ class _$_CompetitionState implements _CompetitionState {
       const DeepCollectionEquality().hash(_leagueResults),
       const DeepCollectionEquality().hash(_teamResults),
       browsingOptions,
+      searchTypes,
       errorMessage,
       isLoading);
 
@@ -225,6 +245,7 @@ abstract class _CompetitionState implements CompetitionState {
       {final List<LeagueModel> leagueResults,
       final List<TeamModel> teamResults,
       final BrowsingOptions browsingOptions,
+      final SearchTypes searchTypes,
       final String? errorMessage,
       final bool isLoading}) = _$_CompetitionState;
 
@@ -234,6 +255,8 @@ abstract class _CompetitionState implements CompetitionState {
   List<TeamModel> get teamResults;
   @override
   BrowsingOptions get browsingOptions;
+  @override
+  SearchTypes get searchTypes;
   @override
   String? get errorMessage;
   @override

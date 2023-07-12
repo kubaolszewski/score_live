@@ -27,7 +27,7 @@ abstract class BrowsingRemoteService {
 
   @GET('/leagues')
   Future<League> fetchLeaguesByRegion({
-    @Query("last") required String last,
+    @Query("country") required String country,
     @Query("season") required String season,
   });
 }

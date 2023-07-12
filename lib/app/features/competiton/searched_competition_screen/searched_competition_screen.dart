@@ -8,18 +8,13 @@ import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
-class SearchedCompetitionScreen extends StatefulWidget {
-  const SearchedCompetitionScreen({super.key});
+class SearchedCompetitionScreen extends StatelessWidget {
+  SearchedCompetitionScreen(this.nameQuery,{
+    super.key,
+  });
 
-  @override
-  State<SearchedCompetitionScreen> createState() => _SearchedCompetitionScreenState();
-}
-
-String dropdownValue = 'Team';
-final searchingController = TextEditingController();
-final competitionCubit = Modular.get<CompetitionCubit>();
-
-class _SearchedCompetitionScreenState extends State<SearchedCompetitionScreen> {
+  final competitionCubit = Modular.get<CompetitionCubit>();
+  final String nameQuery;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.sizeOf(context).height;
@@ -41,7 +36,7 @@ class _SearchedCompetitionScreenState extends State<SearchedCompetitionScreen> {
         ),
       ),
       body: BlocProvider<CompetitionCubit>(
-        create: (context) => competitionCubit,
+        create: (context) => competitionCubit..searchingLeaguesByName(nameQuery),
         child: BlocBuilder<CompetitionCubit, CompetitionState>(
           builder: (context, state) {
             if (state.isLoading == true) {
@@ -52,61 +47,27 @@ class _SearchedCompetitionScreenState extends State<SearchedCompetitionScreen> {
               );
             }
 
+            final leagues = state.leagueResults;
+            
+            if (leagues.isEmpty) {
+              return SizedBox(
+                height: 200,
+                child: Center(
+                  child: Text(
+                    context.localizations.dataErrorInfo,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(color: Colors.white, fontSize: 24),
+                  ),
+                ),
+              );
+            }
+
+
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(12), color: AppColors.inactiveItemGrey),
-                    child: TextField(
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: context.localizations.searchBarHint,
-                        hintStyle: const TextStyle(color: Colors.white, fontSize: 14),
-                      ),
-                      cursorColor: Colors.white,
-                      controller: searchingController,
-                      onSubmitted: (nameQuery) {
-                        searchingController.text = nameQuery;
-                        competitionCubit.searchingLeagues(nameQuery);
-                      },
-                    ),
-                  ),
                   const SizedBox(height: 20),
-                  DropdownButton<String>(
-                    dropdownColor: Colors.black,
-                    value: dropdownValue,
-                    items: <String>['Team', 'League', 'Cup'].map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value, style: const TextStyle(color: Colors.white)),
-                      );
-                    }).toList(),
-                    onChanged: (String? value) {
-                      setState(() {
-                        dropdownValue = value!;
-                        switch (value) {
-                          case 'Team':
-                            competitionCubit.searchingTeams(searchingController.text);
-                          case 'League':
-                            competitionCubit.searchingLeagues(searchingController.text);
-                          case 'Cup':
-                            competitionCubit.searchingLeagues(searchingController.text);
-                        }
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    context.localizations.topHeader,
-                    textAlign: TextAlign.left,
-                    style: const TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SearchedCompetitionView(width: width, height: height, results: state.leagueResults),
+                  SearchedCompetitionView(width: width, height: height, results: leagues),
                 ],
               ),
             );

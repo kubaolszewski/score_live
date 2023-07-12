@@ -39,7 +39,7 @@ class CompetitionScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              CompetitionSearchBar(),
+               CompetitionSearchBar(),
               const SizedBox(height: 15),
               CompetitionOptionsTapBar(),
               BlocBuilder<CompetitionCubit, CompetitionState>(
