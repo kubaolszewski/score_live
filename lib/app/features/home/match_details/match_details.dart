@@ -225,7 +225,7 @@ class MatchDetails extends StatelessWidget {
                   ),
                 ),
               ),
-              const MatchDetailsTabBar(),
+              MatchDetailsTabBar(),
               BlocBuilder<MatchDetailsCubit, MatchDetailsState>(
                 builder: (context, state) {
                   final matchEvents = state.matchEvents;
