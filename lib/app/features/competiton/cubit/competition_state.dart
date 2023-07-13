@@ -8,6 +8,7 @@ class CompetitionState with _$CompetitionState {
     @Default(BrowsingOptions.top) BrowsingOptions browsingOptions,
     @Default(SearchTypes.teamName) SearchTypes searchTypes,
     String? errorMessage,
+    @Default(true) bool isSearchingLeagueByName,
     @Default(false) bool isLoading,
   }) = _CompetitionState;
 }

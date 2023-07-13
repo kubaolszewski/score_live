@@ -14,6 +14,19 @@ class CompetitionCubit extends Cubit<CompetitionState> {
 
   final CompetitionScreenRepository competitionScreenRepository;
 
+  void switchBrowsingOptions(BrowsingOptions chosenOption) {
+    emit(state.copyWith(browsingOptions: chosenOption));
+  }
+
+  void switchSearching(String dropdownValue) {
+    switch (dropdownValue) {
+      case 'Team':
+        emit(state.copyWith(searchTypes: SearchTypes.teamName));
+      case 'League (name)':
+        emit(state.copyWith(searchTypes: SearchTypes.leagueName));
+    }
+  }
+
   Future<void> searchingTeamsByName(String nameQuery) async {
     emit(state.copyWith(isLoading: true));
     try {
@@ -35,29 +48,14 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     }
   }
 
-  Future<void> searchingLeaguesByRegion(String regionQuery) async {
+  Future<void> searchingLeaguesByCountry(String nameQuery) async {
     String yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
     emit(state.copyWith(isLoading: true));
     try {
-      final searchedResults = await competitionScreenRepository.fetchLeaguesByRegion(regionQuery, yearFromActualDate);
+      final searchedResults = await competitionScreenRepository.fetchLeaguesByCountry(nameQuery, yearFromActualDate);
       emit(state.copyWith(leagueResults: searchedResults, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
-  }
-
-  void switchSearching(String searchingValue) {
-    switch (searchingValue) {
-      case 'Team':
-        emit(state.copyWith(searchTypes: SearchTypes.teamName));
-      case 'League (name)':
-        emit(state.copyWith(searchTypes: SearchTypes.leagueName));
-      case 'League (regional)':
-        emit(state.copyWith(searchTypes: SearchTypes.leagueRegion));
-    }
-  }
-
-  void switchBrowsingOptions(BrowsingOptions chosenOption) {
-    emit(state.copyWith(browsingOptions: chosenOption));
   }
 }

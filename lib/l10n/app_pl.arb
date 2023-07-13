@@ -23,7 +23,10 @@
 
   "competitionAppBarTitle" : "Wyszukaj rozgrywki",
 
-  "searchBarHint" : "Wyszukaj rozgrywki, kluby, regiony itp.",
+  "searchBarHint" : "Wyszukaj: ",
+  "team" : "Klub",
+  "leagueName" : "Liga (nazwa)",
+  "leagueRegion" : "Liga (kraj)",
 
   "top" : "Top",
   "region" : "Region",
@@ -31,6 +34,7 @@
 
   "dataErrorInfo" : "Coś poszło nie tak - dane nie są obecnie przysyłane.",
   "topHeader" : "POPULARNE ROZGRYWKI",
+  "searchHeader" : "Wyniki:",
 
   "accountAppBarTitle" : "Moje konto"
 }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/league_list_tile.dart';
 import 'package:score_live/models/league_model/league_model.dart';
 
-class SearchedCompetitionView extends StatelessWidget {
-  const SearchedCompetitionView({
+class SearchedLeaguesView extends StatelessWidget {
+  const SearchedLeaguesView({
     super.key,
     required this.width,
     required this.height,

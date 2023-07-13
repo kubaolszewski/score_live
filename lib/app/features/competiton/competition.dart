@@ -24,9 +24,11 @@ class CompetitionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider.value(value: Modular.get<CompetitionCubit>()),
-        BlocProvider.value(value: Modular.get<TopResultsTabCubit>()..fetchLeagues(DateTime.now())),
-        BlocProvider.value(value: Modular.get<RegionTabCubit>()..fetchLeaguesByRegion(DateTime.now())),
+        BlocProvider(create: (context) => Modular.get<CompetitionCubit>()),
+        BlocProvider(create: (context) => Modular.get<TopResultsTabCubit>()..fetchLeagues(DateTime.now())),
+        BlocProvider(create: (context) => Modular.get<RegionTabCubit>()
+            // ..fetchLeaguesByRegion(DateTime.now())
+            ),
       ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
@@ -39,7 +41,7 @@ class CompetitionScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-               CompetitionSearchBar(),
+              CompetitionSearchBar(),
               const SizedBox(height: 15),
               CompetitionOptionsTapBar(),
               BlocBuilder<CompetitionCubit, CompetitionState>(

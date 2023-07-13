@@ -2,7 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/competiton/competition.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/region_tab/cubit/region_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
-import 'package:score_live/app/features/competiton/searched_competition_screen/searched_competition_screen.dart';
+import 'package:score_live/app/features/competiton/searched_competition_screen/searched_leagues_screen.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/data/api.client.dart';
 import 'package:score_live/data/browsing_remote_service.dart';
@@ -26,15 +26,15 @@ class CompetitionModule extends Module {
           child: ((context, args) => const CompetitionScreen()),
         ),
         ChildRoute(
-          CompetitionPath.resultsScreen,
-          child: ((context, args) => SearchedCompetitionScreen(args.data)),
+          CompetitionPath.searchedLeaguesScreen,
+          child: ((context, args) => SearchedLeaguesScreen(args.data)),
         ),
       ];
 }
 
 mixin CompetitionPath {
   static String path = '/competition';
-  static String resultsScreen = '/results';
+  static String searchedLeaguesScreen = '/leagues-results';
 
-  static String resultsPath = '$path$resultsScreen';
+  static String searchedLeaguesPath = '$path$searchedLeaguesScreen';
 }

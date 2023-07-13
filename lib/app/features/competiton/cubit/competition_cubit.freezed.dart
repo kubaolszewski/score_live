@@ -21,6 +21,7 @@ mixin _$CompetitionState {
   BrowsingOptions get browsingOptions => throw _privateConstructorUsedError;
   SearchTypes get searchTypes => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
+  bool get isSearchingLeagueByName => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -40,6 +41,7 @@ abstract class $CompetitionStateCopyWith<$Res> {
       BrowsingOptions browsingOptions,
       SearchTypes searchTypes,
       String? errorMessage,
+      bool isSearchingLeagueByName,
       bool isLoading});
 }
 
@@ -61,6 +63,7 @@ class _$CompetitionStateCopyWithImpl<$Res, $Val extends CompetitionState>
     Object? browsingOptions = null,
     Object? searchTypes = null,
     Object? errorMessage = freezed,
+    Object? isSearchingLeagueByName = null,
     Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
@@ -84,6 +87,10 @@ class _$CompetitionStateCopyWithImpl<$Res, $Val extends CompetitionState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSearchingLeagueByName: null == isSearchingLeagueByName
+          ? _value.isSearchingLeagueByName
+          : isSearchingLeagueByName // ignore: cast_nullable_to_non_nullable
+              as bool,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -106,6 +113,7 @@ abstract class _$$_CompetitionStateCopyWith<$Res>
       BrowsingOptions browsingOptions,
       SearchTypes searchTypes,
       String? errorMessage,
+      bool isSearchingLeagueByName,
       bool isLoading});
 }
 
@@ -125,6 +133,7 @@ class __$$_CompetitionStateCopyWithImpl<$Res>
     Object? browsingOptions = null,
     Object? searchTypes = null,
     Object? errorMessage = freezed,
+    Object? isSearchingLeagueByName = null,
     Object? isLoading = null,
   }) {
     return _then(_$_CompetitionState(
@@ -148,6 +157,10 @@ class __$$_CompetitionStateCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSearchingLeagueByName: null == isSearchingLeagueByName
+          ? _value.isSearchingLeagueByName
+          : isSearchingLeagueByName // ignore: cast_nullable_to_non_nullable
+              as bool,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -165,6 +178,7 @@ class _$_CompetitionState implements _CompetitionState {
       this.browsingOptions = BrowsingOptions.top,
       this.searchTypes = SearchTypes.teamName,
       this.errorMessage,
+      this.isSearchingLeagueByName = true,
       this.isLoading = false})
       : _leagueResults = leagueResults,
         _teamResults = teamResults;
@@ -197,11 +211,14 @@ class _$_CompetitionState implements _CompetitionState {
   final String? errorMessage;
   @override
   @JsonKey()
+  final bool isSearchingLeagueByName;
+  @override
+  @JsonKey()
   final bool isLoading;
 
   @override
   String toString() {
-    return 'CompetitionState(leagueResults: $leagueResults, teamResults: $teamResults, browsingOptions: $browsingOptions, searchTypes: $searchTypes, errorMessage: $errorMessage, isLoading: $isLoading)';
+    return 'CompetitionState(leagueResults: $leagueResults, teamResults: $teamResults, browsingOptions: $browsingOptions, searchTypes: $searchTypes, errorMessage: $errorMessage, isSearchingLeagueByName: $isSearchingLeagueByName, isLoading: $isLoading)';
   }
 
   @override
@@ -219,6 +236,9 @@ class _$_CompetitionState implements _CompetitionState {
                 other.searchTypes == searchTypes) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
+            (identical(
+                    other.isSearchingLeagueByName, isSearchingLeagueByName) ||
+                other.isSearchingLeagueByName == isSearchingLeagueByName) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading));
   }
@@ -231,6 +251,7 @@ class _$_CompetitionState implements _CompetitionState {
       browsingOptions,
       searchTypes,
       errorMessage,
+      isSearchingLeagueByName,
       isLoading);
 
   @JsonKey(ignore: true)
@@ -247,6 +268,7 @@ abstract class _CompetitionState implements CompetitionState {
       final BrowsingOptions browsingOptions,
       final SearchTypes searchTypes,
       final String? errorMessage,
+      final bool isSearchingLeagueByName,
       final bool isLoading}) = _$_CompetitionState;
 
   @override
@@ -259,6 +281,8 @@ abstract class _CompetitionState implements CompetitionState {
   SearchTypes get searchTypes;
   @override
   String? get errorMessage;
+  @override
+  bool get isSearchingLeagueByName;
   @override
   bool get isLoading;
   @override

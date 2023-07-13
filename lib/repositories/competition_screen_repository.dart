@@ -83,7 +83,7 @@ class CompetitionScreenRepository {
   }
 
   Future<List<LeagueModel>> fetchLeaguesByName(String nameQuery, String yearFromActualDate) async {
-    // return (await browsingRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate)).response;
+    return (await browsingRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate)).response;
     final response = [
       {
         "league": {
@@ -117,8 +117,8 @@ class CompetitionScreenRepository {
     return response.map(LeagueModel.fromJson).toList();
   }
 
-  Future<List<LeagueModel>> fetchLeaguesByRegion(String regionQuery, String yearFromActualDate) async {
-    // return (await browsingRemoteService.fetchLeaguesByRegion(country: regionQuery, season: yearFromActualDate))
+  Future<List<LeagueModel>> fetchLeaguesByCountry(String countryQuery, String yearFromActualDate) async {
+    // return (await browsingRemoteService.fetchLeaguesByRegion(country: countryQuery, season: yearFromActualDate))
     //     .response;
     final response = [
       {

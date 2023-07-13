@@ -16,7 +16,7 @@ class RegionTabCubit extends Cubit<RegionTabState> {
     String formattedDate = DateFormat('yyyy').format(date);
     emit(state.copyWith(isLoading: true));
     try {
-      final leaguesFromRegion = await competitionScreenRepository.fetchLeaguesByRegion('Spain', formattedDate);
+      final leaguesFromRegion = await competitionScreenRepository.fetchLeaguesByCountry('Spain', formattedDate);
       emit(state.copyWith(leagueModel: leaguesFromRegion, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));

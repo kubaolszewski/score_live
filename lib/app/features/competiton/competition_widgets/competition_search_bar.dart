@@ -8,10 +8,10 @@ import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class CompetitionSearchBar extends StatelessWidget {
-  CompetitionSearchBar({super.key});
-
   final competitionCubit = Modular.get<CompetitionCubit>();
   final TextEditingController searchingController = TextEditingController();
+
+  CompetitionSearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,14 @@ class CompetitionSearchBar extends StatelessWidget {
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(borderSide: BorderSide.none),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: Colors.white,
+                  ),
                   suffixIcon: DropdownButton(
                     dropdownColor: AppColors.listTileGrey,
                     value: dropdownValue,
-                    items: <String>['Team', 'League (name)', 'League (regional)']
+                    items: <String>['Team', 'League (name)']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -51,15 +55,14 @@ class CompetitionSearchBar extends StatelessWidget {
                   hintText: context.localizations.searchBarHint,
                   hintStyle: const TextStyle(color: Colors.white, fontSize: 14),
                 ),
+                controller: searchingController,
                 cursorColor: Colors.white,
                 onSubmitted: (nameQuery) {
                   switch (state.searchTypes) {
                     case SearchTypes.teamName:
-                      competitionCubit.searchingTeamsByName(nameQuery);
+                      Modular.to.pushNamed(CompetitionPath.searchedLeaguesPath, arguments: nameQuery);
                     case SearchTypes.leagueName:
-                      Modular.to.pushNamed(CompetitionPath.resultsPath, arguments: nameQuery);
-                    case SearchTypes.leagueRegion:
-                      competitionCubit.searchingLeaguesByRegion(nameQuery);
+                      Modular.to.pushNamed(CompetitionPath.searchedLeaguesPath, arguments: nameQuery);
                   }
                   searchingController.clear();
                 },
