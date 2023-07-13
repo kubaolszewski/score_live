@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const LiveNowView(),
-                HomeOptionsTapBar(),
+                const HomeOptionsTapBar(),
                 BlocBuilder<HomeCubit, HomeState>(
                   builder: (context, state) {
                     switch (state.homeOptions) {

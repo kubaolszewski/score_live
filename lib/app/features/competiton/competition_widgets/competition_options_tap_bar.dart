@@ -17,7 +17,7 @@ class CompetitionOptionsTapBar extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            competitionCubit.switchBrowsingOptions(BrowsingOptions.top);
+            context.read<CompetitionCubit>().switchBrowsingOptions(BrowsingOptions.top);
           },
           child: Container(
             padding: const EdgeInsets.only(bottom: 4.0),
@@ -35,7 +35,7 @@ class CompetitionOptionsTapBar extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            competitionCubit.switchBrowsingOptions(BrowsingOptions.region);
+            context.read<CompetitionCubit>().switchBrowsingOptions(BrowsingOptions.region);
           },
           child: Container(
             padding: const EdgeInsets.only(bottom: 4.0),
@@ -53,7 +53,7 @@ class CompetitionOptionsTapBar extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            competitionCubit.switchBrowsingOptions(BrowsingOptions.favorites);
+            context.read<CompetitionCubit>().switchBrowsingOptions(BrowsingOptions.favorites);
           },
           child: Container(
             padding: const EdgeInsets.only(bottom: 4.0),

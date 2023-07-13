@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
 import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
@@ -8,8 +8,6 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 
 class CompetitionSearchBar extends StatelessWidget {
   CompetitionSearchBar({super.key});
-
-  final competitionCubit = Modular.get<CompetitionCubit>();
 
   final TextEditingController searchingController = TextEditingController();
 
@@ -48,7 +46,7 @@ class CompetitionSearchBar extends StatelessWidget {
                     }).toList(),
                     onChanged: (String? value) {
                       dropdownValue = value!;
-                      competitionCubit.switchSearching(dropdownValue);
+                      context.read<CompetitionCubit>().switchSearching(dropdownValue);
                     },
                   ),
                   hintText: context.localizations.searchBarHint,

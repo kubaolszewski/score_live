@@ -41,10 +41,7 @@ class MatchDetails extends StatelessWidget {
           create: (context) => homeCubit,
         ),
         BlocProvider(
-          create: (context) => matchDetailsCubit
-            ..fetchMatchEvents(
-              liveMatch.fixture!.id!.toString(),
-            ),
+          create: (context) => matchDetailsCubit..fetchMatchEvents(liveMatch.fixture!.id!.toString()),
         ),
       ],
       child: Scaffold(
@@ -228,7 +225,7 @@ class MatchDetails extends StatelessWidget {
                   ),
                 ),
               ),
-              MatchDetailsTabBar(),
+              const MatchDetailsTabBar(),
               BlocBuilder<MatchDetailsCubit, MatchDetailsState>(
                 builder: (context, state) {
                   final matchEvents = state.matchEvents;
