@@ -16,13 +16,55 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ScoreTabState {
-  List<LiveMatchModel>? get liveMatchModel =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
+    required TResult Function() loadingMatchesState,
+    required TResult Function(String errorMessage) errorMatchesState,
+  }) =>
       throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ScoreTabStateCopyWith<ScoreTabState> get copyWith =>
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult? Function()? loadingMatchesState,
+    TResult? Function(String errorMessage)? errorMatchesState,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult Function()? loadingMatchesState,
+    TResult Function(String errorMessage)? errorMatchesState,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ScoreTabState value) $default, {
+    required TResult Function(MatchesLoadedState value) matchesLoaded,
+    required TResult Function(LoadingMatchesState value) loadingMatchesState,
+    required TResult Function(ErrorMatchesState value) errorMatchesState,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ScoreTabState value)? $default, {
+    TResult? Function(MatchesLoadedState value)? matchesLoaded,
+    TResult? Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult? Function(ErrorMatchesState value)? errorMatchesState,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ScoreTabState value)? $default, {
+    TResult Function(MatchesLoadedState value)? matchesLoaded,
+    TResult Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult Function(ErrorMatchesState value)? errorMatchesState,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -31,11 +73,6 @@ abstract class $ScoreTabStateCopyWith<$Res> {
   factory $ScoreTabStateCopyWith(
           ScoreTabState value, $Res Function(ScoreTabState) then) =
       _$ScoreTabStateCopyWithImpl<$Res, ScoreTabState>;
-  @useResult
-  $Res call(
-      {List<LiveMatchModel>? liveMatchModel,
-      bool isLoading,
-      String? errorMessage});
 }
 
 /// @nodoc
@@ -47,43 +84,13 @@ class _$ScoreTabStateCopyWithImpl<$Res, $Val extends ScoreTabState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? liveMatchModel = freezed,
-    Object? isLoading = null,
-    Object? errorMessage = freezed,
-  }) {
-    return _then(_value.copyWith(
-      liveMatchModel: freezed == liveMatchModel
-          ? _value.liveMatchModel
-          : liveMatchModel // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchModel>?,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_ScoreTabStateCopyWith<$Res>
-    implements $ScoreTabStateCopyWith<$Res> {
+abstract class _$$_ScoreTabStateCopyWith<$Res> {
   factory _$$_ScoreTabStateCopyWith(
           _$_ScoreTabState value, $Res Function(_$_ScoreTabState) then) =
       __$$_ScoreTabStateCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {List<LiveMatchModel>? liveMatchModel,
-      bool isLoading,
-      String? errorMessage});
 }
 
 /// @nodoc
@@ -93,103 +100,517 @@ class __$$_ScoreTabStateCopyWithImpl<$Res>
   __$$_ScoreTabStateCopyWithImpl(
       _$_ScoreTabState _value, $Res Function(_$_ScoreTabState) _then)
       : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ScoreTabState implements _ScoreTabState {
+  const _$_ScoreTabState();
+
+  @override
+  String toString() {
+    return 'ScoreTabState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ScoreTabState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
+    required TResult Function() loadingMatchesState,
+    required TResult Function(String errorMessage) errorMatchesState,
+  }) {
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult? Function()? loadingMatchesState,
+    TResult? Function(String errorMessage)? errorMatchesState,
+  }) {
+    return $default?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult Function()? loadingMatchesState,
+    TResult Function(String errorMessage)? errorMatchesState,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ScoreTabState value) $default, {
+    required TResult Function(MatchesLoadedState value) matchesLoaded,
+    required TResult Function(LoadingMatchesState value) loadingMatchesState,
+    required TResult Function(ErrorMatchesState value) errorMatchesState,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ScoreTabState value)? $default, {
+    TResult? Function(MatchesLoadedState value)? matchesLoaded,
+    TResult? Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult? Function(ErrorMatchesState value)? errorMatchesState,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ScoreTabState value)? $default, {
+    TResult Function(MatchesLoadedState value)? matchesLoaded,
+    TResult Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult Function(ErrorMatchesState value)? errorMatchesState,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ScoreTabState implements ScoreTabState {
+  const factory _ScoreTabState() = _$_ScoreTabState;
+}
+
+/// @nodoc
+abstract class _$$MatchesLoadedStateCopyWith<$Res> {
+  factory _$$MatchesLoadedStateCopyWith(_$MatchesLoadedState value,
+          $Res Function(_$MatchesLoadedState) then) =
+      __$$MatchesLoadedStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<LiveMatchModel> matches});
+}
+
+/// @nodoc
+class __$$MatchesLoadedStateCopyWithImpl<$Res>
+    extends _$ScoreTabStateCopyWithImpl<$Res, _$MatchesLoadedState>
+    implements _$$MatchesLoadedStateCopyWith<$Res> {
+  __$$MatchesLoadedStateCopyWithImpl(
+      _$MatchesLoadedState _value, $Res Function(_$MatchesLoadedState) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? liveMatchModel = freezed,
-    Object? isLoading = null,
-    Object? errorMessage = freezed,
+    Object? matches = null,
   }) {
-    return _then(_$_ScoreTabState(
-      liveMatchModel: freezed == liveMatchModel
-          ? _value._liveMatchModel
-          : liveMatchModel // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchModel>?,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_$MatchesLoadedState(
+      null == matches
+          ? _value._matches
+          : matches // ignore: cast_nullable_to_non_nullable
+              as List<LiveMatchModel>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ScoreTabState implements _ScoreTabState {
-  const _$_ScoreTabState(
-      {final List<LiveMatchModel>? liveMatchModel = const [],
-      this.isLoading = false,
-      this.errorMessage})
-      : _liveMatchModel = liveMatchModel;
+class _$MatchesLoadedState implements MatchesLoadedState {
+  const _$MatchesLoadedState(final List<LiveMatchModel> matches)
+      : _matches = matches;
 
-  final List<LiveMatchModel>? _liveMatchModel;
+  final List<LiveMatchModel> _matches;
   @override
-  @JsonKey()
-  List<LiveMatchModel>? get liveMatchModel {
-    final value = _liveMatchModel;
-    if (value == null) return null;
-    if (_liveMatchModel is EqualUnmodifiableListView) return _liveMatchModel;
+  List<LiveMatchModel> get matches {
+    if (_matches is EqualUnmodifiableListView) return _matches;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_matches);
   }
 
   @override
-  @JsonKey()
-  final bool isLoading;
-  @override
-  final String? errorMessage;
-
-  @override
   String toString() {
-    return 'ScoreTabState(liveMatchModel: $liveMatchModel, isLoading: $isLoading, errorMessage: $errorMessage)';
+    return 'ScoreTabState.matchesLoaded(matches: $matches)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ScoreTabState &&
-            const DeepCollectionEquality()
-                .equals(other._liveMatchModel, _liveMatchModel) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
+            other is _$MatchesLoadedState &&
+            const DeepCollectionEquality().equals(other._matches, _matches));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_matches));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MatchesLoadedStateCopyWith<_$MatchesLoadedState> get copyWith =>
+      __$$MatchesLoadedStateCopyWithImpl<_$MatchesLoadedState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
+    required TResult Function() loadingMatchesState,
+    required TResult Function(String errorMessage) errorMatchesState,
+  }) {
+    return matchesLoaded(matches);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult? Function()? loadingMatchesState,
+    TResult? Function(String errorMessage)? errorMatchesState,
+  }) {
+    return matchesLoaded?.call(matches);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult Function()? loadingMatchesState,
+    TResult Function(String errorMessage)? errorMatchesState,
+    required TResult orElse(),
+  }) {
+    if (matchesLoaded != null) {
+      return matchesLoaded(matches);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ScoreTabState value) $default, {
+    required TResult Function(MatchesLoadedState value) matchesLoaded,
+    required TResult Function(LoadingMatchesState value) loadingMatchesState,
+    required TResult Function(ErrorMatchesState value) errorMatchesState,
+  }) {
+    return matchesLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ScoreTabState value)? $default, {
+    TResult? Function(MatchesLoadedState value)? matchesLoaded,
+    TResult? Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult? Function(ErrorMatchesState value)? errorMatchesState,
+  }) {
+    return matchesLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ScoreTabState value)? $default, {
+    TResult Function(MatchesLoadedState value)? matchesLoaded,
+    TResult Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult Function(ErrorMatchesState value)? errorMatchesState,
+    required TResult orElse(),
+  }) {
+    if (matchesLoaded != null) {
+      return matchesLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MatchesLoadedState implements ScoreTabState {
+  const factory MatchesLoadedState(final List<LiveMatchModel> matches) =
+      _$MatchesLoadedState;
+
+  List<LiveMatchModel> get matches;
+  @JsonKey(ignore: true)
+  _$$MatchesLoadedStateCopyWith<_$MatchesLoadedState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingMatchesStateCopyWith<$Res> {
+  factory _$$LoadingMatchesStateCopyWith(_$LoadingMatchesState value,
+          $Res Function(_$LoadingMatchesState) then) =
+      __$$LoadingMatchesStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingMatchesStateCopyWithImpl<$Res>
+    extends _$ScoreTabStateCopyWithImpl<$Res, _$LoadingMatchesState>
+    implements _$$LoadingMatchesStateCopyWith<$Res> {
+  __$$LoadingMatchesStateCopyWithImpl(
+      _$LoadingMatchesState _value, $Res Function(_$LoadingMatchesState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingMatchesState implements LoadingMatchesState {
+  const _$LoadingMatchesState();
+
+  @override
+  String toString() {
+    return 'ScoreTabState.loadingMatchesState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingMatchesState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
+    required TResult Function() loadingMatchesState,
+    required TResult Function(String errorMessage) errorMatchesState,
+  }) {
+    return loadingMatchesState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult? Function()? loadingMatchesState,
+    TResult? Function(String errorMessage)? errorMatchesState,
+  }) {
+    return loadingMatchesState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult Function()? loadingMatchesState,
+    TResult Function(String errorMessage)? errorMatchesState,
+    required TResult orElse(),
+  }) {
+    if (loadingMatchesState != null) {
+      return loadingMatchesState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ScoreTabState value) $default, {
+    required TResult Function(MatchesLoadedState value) matchesLoaded,
+    required TResult Function(LoadingMatchesState value) loadingMatchesState,
+    required TResult Function(ErrorMatchesState value) errorMatchesState,
+  }) {
+    return loadingMatchesState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ScoreTabState value)? $default, {
+    TResult? Function(MatchesLoadedState value)? matchesLoaded,
+    TResult? Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult? Function(ErrorMatchesState value)? errorMatchesState,
+  }) {
+    return loadingMatchesState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ScoreTabState value)? $default, {
+    TResult Function(MatchesLoadedState value)? matchesLoaded,
+    TResult Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult Function(ErrorMatchesState value)? errorMatchesState,
+    required TResult orElse(),
+  }) {
+    if (loadingMatchesState != null) {
+      return loadingMatchesState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingMatchesState implements ScoreTabState {
+  const factory LoadingMatchesState() = _$LoadingMatchesState;
+}
+
+/// @nodoc
+abstract class _$$ErrorMatchesStateCopyWith<$Res> {
+  factory _$$ErrorMatchesStateCopyWith(
+          _$ErrorMatchesState value, $Res Function(_$ErrorMatchesState) then) =
+      __$$ErrorMatchesStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errorMessage});
+}
+
+/// @nodoc
+class __$$ErrorMatchesStateCopyWithImpl<$Res>
+    extends _$ScoreTabStateCopyWithImpl<$Res, _$ErrorMatchesState>
+    implements _$$ErrorMatchesStateCopyWith<$Res> {
+  __$$ErrorMatchesStateCopyWithImpl(
+      _$ErrorMatchesState _value, $Res Function(_$ErrorMatchesState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = null,
+  }) {
+    return _then(_$ErrorMatchesState(
+      null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorMatchesState implements ErrorMatchesState {
+  const _$ErrorMatchesState(this.errorMessage);
+
+  @override
+  final String errorMessage;
+
+  @override
+  String toString() {
+    return 'ScoreTabState.errorMatchesState(errorMessage: $errorMessage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorMatchesState &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_liveMatchModel),
-      isLoading,
-      errorMessage);
+  int get hashCode => Object.hash(runtimeType, errorMessage);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ScoreTabStateCopyWith<_$_ScoreTabState> get copyWith =>
-      __$$_ScoreTabStateCopyWithImpl<_$_ScoreTabState>(this, _$identity);
+  _$$ErrorMatchesStateCopyWith<_$ErrorMatchesState> get copyWith =>
+      __$$ErrorMatchesStateCopyWithImpl<_$ErrorMatchesState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
+    required TResult Function() loadingMatchesState,
+    required TResult Function(String errorMessage) errorMatchesState,
+  }) {
+    return errorMatchesState(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult? Function()? loadingMatchesState,
+    TResult? Function(String errorMessage)? errorMatchesState,
+  }) {
+    return errorMatchesState?.call(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult Function()? loadingMatchesState,
+    TResult Function(String errorMessage)? errorMatchesState,
+    required TResult orElse(),
+  }) {
+    if (errorMatchesState != null) {
+      return errorMatchesState(errorMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ScoreTabState value) $default, {
+    required TResult Function(MatchesLoadedState value) matchesLoaded,
+    required TResult Function(LoadingMatchesState value) loadingMatchesState,
+    required TResult Function(ErrorMatchesState value) errorMatchesState,
+  }) {
+    return errorMatchesState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ScoreTabState value)? $default, {
+    TResult? Function(MatchesLoadedState value)? matchesLoaded,
+    TResult? Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult? Function(ErrorMatchesState value)? errorMatchesState,
+  }) {
+    return errorMatchesState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ScoreTabState value)? $default, {
+    TResult Function(MatchesLoadedState value)? matchesLoaded,
+    TResult Function(LoadingMatchesState value)? loadingMatchesState,
+    TResult Function(ErrorMatchesState value)? errorMatchesState,
+    required TResult orElse(),
+  }) {
+    if (errorMatchesState != null) {
+      return errorMatchesState(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _ScoreTabState implements ScoreTabState {
-  const factory _ScoreTabState(
-      {final List<LiveMatchModel>? liveMatchModel,
-      final bool isLoading,
-      final String? errorMessage}) = _$_ScoreTabState;
+abstract class ErrorMatchesState implements ScoreTabState {
+  const factory ErrorMatchesState(final String errorMessage) =
+      _$ErrorMatchesState;
 
-  @override
-  List<LiveMatchModel>? get liveMatchModel;
-  @override
-  bool get isLoading;
-  @override
-  String? get errorMessage;
-  @override
+  String get errorMessage;
   @JsonKey(ignore: true)
-  _$$_ScoreTabStateCopyWith<_$_ScoreTabState> get copyWith =>
+  _$$ErrorMatchesStateCopyWith<_$ErrorMatchesState> get copyWith =>
       throw _privateConstructorUsedError;
 }

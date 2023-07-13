@@ -19,17 +19,18 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class MatchDetails extends StatelessWidget {
-  const MatchDetails({
+  MatchDetails({
     super.key,
     required this.liveMatch,
   });
 
   final LiveMatchModel liveMatch;
 
+  final homeCubit = Modular.get<HomeCubit>();
+  final matchDetailsCubit = Modular.get<MatchDetailsCubit>();
+
   @override
   Widget build(BuildContext context) {
-    final homeCubit = Modular.get<HomeCubit>();
-    final matchDetailsCubit = Modular.get<MatchDetailsCubit>();
     const String defaultFlag =
         'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     final assetName = liveMatch.league!.flag;
@@ -40,10 +41,7 @@ class MatchDetails extends StatelessWidget {
           create: (context) => homeCubit,
         ),
         BlocProvider(
-          create: (context) => matchDetailsCubit
-            ..fetchMatchGoals(
-              liveMatch.fixture!.id!.toString(),
-            ),
+          create: (context) => matchDetailsCubit..fetchMatchEvents(liveMatch.fixture!.id!.toString()),
         ),
       ],
       child: Scaffold(
@@ -52,7 +50,7 @@ class MatchDetails extends StatelessWidget {
           title: MatchDetailsTitle(liveMatch.league!.name!),
           leading: IconButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Modular.to.pop();
               },
               icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
           actions: [
@@ -159,8 +157,7 @@ class MatchDetails extends StatelessWidget {
                                       image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
                                     ),
                                     Text(liveMatch.teams!.home!.name!,
-                                        textAlign: TextAlign.center,
-                                        style: CommonTextStyles.basicWhiteText),
+                                        textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
                                   ],
                                 ),
                               ),
@@ -182,7 +179,7 @@ class MatchDetails extends StatelessWidget {
                                           ),
                                         )
                                       : Text(
-                                          '${liveMatch.goals!.home} -'
+                                          '${liveMatch.goals!.home} - '
                                           '${liveMatch.goals!.away}',
                                           style: const TextStyle(
                                             color: Colors.white,
@@ -208,8 +205,7 @@ class MatchDetails extends StatelessWidget {
                                       ),
                                     ),
                                     Text(liveMatch.teams!.away!.name!,
-                                        textAlign: TextAlign.center,
-                                        style: CommonTextStyles.basicWhiteText),
+                                        textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
                                   ],
                                 ),
                               ),

@@ -12,12 +12,12 @@ class LiveNowViewCubit extends Cubit<LiveNowViewState> {
   final HomeScreenRepository homeScreenRepository;
 
   Future<void> fetchLiveMatches() async {
-    emit(state.copyWith(isLoading: true));
+    emit(const LoadingMatchesState());
     try {
       final liveMatches = await homeScreenRepository.fetchLiveMatches();
-      emit(state.copyWith(liveMatchModel: liveMatches, isLoading: false));
+      emit(MatchesLoadedState(liveMatches!));
     } catch (error) {
-      emit(state.copyWith(errorMessage: error.toString()));
+      emit(ErrorMatchesState(error.toString()));
     }
   }
 }

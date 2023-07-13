@@ -14,12 +14,12 @@ class ScoreTabCubit extends Cubit<ScoreTabState> {
 
   Future<void> fetchMatchesByDate(DateTime date) async {
     String formattedDate = DateFormat('yyyy-MM-dd').format(date);
-    emit(state.copyWith(isLoading: true));
+    emit(const LoadingMatchesState());
     try {
       final liveMatches = await homeScreenRepository.fetchMatchesByDate(formattedDate);
-      emit(state.copyWith(liveMatchModel: liveMatches, isLoading: false));
+      emit(MatchesLoadedState(liveMatches!));
     } catch (error) {
-      emit(state.copyWith(errorMessage: error.toString()));
+      emit(ErrorMatchesState(error.toString()));
     }
   }
 }
