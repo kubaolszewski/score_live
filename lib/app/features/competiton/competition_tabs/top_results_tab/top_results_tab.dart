@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/custom_widgets/league_list_tile.dart';
+import 'package:score_live/app/custom_widgets/search_list_tile.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
@@ -65,7 +65,7 @@ class TopResultsTab extends StatelessWidget {
                       final String leagueFlag = league.country?.flag ?? '';
                       final String leagueRegion = league.country?.name ?? '';
                       final String leagueName = league.league?.name ?? '';
-                      return LeagueListTile(leagueFlag: leagueFlag, leagueRegion: leagueRegion, leagueName: leagueName);
+                      return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
                     },
                   ),
                 ),

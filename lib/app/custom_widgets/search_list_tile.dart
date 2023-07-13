@@ -1,19 +1,18 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
-class LeagueListTile extends StatelessWidget {
-  const LeagueListTile({
+class SearchListTile extends StatelessWidget {
+  const SearchListTile({
     super.key,
-    required this.leagueFlag,
-    required this.leagueRegion,
-    required this.leagueName,
+    required this.flag,
+    required this.region,
+    required this.name,
   });
 
-  final String leagueFlag;
-  final String leagueRegion;
-  final String leagueName;
+  final String flag;
+  final String region;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +36,12 @@ class LeagueListTile extends StatelessWidget {
                       CircleAvatar(
                         radius: 15,
                         child: ClipOval(
-                          child: SvgPicture.network(
-                            leagueFlag,
-                            fit: BoxFit.fill,
-                          ),
+                          child: flag.contains('.svg')
+                              ? SvgPicture.network(
+                                  flag,
+                                  fit: BoxFit.fill,
+                                )
+                              : Image.network(flag),
                         ),
                       ),
                     ],
@@ -55,7 +56,7 @@ class LeagueListTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        leagueRegion,
+                        region,
                         style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
@@ -64,7 +65,7 @@ class LeagueListTile extends StatelessWidget {
                       ),
                       const SizedBox(width: 10),
                       Text(
-                        leagueName,
+                        name,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,

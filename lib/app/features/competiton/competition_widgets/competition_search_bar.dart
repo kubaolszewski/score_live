@@ -4,7 +4,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class CompetitionSearchBar extends StatelessWidget {
@@ -58,10 +57,10 @@ class CompetitionSearchBar extends StatelessWidget {
                 controller: searchingController,
                 cursorColor: Colors.white,
                 onSubmitted: (nameQuery) {
-                  switch (state.searchTypes) {
-                    case SearchTypes.teamName:
-                      Modular.to.pushNamed(CompetitionPath.searchedLeaguesPath, arguments: nameQuery);
-                    case SearchTypes.leagueName:
+                  switch (dropdownValue) {
+                    case 'Team':
+                      Modular.to.pushNamed(CompetitionPath.searchedTeamsPath, arguments: nameQuery);
+                    case 'League (name)':
                       Modular.to.pushNamed(CompetitionPath.searchedLeaguesPath, arguments: nameQuery);
                   }
                   searchingController.clear();

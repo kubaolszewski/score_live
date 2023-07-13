@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
-import 'package:score_live/app/features/competiton/searched_competition_screen/searched_leagues_view.dart';
+import 'package:score_live/app/features/competiton/searched_competition_screens/searched_leagues/searched_leagues_view.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
