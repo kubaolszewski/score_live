@@ -16,17 +16,19 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class CompetitionScreen extends StatelessWidget {
-  const CompetitionScreen({
-    super.key,
-  });
+  CompetitionScreen({super.key});
+
+  final competitionCubit = Modular.get<CompetitionCubit>();
+  final topResultsTabCubit = Modular.get<TopResultsTabCubit>();
+  final regionTabCubit = Modular.get<RegionTabCubit>();
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => Modular.get<CompetitionCubit>()),
-        BlocProvider(create: (context) => Modular.get<TopResultsTabCubit>()..fetchLeagues(DateTime.now())),
-        BlocProvider(create: (context) => Modular.get<RegionTabCubit>()
+        BlocProvider(create: (context) => competitionCubit),
+        BlocProvider(create: (context) => topResultsTabCubit..fetchLeagues(DateTime.now())),
+        BlocProvider(create: (context) => regionTabCubit
             // ..fetchLeaguesByRegion(DateTime.now())
             ),
       ],

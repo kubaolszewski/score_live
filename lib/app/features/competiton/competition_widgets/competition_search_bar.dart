@@ -7,10 +7,11 @@ import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class CompetitionSearchBar extends StatelessWidget {
-  final competitionCubit = Modular.get<CompetitionCubit>();
-  final TextEditingController searchingController = TextEditingController();
-
   CompetitionSearchBar({super.key});
+
+  final competitionCubit = Modular.get<CompetitionCubit>();
+
+  final TextEditingController searchingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +37,7 @@ class CompetitionSearchBar extends StatelessWidget {
                   suffixIcon: DropdownButton(
                     dropdownColor: AppColors.listTileGrey,
                     value: dropdownValue,
-                    items: <String>['Team', 'League (name)']
-                        .map<DropdownMenuItem<String>>((String value) {
+                    items: <String>['Team', 'League (name)'].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(

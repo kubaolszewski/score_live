@@ -51,7 +51,7 @@ class LandingModule extends Module {
             ChildRoute(
               LandingScreenPaths.competitionModulePath,
               transition: TransitionType.noTransition,
-              child: (context, args) => const CompetitionScreen(),
+              child: (context, args) => CompetitionScreen(),
             ),
             ChildRoute(
               LandingScreenPaths.accountModulePath,

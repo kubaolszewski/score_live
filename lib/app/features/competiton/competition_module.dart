@@ -24,7 +24,7 @@ class CompetitionModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           CompetitionPath.path,
-          child: ((context, args) => const CompetitionScreen()),
+          child: ((context, args) => CompetitionScreen()),
         ),
         ChildRoute(
           CompetitionPath.searchedLeaguesScreen,
@@ -44,5 +44,4 @@ mixin CompetitionPath {
 
   static String searchedTeamsPath = '$path$searchedTeamsScreen';
   static String searchedLeaguesPath = '$path$searchedLeaguesScreen';
-
 }
