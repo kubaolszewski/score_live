@@ -24,17 +24,18 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+final homeCubit = Modular.get<HomeCubit>();
+final liveNowViewCubit = Modular.get<LiveNowViewCubit>();
+final scoreTabCubit = Modular.get<ScoreTabCubit>();
+
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final homeCubit = Modular.get<HomeCubit>();
-    final liveNowViewCubit = Modular.get<LiveNowViewCubit>();
-    final scoreTabcubit = Modular.get<ScoreTabCubit>();
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => homeCubit),
-        BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
-        BlocProvider(create: (context) => scoreTabcubit..fetchAllMatches()),
+        BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches(DateTime.now())),
+        BlocProvider(create: (context) => scoreTabCubit..fetchMatchesByDate(DateTime(2023, 2, 11))),
       ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
@@ -87,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const LiveNowView(),
-              const HomeOptionsTapBar(),
+              HomeOptionsTapBar(),
               BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
                   switch (state.homeOptions) {

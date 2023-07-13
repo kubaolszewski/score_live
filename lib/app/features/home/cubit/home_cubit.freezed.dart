@@ -16,9 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeState {
-  String get date => throw _privateConstructorUsedError;
+  List<LiveMatchModel>? get liveMatchModel =>
+      throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
   HomeOptions get homeOptions => throw _privateConstructorUsedError;
   DetailsOptions get detailsOptions => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -31,7 +35,12 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
   $Res call(
-      {String date, HomeOptions homeOptions, DetailsOptions detailsOptions});
+      {List<LiveMatchModel>? liveMatchModel,
+      bool isLoading,
+      DateTime? date,
+      HomeOptions homeOptions,
+      DetailsOptions detailsOptions,
+      String? errorMessage});
 }
 
 /// @nodoc
@@ -47,15 +56,26 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = null,
+    Object? liveMatchModel = freezed,
+    Object? isLoading = null,
+    Object? date = freezed,
     Object? homeOptions = null,
     Object? detailsOptions = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
-      date: null == date
+      liveMatchModel: freezed == liveMatchModel
+          ? _value.liveMatchModel
+          : liveMatchModel // ignore: cast_nullable_to_non_nullable
+              as List<LiveMatchModel>?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime?,
       homeOptions: null == homeOptions
           ? _value.homeOptions
           : homeOptions // ignore: cast_nullable_to_non_nullable
@@ -64,6 +84,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.detailsOptions
           : detailsOptions // ignore: cast_nullable_to_non_nullable
               as DetailsOptions,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -76,7 +100,12 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String date, HomeOptions homeOptions, DetailsOptions detailsOptions});
+      {List<LiveMatchModel>? liveMatchModel,
+      bool isLoading,
+      DateTime? date,
+      HomeOptions homeOptions,
+      DetailsOptions detailsOptions,
+      String? errorMessage});
 }
 
 /// @nodoc
@@ -90,15 +119,26 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = null,
+    Object? liveMatchModel = freezed,
+    Object? isLoading = null,
+    Object? date = freezed,
     Object? homeOptions = null,
     Object? detailsOptions = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_$_HomeState(
-      date: null == date
+      liveMatchModel: freezed == liveMatchModel
+          ? _value._liveMatchModel
+          : liveMatchModel // ignore: cast_nullable_to_non_nullable
+              as List<LiveMatchModel>?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime?,
       homeOptions: null == homeOptions
           ? _value.homeOptions
           : homeOptions // ignore: cast_nullable_to_non_nullable
@@ -107,6 +147,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.detailsOptions
           : detailsOptions // ignore: cast_nullable_to_non_nullable
               as DetailsOptions,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -115,23 +159,42 @@ class __$$_HomeStateCopyWithImpl<$Res>
 
 class _$_HomeState implements _HomeState {
   const _$_HomeState(
-      {this.date = '',
+      {final List<LiveMatchModel>? liveMatchModel = const [],
+      this.isLoading = false,
+      this.date,
       this.homeOptions = HomeOptions.score,
-      this.detailsOptions = DetailsOptions.summary});
+      this.detailsOptions = DetailsOptions.summary,
+      this.errorMessage})
+      : _liveMatchModel = liveMatchModel;
+
+  final List<LiveMatchModel>? _liveMatchModel;
+  @override
+  @JsonKey()
+  List<LiveMatchModel>? get liveMatchModel {
+    final value = _liveMatchModel;
+    if (value == null) return null;
+    if (_liveMatchModel is EqualUnmodifiableListView) return _liveMatchModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   @JsonKey()
-  final String date;
+  final bool isLoading;
+  @override
+  final DateTime? date;
   @override
   @JsonKey()
   final HomeOptions homeOptions;
   @override
   @JsonKey()
   final DetailsOptions detailsOptions;
+  @override
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'HomeState(date: $date, homeOptions: $homeOptions, detailsOptions: $detailsOptions)';
+    return 'HomeState(liveMatchModel: $liveMatchModel, isLoading: $isLoading, date: $date, homeOptions: $homeOptions, detailsOptions: $detailsOptions, errorMessage: $errorMessage)';
   }
 
   @override
@@ -139,16 +202,28 @@ class _$_HomeState implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
+            const DeepCollectionEquality()
+                .equals(other._liveMatchModel, _liveMatchModel) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.homeOptions, homeOptions) ||
                 other.homeOptions == homeOptions) &&
             (identical(other.detailsOptions, detailsOptions) ||
-                other.detailsOptions == detailsOptions));
+                other.detailsOptions == detailsOptions) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, date, homeOptions, detailsOptions);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_liveMatchModel),
+      isLoading,
+      date,
+      homeOptions,
+      detailsOptions,
+      errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -159,16 +234,25 @@ class _$_HomeState implements _HomeState {
 
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
-      {final String date,
+      {final List<LiveMatchModel>? liveMatchModel,
+      final bool isLoading,
+      final DateTime? date,
       final HomeOptions homeOptions,
-      final DetailsOptions detailsOptions}) = _$_HomeState;
+      final DetailsOptions detailsOptions,
+      final String? errorMessage}) = _$_HomeState;
 
   @override
-  String get date;
+  List<LiveMatchModel>? get liveMatchModel;
+  @override
+  bool get isLoading;
+  @override
+  DateTime? get date;
   @override
   HomeOptions get homeOptions;
   @override
   DetailsOptions get detailsOptions;
+  @override
+  String? get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

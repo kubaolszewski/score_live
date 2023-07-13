@@ -1,8 +1,8 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
+import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
@@ -16,7 +16,6 @@ class HomeScreenDatePicker extends StatefulWidget {
 class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
   @override
   Widget build(BuildContext context) {
-    final homeCubit = Modular.get<HomeCubit>();
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return Padding(
@@ -29,9 +28,9 @@ class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
               ),
               Expanded(
                 child: DatePicker(
-                  DateTime.now().subtract(const Duration(days: 2)),
+                  DateTime(2023, 2, 11).subtract(const Duration(days: 3)),
                   locale: context.myLocale.toString(),
-                  initialSelectedDate: DateTime.now(),
+                  initialSelectedDate: DateTime(2023, 2, 11),
                   daysCount: 8,
                   monthTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
                   dayTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
@@ -41,7 +40,10 @@ class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
                   height: 85,
                   width: 75,
                   onDateChange: (pickedDate) {
-                    homeCubit.switchDate(pickedDate.toIso8601String());
+                    context.read<HomeCubit>().switchDate(
+                          pickedDate,
+                        );
+                    context.read<ScoreTabCubit>().fetchMatchesByDate(pickedDate);
                   },
                 ),
               ),

@@ -42,41 +42,38 @@ class WideMatchListTile extends StatelessWidget {
                 awayTeamLogo: awayTeamLogo,
                 awayTeamName: awayTeamName,
               ),
-              Expanded(
-                flex: 0.5.toInt(),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 24.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            liveMatch.goals!.home.toString(),
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+              Padding(
+                padding: const EdgeInsets.only(right: 24.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          liveMatch.goals!.home.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 25),
-                      Row(
-                        children: [
-                          Text(
-                            liveMatch.goals!.away.toString(),
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 25),
+                    Row(
+                      children: [
+                        Text(
+                          liveMatch.goals!.away.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ],
-                      )
-                    ],
-                  ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
             ],

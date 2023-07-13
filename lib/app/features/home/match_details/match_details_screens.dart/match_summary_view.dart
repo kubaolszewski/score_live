@@ -35,15 +35,27 @@ class MatchSummaryView extends StatelessWidget {
                       )
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '${liveMatch.teams!.home!.name} ${liveMatch.score!.halftime!.home} - '
-                        '${liveMatch.score!.halftime!.away} ${liveMatch.teams!.away!.name}',
-                        style: const TextStyle(color: Colors.white, fontSize: 16),
-                      )
-                    ],
+                  SizedBox(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        liveMatch.score!.halftime!.home == null ||
+                                liveMatch.score!.fulltime!.home == null ||
+                                liveMatch.score!.halftime!.away == null ||
+                                liveMatch.score!.fulltime!.away == null
+                            ? Text(
+                                liveMatch.fixture!.status!.long!,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(color: Colors.white, fontSize: 16),
+                              )
+                            : Text(
+                                '${liveMatch.teams!.home!.name} ${liveMatch.score!.halftime!.home} - '
+                                '${liveMatch.score!.halftime!.away} ${liveMatch.teams!.away!.name}',
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(color: Colors.white, fontSize: 16),
+                              )
+                      ],
+                    ),
                   )
                 ],
               ),
@@ -69,11 +81,21 @@ class MatchSummaryView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      '${liveMatch.teams!.home!.name} ${liveMatch.score!.fulltime!.home} - '
-                      '${liveMatch.score!.fulltime!.away} ${liveMatch.teams!.away!.name}',
-                      style: const TextStyle(color: Colors.white, fontSize: 16),
-                    )
+                    liveMatch.score!.halftime!.home == null ||
+                            liveMatch.score!.fulltime!.home == null ||
+                            liveMatch.score!.halftime!.away == null ||
+                            liveMatch.score!.fulltime!.away == null
+                        ? Text(
+                            liveMatch.fixture!.status!.long!,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: Colors.white, fontSize: 16),
+                          )
+                        : Text(
+                            '${liveMatch.teams!.home!.name} ${liveMatch.score!.fulltime!.home} - '
+                            '${liveMatch.score!.fulltime!.away} ${liveMatch.teams!.away!.name}',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: Colors.white, fontSize: 16),
+                          )
                   ],
                 )
               ],

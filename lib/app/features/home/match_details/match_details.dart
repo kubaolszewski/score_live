@@ -21,13 +21,12 @@ class MatchDetails extends StatelessWidget {
     required this.liveMatch,
   });
 
-  final _detailsTitle = const _DetailsTitle();
   final LiveMatchModel liveMatch;
   final homeCubit = Modular.get<HomeCubit>();
 
   @override
   Widget build(BuildContext context) {
-    final String assetName = liveMatch.league!.flag ??
+    final String flag = liveMatch.league?.flag ??
         'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     final String leagueName = liveMatch.league!.name ?? 'Unknown league';
     final String homeTeamLogo =
@@ -41,7 +40,7 @@ class MatchDetails extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
-          title: _detailsTitle,
+          title: _DetailsTitle(liveMatch.league!.name!),
           leading: IconButton(
               onPressed: () {
                 Navigator.of(context).pop();
@@ -59,6 +58,7 @@ class MatchDetails extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
+                  width: 400,
                   decoration: BoxDecoration(
                     color: AppColors.listTileGrey,
                     borderRadius: BorderRadius.circular(12),
@@ -66,27 +66,26 @@ class MatchDetails extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
                                 CircleAvatar(
                                   radius: 15,
-                                  child: ClipOval(
-                                    child: SvgPicture.network(
-                                      assetName,
-                                      fit: BoxFit.cover,
-                                      placeholderBuilder: (BuildContext context) => Container(
-                                        padding: const EdgeInsets.all(30.0),
-                                        child: const Center(
-                                          child: CircularProgressIndicator(
-                                            backgroundColor: Colors.red,
+                                  child: ClipOval(child: SvgPicture.network(
+                                            flag,
+                                            fit: BoxFit.cover,
+                                            placeholderBuilder: (BuildContext context) => Container(
+                                              padding: const EdgeInsets.all(30.0),
+                                              child: const Center(
+                                                child: CircularProgressIndicator(
+                                                  backgroundColor: Colors.red,
+                                                ),
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ),
-                                    ),
                                   ),
                                 ),
                                 const SizedBox(width: 10),
@@ -96,7 +95,6 @@ class MatchDetails extends StatelessWidget {
                                 )
                               ],
                             ),
-                            const SizedBox(width: 150),
                             Container(
                               height: 30,
                               width: 50,
@@ -104,16 +102,26 @@ class MatchDetails extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(24),
                                 color: AppColors.liveTimerBackground,
                               ),
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                   CircleAvatar(
                                     radius: 5,
-                                    backgroundColor: Colors.green,
+                                    backgroundColor: liveMatch.fixture!.status!.short! == 'TBD' ||
+                                            liveMatch.fixture!.status!.short! == 'NS' ||
+                                            liveMatch.fixture!.status!.short! == 'SUSP'
+                                        ? Colors.red
+                                        : Colors.green,
                                   ),
                                   Text(
-                                    'FT',
-                                    style: TextStyle(color: Colors.green),
+                                    liveMatch.fixture!.status!.short!,
+                                    style: TextStyle(
+                                        color: liveMatch.fixture!.status!.short! == 'TBD' ||
+                                                liveMatch.fixture!.status!.short! == 'NS' ||
+                                                liveMatch.fixture!.status!.short! == 'SUSP'
+                                            ? Colors.black
+                                            : Colors.green,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
@@ -136,7 +144,7 @@ class MatchDetails extends StatelessWidget {
                             ),
                             const SizedBox(width: 30),
                             Text(
-                              '${liveMatch.goals!.home} -'
+                              '${liveMatch.goals!.home} - '
                               '${liveMatch.goals!.away}',
                               style: const TextStyle(
                                 color: Colors.white,
@@ -174,7 +182,12 @@ class MatchDetails extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Column(
-                                children: [Icon(Icons.sports_soccer, color: Colors.grey)],
+                                children: [
+                                  Icon(
+                                    Icons.sports_soccer,
+                                    color: Colors.grey,
+                                  ),
+                                ],
                               ),
                             ),
                             Expanded(
@@ -216,20 +229,22 @@ class MatchDetails extends StatelessWidget {
 }
 
 class _DetailsTitle extends StatelessWidget {
-  const _DetailsTitle();
+  const _DetailsTitle(this.title);
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: Column(
         children: [
-          const Row(
+          Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Premier League',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                title,
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
               )
             ],
           ),
