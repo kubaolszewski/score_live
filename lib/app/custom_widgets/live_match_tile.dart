@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -42,7 +43,16 @@ class LiveMatchTile extends StatelessWidget {
                         radius: 15,
                         child: ClipOval(
                           child: assetName == null
-                              ? const Image(image: NetworkImage(defaultFlag))
+                              ? CachedNetworkImage(
+                                  imageUrl: defaultFlag,
+                                  fit: BoxFit.fill,
+                                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                                      CircularProgressIndicator(value: downloadProgress.progress),
+                                  errorWidget: (context, url, error) => const Icon(
+                                    Icons.error,
+                                    color: Colors.white,
+                                  ),
+                                )
                               : SvgPicture.network(
                                   assetName,
                                   fit: BoxFit.fill,
@@ -117,9 +127,6 @@ class LiveMatchTile extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image(
-                              image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
-                            ),
                             Text(liveMatch.teams!.home!.name!,
                                 textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
                           ],

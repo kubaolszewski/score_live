@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -83,7 +84,16 @@ class MatchDetails extends StatelessWidget {
                                   radius: 15,
                                   child: ClipOval(
                                     child: assetName == null
-                                        ? const Image(image: NetworkImage(defaultFlag))
+                                        ? CachedNetworkImage(
+                                            imageUrl: defaultFlag,
+                                            fit: BoxFit.fill,
+                                            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                                                CircularProgressIndicator(value: downloadProgress.progress),
+                                            errorWidget: (context, url, error) => const Icon(
+                                              Icons.error,
+                                              color: Colors.white,
+                                            ),
+                                          )
                                         : SvgPicture.network(
                                             assetName,
                                             fit: BoxFit.cover,
