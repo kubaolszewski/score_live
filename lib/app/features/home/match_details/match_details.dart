@@ -25,15 +25,20 @@ class MatchDetails extends StatelessWidget {
   });
 
   final LiveMatchModel liveMatch;
-
   final homeCubit = Modular.get<HomeCubit>();
   final matchDetailsCubit = Modular.get<MatchDetailsCubit>();
 
   @override
   Widget build(BuildContext context) {
-    const String defaultFlag =
+    final String flag = liveMatch.league?.flag ??
         'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
-    final assetName = liveMatch.league!.flag;
+    final String leagueName = liveMatch.league!.name ?? 'Unknown league';
+    final String homeTeamLogo =
+        liveMatch.teams?.home?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String awayTeamLogo =
+        liveMatch.teams?.away?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
+    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
     double width = MediaQuery.sizeOf(context).width;
     return MultiBlocProvider(
       providers: [
@@ -82,30 +87,24 @@ class MatchDetails extends StatelessWidget {
                                 CircleAvatar(
                                   radius: 15,
                                   child: ClipOval(
-                                    child: assetName == null
-                                        ? const Image(image: NetworkImage(defaultFlag))
-                                        : SvgPicture.network(
-                                            assetName,
-                                            fit: BoxFit.cover,
-                                            placeholderBuilder: (BuildContext context) => Container(
-                                              padding: const EdgeInsets.all(30.0),
-                                              child: const Center(
-                                                child: CircularProgressIndicator(
-                                                  backgroundColor: Colors.red,
-                                                ),
-                                              ),
-                                            ),
+                                    child: SvgPicture.network(
+                                      flag,
+                                      fit: BoxFit.cover,
+                                      placeholderBuilder: (BuildContext context) => Container(
+                                        padding: const EdgeInsets.all(30.0),
+                                        child: const Center(
+                                          child: CircularProgressIndicator(
+                                            backgroundColor: Colors.red,
                                           ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(width: 10),
                                 Text(
-                                  liveMatch.league!.name!,
-                                  style: const TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  leagueName,
+                                  style: const TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold),
                                 )
                               ],
                             ),
@@ -154,9 +153,9 @@ class MatchDetails extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Image(
-                                      image: NetworkImage(liveMatch.teams!.home!.logo!, scale: 3),
+                                      image: NetworkImage(homeTeamLogo, scale: 3),
                                     ),
-                                    Text(liveMatch.teams!.home!.name!,
+                                    Text(homeTeamName,
                                         textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
                                   ],
                                 ),
@@ -200,11 +199,11 @@ class MatchDetails extends StatelessWidget {
                                   children: [
                                     Image(
                                       image: NetworkImage(
-                                        liveMatch.teams!.away!.logo!,
+                                        awayTeamLogo,
                                         scale: 3,
                                       ),
                                     ),
-                                    Text(liveMatch.teams!.away!.name!,
+                                    Text(awayTeamName,
                                         textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
                                   ],
                                 ),
