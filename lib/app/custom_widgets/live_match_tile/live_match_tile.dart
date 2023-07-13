@@ -15,6 +15,7 @@ class LiveMatchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
     final String assetName = liveMatch.league?.flag ??
         'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     final String leagueName = liveMatch.league?.name ?? 'Unknown league';
@@ -27,6 +28,7 @@ class LiveMatchTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+        width: width,
         decoration: BoxDecoration(
           color: AppColors.listTileGrey,
           borderRadius: BorderRadius.circular(12),

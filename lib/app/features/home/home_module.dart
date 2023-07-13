@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/home/home.dart';
+import 'package:score_live/app/features/home/home_screen.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now_view/cubit/live_now_view_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';

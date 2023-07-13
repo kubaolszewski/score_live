@@ -6,9 +6,7 @@ class MatchDetailsRepository {
 
   final LiveMatchesRemoteService liveMatchesRemoteService;
 
-  Future<List<MatchEventsModel>> fetchMatchGoals(
-    String matchID,
-  ) async {
+  Future<List<MatchEventsModel>> fetchMatchGoals(String matchID) async {
     // return (await liveMatchesRemoteService.fetchMatchEvents(matchID: matchID))
     //     .response;
     final response = [
@@ -167,12 +165,9 @@ class MatchDetailsRepository {
       }
     ];
     return response.map(MatchEventsModel.fromJson).where((event) => event.type == 'Goal').toList();
-  
   }
 
-  Future<List<MatchEventsModel>> fetchMatchEvents(
-      String matchID,
-      ) async {
+  Future<List<MatchEventsModel>> fetchMatchEvents(String matchID) async {
     // return (await liveMatchesRemoteService.fetchMatchEvents(matchID: matchID)).response;
     final response = [
       {
