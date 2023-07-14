@@ -3,21 +3,17 @@ import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model.dart';
 
 class FirstHalfResultDisplay extends StatelessWidget {
-  const FirstHalfResultDisplay({
-    super.key,
-    required this.liveMatch,
-    required this.result,
-    required this.homeTeamName,
-    required this.awayTeamName,
-  });
+  const FirstHalfResultDisplay({super.key, required this.liveMatch});
 
   final LiveMatchModel liveMatch;
-  final String result;
-  final String homeTeamName;
-  final String awayTeamName;
 
   @override
   Widget build(BuildContext context) {
+    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
+    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
+    final int halfTimeHomeGoals = liveMatch.score?.halftime?.home ?? 0;
+    final int halfTimeAwayGoals = liveMatch.score?.halftime?.away ?? 0;
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: SizedBox(
@@ -36,18 +32,12 @@ class FirstHalfResultDisplay extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  liveMatch.score?.halftime?.home == null || liveMatch.score?.halftime?.away == null
-                      ? Text(
-                          result,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: Colors.white, fontSize: 16),
-                        )
-                      : Text(
-                          '$homeTeamName ${liveMatch.score!.halftime!.home} - '
-                          '${liveMatch.score!.halftime!.away} $awayTeamName',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(color: Colors.white, fontSize: 16),
-                        )
+                  Text(
+                    '$homeTeamName $halfTimeHomeGoals - '
+                    '$halfTimeAwayGoals $awayTeamName',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(color: Colors.white, fontSize: 16),
+                  )
                 ],
               ),
             )
@@ -59,20 +49,16 @@ class FirstHalfResultDisplay extends StatelessWidget {
 }
 
 class SecondfHalfResultDisplay extends StatelessWidget {
-  const SecondfHalfResultDisplay(
-      {super.key,
-      required this.liveMatch,
-      required this.result,
-      required this.homeTeamName,
-      required this.awayTeamName});
+  const SecondfHalfResultDisplay({super.key, required this.liveMatch});
 
   final LiveMatchModel liveMatch;
-  final String result;
-  final String homeTeamName;
-  final String awayTeamName;
 
   @override
   Widget build(BuildContext context) {
+    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
+    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
+    final int fullTimeHomeGoals = liveMatch.score?.fulltime?.home ?? 0;
+    final int fullTimeAwayGoals = liveMatch.score?.fulltime?.away ?? 0;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Column(
@@ -89,18 +75,12 @@ class SecondfHalfResultDisplay extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              liveMatch.score!.fulltime!.home == null || liveMatch.score!.fulltime!.away == null
-                  ? Text(
-                      result,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(color: Colors.white, fontSize: 16),
-                    )
-                  : Text(
-                      '$homeTeamName ${liveMatch.score!.fulltime!.home} - '
-                      '${liveMatch.score!.fulltime!.away} $awayTeamName',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(color: Colors.white, fontSize: 16),
-                    )
+              Text(
+                '$homeTeamName $fullTimeHomeGoals - '
+                '$fullTimeAwayGoals $awayTeamName',
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.white, fontSize: 16),
+              )
             ],
           )
         ],

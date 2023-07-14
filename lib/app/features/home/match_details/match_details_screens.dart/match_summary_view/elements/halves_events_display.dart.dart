@@ -16,6 +16,8 @@ class FirstHalfEventsDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final int homeTeamID = liveMatch.teams?.home?.id ?? 0;
+    final int awayTeamID = liveMatch.teams?.away?.id ?? 0;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -34,17 +36,15 @@ class FirstHalfEventsDisplay extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
                       for (final event in matchEvents) ...[
-                        if (event.team?.id != null &&
-                            event.time?.elapsed != null &&
-                            liveMatch.teams!.home!.id == event.team?.id &&
-                            event.time!.elapsed! < 45)
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                            child: HomeEventTextSample(
-                                time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
-                          )
-                        else
-                          const SizedBox(height: 0),
+                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                          if (homeTeamID == event.team?.id && event.time!.elapsed! < 45)
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0, top: 8.0),
+                              child: HomeEventTextSample(
+                                  time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
+                            )
+                          else
+                            const SizedBox(height: 0),
                       ]
                     ],
                   ),
@@ -62,19 +62,15 @@ class FirstHalfEventsDisplay extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
                       for (final event in matchEvents) ...[
-                        if (event.team?.id != null &&
-                            event.time?.elapsed != null &&
-                            liveMatch.teams!.away!.id == event.team!.id &&
-                            event.time!.elapsed! < 45)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                            child: AwayEventTextSample(
-                              time: event.time?.elapsed.toString() ?? '',
-                              player: event.player?.name ?? '',
-                            ),
-                          )
-                        else
-                          const SizedBox(height: 0),
+                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                          if (awayTeamID == event.team?.id && event.time!.elapsed! < 45)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0, top: 8.0),
+                              child: AwayEventTextSample(
+                                  time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
+                            )
+                          else
+                            const SizedBox(height: 0),
                       ]
                     ],
                   ),
@@ -100,6 +96,8 @@ class SecondHalfEventsDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final int homeTeamID = liveMatch.teams?.home?.id ?? 0;
+    final int awayTeamID = liveMatch.teams?.away?.id ?? 0;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -118,17 +116,15 @@ class SecondHalfEventsDisplay extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
                       for (final event in matchEvents) ...[
-                        if (event.team?.id != null &&
-                            event.time?.elapsed != null &&
-                            liveMatch.teams!.home!.id == event.team!.id &&
-                            event.time!.elapsed! > 45)
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                            child: HomeEventTextSample(
-                                time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
-                          )
-                        else
-                          const SizedBox(height: 0),
+                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                          if (homeTeamID == event.team?.id && event.time!.elapsed! > 45)
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0, top: 8.0),
+                              child: HomeEventTextSample(
+                                  time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
+                            )
+                          else
+                            const SizedBox(height: 0),
                       ]
                     ],
                   ),
@@ -146,19 +142,15 @@ class SecondHalfEventsDisplay extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
                       for (final event in matchEvents) ...[
-                        if (event.team?.id != null &&
-                            event.time?.elapsed != null &&
-                            liveMatch.teams!.away!.id == event.team!.id &&
-                            event.time!.elapsed! > 45)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                            child: AwayEventTextSample(
-                              time: event.time?.elapsed.toString() ?? '',
-                              player: event.player?.name ?? '',
-                            ),
-                          )
-                        else
-                          const SizedBox(height: 0),
+                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                          if (awayTeamID == event.team?.id && event.time!.elapsed! > 45)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0, top: 8.0),
+                              child: AwayEventTextSample(
+                                  time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
+                            )
+                          else
+                            const SizedBox(height: 0),
                       ]
                     ],
                   ),

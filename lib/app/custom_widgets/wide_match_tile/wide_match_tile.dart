@@ -16,12 +16,9 @@ class WideMatchListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String homeTeamLogo =
-        liveMatch.teams?.home?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
-    final String awayTeamLogo =
-        liveMatch.teams?.away?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
-    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
-    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
+    final int homeTeamGoals = liveMatch.goals?.home ?? 0;
+    final int awayTeamGoals = liveMatch.goals?.away ?? 0;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
@@ -36,12 +33,7 @@ class WideMatchListTile extends StatelessWidget {
           child: Row(
             children: [
               WideMatchTileElapsedTime(liveMatch: liveMatch),
-              WideMatchTileTeamsDisplay(
-                homeTeamLogo: homeTeamLogo,
-                homeTeamName: homeTeamName,
-                awayTeamLogo: awayTeamLogo,
-                awayTeamName: awayTeamName,
-              ),
+              WideMatchTileTeamsDisplay(liveMatch: liveMatch),
               Padding(
                 padding: const EdgeInsets.only(right: 24.0),
                 child: Column(
@@ -50,9 +42,8 @@ class WideMatchListTile extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        //TODO: null check goals
                         Text(
-                          liveMatch.goals!.home.toString(),
+                          homeTeamGoals.toString(),
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -65,7 +56,7 @@ class WideMatchListTile extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          liveMatch.goals!.away.toString(),
+                          awayTeamGoals.toString(),
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,

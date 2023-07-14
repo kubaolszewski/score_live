@@ -16,20 +16,14 @@ class MatchSummaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
-    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
-    final String result = liveMatch.fixture?.status?.long ?? '';
-
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
           FirstHalfEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents),
-          FirstHalfResultDisplay(
-              liveMatch: liveMatch, result: result, homeTeamName: homeTeamName, awayTeamName: awayTeamName),
+          FirstHalfResultDisplay(liveMatch: liveMatch),
           SecondHalfEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents),
-          SecondfHalfResultDisplay(
-              liveMatch: liveMatch, result: result, homeTeamName: homeTeamName, awayTeamName: awayTeamName),
+          SecondfHalfResultDisplay(liveMatch: liveMatch),
         ],
       ),
     );
