@@ -17,24 +17,21 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ScoreTabState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
     required TResult Function() loadingMatchesState,
     required TResult Function(String errorMessage) errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult? Function()? loadingMatchesState,
     TResult? Function(String errorMessage)? errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult Function()? loadingMatchesState,
     TResult Function(String errorMessage)? errorMatchesState,
@@ -42,24 +39,21 @@ mixin _$ScoreTabState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScoreTabState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(MatchesLoadedState value) matchesLoaded,
     required TResult Function(LoadingMatchesState value) loadingMatchesState,
     required TResult Function(ErrorMatchesState value) errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScoreTabState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MatchesLoadedState value)? matchesLoaded,
     TResult? Function(LoadingMatchesState value)? loadingMatchesState,
     TResult? Function(ErrorMatchesState value)? errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScoreTabState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(MatchesLoadedState value)? matchesLoaded,
     TResult Function(LoadingMatchesState value)? loadingMatchesState,
     TResult Function(ErrorMatchesState value)? errorMatchesState,
@@ -84,120 +78,6 @@ class _$ScoreTabStateCopyWithImpl<$Res, $Val extends ScoreTabState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_ScoreTabStateCopyWith<$Res> {
-  factory _$$_ScoreTabStateCopyWith(
-          _$_ScoreTabState value, $Res Function(_$_ScoreTabState) then) =
-      __$$_ScoreTabStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_ScoreTabStateCopyWithImpl<$Res>
-    extends _$ScoreTabStateCopyWithImpl<$Res, _$_ScoreTabState>
-    implements _$$_ScoreTabStateCopyWith<$Res> {
-  __$$_ScoreTabStateCopyWithImpl(
-      _$_ScoreTabState _value, $Res Function(_$_ScoreTabState) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_ScoreTabState implements _ScoreTabState {
-  const _$_ScoreTabState();
-
-  @override
-  String toString() {
-    return 'ScoreTabState()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ScoreTabState);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
-    required TResult Function() loadingMatchesState,
-    required TResult Function(String errorMessage) errorMatchesState,
-  }) {
-    return $default();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
-    TResult? Function()? loadingMatchesState,
-    TResult? Function(String errorMessage)? errorMatchesState,
-  }) {
-    return $default?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
-    TResult Function()? loadingMatchesState,
-    TResult Function(String errorMessage)? errorMatchesState,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScoreTabState value) $default, {
-    required TResult Function(MatchesLoadedState value) matchesLoaded,
-    required TResult Function(LoadingMatchesState value) loadingMatchesState,
-    required TResult Function(ErrorMatchesState value) errorMatchesState,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScoreTabState value)? $default, {
-    TResult? Function(MatchesLoadedState value)? matchesLoaded,
-    TResult? Function(LoadingMatchesState value)? loadingMatchesState,
-    TResult? Function(ErrorMatchesState value)? errorMatchesState,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScoreTabState value)? $default, {
-    TResult Function(MatchesLoadedState value)? matchesLoaded,
-    TResult Function(LoadingMatchesState value)? loadingMatchesState,
-    TResult Function(ErrorMatchesState value)? errorMatchesState,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ScoreTabState implements ScoreTabState {
-  const factory _ScoreTabState() = _$_ScoreTabState;
 }
 
 /// @nodoc
@@ -271,8 +151,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
     required TResult Function() loadingMatchesState,
     required TResult Function(String errorMessage) errorMatchesState,
@@ -282,8 +161,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult? Function()? loadingMatchesState,
     TResult? Function(String errorMessage)? errorMatchesState,
@@ -293,8 +171,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult Function()? loadingMatchesState,
     TResult Function(String errorMessage)? errorMatchesState,
@@ -308,8 +185,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScoreTabState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(MatchesLoadedState value) matchesLoaded,
     required TResult Function(LoadingMatchesState value) loadingMatchesState,
     required TResult Function(ErrorMatchesState value) errorMatchesState,
@@ -319,8 +195,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScoreTabState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MatchesLoadedState value)? matchesLoaded,
     TResult? Function(LoadingMatchesState value)? loadingMatchesState,
     TResult? Function(ErrorMatchesState value)? errorMatchesState,
@@ -330,8 +205,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScoreTabState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(MatchesLoadedState value)? matchesLoaded,
     TResult Function(LoadingMatchesState value)? loadingMatchesState,
     TResult Function(ErrorMatchesState value)? errorMatchesState,
@@ -391,8 +265,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
     required TResult Function() loadingMatchesState,
     required TResult Function(String errorMessage) errorMatchesState,
@@ -402,8 +275,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult? Function()? loadingMatchesState,
     TResult? Function(String errorMessage)? errorMatchesState,
@@ -413,8 +285,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult Function()? loadingMatchesState,
     TResult Function(String errorMessage)? errorMatchesState,
@@ -428,8 +299,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScoreTabState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(MatchesLoadedState value) matchesLoaded,
     required TResult Function(LoadingMatchesState value) loadingMatchesState,
     required TResult Function(ErrorMatchesState value) errorMatchesState,
@@ -439,8 +309,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScoreTabState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MatchesLoadedState value)? matchesLoaded,
     TResult? Function(LoadingMatchesState value)? loadingMatchesState,
     TResult? Function(ErrorMatchesState value)? errorMatchesState,
@@ -450,8 +319,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScoreTabState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(MatchesLoadedState value)? matchesLoaded,
     TResult Function(LoadingMatchesState value)? loadingMatchesState,
     TResult Function(ErrorMatchesState value)? errorMatchesState,
@@ -532,8 +400,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
     required TResult Function() loadingMatchesState,
     required TResult Function(String errorMessage) errorMatchesState,
@@ -543,8 +410,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult? Function()? loadingMatchesState,
     TResult? Function(String errorMessage)? errorMatchesState,
@@ -554,8 +420,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult Function()? loadingMatchesState,
     TResult Function(String errorMessage)? errorMatchesState,
@@ -569,8 +434,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ScoreTabState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(MatchesLoadedState value) matchesLoaded,
     required TResult Function(LoadingMatchesState value) loadingMatchesState,
     required TResult Function(ErrorMatchesState value) errorMatchesState,
@@ -580,8 +444,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ScoreTabState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MatchesLoadedState value)? matchesLoaded,
     TResult? Function(LoadingMatchesState value)? loadingMatchesState,
     TResult? Function(ErrorMatchesState value)? errorMatchesState,
@@ -591,8 +454,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ScoreTabState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(MatchesLoadedState value)? matchesLoaded,
     TResult Function(LoadingMatchesState value)? loadingMatchesState,
     TResult Function(ErrorMatchesState value)? errorMatchesState,

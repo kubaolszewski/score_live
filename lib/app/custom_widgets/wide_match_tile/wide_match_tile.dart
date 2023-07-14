@@ -50,6 +50,7 @@ class WideMatchListTile extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
+                        //TODO: null check goals
                         Text(
                           liveMatch.goals!.home.toString(),
                           style: const TextStyle(

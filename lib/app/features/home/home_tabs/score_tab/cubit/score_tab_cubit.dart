@@ -8,7 +8,7 @@ part 'score_tab_state.dart';
 part 'score_tab_cubit.freezed.dart';
 
 class ScoreTabCubit extends Cubit<ScoreTabState> {
-  ScoreTabCubit(this.homeScreenRepository) : super(const ScoreTabState());
+  ScoreTabCubit(this.homeScreenRepository) : super(const LoadingMatchesState());
 
   final HomeScreenRepository homeScreenRepository;
 

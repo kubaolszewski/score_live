@@ -6,20 +6,11 @@ import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab
 import 'package:score_live/app/features/home/home_view.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now_view/cubit/live_now_view_cubit.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({
     super.key,
   });
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-final homeCubit = Modular.get<HomeCubit>();
-final liveNowViewCubit = Modular.get<LiveNowViewCubit>();
-final scoreTabCubit = Modular.get<ScoreTabCubit>();
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -32,4 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+final homeCubit = Modular.get<HomeCubit>();
+final liveNowViewCubit = Modular.get<LiveNowViewCubit>();
+final scoreTabCubit = Modular.get<ScoreTabCubit>();
 
