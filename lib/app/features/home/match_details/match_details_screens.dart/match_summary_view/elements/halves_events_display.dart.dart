@@ -16,8 +16,9 @@ class FirstHalfEventsDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int homeTeamID = liveMatch.teams?.home?.id ?? 0;
-    final int awayTeamID = liveMatch.teams?.away?.id ?? 0;
+    const int intPlaceholder = 0;
+    final int homeTeamID = liveMatch.teams?.home?.id ?? intPlaceholder;
+    final int awayTeamID = liveMatch.teams?.away?.id ?? intPlaceholder;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),

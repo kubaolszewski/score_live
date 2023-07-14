@@ -10,27 +10,16 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 class MatchDetailsTile extends StatelessWidget {
   const MatchDetailsTile({
     super.key,
-    required this.width,
-    required this.flag,
     required this.leagueName,
     required this.liveMatch,
-    required this.homeTeamLogo,
-    required this.homeTeamName,
-    required this.awayTeamLogo,
-    required this.awayTeamName,
   });
 
-  final double width;
-  final String flag;
   final String leagueName;
   final LiveMatchModel liveMatch;
-  final String homeTeamLogo;
-  final String homeTeamName;
-  final String awayTeamLogo;
-  final String awayTeamName;
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Container(
@@ -43,14 +32,9 @@ class MatchDetailsTile extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              MatchLeagueInfoAndTimerWidget(flag: flag, leagueName: leagueName, liveMatch: liveMatch),
+              MatchLeagueInfoAndTimerWidget(leagueName: leagueName, liveMatch: liveMatch),
               const SizedBox(height: 10),
-              MatchResultDisplay(
-                  homeTeamLogo: homeTeamLogo,
-                  homeTeamName: homeTeamName,
-                  liveMatch: liveMatch,
-                  awayTeamLogo: awayTeamLogo,
-                  awayTeamName: awayTeamName),
+              MatchResultDisplay(liveMatch: liveMatch),
               const SizedBox(height: 15),
               const Divider(color: Colors.grey, thickness: 0.5),
               const SizedBox(height: 5),

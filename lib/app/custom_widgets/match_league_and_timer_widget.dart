@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/models/live_match_model.dart';
@@ -7,17 +6,17 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 class MatchLeagueInfoAndTimerWidget extends StatelessWidget {
   const MatchLeagueInfoAndTimerWidget({
     super.key,
-    required this.flag,
     required this.leagueName,
     required this.liveMatch,
   });
 
-  final String flag;
   final String leagueName;
   final LiveMatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {
+    final String flag = liveMatch.league?.flag ??
+        'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

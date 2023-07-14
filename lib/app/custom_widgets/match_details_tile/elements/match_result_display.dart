@@ -3,24 +3,21 @@ import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class MatchResultDisplay extends StatelessWidget {
-  const MatchResultDisplay({
-    super.key,
-    required this.liveMatch,
-    required this.homeTeamLogo,
-    required this.homeTeamName,
-    required this.awayTeamLogo,
-    required this.awayTeamName,
-  });
+  const MatchResultDisplay({super.key, required this.liveMatch});
 
   final LiveMatchModel liveMatch;
 
-  final String homeTeamLogo;
-  final String homeTeamName;
-  final String awayTeamLogo;
-  final String awayTeamName;
-
   @override
   Widget build(BuildContext context) {
+    const String stringPlaceholder = '';
+    final String homeTeamLogo =
+        liveMatch.teams?.home?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String awayTeamLogo =
+        liveMatch.teams?.away?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
+    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
+    final String matchStatusShort = liveMatch.fixture?.status?.short ?? stringPlaceholder;
+    final String matchStatusLong = liveMatch.fixture?.status?.long! ?? stringPlaceholder;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -34,8 +31,7 @@ class MatchResultDisplay extends StatelessWidget {
                 Image(
                   image: NetworkImage(homeTeamLogo, scale: 3),
                 ),
-                Text(homeTeamName,
-                    textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
+                Text(homeTeamName, textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
               ],
             ),
           ),
@@ -46,9 +42,9 @@ class MatchResultDisplay extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              liveMatch.fixture!.status!.short == 'NS' || liveMatch.fixture!.status!.short == 'TBD'
+              matchStatusShort == 'NS' || matchStatusShort == 'TBD'
                   ? Text(
-                      liveMatch.fixture!.status!.long!,
+                      matchStatusLong,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.white,
@@ -82,8 +78,7 @@ class MatchResultDisplay extends StatelessWidget {
                     scale: 3,
                   ),
                 ),
-                Text(awayTeamName,
-                    textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
+                Text(awayTeamName, textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
               ],
             ),
           ),
