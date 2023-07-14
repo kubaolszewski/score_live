@@ -28,7 +28,8 @@ class MatchDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String teamID = liveMatch.fixture!.id!.toString();
+    const int intPlaceholder = 0;
+    final int teamID = liveMatch.fixture?.id ?? intPlaceholder;
     final String leagueName = liveMatch.league!.name ?? 'Unknown league';
     return MultiBlocProvider(
       providers: [
@@ -36,7 +37,7 @@ class MatchDetails extends StatelessWidget {
           create: (context) => homeCubit,
         ),
         BlocProvider(
-          create: (context) => matchDetailsCubit..fetchMatchEvents(teamID),
+          create: (context) => matchDetailsCubit..fetchMatchEvents(teamID.toString()),
         ),
       ],
       child: Scaffold(

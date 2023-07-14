@@ -14,6 +14,9 @@ class ScoreTabLoadedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = double.infinity;
+    final String flag = liveMatches[0].league?.flag ?? '';
+    final String leagueName = liveMatches[0].league?.name ?? '';
+    
     if (liveMatches.isEmpty) {
       return const SizedBox(
         height: 200,
@@ -37,7 +40,7 @@ class ScoreTabLoadedView extends StatelessWidget {
                 radius: 15,
                 child: ClipOval(
                   child: SvgPicture.network(
-                    liveMatches[0].league!.flag!,
+                    flag,
                     fit: BoxFit.cover,
                     placeholderBuilder: (BuildContext context) => Container(
                       padding: const EdgeInsets.all(30.0),
@@ -52,7 +55,7 @@ class ScoreTabLoadedView extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Text(
-                liveMatches[0].league!.name!,
+                leagueName,
                 style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 16,
