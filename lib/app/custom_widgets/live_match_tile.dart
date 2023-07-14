@@ -127,6 +127,12 @@ class LiveMatchTile extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Image(
+                              image: NetworkImage(
+                                liveMatch.teams!.home!.logo!,
+                                scale: 3,
+                              ),
+                            ),
                             Text(liveMatch.teams!.home!.name!,
                                 textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteText),
                           ],
