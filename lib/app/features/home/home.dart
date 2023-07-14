@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
       providers: [
         BlocProvider(create: (context) => homeCubit),
         BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
-        BlocProvider(create: (context) => scoreTabCubit..fetchMatchesByDate(DateTime(2023, 2, 11))),
+        BlocProvider(create: (context) => scoreTabCubit..fetchMatchesByDate(DateTime.now())),
       ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,

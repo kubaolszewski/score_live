@@ -24,9 +24,9 @@ class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
             children: [
               Expanded(
                 child: DatePicker(
-                  DateTime(2023, 2, 11).subtract(const Duration(days: 3)),
+                  DateTime.now().subtract(const Duration(days: 3)),
                   locale: context.myLocale.toString(),
-                  initialSelectedDate: DateTime(2023, 2, 11),
+                  initialSelectedDate: DateTime.now(),
                   daysCount: 8,
                   monthTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
                   dayTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
