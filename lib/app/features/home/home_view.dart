@@ -7,7 +7,7 @@ import 'package:score_live/app/features/home/home_tabs/score_tab/score_tab.dart'
 import 'package:score_live/app/features/home/home_tabs/upcoming_tab/upcoming_tab.dart';
 import 'package:score_live/app/features/home/home_widgets/home_options_tap_bar/home_options_tap_bar.dart';
 import 'package:score_live/app/features/home/home_widgets/home_screen_date_picker/home_screen_date_picker.dart';
-import 'package:score_live/app/features/home/home_widgets/live_now_view/live_now_view.dart';
+import 'package:score_live/app/features/home/home_widgets/live_now/live_now.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
@@ -69,7 +69,7 @@ class HomeView extends StatelessWidget {
                 ],
               ),
             ),
-            const LiveNowView(),
+            const LiveNow(),
             const HomeOptionsTapBar(),
             BlocBuilder<HomeCubit, HomeState>(
               builder: (context, state) {

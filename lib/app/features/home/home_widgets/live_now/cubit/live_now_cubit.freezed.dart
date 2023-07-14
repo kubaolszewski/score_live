@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'live_now_view_cubit.dart';
+part of 'live_now_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,26 +15,23 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$LiveNowViewState {
+mixin _$LiveNowState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
     required TResult Function() loadingMatchesState,
     required TResult Function(String errorMessage) errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult? Function()? loadingMatchesState,
     TResult? Function(String errorMessage)? errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult Function()? loadingMatchesState,
     TResult Function(String errorMessage)? errorMatchesState,
@@ -42,24 +39,21 @@ mixin _$LiveNowViewState {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(MatchesLoadedState value) matchesLoaded,
     required TResult Function(LoadingMatchesState value) loadingMatchesState,
     required TResult Function(ErrorMatchesState value) errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LiveNowViewState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MatchesLoadedState value)? matchesLoaded,
     TResult? Function(LoadingMatchesState value)? loadingMatchesState,
     TResult? Function(ErrorMatchesState value)? errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(MatchesLoadedState value)? matchesLoaded,
     TResult Function(LoadingMatchesState value)? loadingMatchesState,
     TResult Function(ErrorMatchesState value)? errorMatchesState,
@@ -69,135 +63,21 @@ mixin _$LiveNowViewState {
 }
 
 /// @nodoc
-abstract class $LiveNowViewStateCopyWith<$Res> {
-  factory $LiveNowViewStateCopyWith(
-          LiveNowViewState value, $Res Function(LiveNowViewState) then) =
-      _$LiveNowViewStateCopyWithImpl<$Res, LiveNowViewState>;
+abstract class $LiveNowStateCopyWith<$Res> {
+  factory $LiveNowStateCopyWith(
+          LiveNowState value, $Res Function(LiveNowState) then) =
+      _$LiveNowStateCopyWithImpl<$Res, LiveNowState>;
 }
 
 /// @nodoc
-class _$LiveNowViewStateCopyWithImpl<$Res, $Val extends LiveNowViewState>
-    implements $LiveNowViewStateCopyWith<$Res> {
-  _$LiveNowViewStateCopyWithImpl(this._value, this._then);
+class _$LiveNowStateCopyWithImpl<$Res, $Val extends LiveNowState>
+    implements $LiveNowStateCopyWith<$Res> {
+  _$LiveNowStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_LiveNowViewStateCopyWith<$Res> {
-  factory _$$_LiveNowViewStateCopyWith(
-          _$_LiveNowViewState value, $Res Function(_$_LiveNowViewState) then) =
-      __$$_LiveNowViewStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_LiveNowViewStateCopyWithImpl<$Res>
-    extends _$LiveNowViewStateCopyWithImpl<$Res, _$_LiveNowViewState>
-    implements _$$_LiveNowViewStateCopyWith<$Res> {
-  __$$_LiveNowViewStateCopyWithImpl(
-      _$_LiveNowViewState _value, $Res Function(_$_LiveNowViewState) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_LiveNowViewState implements _LiveNowViewState {
-  const _$_LiveNowViewState();
-
-  @override
-  String toString() {
-    return 'LiveNowViewState()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LiveNowViewState);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
-    required TResult Function() loadingMatchesState,
-    required TResult Function(String errorMessage) errorMatchesState,
-  }) {
-    return $default();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
-    TResult? Function()? loadingMatchesState,
-    TResult? Function(String errorMessage)? errorMatchesState,
-  }) {
-    return $default?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
-    TResult Function()? loadingMatchesState,
-    TResult Function(String errorMessage)? errorMatchesState,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value) $default, {
-    required TResult Function(MatchesLoadedState value) matchesLoaded,
-    required TResult Function(LoadingMatchesState value) loadingMatchesState,
-    required TResult Function(ErrorMatchesState value) errorMatchesState,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LiveNowViewState value)? $default, {
-    TResult? Function(MatchesLoadedState value)? matchesLoaded,
-    TResult? Function(LoadingMatchesState value)? loadingMatchesState,
-    TResult? Function(ErrorMatchesState value)? errorMatchesState,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value)? $default, {
-    TResult Function(MatchesLoadedState value)? matchesLoaded,
-    TResult Function(LoadingMatchesState value)? loadingMatchesState,
-    TResult Function(ErrorMatchesState value)? errorMatchesState,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LiveNowViewState implements LiveNowViewState {
-  const factory _LiveNowViewState() = _$_LiveNowViewState;
 }
 
 /// @nodoc
@@ -211,7 +91,7 @@ abstract class _$$MatchesLoadedStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$MatchesLoadedStateCopyWithImpl<$Res>
-    extends _$LiveNowViewStateCopyWithImpl<$Res, _$MatchesLoadedState>
+    extends _$LiveNowStateCopyWithImpl<$Res, _$MatchesLoadedState>
     implements _$$MatchesLoadedStateCopyWith<$Res> {
   __$$MatchesLoadedStateCopyWithImpl(
       _$MatchesLoadedState _value, $Res Function(_$MatchesLoadedState) _then)
@@ -247,7 +127,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   String toString() {
-    return 'LiveNowViewState.matchesLoaded(matches: $matches)';
+    return 'LiveNowState.matchesLoaded(matches: $matches)';
   }
 
   @override
@@ -271,8 +151,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
     required TResult Function() loadingMatchesState,
     required TResult Function(String errorMessage) errorMatchesState,
@@ -282,8 +161,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult? Function()? loadingMatchesState,
     TResult? Function(String errorMessage)? errorMatchesState,
@@ -293,8 +171,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult Function()? loadingMatchesState,
     TResult Function(String errorMessage)? errorMatchesState,
@@ -308,8 +185,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(MatchesLoadedState value) matchesLoaded,
     required TResult Function(LoadingMatchesState value) loadingMatchesState,
     required TResult Function(ErrorMatchesState value) errorMatchesState,
@@ -319,8 +195,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LiveNowViewState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MatchesLoadedState value)? matchesLoaded,
     TResult? Function(LoadingMatchesState value)? loadingMatchesState,
     TResult? Function(ErrorMatchesState value)? errorMatchesState,
@@ -330,8 +205,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(MatchesLoadedState value)? matchesLoaded,
     TResult Function(LoadingMatchesState value)? loadingMatchesState,
     TResult Function(ErrorMatchesState value)? errorMatchesState,
@@ -344,7 +218,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
   }
 }
 
-abstract class MatchesLoadedState implements LiveNowViewState {
+abstract class MatchesLoadedState implements LiveNowState {
   const factory MatchesLoadedState(final List<LiveMatchModel> matches) =
       _$MatchesLoadedState;
 
@@ -363,7 +237,7 @@ abstract class _$$LoadingMatchesStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingMatchesStateCopyWithImpl<$Res>
-    extends _$LiveNowViewStateCopyWithImpl<$Res, _$LoadingMatchesState>
+    extends _$LiveNowStateCopyWithImpl<$Res, _$LoadingMatchesState>
     implements _$$LoadingMatchesStateCopyWith<$Res> {
   __$$LoadingMatchesStateCopyWithImpl(
       _$LoadingMatchesState _value, $Res Function(_$LoadingMatchesState) _then)
@@ -377,7 +251,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   String toString() {
-    return 'LiveNowViewState.loadingMatchesState()';
+    return 'LiveNowState.loadingMatchesState()';
   }
 
   @override
@@ -391,8 +265,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
     required TResult Function() loadingMatchesState,
     required TResult Function(String errorMessage) errorMatchesState,
@@ -402,8 +275,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult? Function()? loadingMatchesState,
     TResult? Function(String errorMessage)? errorMatchesState,
@@ -413,8 +285,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult Function()? loadingMatchesState,
     TResult Function(String errorMessage)? errorMatchesState,
@@ -428,8 +299,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(MatchesLoadedState value) matchesLoaded,
     required TResult Function(LoadingMatchesState value) loadingMatchesState,
     required TResult Function(ErrorMatchesState value) errorMatchesState,
@@ -439,8 +309,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LiveNowViewState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MatchesLoadedState value)? matchesLoaded,
     TResult? Function(LoadingMatchesState value)? loadingMatchesState,
     TResult? Function(ErrorMatchesState value)? errorMatchesState,
@@ -450,8 +319,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(MatchesLoadedState value)? matchesLoaded,
     TResult Function(LoadingMatchesState value)? loadingMatchesState,
     TResult Function(ErrorMatchesState value)? errorMatchesState,
@@ -464,7 +332,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
   }
 }
 
-abstract class LoadingMatchesState implements LiveNowViewState {
+abstract class LoadingMatchesState implements LiveNowState {
   const factory LoadingMatchesState() = _$LoadingMatchesState;
 }
 
@@ -479,7 +347,7 @@ abstract class _$$ErrorMatchesStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorMatchesStateCopyWithImpl<$Res>
-    extends _$LiveNowViewStateCopyWithImpl<$Res, _$ErrorMatchesState>
+    extends _$LiveNowStateCopyWithImpl<$Res, _$ErrorMatchesState>
     implements _$$ErrorMatchesStateCopyWith<$Res> {
   __$$ErrorMatchesStateCopyWithImpl(
       _$ErrorMatchesState _value, $Res Function(_$ErrorMatchesState) _then)
@@ -509,7 +377,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   String toString() {
-    return 'LiveNowViewState.errorMatchesState(errorMessage: $errorMessage)';
+    return 'LiveNowState.errorMatchesState(errorMessage: $errorMessage)';
   }
 
   @override
@@ -532,8 +400,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
     required TResult Function() loadingMatchesState,
     required TResult Function(String errorMessage) errorMatchesState,
@@ -543,8 +410,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult? Function()? loadingMatchesState,
     TResult? Function(String errorMessage)? errorMatchesState,
@@ -554,8 +420,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
     TResult Function()? loadingMatchesState,
     TResult Function(String errorMessage)? errorMatchesState,
@@ -569,8 +434,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(MatchesLoadedState value) matchesLoaded,
     required TResult Function(LoadingMatchesState value) loadingMatchesState,
     required TResult Function(ErrorMatchesState value) errorMatchesState,
@@ -580,8 +444,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LiveNowViewState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MatchesLoadedState value)? matchesLoaded,
     TResult? Function(LoadingMatchesState value)? loadingMatchesState,
     TResult? Function(ErrorMatchesState value)? errorMatchesState,
@@ -591,8 +454,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LiveNowViewState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(MatchesLoadedState value)? matchesLoaded,
     TResult Function(LoadingMatchesState value)? loadingMatchesState,
     TResult Function(ErrorMatchesState value)? errorMatchesState,
@@ -605,7 +467,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
   }
 }
 
-abstract class ErrorMatchesState implements LiveNowViewState {
+abstract class ErrorMatchesState implements LiveNowState {
   const factory ErrorMatchesState(final String errorMessage) =
       _$ErrorMatchesState;
 

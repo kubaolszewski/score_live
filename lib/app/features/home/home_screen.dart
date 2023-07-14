@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_view.dart';
-import 'package:score_live/app/features/home/home_widgets/live_now_view/cubit/live_now_view_cubit.dart';
+import 'package:score_live/app/features/home/home_widgets/live_now/cubit/live_now_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => homeCubit),
-        BlocProvider(create: (context) => liveNowViewCubit..fetchLiveMatches()),
+        BlocProvider(create: (context) => liveNowCubit..fetchLiveMatches()),
         BlocProvider(create: (context) => scoreTabCubit..fetchMatchesByDate(DateTime(2023, 2, 11))),
       ],
       child: const HomeView(),
@@ -25,6 +25,5 @@ class HomeScreen extends StatelessWidget {
 }
 
 final homeCubit = Modular.get<HomeCubit>();
-final liveNowViewCubit = Modular.get<LiveNowViewCubit>();
+final liveNowCubit = Modular.get<LiveNowCubit>();
 final scoreTabCubit = Modular.get<ScoreTabCubit>();
-
