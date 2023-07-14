@@ -83,7 +83,7 @@ class LiveMatchTile extends StatelessWidget {
                     width: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
-                      color: AppColors.liveTimerBackground,
+                      color: AppColors.liveTimerBackgroundGreen,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,

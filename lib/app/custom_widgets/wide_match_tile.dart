@@ -38,11 +38,11 @@ class WideMatchListTile extends StatelessWidget {
                     children: [
                       Text(
                         liveMatch.fixture!.status!.short!,
-                        style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+                        style: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         formattedDate.toString(),
-                        style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+                        style: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),

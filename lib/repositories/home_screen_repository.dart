@@ -7,12 +7,12 @@ class HomeScreenRepository {
   final LiveMatchesRemoteService liveMatchesRemoteService;
 
   Future<List<LiveMatchModel>?> fetchMatchesByDate(String date) async {
-    return (await liveMatchesRemoteService.fetchMatchesByDate(season: '2023', date: date))
-        .response!
-        .where(
-          (element) => element.fixture!.status!.short == 'FT',
-        )
-        .toList();
+    // return (await liveMatchesRemoteService.fetchMatchesByDate(season: '2023', date: date))
+    //     .response!
+    //     .where(
+    //       (element) => element.fixture!.status!.short == 'FT',
+    //     )
+    //     .toList();
     final response = [
       {
         "fixture": {
@@ -313,7 +313,7 @@ class HomeScreenRepository {
   }
 
   Future<List<LiveMatchModel>?> fetchLiveMatches() async {
-    return (await liveMatchesRemoteService.fetchLiveMatches(live: 'all')).response;
+    // return (await liveMatchesRemoteService.fetchLiveMatches(live: 'all')).response;
     final response = [
       {
         "fixture": {
