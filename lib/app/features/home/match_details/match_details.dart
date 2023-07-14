@@ -5,11 +5,11 @@ import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/custom_widgets/match_details_tile/match_details_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_h2h_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_lineup_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_standings_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_stats_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_summary_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_h2h_view/match_h2h_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_lineup_view/match_lineup_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_standings_view/match_standings_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_stats_view/match_stats_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_summary_view/match_summary_view.dart';
 import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_tab_bar.dart';
 import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_title.dart';
 import 'package:score_live/core/enums.dart';
@@ -28,6 +28,7 @@ class MatchDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String teamID = liveMatch.fixture!.id!.toString();
     final String flag = liveMatch.league?.flag ??
         'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     final String leagueName = liveMatch.league!.name ?? 'Unknown league';
@@ -44,13 +45,13 @@ class MatchDetails extends StatelessWidget {
           create: (context) => homeCubit,
         ),
         BlocProvider(
-          create: (context) => matchDetailsCubit..fetchMatchEvents(liveMatch.fixture!.id!.toString()),
+          create: (context) => matchDetailsCubit..fetchMatchEvents(teamID),
         ),
       ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
-          title: MatchDetailsTitle(liveMatch.league!.name!),
+          title: MatchDetailsTitle(leagueName),
           leading: IconButton(
               onPressed: () {
                 Modular.to.pop();
