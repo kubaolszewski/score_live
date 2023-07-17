@@ -3,7 +3,7 @@ import 'package:score_live/app/features/home/home_screen.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now/cubit/live_now_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/features/home/match_details/match_details.dart';
+import 'package:score_live/app/features/home/match_details/match_details_screen.dart';
 import 'package:score_live/data/api.client.dart';
 import 'package:score_live/data/live_matches_remote_service.dart';
 import 'package:score_live/repositories/match_details_repository.dart';
@@ -30,7 +30,7 @@ class HomeModule extends Module {
         ),
         ChildRoute(
           HomePath.matchDetailsScreen,
-          child: (context, args) => MatchDetails(liveMatch: args.data),
+          child: (context, args) => MatchDetailsScreen(liveMatch: args.data),
         ),
       ];
 }
