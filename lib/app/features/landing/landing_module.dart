@@ -1,13 +1,13 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/account/account.dart';
+import 'package:score_live/app/features/account/account_screen.dart';
 import 'package:score_live/app/features/account/account_module.dart';
-import 'package:score_live/app/features/competiton/competition.dart';
+import 'package:score_live/app/features/competiton/competition_screen.dart';
 import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_module.dart';
-import 'package:score_live/app/features/home/home.dart';
+import 'package:score_live/app/features/home/home_screen.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
-import 'package:score_live/app/features/home/home_widgets/live_now_view/cubit/live_now_view_cubit.dart';
+import 'package:score_live/app/features/home/home_widgets/live_now/cubit/live_now_cubit.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing.dart';
 import 'package:score_live/data/api.client.dart';
@@ -22,7 +22,7 @@ class LandingModule extends Module {
         Bind.factory((i) => LiveMatchesRemoteService.create(i())),
         Bind.factory((i) => HomeScreenRepository(i())),
         Bind.singleton((i) => HomeCubit()),
-        Bind.singleton((i) => LiveNowViewCubit(i())),
+        Bind.singleton((i) => LiveNowCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i()))
       ];
 

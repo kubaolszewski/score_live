@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'score_tab_cubit.dart';
+part of 'live_now_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$ScoreTabState {
+mixin _$LiveNowState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
@@ -63,16 +63,16 @@ mixin _$ScoreTabState {
 }
 
 /// @nodoc
-abstract class $ScoreTabStateCopyWith<$Res> {
-  factory $ScoreTabStateCopyWith(
-          ScoreTabState value, $Res Function(ScoreTabState) then) =
-      _$ScoreTabStateCopyWithImpl<$Res, ScoreTabState>;
+abstract class $LiveNowStateCopyWith<$Res> {
+  factory $LiveNowStateCopyWith(
+          LiveNowState value, $Res Function(LiveNowState) then) =
+      _$LiveNowStateCopyWithImpl<$Res, LiveNowState>;
 }
 
 /// @nodoc
-class _$ScoreTabStateCopyWithImpl<$Res, $Val extends ScoreTabState>
-    implements $ScoreTabStateCopyWith<$Res> {
-  _$ScoreTabStateCopyWithImpl(this._value, this._then);
+class _$LiveNowStateCopyWithImpl<$Res, $Val extends LiveNowState>
+    implements $LiveNowStateCopyWith<$Res> {
+  _$LiveNowStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -91,7 +91,7 @@ abstract class _$$MatchesLoadedStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$MatchesLoadedStateCopyWithImpl<$Res>
-    extends _$ScoreTabStateCopyWithImpl<$Res, _$MatchesLoadedState>
+    extends _$LiveNowStateCopyWithImpl<$Res, _$MatchesLoadedState>
     implements _$$MatchesLoadedStateCopyWith<$Res> {
   __$$MatchesLoadedStateCopyWithImpl(
       _$MatchesLoadedState _value, $Res Function(_$MatchesLoadedState) _then)
@@ -127,7 +127,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 
   @override
   String toString() {
-    return 'ScoreTabState.matchesLoaded(matches: $matches)';
+    return 'LiveNowState.matchesLoaded(matches: $matches)';
   }
 
   @override
@@ -218,7 +218,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
   }
 }
 
-abstract class MatchesLoadedState implements ScoreTabState {
+abstract class MatchesLoadedState implements LiveNowState {
   const factory MatchesLoadedState(final List<LiveMatchModel> matches) =
       _$MatchesLoadedState;
 
@@ -237,7 +237,7 @@ abstract class _$$LoadingMatchesStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingMatchesStateCopyWithImpl<$Res>
-    extends _$ScoreTabStateCopyWithImpl<$Res, _$LoadingMatchesState>
+    extends _$LiveNowStateCopyWithImpl<$Res, _$LoadingMatchesState>
     implements _$$LoadingMatchesStateCopyWith<$Res> {
   __$$LoadingMatchesStateCopyWithImpl(
       _$LoadingMatchesState _value, $Res Function(_$LoadingMatchesState) _then)
@@ -251,7 +251,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
 
   @override
   String toString() {
-    return 'ScoreTabState.loadingMatchesState()';
+    return 'LiveNowState.loadingMatchesState()';
   }
 
   @override
@@ -332,7 +332,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
   }
 }
 
-abstract class LoadingMatchesState implements ScoreTabState {
+abstract class LoadingMatchesState implements LiveNowState {
   const factory LoadingMatchesState() = _$LoadingMatchesState;
 }
 
@@ -347,7 +347,7 @@ abstract class _$$ErrorMatchesStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorMatchesStateCopyWithImpl<$Res>
-    extends _$ScoreTabStateCopyWithImpl<$Res, _$ErrorMatchesState>
+    extends _$LiveNowStateCopyWithImpl<$Res, _$ErrorMatchesState>
     implements _$$ErrorMatchesStateCopyWith<$Res> {
   __$$ErrorMatchesStateCopyWithImpl(
       _$ErrorMatchesState _value, $Res Function(_$ErrorMatchesState) _then)
@@ -377,7 +377,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
 
   @override
   String toString() {
-    return 'ScoreTabState.errorMatchesState(errorMessage: $errorMessage)';
+    return 'LiveNowState.errorMatchesState(errorMessage: $errorMessage)';
   }
 
   @override
@@ -467,7 +467,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
   }
 }
 
-abstract class ErrorMatchesState implements ScoreTabState {
+abstract class ErrorMatchesState implements LiveNowState {
   const factory ErrorMatchesState(final String errorMessage) =
       _$ErrorMatchesState;
 

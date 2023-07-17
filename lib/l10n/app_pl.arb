@@ -11,8 +11,15 @@
 
   "matchDetailsButton" : "Szczegóły",
 
+  "noMatchesLive" : "Bark spotkań live.",
+  "noMatchesAtDate" : "Tego dnia nie odbywał się żaden mecz",
+
   "currentDay" : "Dziś",
   "matchDetailsSummary" : "Przebieg",
+  "unknownHomeTeam" : "Nieznana drużyna gospodarzy",
+  "unknownAwayTeam" : "Nieznana drużyna gości",
+  "unknownLeague" : "Nieznana liga",
+  "noDetailsInfo" : "Brak szczegółów o tym spotkaniu.",
   "halfTime" : "Przerwa",
   "fullTime" : "Koniec czasu",
   "matchNotEnded" : "Mecz jeszcze się nie zakończył.",

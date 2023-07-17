@@ -11,8 +11,15 @@
 
   "matchDetailsButton" : "Details",
 
+  "noMatchesLive" : "No matches happening right now.",
+  "noMatchesAtDate" : "No matches were played on this date.",
+
   "currentDay" : "Today",
   "matchDetailsSummary" : "Summary",
+  "unknownHomeTeam" : "Unknown home team",
+  "unknownAwayTeam" : "Unknown away team",
+  "unknownLeague" : "Unknown league",
+  "noDetailsInfo" : "No details about this match.",
   "halfTime" : "Half Time",
   "fullTime" : "Full Time",
   "matchNotEnded" : "Match has not ended yet.",
