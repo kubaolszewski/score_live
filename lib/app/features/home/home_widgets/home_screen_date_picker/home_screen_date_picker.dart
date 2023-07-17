@@ -6,14 +6,9 @@ import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
-class HomeScreenDatePicker extends StatefulWidget {
+class HomeScreenDatePicker extends StatelessWidget {
   const HomeScreenDatePicker({super.key});
 
-  @override
-  State<HomeScreenDatePicker> createState() => HomeScreenDatePickerState();
-}
-
-class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
@@ -36,9 +31,7 @@ class HomeScreenDatePickerState extends State<HomeScreenDatePicker> {
                   height: 85,
                   width: 75,
                   onDateChange: (pickedDate) {
-                    context.read<HomeCubit>().switchDate(
-                          pickedDate,
-                        );
+                    context.read<HomeCubit>().switchDate(pickedDate);
                     context.read<ScoreTabCubit>().fetchMatchesByDate(pickedDate);
                   },
                 ),

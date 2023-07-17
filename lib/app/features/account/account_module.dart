@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/account/account.dart';
+import 'package:score_live/app/features/account/account_screen.dart';
 
 class AccountModule extends Module {
   @override

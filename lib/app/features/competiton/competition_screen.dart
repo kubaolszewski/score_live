@@ -16,11 +16,7 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class CompetitionScreen extends StatelessWidget {
-  CompetitionScreen({super.key});
-
-  final competitionCubit = Modular.get<CompetitionCubit>();
-  final topResultsTabCubit = Modular.get<TopResultsTabCubit>();
-  final regionTabCubit = Modular.get<RegionTabCubit>();
+  const CompetitionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +24,7 @@ class CompetitionScreen extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => competitionCubit),
         BlocProvider(create: (context) => topResultsTabCubit..fetchLeagues(DateTime.now())),
-        BlocProvider(create: (context) => regionTabCubit
-            // ..fetchLeaguesByRegion(DateTime.now())
-            ),
+        BlocProvider(create: (context) => regionTabCubit..fetchLeaguesByRegion(DateTime.now())),
       ],
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
@@ -45,7 +39,7 @@ class CompetitionScreen extends StatelessWidget {
             children: [
               CompetitionSearchBar(),
               const SizedBox(height: 15),
-              CompetitionOptionsTapBar(),
+              const CompetitionOptionsTapBar(),
               BlocBuilder<CompetitionCubit, CompetitionState>(
                 builder: (context, state) {
                   switch (state.browsingOptions) {
@@ -65,3 +59,7 @@ class CompetitionScreen extends StatelessWidget {
     );
   }
 }
+
+final competitionCubit = Modular.get<CompetitionCubit>();
+final topResultsTabCubit = Modular.get<TopResultsTabCubit>();
+final regionTabCubit = Modular.get<RegionTabCubit>();

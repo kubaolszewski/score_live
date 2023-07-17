@@ -9,14 +9,12 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class SearchedTeamsScreen extends StatelessWidget {
-  SearchedTeamsScreen(
+  const SearchedTeamsScreen(
     this.nameQuery, {
     super.key,
   });
 
   final String nameQuery;
-
-  final competitionCubit = Modular.get<CompetitionCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -82,3 +80,5 @@ class SearchedTeamsScreen extends StatelessWidget {
     );
   }
 }
+
+final competitionCubit = Modular.get<CompetitionCubit>();

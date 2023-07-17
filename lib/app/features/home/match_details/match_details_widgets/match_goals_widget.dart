@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/custom_widgets/event_text_samples.dart';
+import 'package:score_live/app/custom_widgets/event_text_sample.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchGoalsWidget extends StatelessWidget {
@@ -12,6 +13,10 @@ class MatchGoalsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const int intPlaceholder = 0;
+    final int homeTeamID = liveMatch.teams?.home?.id ?? intPlaceholder;
+    final int awayTeamID = liveMatch.teams?.away?.id ?? intPlaceholder;
+
     return BlocBuilder<MatchDetailsCubit, MatchDetailsState>(
       builder: (context, state) {
         if (state.isLoading == true) {
@@ -25,12 +30,12 @@ class MatchGoalsWidget extends StatelessWidget {
         final matchEvents = state.matchEvents;
 
         if (matchEvents.isEmpty) {
-          return const SizedBox(
+          return SizedBox(
             height: 150,
             child: Center(
               child: Text(
-                'No details about this match',
-                style: TextStyle(
+                context.localizations.noDetailsInfo,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 24,
                 ),
@@ -52,11 +57,12 @@ class MatchGoalsWidget extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       children: [
                         for (final event in matchEvents) ...[
-                          liveMatch.teams!.home!.id == event.team!.id && event.type == 'Goal'
-                              ? HomeEventTextSample(
-                                  time: event.time!.elapsed.toString(),
-                                  player: event.player!.name == null ? 'Unknown player' : event.player!.name!)
-                              : const SizedBox(height: 0),
+                          if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                            if (homeTeamID == event.team!.id && event.type == 'Goal')
+                              EventTextSample(
+                                  time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? '')
+                            else
+                              const SizedBox(height: 0),
                         ]
                       ],
                     ),
@@ -86,11 +92,12 @@ class MatchGoalsWidget extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       children: [
                         for (final event in matchEvents) ...[
-                          liveMatch.teams!.away!.id == event.team!.id && event.type == 'Goal'
-                              ? AwayEventTextSample(
-                                  time: event.time!.elapsed.toString(),
-                                  player: event.player!.name == null ? 'Unknown player' : event.player!.name!)
-                              : const SizedBox(height: 0),
+                          if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                            if (awayTeamID == event.team!.id && event.type == 'Goal')
+                              EventTextSample(
+                                  time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? '')
+                            else
+                              const SizedBox(height: 0),
                         ]
                       ],
                     ),
