@@ -10,10 +10,11 @@ class CompetitionSearchBar extends StatelessWidget {
   CompetitionSearchBar({super.key});
 
   final TextEditingController searchingController = TextEditingController();
+  CompetitionCubit _competitionCubit(BuildContext context) => context.read<CompetitionCubit>();
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
+    double width = double.infinity;
     String dropdownValue = 'Team';
 
     return BlocBuilder<CompetitionCubit, CompetitionState>(
@@ -46,7 +47,7 @@ class CompetitionSearchBar extends StatelessWidget {
                     }).toList(),
                     onChanged: (String? value) {
                       dropdownValue = value!;
-                      context.read<CompetitionCubit>().switchSearching(dropdownValue);
+                      _competitionCubit(context).switchSearching(dropdownValue);
                     },
                   ),
                   hintText: context.localizations.searchBarHint,

@@ -18,8 +18,6 @@ class SearchedTeamsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.sizeOf(context).height;
-    double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
@@ -70,7 +68,7 @@ class SearchedTeamsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 20),
-                  SearchedTeamsView(width: width, height: height, results: teams),
+                  SearchedTeamsView(results: teams),
                 ],
               ),
             );

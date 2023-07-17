@@ -5,16 +5,16 @@ import 'package:score_live/models/live_match_model/live_match_model.dart';
 class WideMatchTileElapsedTime extends StatelessWidget {
   const WideMatchTileElapsedTime({
     super.key,
-    required this.liveMatch,
+    required this.match,
   });
 
-  final LiveMatchModel liveMatch;
+  final LiveMatchModel match;
 
   @override
   Widget build(BuildContext context) {
     const String stringPlaceholder = '';
-    final String matchStatus = liveMatch.fixture?.status?.short ?? stringPlaceholder;
-    final String longStringDate = liveMatch.fixture?.date ?? stringPlaceholder;
+    final String matchStatus = match.fixture?.status?.short ?? stringPlaceholder;
+    final String longStringDate = match.fixture?.date ?? stringPlaceholder;
     final DateTime formattedDate = DateTime.parse(longStringDate);
     final String matchDate = DateFormat('dd/MM').format(formattedDate);
 

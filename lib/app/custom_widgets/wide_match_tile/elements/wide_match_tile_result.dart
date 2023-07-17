@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 
 class WideMatchTileResult extends StatelessWidget {
-  const WideMatchTileResult({super.key, required this.liveMatch});
+  const WideMatchTileResult({super.key, required this.match});
 
-  final LiveMatchModel liveMatch;
+  final LiveMatchModel match;
 
   @override
   Widget build(BuildContext context) {
     const int intPlaceholder = 0;
-    final int homeTeamGoals = liveMatch.goals?.home ?? intPlaceholder;
-    final int awayTeamGoals = liveMatch.goals?.away ?? intPlaceholder;
+    final int homeTeamGoals = match.goals?.home ?? intPlaceholder;
+    final int awayTeamGoals = match.goals?.away ?? intPlaceholder;
     return Padding(
       padding: const EdgeInsets.only(right: 24.0),
       child: Column(

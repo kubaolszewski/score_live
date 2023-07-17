@@ -7,19 +7,19 @@ import 'package:score_live/models/live_match_model/live_match_model.dart';
 class ScoreTabLoadedView extends StatelessWidget {
   const ScoreTabLoadedView({
     super.key,
-    required this.liveMatches,
+    required this.matchesByDate,
   });
 
-  final List<LiveMatchModel> liveMatches;
+  final List<LiveMatchModel> matchesByDate;
 
   @override
   Widget build(BuildContext context) {
     double width = double.infinity;
     const String stringPlaceholder = '';
-    final String flag = liveMatches[0].league?.flag ?? stringPlaceholder;
-    final String leagueName = liveMatches[0].league?.name ?? stringPlaceholder;
+    final String flag = matchesByDate[0].league?.flag ?? stringPlaceholder;
+    final String leagueName = matchesByDate[0].league?.name ?? stringPlaceholder;
 
-    if (liveMatches.isEmpty) {
+    if (matchesByDate.isEmpty) {
       return SizedBox(
         height: 200,
         child: Center(
@@ -72,11 +72,11 @@ class ScoreTabLoadedView extends StatelessWidget {
           child: ListView.builder(
             shrinkWrap: true,
             physics: const ScrollPhysics(),
-            itemCount: liveMatches.length,
+            itemCount: matchesByDate.length,
             itemBuilder: (context, index) {
-              final liveMatch = liveMatches[index];
+              final match = matchesByDate[index];
               return WideMatchListTile(
-                liveMatch: liveMatch,
+                match: match,
               );
             },
           ),

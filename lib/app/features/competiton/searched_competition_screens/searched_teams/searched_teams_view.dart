@@ -3,19 +3,16 @@ import 'package:score_live/app/custom_widgets/search_list_tile.dart';
 import 'package:score_live/models/team_model/team_model.dart';
 
 class SearchedTeamsView extends StatelessWidget {
-  const SearchedTeamsView({
-    super.key,
-    required this.width,
-    required this.height,
-    required this.results,
-  });
+  const SearchedTeamsView({super.key, required this.results});
 
-  final double width;
-  final double height;
   final List<TeamModel> results;
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.sizeOf(context).height;
+    double width = double.infinity;
+    const String stringPlaceholder = '';
+    
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
@@ -25,9 +22,9 @@ class SearchedTeamsView extends StatelessWidget {
           itemCount: results.length,
           itemBuilder: (context, index) {
             final team = results[index];
-            final String teamFlag = team.team?.logo ?? '';
-            final String teamRegion = team.team?.country ?? '';
-            final String teamName = team.team?.name ?? '';
+            final String teamFlag = team.team?.logo ?? stringPlaceholder;
+            final String teamRegion = team.team?.country ?? stringPlaceholder;
+            final String teamName = team.team?.name ?? stringPlaceholder;
             return SearchListTile(flag: teamFlag, region: teamRegion, name: teamName);
           },
         ),

@@ -15,8 +15,6 @@ class SearchedLeaguesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.sizeOf(context).height;
-    double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
@@ -65,7 +63,7 @@ class SearchedLeaguesScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 20),
-                  SearchedLeaguesView(width: width, height: height, results: leagues),
+                  SearchedLeaguesView(results: leagues),
                 ],
               ),
             );
