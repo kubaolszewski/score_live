@@ -5,11 +5,11 @@ import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/custom_widgets/match_details_tile/match_details_tile.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_h2h_view/match_h2h_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_lineup_view/match_lineup_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_standings_view/match_standings_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_stats_view/match_stats_view.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screens.dart/match_summary_view/match_summary_view.dart';
+import 'package:score_live/app/features/home/match_details/match_details_tabs/match_h2h_tab/match_h2h_tab.dart';
+import 'package:score_live/app/features/home/match_details/match_details_tabs/match_lineup_tab/match_lineup_tab.dart';
+import 'package:score_live/app/features/home/match_details/match_details_tabs/match_standings_tab/match_standings_tab.dart';
+import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/match_stats_tab.dart';
+import 'package:score_live/app/features/home/match_details/match_details_tabs/match_summary_tab/match_summary_tab.dart';
 import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_tab_bar.dart';
 import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_title.dart';
 import 'package:score_live/core/enums.dart';
@@ -68,18 +68,18 @@ class MatchDetails extends StatelessWidget {
                   final matchEvents = state.matchEvents;
                   switch (state.detailsOptions) {
                     case DetailsOptions.summary:
-                      return MatchSummaryView(
+                      return MatchSummaryTab(
                         liveMatch: liveMatch,
                         matchEvents: matchEvents,
                       );
                     case DetailsOptions.lineUp:
-                      return const MatchLineUpView();
+                      return const MatchLineUpTab();
                     case DetailsOptions.stats:
-                      return const MatchStatsView();
+                      return const MatchStatsTab();
                     case DetailsOptions.h2H:
-                      return const MatchH2HView();
+                      return const MatchH2HTab();
                     case DetailsOptions.standings:
-                      return const MatchStandingsView();
+                      return const MatchStandingsTab();
                   }
                 },
               ),
