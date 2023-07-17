@@ -18,7 +18,7 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
     final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
     final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
     final String matchStatusShort = liveMatch.fixture?.status?.short ?? stringPlaceholder;
-    final String matchStatusLong = liveMatch.fixture?.status?.long! ?? stringPlaceholder;
+    final String matchStatusLong = liveMatch.fixture?.status?.long ?? stringPlaceholder;
     final int homeGoals = liveMatch.goals?.home ?? intPlaceholder;
     final int awayGoals = liveMatch.goals?.away ?? intPlaceholder;
 
@@ -62,8 +62,7 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
                           ),
                         )
                       : Text(
-                          '$homeGoals - '
-                          '$awayGoals',
+                          '$homeGoals - $awayGoals',
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 28,

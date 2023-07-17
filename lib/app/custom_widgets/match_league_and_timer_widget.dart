@@ -17,6 +17,7 @@ class MatchLeagueInfoAndTimerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final String flag = liveMatch.league?.flag ??
         'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
+    final String matchStatusShort = liveMatch.fixture?.status?.short ?? '';
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -58,18 +59,14 @@ class MatchLeagueInfoAndTimerWidget extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 5,
-                backgroundColor: liveMatch.fixture!.status!.short! == 'TBD' ||
-                        liveMatch.fixture!.status!.short! == 'NS' ||
-                        liveMatch.fixture!.status!.short! == 'SUSP'
+                backgroundColor: matchStatusShort == 'TBD' || matchStatusShort == 'NS' || matchStatusShort == 'SUSP'
                     ? Colors.red
                     : Colors.green,
               ),
               Text(
                 liveMatch.fixture!.status!.short!,
                 style: TextStyle(
-                    color: liveMatch.fixture!.status!.short! == 'TBD' ||
-                            liveMatch.fixture!.status!.short! == 'NS' ||
-                            liveMatch.fixture!.status!.short! == 'SUSP'
+                    color: matchStatusShort == 'TBD' || matchStatusShort == 'NS' || matchStatusShort == 'SUSP'
                         ? Colors.black
                         : Colors.green,
                     fontWeight: FontWeight.bold),

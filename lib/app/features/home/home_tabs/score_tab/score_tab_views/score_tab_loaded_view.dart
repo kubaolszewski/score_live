@@ -14,8 +14,9 @@ class ScoreTabLoadedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = double.infinity;
-    final String flag = liveMatches[0].league?.flag ?? '';
-    final String leagueName = liveMatches[0].league?.name ?? '';
+    const String stringPlaceholder = '';
+    final String flag = liveMatches[0].league?.flag ?? stringPlaceholder;
+    final String leagueName = liveMatches[0].league?.name ?? stringPlaceholder;
     
     if (liveMatches.isEmpty) {
       return const SizedBox(

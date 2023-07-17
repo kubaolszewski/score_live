@@ -30,7 +30,7 @@ class MatchDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     const int intPlaceholder = 0;
     final int teamID = liveMatch.fixture?.id ?? intPlaceholder;
-    final String leagueName = liveMatch.league!.name ?? 'Unknown league';
+    final String leagueName = liveMatch.league?.name ?? 'Unknown league';
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeCubit>(

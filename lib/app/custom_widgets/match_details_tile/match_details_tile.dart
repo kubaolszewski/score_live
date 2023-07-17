@@ -19,7 +19,7 @@ class MatchDetailsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
+    double width = double.infinity;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Container(
@@ -33,9 +33,9 @@ class MatchDetailsTile extends StatelessWidget {
           child: Column(
             children: [
               MatchLeagueInfoAndTimerWidget(leagueName: leagueName, liveMatch: liveMatch),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               MatchResultDisplay(liveMatch: liveMatch),
-              const SizedBox(height: 15),
+              const SizedBox(height: 5),
               const Divider(color: Colors.grey, thickness: 0.5),
               const SizedBox(height: 5),
               BlocBuilder<HomeCubit, HomeState>(
