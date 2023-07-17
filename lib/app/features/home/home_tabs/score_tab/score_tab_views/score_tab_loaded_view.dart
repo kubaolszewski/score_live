@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/app/custom_widgets/wide_match_tile/wide_match_tile.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model.dart';
 
 class ScoreTabLoadedView extends StatelessWidget {
@@ -17,15 +18,15 @@ class ScoreTabLoadedView extends StatelessWidget {
     const String stringPlaceholder = '';
     final String flag = liveMatches[0].league?.flag ?? stringPlaceholder;
     final String leagueName = liveMatches[0].league?.name ?? stringPlaceholder;
-    
+
     if (liveMatches.isEmpty) {
-      return const SizedBox(
+      return SizedBox(
         height: 200,
         child: Center(
           child: Text(
-            'No matches were played on this date.',
+            context.localizations.noMatchesAtDate,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white, fontSize: 24),
+            style: const TextStyle(color: Colors.white, fontSize: 24),
           ),
         ),
       );

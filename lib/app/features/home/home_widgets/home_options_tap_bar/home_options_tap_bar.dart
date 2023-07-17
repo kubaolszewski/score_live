@@ -8,6 +8,8 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 class HomeOptionsTapBar extends StatelessWidget {
   const HomeOptionsTapBar({super.key});
 
+  HomeCubit _homeCubit(BuildContext context) => context.read<HomeCubit>();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,7 +19,7 @@ class HomeOptionsTapBar extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              context.read<HomeCubit>().switchHomeOptions(HomeOptions.upcoming);
+              _homeCubit(context).switchHomeOptions(HomeOptions.upcoming);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -35,7 +37,7 @@ class HomeOptionsTapBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              context.read<HomeCubit>().switchHomeOptions(HomeOptions.score);
+              _homeCubit(context).switchHomeOptions(HomeOptions.score);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -53,7 +55,7 @@ class HomeOptionsTapBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              context.read<HomeCubit>().switchHomeOptions(HomeOptions.favorites);
+              _homeCubit(context).switchHomeOptions(HomeOptions.favorites);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model.dart';
 
 class WideMatchTileTeamsDisplay extends StatelessWidget {
@@ -12,8 +13,8 @@ class WideMatchTileTeamsDisplay extends StatelessWidget {
         liveMatch.teams?.home?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
     final String awayTeamLogo =
         liveMatch.teams?.away?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
-    final String homeTeamName = liveMatch.teams?.home?.name ?? 'Unknown home team';
-    final String awayTeamName = liveMatch.teams?.away?.name ?? 'Unknown away team';
+    final String homeTeamName = liveMatch.teams?.home?.name ?? context.localizations.unknownHomeTeam;
+    final String awayTeamName = liveMatch.teams?.away?.name ?? context.localizations.unknownAwayTeam;
     return Expanded(
       flex: 3,
       child: Padding(

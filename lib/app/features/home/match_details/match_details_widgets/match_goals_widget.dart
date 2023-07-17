@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/custom_widgets/event_text_samples.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
@@ -29,12 +30,12 @@ class MatchGoalsWidget extends StatelessWidget {
         final matchEvents = state.matchEvents;
 
         if (matchEvents.isEmpty) {
-          return const SizedBox(
+          return  SizedBox(
             height: 150,
             child: Center(
               child: Text(
-                'No details about this match',
-                style: TextStyle(
+                context.localizations.noDetailsInfo,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 24,
                 ),

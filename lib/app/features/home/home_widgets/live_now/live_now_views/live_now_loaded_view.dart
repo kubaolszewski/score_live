@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/live_match_tile/live_match_tile.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model.dart';
 
 class LiveNowLoadedView extends StatelessWidget {
@@ -13,12 +14,12 @@ class LiveNowLoadedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (liveMatches.isEmpty) {
-      return const SizedBox(
+      return SizedBox(
         height: 200,
         child: Center(
           child: Text(
-            'Nothing here :(',
-            style: TextStyle(
+            context.localizations.noMatchesLive,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 24,
             ),
