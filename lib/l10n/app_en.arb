@@ -22,6 +22,7 @@
   "noDetailsInfo" : "No details about this match.",
   "halfTime" : "Half Time",
   "fullTime" : "Full Time",
+  "matchNotEnded" : "Match has not ended yet.",
   "matchDetailsLineUp" : "Line Up",
   "matchDetailsStats" : "Stats",
   "matchDetailsH2H" : "H2H",

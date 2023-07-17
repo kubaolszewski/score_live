@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_screen.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now/cubit/live_now_cubit.dart';
@@ -11,16 +12,16 @@ import 'package:score_live/repositories/match_details_repository.dart';
 class HomeModule extends Module {
   @override
   List<Bind> get binds => [
+        Bind.singleton((i) => HomeCubit()),
         Bind.factory((i) => ApiClient()),
         Bind.factory((i) => LiveMatchesRemoteService.create(i())),
         Bind.factory((i) => MatchDetailsRepository(i())),
         Bind.singleton((i) => MatchDetailsCubit(i())),
         Bind.singleton((i) => LiveNowCubit(i())),
+        Bind.singleton((i) => ScoreTabCubit(i())),
+        Bind.singleton((i) => LiveNowCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i()))
       ];
-
-  @override
-  List<Module> get imports => [];
 
   @override
   List<ModularRoute> get routes => [

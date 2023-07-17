@@ -22,15 +22,10 @@ class MatchDetailsScreen extends StatelessWidget {
     final int teamID = liveMatch.fixture?.id ?? intPlaceholder;
     return MultiBlocProvider(
       providers: [
-        BlocProvider<HomeCubit>(
-          create: (context) => homeCubit,
-        ),
-        BlocProvider(
-          create: (context) => matchDetailsCubit..fetchMatchEvents(teamID.toString()),
-        ),
+        BlocProvider<HomeCubit>(create: (context) => homeCubit),
+        BlocProvider(create: (context) => matchDetailsCubit..fetchMatchEvents(teamID.toString())),
       ],
       child: MatchDetailsView(liveMatch: liveMatch),
     );
   }
 }
-
