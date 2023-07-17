@@ -8,18 +8,18 @@ part 'region_tab_state.dart';
 part 'region_tab_cubit.freezed.dart';
 
 class RegionTabCubit extends Cubit<RegionTabState> {
-  RegionTabCubit(this.competitionScreenRepository) : super(const RegionTabState());
+  RegionTabCubit(this.competitionScreenRepository) : super(const LoadingLeaguesState());
 
   final CompetitionScreenRepository competitionScreenRepository;
 
   Future<void> fetchLeaguesByRegion(DateTime date) async {
     String formattedDate = DateFormat('yyyy').format(date);
-    emit(state.copyWith(isLoading: true));
+    emit(const LoadingLeaguesState());
     try {
       final leaguesFromRegion = await competitionScreenRepository.fetchLeaguesByCountry('Spain', formattedDate);
-      emit(state.copyWith(leagueModel: leaguesFromRegion, isLoading: false));
+      emit(LeaguesLoadedState(leaguesFromRegion));
     } catch (error) {
-      emit(state.copyWith(errorMessage: error.toString()));
+      emit(ErrorLeaguesState(error.toString()));
     }
   }
 }

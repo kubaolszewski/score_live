@@ -16,12 +16,49 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegionTabState {
-  List<LeagueModel> get leagueModel => throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $RegionTabStateCopyWith<RegionTabState> get copyWith =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<LeagueModel> leagues) loadedLeagues,
+    required TResult Function() loadingLeagues,
+    required TResult Function(String errorMessage) errorLeaguesState,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<LeagueModel> leagues)? loadedLeagues,
+    TResult? Function()? loadingLeagues,
+    TResult? Function(String errorMessage)? errorLeaguesState,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<LeagueModel> leagues)? loadedLeagues,
+    TResult Function()? loadingLeagues,
+    TResult Function(String errorMessage)? errorLeaguesState,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LeaguesLoadedState value) loadedLeagues,
+    required TResult Function(LoadingLeaguesState value) loadingLeagues,
+    required TResult Function(ErrorLeaguesState value) errorLeaguesState,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LeaguesLoadedState value)? loadedLeagues,
+    TResult? Function(LoadingLeaguesState value)? loadingLeagues,
+    TResult? Function(ErrorLeaguesState value)? errorLeaguesState,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LeaguesLoadedState value)? loadedLeagues,
+    TResult Function(LoadingLeaguesState value)? loadingLeagues,
+    TResult Function(ErrorLeaguesState value)? errorLeaguesState,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -30,9 +67,6 @@ abstract class $RegionTabStateCopyWith<$Res> {
   factory $RegionTabStateCopyWith(
           RegionTabState value, $Res Function(RegionTabState) then) =
       _$RegionTabStateCopyWithImpl<$Res, RegionTabState>;
-  @useResult
-  $Res call(
-      {List<LeagueModel> leagueModel, bool isLoading, String? errorMessage});
 }
 
 /// @nodoc
@@ -44,145 +78,401 @@ class _$RegionTabStateCopyWithImpl<$Res, $Val extends RegionTabState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? leagueModel = null,
-    Object? isLoading = null,
-    Object? errorMessage = freezed,
-  }) {
-    return _then(_value.copyWith(
-      leagueModel: null == leagueModel
-          ? _value.leagueModel
-          : leagueModel // ignore: cast_nullable_to_non_nullable
-              as List<LeagueModel>,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_RegionTabStateCopyWith<$Res>
-    implements $RegionTabStateCopyWith<$Res> {
-  factory _$$_RegionTabStateCopyWith(
-          _$_RegionTabState value, $Res Function(_$_RegionTabState) then) =
-      __$$_RegionTabStateCopyWithImpl<$Res>;
-  @override
+abstract class _$$LeaguesLoadedStateCopyWith<$Res> {
+  factory _$$LeaguesLoadedStateCopyWith(_$LeaguesLoadedState value,
+          $Res Function(_$LeaguesLoadedState) then) =
+      __$$LeaguesLoadedStateCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {List<LeagueModel> leagueModel, bool isLoading, String? errorMessage});
+  $Res call({List<LeagueModel> leagues});
 }
 
 /// @nodoc
-class __$$_RegionTabStateCopyWithImpl<$Res>
-    extends _$RegionTabStateCopyWithImpl<$Res, _$_RegionTabState>
-    implements _$$_RegionTabStateCopyWith<$Res> {
-  __$$_RegionTabStateCopyWithImpl(
-      _$_RegionTabState _value, $Res Function(_$_RegionTabState) _then)
+class __$$LeaguesLoadedStateCopyWithImpl<$Res>
+    extends _$RegionTabStateCopyWithImpl<$Res, _$LeaguesLoadedState>
+    implements _$$LeaguesLoadedStateCopyWith<$Res> {
+  __$$LeaguesLoadedStateCopyWithImpl(
+      _$LeaguesLoadedState _value, $Res Function(_$LeaguesLoadedState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? leagueModel = null,
-    Object? isLoading = null,
-    Object? errorMessage = freezed,
+    Object? leagues = null,
   }) {
-    return _then(_$_RegionTabState(
-      leagueModel: null == leagueModel
-          ? _value._leagueModel
-          : leagueModel // ignore: cast_nullable_to_non_nullable
+    return _then(_$LeaguesLoadedState(
+      null == leagues
+          ? _value._leagues
+          : leagues // ignore: cast_nullable_to_non_nullable
               as List<LeagueModel>,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_RegionTabState implements _RegionTabState {
-  const _$_RegionTabState(
-      {final List<LeagueModel> leagueModel = const [],
-      this.isLoading = false,
-      this.errorMessage})
-      : _leagueModel = leagueModel;
+class _$LeaguesLoadedState implements LeaguesLoadedState {
+  const _$LeaguesLoadedState(final List<LeagueModel> leagues)
+      : _leagues = leagues;
 
-  final List<LeagueModel> _leagueModel;
+  final List<LeagueModel> _leagues;
   @override
-  @JsonKey()
-  List<LeagueModel> get leagueModel {
-    if (_leagueModel is EqualUnmodifiableListView) return _leagueModel;
+  List<LeagueModel> get leagues {
+    if (_leagues is EqualUnmodifiableListView) return _leagues;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_leagueModel);
+    return EqualUnmodifiableListView(_leagues);
   }
 
   @override
-  @JsonKey()
-  final bool isLoading;
-  @override
-  final String? errorMessage;
-
-  @override
   String toString() {
-    return 'RegionTabState(leagueModel: $leagueModel, isLoading: $isLoading, errorMessage: $errorMessage)';
+    return 'RegionTabState.loadedLeagues(leagues: $leagues)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RegionTabState &&
-            const DeepCollectionEquality()
-                .equals(other._leagueModel, _leagueModel) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
+            other is _$LeaguesLoadedState &&
+            const DeepCollectionEquality().equals(other._leagues, _leagues));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_leagues));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LeaguesLoadedStateCopyWith<_$LeaguesLoadedState> get copyWith =>
+      __$$LeaguesLoadedStateCopyWithImpl<_$LeaguesLoadedState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<LeagueModel> leagues) loadedLeagues,
+    required TResult Function() loadingLeagues,
+    required TResult Function(String errorMessage) errorLeaguesState,
+  }) {
+    return loadedLeagues(leagues);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<LeagueModel> leagues)? loadedLeagues,
+    TResult? Function()? loadingLeagues,
+    TResult? Function(String errorMessage)? errorLeaguesState,
+  }) {
+    return loadedLeagues?.call(leagues);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<LeagueModel> leagues)? loadedLeagues,
+    TResult Function()? loadingLeagues,
+    TResult Function(String errorMessage)? errorLeaguesState,
+    required TResult orElse(),
+  }) {
+    if (loadedLeagues != null) {
+      return loadedLeagues(leagues);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LeaguesLoadedState value) loadedLeagues,
+    required TResult Function(LoadingLeaguesState value) loadingLeagues,
+    required TResult Function(ErrorLeaguesState value) errorLeaguesState,
+  }) {
+    return loadedLeagues(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LeaguesLoadedState value)? loadedLeagues,
+    TResult? Function(LoadingLeaguesState value)? loadingLeagues,
+    TResult? Function(ErrorLeaguesState value)? errorLeaguesState,
+  }) {
+    return loadedLeagues?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LeaguesLoadedState value)? loadedLeagues,
+    TResult Function(LoadingLeaguesState value)? loadingLeagues,
+    TResult Function(ErrorLeaguesState value)? errorLeaguesState,
+    required TResult orElse(),
+  }) {
+    if (loadedLeagues != null) {
+      return loadedLeagues(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LeaguesLoadedState implements RegionTabState {
+  const factory LeaguesLoadedState(final List<LeagueModel> leagues) =
+      _$LeaguesLoadedState;
+
+  List<LeagueModel> get leagues;
+  @JsonKey(ignore: true)
+  _$$LeaguesLoadedStateCopyWith<_$LeaguesLoadedState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingLeaguesStateCopyWith<$Res> {
+  factory _$$LoadingLeaguesStateCopyWith(_$LoadingLeaguesState value,
+          $Res Function(_$LoadingLeaguesState) then) =
+      __$$LoadingLeaguesStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingLeaguesStateCopyWithImpl<$Res>
+    extends _$RegionTabStateCopyWithImpl<$Res, _$LoadingLeaguesState>
+    implements _$$LoadingLeaguesStateCopyWith<$Res> {
+  __$$LoadingLeaguesStateCopyWithImpl(
+      _$LoadingLeaguesState _value, $Res Function(_$LoadingLeaguesState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingLeaguesState implements LoadingLeaguesState {
+  const _$LoadingLeaguesState();
+
+  @override
+  String toString() {
+    return 'RegionTabState.loadingLeagues()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingLeaguesState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<LeagueModel> leagues) loadedLeagues,
+    required TResult Function() loadingLeagues,
+    required TResult Function(String errorMessage) errorLeaguesState,
+  }) {
+    return loadingLeagues();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<LeagueModel> leagues)? loadedLeagues,
+    TResult? Function()? loadingLeagues,
+    TResult? Function(String errorMessage)? errorLeaguesState,
+  }) {
+    return loadingLeagues?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<LeagueModel> leagues)? loadedLeagues,
+    TResult Function()? loadingLeagues,
+    TResult Function(String errorMessage)? errorLeaguesState,
+    required TResult orElse(),
+  }) {
+    if (loadingLeagues != null) {
+      return loadingLeagues();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LeaguesLoadedState value) loadedLeagues,
+    required TResult Function(LoadingLeaguesState value) loadingLeagues,
+    required TResult Function(ErrorLeaguesState value) errorLeaguesState,
+  }) {
+    return loadingLeagues(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LeaguesLoadedState value)? loadedLeagues,
+    TResult? Function(LoadingLeaguesState value)? loadingLeagues,
+    TResult? Function(ErrorLeaguesState value)? errorLeaguesState,
+  }) {
+    return loadingLeagues?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LeaguesLoadedState value)? loadedLeagues,
+    TResult Function(LoadingLeaguesState value)? loadingLeagues,
+    TResult Function(ErrorLeaguesState value)? errorLeaguesState,
+    required TResult orElse(),
+  }) {
+    if (loadingLeagues != null) {
+      return loadingLeagues(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingLeaguesState implements RegionTabState {
+  const factory LoadingLeaguesState() = _$LoadingLeaguesState;
+}
+
+/// @nodoc
+abstract class _$$ErrorLeaguesStateCopyWith<$Res> {
+  factory _$$ErrorLeaguesStateCopyWith(
+          _$ErrorLeaguesState value, $Res Function(_$ErrorLeaguesState) then) =
+      __$$ErrorLeaguesStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String errorMessage});
+}
+
+/// @nodoc
+class __$$ErrorLeaguesStateCopyWithImpl<$Res>
+    extends _$RegionTabStateCopyWithImpl<$Res, _$ErrorLeaguesState>
+    implements _$$ErrorLeaguesStateCopyWith<$Res> {
+  __$$ErrorLeaguesStateCopyWithImpl(
+      _$ErrorLeaguesState _value, $Res Function(_$ErrorLeaguesState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = null,
+  }) {
+    return _then(_$ErrorLeaguesState(
+      null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ErrorLeaguesState implements ErrorLeaguesState {
+  const _$ErrorLeaguesState(this.errorMessage);
+
+  @override
+  final String errorMessage;
+
+  @override
+  String toString() {
+    return 'RegionTabState.errorLeaguesState(errorMessage: $errorMessage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorLeaguesState &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_leagueModel),
-      isLoading,
-      errorMessage);
+  int get hashCode => Object.hash(runtimeType, errorMessage);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RegionTabStateCopyWith<_$_RegionTabState> get copyWith =>
-      __$$_RegionTabStateCopyWithImpl<_$_RegionTabState>(this, _$identity);
+  _$$ErrorLeaguesStateCopyWith<_$ErrorLeaguesState> get copyWith =>
+      __$$ErrorLeaguesStateCopyWithImpl<_$ErrorLeaguesState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<LeagueModel> leagues) loadedLeagues,
+    required TResult Function() loadingLeagues,
+    required TResult Function(String errorMessage) errorLeaguesState,
+  }) {
+    return errorLeaguesState(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<LeagueModel> leagues)? loadedLeagues,
+    TResult? Function()? loadingLeagues,
+    TResult? Function(String errorMessage)? errorLeaguesState,
+  }) {
+    return errorLeaguesState?.call(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<LeagueModel> leagues)? loadedLeagues,
+    TResult Function()? loadingLeagues,
+    TResult Function(String errorMessage)? errorLeaguesState,
+    required TResult orElse(),
+  }) {
+    if (errorLeaguesState != null) {
+      return errorLeaguesState(errorMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LeaguesLoadedState value) loadedLeagues,
+    required TResult Function(LoadingLeaguesState value) loadingLeagues,
+    required TResult Function(ErrorLeaguesState value) errorLeaguesState,
+  }) {
+    return errorLeaguesState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LeaguesLoadedState value)? loadedLeagues,
+    TResult? Function(LoadingLeaguesState value)? loadingLeagues,
+    TResult? Function(ErrorLeaguesState value)? errorLeaguesState,
+  }) {
+    return errorLeaguesState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LeaguesLoadedState value)? loadedLeagues,
+    TResult Function(LoadingLeaguesState value)? loadingLeagues,
+    TResult Function(ErrorLeaguesState value)? errorLeaguesState,
+    required TResult orElse(),
+  }) {
+    if (errorLeaguesState != null) {
+      return errorLeaguesState(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _RegionTabState implements RegionTabState {
-  const factory _RegionTabState(
-      {final List<LeagueModel> leagueModel,
-      final bool isLoading,
-      final String? errorMessage}) = _$_RegionTabState;
+abstract class ErrorLeaguesState implements RegionTabState {
+  const factory ErrorLeaguesState(final String errorMessage) =
+      _$ErrorLeaguesState;
 
-  @override
-  List<LeagueModel> get leagueModel;
-  @override
-  bool get isLoading;
-  @override
-  String? get errorMessage;
-  @override
+  String get errorMessage;
   @JsonKey(ignore: true)
-  _$$_RegionTabStateCopyWith<_$_RegionTabState> get copyWith =>
+  _$$ErrorLeaguesStateCopyWith<_$ErrorLeaguesState> get copyWith =>
       throw _privateConstructorUsedError;
 }
