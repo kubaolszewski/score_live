@@ -19,3 +19,16 @@ Map<String, dynamic> _$$_LiveMatchesFixturesToJson(
     <String, dynamic>{
       'response': instance.response,
     };
+
+_$_MatchEvents _$$_MatchEventsFromJson(Map<String, dynamic> json) =>
+    _$_MatchEvents(
+      response: (json['response'] as List<dynamic>?)
+              ?.map((e) => MatchEventsModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+    );
+
+Map<String, dynamic> _$$_MatchEventsToJson(_$_MatchEvents instance) =>
+    <String, dynamic>{
+      'response': instance.response,
+    };

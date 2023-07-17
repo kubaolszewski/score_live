@@ -54,15 +54,9 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
   }
 
   @override
-  Future<LiveMatchesFixtures> fetchLiveMatches({
-    required String season,
-    required String date,
-  }) async {
+  Future<LiveMatchesFixtures> fetchLiveMatches({required String live}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'season': season,
-      r'date': date,
-    };
+    final queryParameters = <String, dynamic>{r'live': live};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -83,6 +77,33 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
               baseUrl,
             ))));
     final value = LiveMatchesFixtures.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<MatchEvents> fetchMatchEvents({required String matchID}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'fixture': matchID};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<MatchEvents>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/fixtures/events',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = MatchEvents.fromJson(_result.data!);
     return value;
   }
 

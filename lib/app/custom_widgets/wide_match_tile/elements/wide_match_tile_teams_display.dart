@@ -1,22 +1,20 @@
-
 import 'package:flutter/material.dart';
+import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/models/live_match_model.dart';
 
 class WideMatchTileTeamsDisplay extends StatelessWidget {
-  const WideMatchTileTeamsDisplay({
-    super.key,
-    required this.homeTeamLogo,
-    required this.homeTeamName,
-    required this.awayTeamLogo,
-    required this.awayTeamName,
-  });
+  const WideMatchTileTeamsDisplay({super.key, required this.liveMatch});
 
-  final String homeTeamLogo;
-  final String homeTeamName;
-  final String awayTeamLogo;
-  final String awayTeamName;
+  final LiveMatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {
+    final String homeTeamLogo =
+        liveMatch.teams?.home?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String awayTeamLogo =
+        liveMatch.teams?.away?.logo ?? 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
+    final String homeTeamName = liveMatch.teams?.home?.name ?? context.localizations.unknownHomeTeam;
+    final String awayTeamName = liveMatch.teams?.away?.name ?? context.localizations.unknownAwayTeam;
     return Expanded(
       flex: 3,
       child: Padding(
@@ -67,4 +65,3 @@ class WideMatchTileTeamsDisplay extends StatelessWidget {
     );
   }
 }
-

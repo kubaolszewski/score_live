@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class LiveMatchTileLogo extends StatelessWidget {
-  const LiveMatchTileLogo({
-    super.key,
-    required this.liveMatch,
-    required this.assetName,
-    required this.leagueName,
-  });
+  const LiveMatchTileLogo({super.key, required this.liveMatch});
 
   final LiveMatchModel liveMatch;
-  final String assetName;
-  final String leagueName;
 
   @override
   Widget build(BuildContext context) {
+    const String stringPlaceholder = '';
+    final String assetName = liveMatch.league?.flag ??
+        'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
+    final String leagueName = liveMatch.league?.name ?? context.localizations.unknownLeague;
+    final String matchStatusShort = liveMatch.fixture?.status?.short ?? stringPlaceholder;
     return Expanded(
       flex: 1,
       child: Row(
@@ -69,7 +68,7 @@ class LiveMatchTileLogo extends StatelessWidget {
                   backgroundColor: Colors.green,
                 ),
                 Text(
-                  liveMatch.fixture!.status!.short!,
+                  matchStatusShort,
                   style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -80,4 +79,3 @@ class LiveMatchTileLogo extends StatelessWidget {
     );
   }
 }
-

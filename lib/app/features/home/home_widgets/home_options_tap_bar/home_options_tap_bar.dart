@@ -6,9 +6,9 @@ import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class HomeOptionsTapBar extends StatelessWidget {
-  HomeOptionsTapBar({super.key});
+  const HomeOptionsTapBar({super.key});
 
-  final homeCubit = Modular.get<HomeCubit>();
+  HomeCubit _homeCubit(BuildContext context) => context.read<HomeCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class HomeOptionsTapBar extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              homeCubit.switchHomeOptions(HomeOptions.upcoming);
+              _homeCubit(context).switchHomeOptions(HomeOptions.upcoming);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -37,7 +37,7 @@ class HomeOptionsTapBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              homeCubit.switchHomeOptions(HomeOptions.score);
+              _homeCubit(context).switchHomeOptions(HomeOptions.score);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),
@@ -55,7 +55,7 @@ class HomeOptionsTapBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              homeCubit.switchHomeOptions(HomeOptions.favorites);
+              _homeCubit(context).switchHomeOptions(HomeOptions.favorites);
             },
             child: Container(
               padding: const EdgeInsets.only(bottom: 4.0),

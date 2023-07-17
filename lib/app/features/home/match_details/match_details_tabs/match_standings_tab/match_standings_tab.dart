@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
-class MatchH2HView extends StatelessWidget {
-  const MatchH2HView({super.key});
+class MatchStandingsTab extends StatelessWidget {
+  const MatchStandingsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
