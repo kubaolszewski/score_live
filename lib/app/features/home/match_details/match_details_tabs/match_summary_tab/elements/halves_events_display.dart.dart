@@ -43,7 +43,7 @@ class HalvesEventsDisplay extends StatelessWidget {
                                     time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
                               )
                             else
-                              const SizedBox(height: 0)
+                              const SizedBox.shrink(),
                         ]
                       else
                         for (final event in matchEvents) ...[
@@ -55,7 +55,7 @@ class HalvesEventsDisplay extends StatelessWidget {
                                     time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
                               )
                             else
-                              const SizedBox(height: 0),
+                              const SizedBox.shrink(),
                         ]
                     ],
                   ),
@@ -82,7 +82,7 @@ class HalvesEventsDisplay extends StatelessWidget {
                                     time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
                               )
                             else
-                              const SizedBox(height: 0),
+                              const SizedBox.shrink(),
                         ]
                       else
                         for (final event in matchEvents) ...[
@@ -94,7 +94,7 @@ class HalvesEventsDisplay extends StatelessWidget {
                                     time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
                               )
                             else
-                              const SizedBox(height: 0),
+                              const SizedBox.shrink(),
                         ]
                     ],
                   ),
