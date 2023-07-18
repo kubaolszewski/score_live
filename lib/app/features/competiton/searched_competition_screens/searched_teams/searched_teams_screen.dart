@@ -21,62 +21,22 @@ class SearchedTeamsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
-        leading: IconButton(
-            onPressed: () {
-              Modular.to.pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
-            )),
-        title: Text(
-          context.localizations.searchHeader,
-          style: CommonTextStyles.basicWhiteText,
-        ),
-      ),
+          leading: IconButton(
+              onPressed: () {
+                Modular.to.pop();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              )),
+          title: Text(
+            context.localizations.searchHeader,
+            style: CommonTextStyles.basicWhiteText,
+          )),
       body: BlocProvider<CompetitionCubit>(
-        create: (context) => competitionCubit..searchingTeamsByName(nameQuery),
-        child: BlocBuilder<CompetitionCubit, CompetitionState>(
-          builder: (context, state) {
-            if (state.isLoading == true) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.mainThemePink,
-                ),
-              );
-            }
-
-            final teams = state.teamResults;
-
-            if (teams.isEmpty) {
-              return SizedBox(
-                height: 200,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      context.localizations.dataErrorInfo,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(color: Colors.white, fontSize: 24),
-                    ),
-                  ],
-                ),
-              );
-            }
-
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  SearchedTeamsView(results: teams),
-                ],
-              ),
-            );
-          },
-        ),
+        create: (context) => Modular.get<CompetitionCubit>()..searchingTeamsByName(nameQuery),
+        child: const SearchedTeamsView(),
       ),
     );
   }
 }
-
-final competitionCubit = Modular.get<CompetitionCubit>();
