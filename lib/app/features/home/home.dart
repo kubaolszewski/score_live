@@ -43,9 +43,20 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: AppColors.backgroundBlack,
         appBar: CustomAppBar(
-          title: const Text(
-            'scorelive',
-            style: CommonTextStyles.basicWhiteText,
+          title: const SizedBox(
+            width: 125,
+            child: Stack(
+              children: [
+                Text(
+                  'scorelive',
+                  style: CommonTextStyles.basicWhiteText,
+                ),
+                Positioned(
+                  right: 10,
+                  child: CircleAvatar(backgroundColor: AppColors.mainThemePink, radius: 6),
+                )
+              ],
+            ),
           ),
           actions: [
             IconButton(
