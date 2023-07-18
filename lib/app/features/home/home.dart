@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
@@ -49,10 +49,10 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text(
                   'scorelive',
-                  style: CommonTextStyles.basicWhiteText,
+                  style: CommonTextStyles.basicWhiteTextwithWeight,
                 ),
                 Positioned(
-                  right: 10,
+                  right: 20,
                   child: CircleAvatar(backgroundColor: AppColors.mainThemePink, radius: 6),
                 )
               ],

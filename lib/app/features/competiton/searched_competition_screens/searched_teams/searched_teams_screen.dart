@@ -35,7 +35,7 @@ class SearchedTeamsScreen extends StatelessWidget {
             )),
         title: Text(
           context.localizations.searchHeader,
-          style: CommonTextStyles.basicWhiteText,
+          style: CommonTextStyles.basicWhiteTextwithWeight,
         ),
       ),
       body: BlocProvider<CompetitionCubit>(

@@ -37,7 +37,7 @@ class CompetitionScreen extends StatelessWidget {
         appBar: CustomAppBar(
           title: Text(
             context.localizations.competitionAppBarTitle,
-            style: CommonTextStyles.basicWhiteText,
+            style: CommonTextStyles.basicWhiteTextwithWeight,
           ),
         ),
         body: SingleChildScrollView(

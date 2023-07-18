@@ -16,7 +16,7 @@ class AccountScreen extends StatelessWidget {
       appBar: CustomAppBar(
           title: Text(
         context.localizations.accountAppBarTitle,
-        style: CommonTextStyles.basicWhiteText,
+        style: CommonTextStyles.basicWhiteTextwithWeight,
       )),
       body: const Center(
         child: Column(

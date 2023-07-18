@@ -12,9 +12,9 @@ class HomeEventTextSample extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(time, style: CommonTextStyles.basicWhiteText),
+        Text(time, style: CommonTextStyles.basicWhiteTextwithWeight),
         const SizedBox(width: 5),
-        Text(player, style: CommonTextStyles.basicWhiteText),
+        Text(player, style: CommonTextStyles.basicWhiteTextwithWeight),
       ],
     );
   }
@@ -31,9 +31,9 @@ class AwayEventTextSample extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Text(player, style: CommonTextStyles.basicWhiteText),
+        Text(player, style: CommonTextStyles.basicWhiteTextwithWeight),
         const SizedBox(width: 5),
-        Text(time, style: CommonTextStyles.basicWhiteText),
+        Text(time, style: CommonTextStyles.basicWhiteTextwithWeight),
       ],
     );
   }
