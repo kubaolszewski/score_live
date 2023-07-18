@@ -163,6 +163,6 @@ class MatchDetailsRepository {
         "comments": null
       }
     ];
-    return response.map(MatchEventsModel.fromJson).where((event) => event.type == 'Goal').toList();
+    return response.map(MatchEventsModel.fromJson).toList();
   }
 }

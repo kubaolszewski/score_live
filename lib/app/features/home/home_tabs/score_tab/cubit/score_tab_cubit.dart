@@ -8,18 +8,20 @@ part 'score_tab_state.dart';
 part 'score_tab_cubit.freezed.dart';
 
 class ScoreTabCubit extends Cubit<ScoreTabState> {
-  ScoreTabCubit(this.homeScreenRepository) : super(const ScoreTabState());
+  ScoreTabCubit(this.homeScreenRepository) : super(const LoadingMatchesState());
 
   final HomeScreenRepository homeScreenRepository;
 
   Future<void> fetchMatchesByDate(DateTime date) async {
     String formattedDate = DateFormat('yyyy-MM-dd').format(date);
-    emit(state.copyWith(isLoading: true));
+    emit(const LoadingMatchesState());
     try {
-      final liveMatches = await homeScreenRepository.fetchMatchesByDate(formattedDate);
-      emit(state.copyWith(liveMatchModel: liveMatches, isLoading: false));
+      final matchesByDate = await homeScreenRepository.fetchMatchesByDate(formattedDate);
+      if(matchesByDate!.isNotEmpty) {
+        emit(MatchesLoadedState(matchesByDate));
+      }
     } catch (error) {
-      emit(state.copyWith(errorMessage: error.toString()));
+      emit(ErrorMatchesState(error.toString()));
     }
   }
 }

@@ -8,18 +8,18 @@ part 'top_results_tab_state.dart';
 part 'top_results_tab_cubit.freezed.dart';
 
 class TopResultsTabCubit extends Cubit<TopResultsTabState> {
-  TopResultsTabCubit(this.competitionScreenRepository) : super(const TopResultsTabState());
+  TopResultsTabCubit(this.competitionScreenRepository) : super(const LoadingResultsState());
 
   final CompetitionScreenRepository competitionScreenRepository;
 
   Future<void> fetchLeagues(DateTime date) async {
     String yearFromActualDate = DateFormat('yyyy').format(date);
-    emit(state.copyWith(isLoading: true));
+    emit(const LoadingResultsState());
     try {
       final leagues = await competitionScreenRepository.fetchLeagues(yearFromActualDate);
-      emit(state.copyWith(leagueModel: leagues, isLoading: false));
+      emit(ResultsLoadedState(leagues));
     } catch (error) {
-      emit(state.copyWith(errorMessage: error.toString()));
+      emit(ErrorResultsState(error.toString()));
     }
   }
 }

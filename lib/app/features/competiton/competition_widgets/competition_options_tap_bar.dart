@@ -6,9 +6,9 @@ import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class CompetitionOptionsTapBar extends StatelessWidget {
-  CompetitionOptionsTapBar({super.key});
+  const CompetitionOptionsTapBar({super.key});
 
-  final competitionCubit = Modular.get<CompetitionCubit>();
+  CompetitionCubit _competitionCubit(BuildContext context) => context.read<CompetitionCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CompetitionOptionsTapBar extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            context.read<CompetitionCubit>().switchBrowsingOptions(BrowsingOptions.top);
+            _competitionCubit(context).switchBrowsingOptions(BrowsingOptions.top);
           },
           child: Container(
             padding: const EdgeInsets.only(bottom: 4.0),
@@ -35,7 +35,7 @@ class CompetitionOptionsTapBar extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            context.read<CompetitionCubit>().switchBrowsingOptions(BrowsingOptions.region);
+            _competitionCubit(context).switchBrowsingOptions(BrowsingOptions.region);
           },
           child: Container(
             padding: const EdgeInsets.only(bottom: 4.0),
@@ -53,7 +53,7 @@ class CompetitionOptionsTapBar extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            context.read<CompetitionCubit>().switchBrowsingOptions(BrowsingOptions.favorites);
+            _competitionCubit(context).switchBrowsingOptions(BrowsingOptions.favorites);
           },
           child: Container(
             padding: const EdgeInsets.only(bottom: 4.0),

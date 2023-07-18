@@ -6,19 +6,15 @@ import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart'
 import 'package:score_live/app/features/competiton/searched_competition_screens/searched_leagues/searched_leagues_view.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/common_text_styles.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class SearchedLeaguesScreen extends StatelessWidget {
-  SearchedLeaguesScreen(this.nameQuery, {super.key});
-
-  final competitionCubit = Modular.get<CompetitionCubit>();
+  const SearchedLeaguesScreen(this.nameQuery, {super.key});
 
   final String nameQuery;
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.sizeOf(context).height;
-    double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
@@ -32,47 +28,12 @@ class SearchedLeaguesScreen extends StatelessWidget {
             )),
         title: Text(
           context.localizations.searchHeader,
-          style: CommonTextStyles.basicWhiteTextwithWeight,
+          style: CommonTextStyles.basicWhiteTextWithWeight,
         ),
       ),
       body: BlocProvider<CompetitionCubit>(
-        create: (context) => competitionCubit..searchingLeaguesByName(nameQuery),
-        child: BlocBuilder<CompetitionCubit, CompetitionState>(
-          builder: (context, state) {
-            if (state.isLoading == true) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.mainThemePink,
-                ),
-              );
-            }
-            final leagues = state.leagueResults;
-            if (leagues.isEmpty) {
-              return SizedBox(
-                height: 200,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      context.localizations.dataErrorInfo,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(color: Colors.white, fontSize: 24),
-                    ),
-                  ],
-                ),
-              );
-            }
-
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  SearchedLeaguesView(width: width, height: height, results: leagues),
-                ],
-              ),
-            );
-          },
-        ),
+        create: (context) => Modular.get<CompetitionCubit>()..searchingLeaguesByName(nameQuery),
+        child: const SearchedLeaguesView(),
       ),
     );
   }
