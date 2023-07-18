@@ -30,5 +30,18 @@
 
   "competitionAppBarTitle" : "Browse Competition",
 
+  "searchBarHint" : "Search: ",
+  "team" : "Team",
+  "leagueName" : "League (name)",
+  "leagueRegion" : "League (country)",
+
+  "top" : "Top",
+  "region" : "Region",
+  "competitionFavorites" : "Favorites",
+
+  "dataErrorInfo" : "Something went wrong - leagues are not provided yet.",
+  "topHeader" : "TOP COMPETITIONS",
+  "searchHeader" : "Results:",
+  
   "accountAppBarTitle" : "My Account"
 }

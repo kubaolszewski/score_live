@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/models/live_match_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/common_text_styles.dart';
 
 class LiveMatchTileTeamsDisplay extends StatelessWidget {

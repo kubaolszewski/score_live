@@ -15,15 +15,12 @@ abstract class LiveMatchesRemoteService {
     @Query("season") required String season,
     @Query("date") required String date,
   });
-  // @GET('/fixtures')
-  // Future<LiveMatchesFixtures> fetchLiveMatches({
-  //   @Query("season") required String season,
-  //   @Query("date") required String date,
-  // });
+
   @GET('/fixtures')
   Future<LiveMatchesFixtures> fetchLiveMatches({
     @Query("live") required String live,
   });
+
   @GET('/fixtures/events')
   Future<MatchEvents> fetchMatchEvents({
     @Query("fixture") required String matchID,

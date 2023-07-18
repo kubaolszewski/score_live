@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:score_live/app/custom_widgets/event_text_samples.dart';
-import 'package:score_live/models/live_match_model.dart';
-import 'package:score_live/models/match_events_model.dart';
+import 'package:score_live/app/custom_widgets/event_text_sample.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class HalvesEventsDisplay extends StatelessWidget {
@@ -39,7 +39,7 @@ class HalvesEventsDisplay extends StatelessWidget {
                             if (homeTeamID == event.team?.id && event.time!.elapsed! < 45)
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                                child: HomeEventTextSample(
+                                child: EventTextSample(
                                     time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
                               )
                             else
@@ -51,7 +51,7 @@ class HalvesEventsDisplay extends StatelessWidget {
                             if (homeTeamID == event.team?.id && event.time!.elapsed! > 45)
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                                child: HomeEventTextSample(
+                                child: EventTextSample(
                                     time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
                               )
                             else
@@ -78,7 +78,7 @@ class HalvesEventsDisplay extends StatelessWidget {
                             if (awayTeamID == event.team?.id && event.time!.elapsed! < 45)
                               Padding(
                                 padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                                child: AwayEventTextSample(
+                                child: EventTextSample(
                                     time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
                               )
                             else
@@ -90,7 +90,7 @@ class HalvesEventsDisplay extends StatelessWidget {
                             if (awayTeamID == event.team?.id && event.time!.elapsed! > 45)
                               Padding(
                                 padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                                child: AwayEventTextSample(
+                                child: EventTextSample(
                                     time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
                               )
                             else

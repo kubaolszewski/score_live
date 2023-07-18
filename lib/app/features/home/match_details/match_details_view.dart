@@ -13,7 +13,7 @@ import 'package:score_live/app/features/home/match_details/match_details_widgets
 import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_title.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
-import 'package:score_live/models/live_match_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchDetailsView extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:score_live/data/live_matches_remote_service.dart';
-import 'package:score_live/models/live_match_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
 
 class HomeScreenRepository {
   HomeScreenRepository(this.liveMatchesRemoteService);

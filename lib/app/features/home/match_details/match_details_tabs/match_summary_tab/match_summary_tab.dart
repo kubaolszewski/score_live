@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_summary_tab/elements/halves_events_display.dart.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_summary_tab/elements/halves_results_display.dart';
-import 'package:score_live/models/live_match_model.dart';
-import 'package:score_live/models/match_events_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_events_model/match_events_model.dart';
 
 class MatchSummaryTab extends StatelessWidget {
   const MatchSummaryTab({

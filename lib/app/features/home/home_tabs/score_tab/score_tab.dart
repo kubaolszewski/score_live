@@ -15,7 +15,7 @@ class ScoreTab extends StatelessWidget {
     return BlocBuilder<ScoreTabCubit, ScoreTabState>(
       builder: (context, state) {
         return state.when(
-            matchesLoaded: (matches) => ScoreTabLoadedView(liveMatches: matches),
+            matchesLoaded: (matches) => ScoreTabLoadedView(matchesByDate: matches),
             loadingMatchesState: () => const ScoreTabLoadingView(),
             errorMatchesState: (errorMessage) => ScoreTabErrorView(errorMessage: errorMessage));
       },

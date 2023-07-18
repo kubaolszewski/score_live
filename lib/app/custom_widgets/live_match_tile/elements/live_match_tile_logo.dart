@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/models/live_match_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class LiveMatchTileLogo extends StatelessWidget {

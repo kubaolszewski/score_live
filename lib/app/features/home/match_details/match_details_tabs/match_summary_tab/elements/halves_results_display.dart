@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/models/live_match_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
 
 class HalvesResultDisplay extends StatelessWidget {
   const HalvesResultDisplay({super.key, required this.liveMatch, required this.isHalfTime});

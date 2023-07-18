@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/live_match_tile/live_match_tile.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/models/live_match_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
 
 class LiveNowLoadedView extends StatelessWidget {
   const LiveNowLoadedView({

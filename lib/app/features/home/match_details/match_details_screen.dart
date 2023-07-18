@@ -4,17 +4,15 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_view.dart';
-import 'package:score_live/models/live_match_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
 
 class MatchDetailsScreen extends StatelessWidget {
-  MatchDetailsScreen({
+  const MatchDetailsScreen({
     super.key,
     required this.liveMatch,
   });
 
   final LiveMatchModel liveMatch;
-  final homeCubit = Modular.get<HomeCubit>();
-  final matchDetailsCubit = Modular.get<MatchDetailsCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,3 +27,6 @@ class MatchDetailsScreen extends StatelessWidget {
     );
   }
 }
+
+final homeCubit = Modular.get<HomeCubit>();
+final matchDetailsCubit = Modular.get<MatchDetailsCubit>();
