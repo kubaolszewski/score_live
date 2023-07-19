@@ -11,6 +11,7 @@ import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/app/features/home/home_screen.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now/cubit/live_now_cubit.dart';
+import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing.dart';
 import 'package:score_live/data/api.client.dart';
@@ -18,6 +19,7 @@ import 'package:score_live/data/browsing_remote_service.dart';
 import 'package:score_live/data/live_matches_remote_service.dart';
 import 'package:score_live/repositories/competition_screen_repository.dart';
 import 'package:score_live/repositories/home_screen_repository.dart';
+import 'package:score_live/repositories/match_details_repository.dart';
 
 class LandingModule extends Module {
   @override
@@ -26,9 +28,11 @@ class LandingModule extends Module {
         Bind.factory((i) => LiveMatchesRemoteService.create(i())),
         Bind.factory((i) => BrowsingRemoteService.create(i())),
         Bind.factory((i) => HomeScreenRepository(i())),
+        Bind.factory((i) => MatchDetailsRepository(i())),
         Bind.factory((i) => CompetitionScreenRepository(i())),
         Bind.singleton((i) => LandingCubit()),
         Bind.singleton((i) => HomeCubit()),
+        Bind.singleton((i) => MatchDetailsCubit(i())),
         Bind.singleton((i) => CompetitionCubit(i())),
         Bind.singleton((i) => LiveNowCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i())),
