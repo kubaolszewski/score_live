@@ -13,15 +13,11 @@ class CompetitionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => competitionCubit),
-        BlocProvider(create: (context) => topResultsTabCubit..fetchLeagues(DateTime.now())),
-        BlocProvider(create: (context) => regionTabCubit..fetchLeaguesByRegion(DateTime.now())),
+        BlocProvider(create: (context) => Modular.get<CompetitionCubit>()),
+        BlocProvider(create: (context) => Modular.get<TopResultsTabCubit>()..fetchLeagues(DateTime.now())),
+        BlocProvider(create: (context) => Modular.get<RegionTabCubit>()..fetchLeaguesByRegion(DateTime.now())),
       ],
       child: const CompetitionView(),
     );
   }
 }
-
-final competitionCubit = Modular.get<CompetitionCubit>();
-final topResultsTabCubit = Modular.get<TopResultsTabCubit>();
-final regionTabCubit = Modular.get<RegionTabCubit>();
