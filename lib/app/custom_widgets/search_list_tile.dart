@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class SearchListTile extends StatelessWidget {
   const SearchListTile({
@@ -40,8 +41,17 @@ class SearchListTile extends StatelessWidget {
                               ? SvgPicture.network(
                                   flag,
                                   fit: BoxFit.fill,
+                                  placeholderBuilder: (context) =>
+                                      const CircularProgressIndicator(color: AppColors.mainThemePink),
                                 )
-                              : Image.network(flag),
+                              : CachedNetworkImage(
+                                  imageUrl: flag,
+                                  fit: BoxFit.fill,
+                                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                                      CircularProgressIndicator(
+                                          value: downloadProgress.progress, color: AppColors.mainThemePink),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
+                                ),
                         ),
                       ),
                     ],

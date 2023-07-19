@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class WideMatchTileTeamsDisplay extends StatelessWidget {
   const WideMatchTileTeamsDisplay({super.key, required this.match});
@@ -24,10 +26,14 @@ class WideMatchTileTeamsDisplay extends StatelessWidget {
           children: [
             Row(
               children: [
-                Image(
+                CachedNetworkImage(
+                  imageUrl: homeTeamLogo,
                   width: 35,
                   height: 35,
-                  image: NetworkImage(homeTeamLogo),
+                  fit: BoxFit.fill,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
+                  errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
                 ),
                 const SizedBox(width: 10),
                 Text(
@@ -43,10 +49,14 @@ class WideMatchTileTeamsDisplay extends StatelessWidget {
             const SizedBox(height: 10),
             Row(
               children: [
-                Image(
+                CachedNetworkImage(
+                  imageUrl: awayTeamLogo,
                   width: 35,
                   height: 35,
-                  image: NetworkImage(awayTeamLogo),
+                  fit: BoxFit.fill,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
+                  errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
                 ),
                 const SizedBox(width: 10),
                 Text(

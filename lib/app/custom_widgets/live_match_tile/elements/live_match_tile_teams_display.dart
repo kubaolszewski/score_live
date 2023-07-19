@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
 class LiveMatchTileTeamsDisplay extends StatelessWidget {
@@ -32,13 +34,18 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: SizedBox.square(
-                dimension: 110,
+              child: SizedBox(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image(
-                      image: NetworkImage(homeTeamLogo, scale: 3),
+                    CachedNetworkImage(
+                      width: 40,
+                      height: 40,
+                      imageUrl: homeTeamLogo,
+                      fit: BoxFit.fill,
+                      progressIndicatorBuilder: (context, url, downloadProgress) =>
+                          CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
+                      errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
                     ),
                     Text(homeTeamName,
                         textAlign: TextAlign.center,
@@ -75,13 +82,18 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
             ),
             Expanded(
               flex: 1,
-              child: SizedBox.square(
-                dimension: 110,
+              child: SizedBox(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image(
-                      image: NetworkImage(awayTeamLogo, scale: 3),
+                    CachedNetworkImage(
+                      width: 40,
+                      height: 40,
+                      imageUrl: awayTeamLogo,
+                      fit: BoxFit.fill,
+                      progressIndicatorBuilder: (context, url, downloadProgress) =>
+                          CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
+                      errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
                     ),
                     Text(awayTeamName, textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteTextWithWeight),
                   ],

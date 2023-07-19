@@ -60,7 +60,9 @@ class MatchGoalsWidget extends StatelessWidget {
                           if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
                             if (homeTeamID == event.team!.id && event.type == 'Goal')
                               EventTextSample(
-                                  time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? '')
+                                  time: event.time?.elapsed.toString() ?? '',
+                                  player: event.player?.name ?? '',
+                                  isHomeTeam: true)
                             else
                               const SizedBox(height: 0),
                         ]
@@ -95,7 +97,9 @@ class MatchGoalsWidget extends StatelessWidget {
                           if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
                             if (awayTeamID == event.team!.id && event.type == 'Goal')
                               EventTextSample(
-                                  time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? '')
+                                  time: event.time?.elapsed.toString() ?? '',
+                                  player: event.player?.name ?? '',
+                                  isHomeTeam: false)
                             else
                               const SizedBox(height: 0),
                         ]

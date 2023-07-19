@@ -23,7 +23,7 @@ class SearchedLeaguesView extends StatelessWidget {
             ),
           );
         }
-        
+
         final leagues = state.leagueResults;
 
         if (leagues.isEmpty) {
@@ -55,9 +55,10 @@ class SearchedLeaguesView extends StatelessWidget {
                     itemCount: leagues.length,
                     itemBuilder: (context, index) {
                       final league = leagues[index];
-                      final String leagueFlag = league.country?.flag ?? stringPlaceholder;
+                      final String leagueFlag = league.country?.flag ??
+                          'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
                       final String leagueRegion = league.country?.name ?? stringPlaceholder;
-                      final String leagueName = league.league?.name ?? stringPlaceholder;
+                      final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
                       return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
                     },
                   ),

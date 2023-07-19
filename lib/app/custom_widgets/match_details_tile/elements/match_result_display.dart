@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
 class MatchResultDisplay extends StatelessWidget {
@@ -23,14 +25,17 @@ class MatchResultDisplay extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-          flex: 1,
-          child: SizedBox.square(
-            dimension: 110,
+          child: SizedBox(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                  image: NetworkImage(homeTeamLogo, scale: 3),
+                CachedNetworkImage(
+                  width: 55,
+                  height: 55,
+                  imageUrl: homeTeamLogo,
+                  fit: BoxFit.fill,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
+                  errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
                 ),
                 Text(homeTeamName, textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteTextWithWeight),
               ],
@@ -39,7 +44,6 @@ class MatchResultDisplay extends StatelessWidget {
         ),
         const SizedBox(width: 30),
         Expanded(
-          flex: 1,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -67,17 +71,17 @@ class MatchResultDisplay extends StatelessWidget {
         ),
         const SizedBox(width: 30),
         Expanded(
-          flex: 1,
-          child: SizedBox.square(
-            dimension: 110,
+          child: SizedBox(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                  image: NetworkImage(
-                    awayTeamLogo,
-                    scale: 3,
-                  ),
+                CachedNetworkImage(
+                  width: 55,
+                  height: 55,
+                  imageUrl: awayTeamLogo,
+                  fit: BoxFit.fill,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
+                  errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
                 ),
                 Text(awayTeamName, textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteTextWithWeight),
               ],
