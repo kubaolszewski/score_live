@@ -31,7 +31,6 @@ class HomeView extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const HomeScreenDatePicker(),
             Padding(

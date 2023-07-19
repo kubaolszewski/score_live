@@ -23,13 +23,16 @@ class HomeScreenDatePicker extends StatelessWidget {
                   locale: context.myLocale.toString(),
                   initialSelectedDate: DateTime.now(),
                   daysCount: 8,
-                  monthTextStyle: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
-                  dayTextStyle: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
-                  dateTextStyle: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
+                  monthTextStyle:
+                      const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold, fontSize: 14),
+                  dayTextStyle:
+                      const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold, fontSize: 14),
+                  dateTextStyle:
+                      const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold, fontSize: 14),
                   selectedTextColor: Colors.white,
                   deactivatedColor: AppColors.inactiveItemGrey,
                   height: 85,
-                  width: 75,
+                  width: 55,
                   onDateChange: (pickedDate) {
                     context.read<HomeCubit>().switchDate(pickedDate);
                     context.read<ScoreTabCubit>().fetchMatchesByDate(pickedDate);
