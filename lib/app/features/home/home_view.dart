@@ -23,15 +23,15 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
-        title: const SizedBox(
+        title: SizedBox(
           width: 125,
           child: Stack(
             children: [
               Text(
-                'scorelive',
+                context.localizations.appTitle,
                 style: CommonTextStyles.basicWhiteTextWithWeight,
               ),
-              Positioned(
+              const Positioned(
                 right: 15,
                 child: CircleAvatar(backgroundColor: AppColors.mainThemePink, radius: 6),
               )
