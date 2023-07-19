@@ -4,6 +4,7 @@ import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class LiveMatchDetailsButton extends StatelessWidget {
   const LiveMatchDetailsButton({
@@ -15,28 +16,22 @@ class LiveMatchDetailsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          fixedSize: const Size(380, 50),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          backgroundColor: AppColors.mainThemePink,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        fixedSize: const Size(380, 50),
+        side: const BorderSide(
+          width: 0.50,
         ),
-        onPressed: () {
-          Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: liveMatch);
-        },
-        child: Text(
-          context.localizations.matchDetailsButton,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
         ),
+        backgroundColor: AppColors.mainThemePink,
       ),
+      onPressed: () {
+        Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: liveMatch);
+      },
+      child: Text(context.localizations.matchDetailsButton,
+          style: const CustomTextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w700)),
     );
   }
 }

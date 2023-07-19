@@ -25,18 +25,18 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
     final int homeGoals = liveMatch.goals?.home ?? intPlaceholder;
     final int awayGoals = liveMatch.goals?.away ?? intPlaceholder;
 
-    return Expanded(
-      flex: 2,
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
       child: SizedBox(
         width: 370,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 1,
               child: SizedBox(
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CachedNetworkImage(
                       width: 40,
@@ -47,15 +47,12 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
                           CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
                       errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
                     ),
-                    Text(homeTeamName,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                    Text(homeTeamName, textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteTextWithWeight),
                   ],
                 ),
               ),
             ),
             Expanded(
-              flex: 1,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -73,7 +70,7 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
                           '$homeGoals - $awayGoals',
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 28,
+                            fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -81,10 +78,11 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 1,
               child: SizedBox(
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CachedNetworkImage(
                       width: 40,

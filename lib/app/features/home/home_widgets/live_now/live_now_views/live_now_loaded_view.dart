@@ -28,7 +28,7 @@ class LiveNowLoadedView extends StatelessWidget {
       );
     }
     return SizedBox(
-      height: 250,
+      height: 220,
       child: ListView.builder(
         physics: const PageScrollPhysics(),
         scrollDirection: Axis.horizontal,

@@ -20,20 +20,16 @@ class LiveMatchTile extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         color: AppColors.listTileGrey,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(6),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             LiveMatchTileLogo(liveMatch: liveMatch),
-            const SizedBox(height: 10),
             LiveMatchTileTeamsDisplay(liveMatch: liveMatch),
-            const SizedBox(
-              height: 20,
-            ),
-            LiveMatchDetailsButton(liveMatch: liveMatch)
+            LiveMatchDetailsButton(liveMatch: liveMatch),
           ],
         ),
       ),
