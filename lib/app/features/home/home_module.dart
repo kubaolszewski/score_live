@@ -21,8 +21,6 @@ class HomeModule extends Module {
         Bind.singleton((i) => MatchDetailsCubit(i())),
         Bind.singleton((i) => LiveNowCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i())),
-        Bind.singleton((i) => LiveNowCubit(i())),
-        Bind.singleton((i) => ScoreTabCubit(i()))
       ];
 
   @override
