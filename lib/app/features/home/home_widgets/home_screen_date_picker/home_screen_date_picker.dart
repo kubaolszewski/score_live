@@ -19,13 +19,13 @@ class HomeScreenDatePicker extends StatelessWidget {
             children: [
               Expanded(
                 child: DatePicker(
-                  DateTime(2023, 2, 11).subtract(const Duration(days: 3)),
+                  DateTime.now().subtract(const Duration(days: 3)),
                   locale: context.myLocale.toString(),
-                  initialSelectedDate: DateTime(2023, 2, 11),
+                  initialSelectedDate: DateTime.now(),
                   daysCount: 8,
-                  monthTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
-                  dayTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
-                  dateTextStyle: const TextStyle(color: AppColors.inactiveDateTileText, fontWeight: FontWeight.bold),
+                  monthTextStyle: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
+                  dayTextStyle: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
+                  dateTextStyle: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
                   selectedTextColor: Colors.white,
                   deactivatedColor: AppColors.inactiveItemGrey,
                   height: 85,

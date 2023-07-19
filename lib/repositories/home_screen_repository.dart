@@ -7,7 +7,12 @@ class HomeScreenRepository {
   final LiveMatchesRemoteService liveMatchesRemoteService;
 
   Future<List<LiveMatchModel>?> fetchMatchesByDate(String date) async {
-    // return (await liveMatchesRemoteService.fetchMatchesByDate(league: '39', season: '2022', date: date)).response;
+    // return (await liveMatchesRemoteService.fetchMatchesByDate(season: '2023', date: date))
+    //     .response!
+    //     .where(
+    //       (element) => element.fixture!.status!.short == 'FT',
+    //     )
+    //     .toList();
     final response = [
       {
         "fixture": {

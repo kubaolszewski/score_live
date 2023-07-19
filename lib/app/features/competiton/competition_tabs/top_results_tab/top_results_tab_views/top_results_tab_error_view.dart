@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/presentation/constants/common_text_styles.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class TopResultsTabErrorView extends StatelessWidget {
   const TopResultsTabErrorView({
@@ -14,7 +14,7 @@ class TopResultsTabErrorView extends StatelessWidget {
     return Center(
       child: Text(
         errorMessage,
-        style: CommonTextStyles.basicWhiteText,
+        style: CommonTextStyles.basicWhiteTextWithWeight,
       ),
     );
   }

@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'scorelive',
       theme: ThemeData(
         useMaterial3: true,
+        fontFamily: 'Mulish',
       ),
       debugShowCheckedModeBanner: false,
       routeInformationParser: Modular.routeInformationParser,

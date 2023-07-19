@@ -1,4 +1,6 @@
 {
+  "appTitle" : "scorelive",
+
   "navHome" : "Strona główna",
   "navCompetition" : "Rozgrywki",
   "navAccount" : "Moje konto",

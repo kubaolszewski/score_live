@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
@@ -26,18 +27,26 @@ class MatchLeagueInfoAndTimerWidget extends StatelessWidget {
             CircleAvatar(
               radius: 15,
               child: ClipOval(
-                child: SvgPicture.network(
-                  flag,
-                  fit: BoxFit.cover,
-                  placeholderBuilder: (BuildContext context) => Container(
-                    padding: const EdgeInsets.all(30.0),
-                    child: const Center(
-                      child: CircularProgressIndicator(
-                        backgroundColor: Colors.red,
+                child: flag.contains('.svg')
+                    ? SvgPicture.network(
+                        flag,
+                        fit: BoxFit.cover,
+                        placeholderBuilder: (BuildContext context) => Container(
+                          padding: const EdgeInsets.all(30.0),
+                          child: const Center(
+                            child: CircularProgressIndicator(
+                              backgroundColor: Colors.red,
+                            ),
+                          ),
+                        ),
+                      )
+                    : CachedNetworkImage(
+                        imageUrl: flag,
+                        fit: BoxFit.fill,
+                        progressIndicatorBuilder: (context, url, downloadProgress) =>
+                            CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
+                        errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
                       ),
-                    ),
-                  ),
-                ),
               ),
             ),
             const SizedBox(width: 10),
@@ -52,7 +61,7 @@ class MatchLeagueInfoAndTimerWidget extends StatelessWidget {
           width: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
-            color: AppColors.liveTimerBackground,
+            color: AppColors.liveTimerBackgroundGreen,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

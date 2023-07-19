@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/presentation/constants/common_text_styles.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class LiveNowErrorView extends StatelessWidget {
   const LiveNowErrorView({super.key, required this.errorMessage});
@@ -11,7 +11,7 @@ class LiveNowErrorView extends StatelessWidget {
     return Center(
       child: Text(
         errorMessage,
-        style: CommonTextStyles.basicWhiteText,
+        style: CommonTextStyles.basicWhiteTextWithWeight,
       ),
     );
   }

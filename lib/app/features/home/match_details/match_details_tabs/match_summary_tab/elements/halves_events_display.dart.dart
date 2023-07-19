@@ -40,7 +40,9 @@ class HalvesEventsDisplay extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                                 child: EventTextSample(
-                                    time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
+                                    time: event.time?.elapsed.toString() ?? '',
+                                    player: event.player?.name ?? '',
+                                    isHomeTeam: true),
                               )
                             else
                               const SizedBox.shrink(),
@@ -52,7 +54,9 @@ class HalvesEventsDisplay extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                                 child: EventTextSample(
-                                    time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
+                                    time: event.time?.elapsed.toString() ?? '',
+                                    player: event.player?.name ?? '',
+                                    isHomeTeam: true),
                               )
                             else
                               const SizedBox.shrink(),
@@ -79,7 +83,9 @@ class HalvesEventsDisplay extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                                 child: EventTextSample(
-                                    time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
+                                    time: event.time?.elapsed.toString() ?? '',
+                                    player: event.player?.name ?? '',
+                                    isHomeTeam: false),
                               )
                             else
                               const SizedBox.shrink(),
@@ -91,7 +97,9 @@ class HalvesEventsDisplay extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                                 child: EventTextSample(
-                                    time: event.time?.elapsed.toString() ?? '', player: event.player?.name ?? ''),
+                                    time: event.time?.elapsed.toString() ?? '',
+                                    player: event.player?.name ?? '',
+                                    isHomeTeam: false),
                               )
                             else
                               const SizedBox.shrink(),

@@ -11,6 +11,7 @@ import 'package:score_live/app/features/home/home_widgets/live_now/live_now.dart
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({
@@ -22,9 +23,20 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
-        title: const Text(
-          'scorelive',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        title: SizedBox(
+          width: 125,
+          child: Stack(
+            children: [
+              Text(
+                context.localizations.appTitle,
+                style: CommonTextStyles.basicWhiteTextWithWeight,
+              ),
+              const Positioned(
+                right: 15,
+                child: CircleAvatar(backgroundColor: AppColors.mainThemePink, radius: 6),
+              )
+            ],
+          ),
         ),
         actions: [
           IconButton(

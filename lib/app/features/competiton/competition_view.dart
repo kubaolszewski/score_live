@@ -11,7 +11,7 @@ import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart'
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/common_text_styles.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class CompetitionView extends StatelessWidget {
   const CompetitionView({
@@ -25,7 +25,7 @@ class CompetitionView extends StatelessWidget {
       appBar: CustomAppBar(
         title: Text(
           context.localizations.competitionAppBarTitle,
-          style: CommonTextStyles.basicWhiteText,
+          style: CommonTextStyles.basicWhiteTextWithWeight,
         ),
       ),
       body: SingleChildScrollView(

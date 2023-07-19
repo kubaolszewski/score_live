@@ -6,7 +6,7 @@ import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart'
 import 'package:score_live/app/features/competiton/searched_competition_screens/searched_teams/searched_teams_view.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/common_text_styles.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class SearchedTeamsScreen extends StatelessWidget {
   const SearchedTeamsScreen(
@@ -21,18 +21,19 @@ class SearchedTeamsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
-          leading: IconButton(
-              onPressed: () {
-                Modular.to.pop();
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              )),
-          title: Text(
-            context.localizations.searchHeader,
-            style: CommonTextStyles.basicWhiteText,
-          )),
+        leading: IconButton(
+            onPressed: () {
+              Modular.to.pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            )),
+        title: Text(
+          context.localizations.searchHeader,
+          style: CommonTextStyles.basicWhiteTextWithWeight,
+        ),
+      ),
       body: BlocProvider<CompetitionCubit>(
         create: (context) => Modular.get<CompetitionCubit>()..searchingTeamsByName(nameQuery),
         child: const SearchedTeamsView(),
