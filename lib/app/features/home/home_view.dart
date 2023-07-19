@@ -25,14 +25,8 @@ class HomeView extends StatelessWidget {
       appBar: CustomAppBar(
         title: const HomeScreenAppBarLogo(),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search_rounded, color: Colors.white, size: 32),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.notifications_none, color: Colors.white, size: 32),
-          ),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search_rounded, color: Colors.white, size: 30)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications_none, color: Colors.white, size: 30)),
         ],
       ),
       body: SingleChildScrollView(
