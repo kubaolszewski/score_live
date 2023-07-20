@@ -36,10 +36,10 @@ class MatchDetailsView extends StatelessWidget {
             onPressed: () {
               Modular.to.pop();
             },
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
+            icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 24)),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.share, color: Colors.white)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.star_rate_rounded, color: Colors.white)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.share, color: Colors.white, size: 20)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.star_rate_rounded, color: Colors.white, size: 20)),
         ],
       ),
       body: SingleChildScrollView(
