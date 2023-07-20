@@ -45,7 +45,7 @@ class ScoreTabLoadedView extends StatelessWidget {
           return Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
                 child: Row(
                   children: [
                     CircleAvatar(

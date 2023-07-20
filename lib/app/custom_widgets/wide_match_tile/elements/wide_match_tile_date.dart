@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 
 class WideMatchTileDate extends StatelessWidget {
   const WideMatchTileDate({
@@ -19,16 +20,16 @@ class WideMatchTileDate extends StatelessWidget {
     final String matchDate = DateFormat('dd/M').format(formattedDate);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
       child: Column(
         children: [
           Text(
             matchStatus,
-            style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
           ),
           Text(
             matchDate,
-            style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
           ),
         ],
       ),
