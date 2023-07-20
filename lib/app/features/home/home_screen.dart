@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => Modular.get<HomeCubit>()),
         BlocProvider(create: (context) => Modular.get<LiveNowCubit>()..fetchLiveMatches()),
-        BlocProvider(create: (context) => Modular.get<ScoreTabCubit>()..fetchMatchesByDate(DateTime(2023, 2, 11))),
+        BlocProvider(create: (context) => Modular.get<ScoreTabCubit>()..fetchMatchesByDate(DateTime.now())),
       ],
       child: const HomeView(),
     );

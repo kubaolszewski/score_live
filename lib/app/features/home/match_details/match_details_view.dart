@@ -26,12 +26,13 @@ class MatchDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const String stringplaceholder = '';
     final String leagueName = liveMatch.league?.name ?? context.localizations.unknownLeague;
-
+    final String matchDate = liveMatch.fixture?.date ?? stringplaceholder;
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
-        title: MatchDetailsTitle(leagueName),
+        title: MatchDetailsTitle(leagueName,matchDate),
         leading: IconButton(
             onPressed: () {
               Modular.to.pop();
