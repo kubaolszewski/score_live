@@ -4,9 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
-class LiveMatchTileLogo extends StatelessWidget {
-  const LiveMatchTileLogo({super.key, required this.liveMatch});
+class LiveMatchLogoAndTimer extends StatelessWidget {
+  const LiveMatchLogoAndTimer({super.key, required this.liveMatch});
 
   final LiveMatchModel liveMatch;
 
@@ -17,11 +18,11 @@ class LiveMatchTileLogo extends StatelessWidget {
         'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
     final String leagueName = liveMatch.league?.name ?? context.localizations.unknownLeague;
     final String matchStatusShort = liveMatch.fixture?.status?.short ?? stringPlaceholder;
-    return Expanded(
-      flex: 1,
-      child: Row(
-        children: [
-          Row(
+    return Row(
+      children: [
+        Expanded(
+          flex: 2,
+          child: Row(
             children: [
               CircleAvatar(
                 radius: 15,
@@ -59,32 +60,29 @@ class LiveMatchTileLogo extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(
-            width: 150,
+        ),
+        const SizedBox(
+          width: 150,
+        ),
+        Container(
+          height: 30,
+          width: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24),
+            color: AppColors.liveTimerBackgroundGreen,
           ),
-          Container(
-            height: 30,
-            width: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
-              color: AppColors.liveTimerBackgroundGreen,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const CircleAvatar(
-                  radius: 5,
-                  backgroundColor: Colors.green,
-                ),
-                Text(
-                  matchStatusShort,
-                  style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const CircleAvatar(radius: 5, backgroundColor: Colors.green),
+              Text(
+                matchStatusShort,
+                style: const CustomTextStyle(color: Colors.green, fontWeight: FontWeight.w700, fontSize: 14),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
