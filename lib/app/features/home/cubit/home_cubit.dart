@@ -15,6 +15,11 @@ class HomeCubit extends Cubit<HomeState> {
     emit(state.copyWith(date: newDate));
   }
 
+  void toggleButton(bool isUpcomingActive, bool isScoreActive, bool isFavoritesActive) {
+    emit(state.copyWith(
+        isUpcomingActive: isUpcomingActive, isScoreActive: isScoreActive, isFavoritesActive: isFavoritesActive));
+  }
+
   void switchHomeOptions(HomeOptions chosenOption) {
     emit(state.copyWith(homeOptions: chosenOption));
   }

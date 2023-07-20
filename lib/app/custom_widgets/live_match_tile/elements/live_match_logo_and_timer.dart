@@ -6,8 +6,8 @@ import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-class LiveMatchTileLogo extends StatelessWidget {
-  const LiveMatchTileLogo({super.key, required this.liveMatch});
+class LiveMatchLogoAndTimer extends StatelessWidget {
+  const LiveMatchLogoAndTimer({super.key, required this.liveMatch});
 
   final LiveMatchModel liveMatch;
 
@@ -74,25 +74,10 @@ class LiveMatchTileLogo extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              CircleAvatar(
-                  radius: 5,
-                  backgroundColor: matchStatusShort == '1H' ||
-                          matchStatusShort == '2H' ||
-                          matchStatusShort == 'HT' ||
-                          matchStatusShort == 'ET'
-                      ? Colors.green
-                      : Colors.black),
+              const CircleAvatar(radius: 5, backgroundColor: Colors.green),
               Text(
                 matchStatusShort,
-                style: CustomTextStyle(
-                    color: matchStatusShort == '1H' ||
-                            matchStatusShort == '2H' ||
-                            matchStatusShort == 'HT' ||
-                            matchStatusShort == 'ET'
-                        ? Colors.green
-                        : Colors.black,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14),
+                style: const CustomTextStyle(color: Colors.green, fontWeight: FontWeight.w700, fontSize: 14),
               ),
             ],
           ),

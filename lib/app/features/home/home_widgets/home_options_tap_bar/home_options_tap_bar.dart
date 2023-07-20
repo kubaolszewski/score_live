@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
+import 'package:score_live/app/features/home/home_widgets/home_options_tap_bar/options_button_design.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
 
 class HomeOptionsTapBar extends StatelessWidget {
   const HomeOptionsTapBar({super.key});
@@ -12,67 +12,44 @@ class HomeOptionsTapBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchHomeOptions(HomeOptions.upcoming);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: AppColors.mainThemePink,
-              ))),
-              child: Text(
-                context.localizations.homeUpcoming,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    _homeCubit(context).toggleButton(true, false, false);
+                    _homeCubit(context).switchHomeOptions(HomeOptions.upcoming);
+                  },
+                  child: OptionsButtonDesign(isActive: state.isUpcomingActive, buttonTitle: context.localizations.homeUpcoming),
+                ),
               ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchHomeOptions(HomeOptions.score);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: AppColors.mainThemePink,
-              ))),
-              child: Text(
-                context.localizations.homeScore,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    _homeCubit(context).toggleButton(false, true, false);
+                    _homeCubit(context).switchHomeOptions(HomeOptions.score);
+                  },
+                  child: OptionsButtonDesign(isActive: state.isScoreActive, buttonTitle: context.localizations.homeScore)
+                ),
               ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              _homeCubit(context).switchHomeOptions(HomeOptions.favorites);
-            },
-            child: Container(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                width: 3.0,
-                color: AppColors.mainThemePink,
-              ))),
-              child: Text(
-                context.localizations.homeFavorites,
-                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    _homeCubit(context).toggleButton(false, false, true);
+                    _homeCubit(context).switchHomeOptions(HomeOptions.favorites);
+                  },
+                  child: OptionsButtonDesign(isActive: state.isFavoritesActive, buttonTitle: context.localizations.homeFavorites)
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
+
