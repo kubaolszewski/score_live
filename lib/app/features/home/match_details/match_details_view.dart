@@ -15,6 +15,7 @@ import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class MatchDetailsView extends StatelessWidget {
   const MatchDetailsView({
@@ -27,19 +28,19 @@ class MatchDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String leagueName = liveMatch.league?.name ?? context.localizations.unknownLeague;
-
+    final String matchDate = liveMatch.fixture?.date ?? AppConstVariables.stringPlaceholder;
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
-        title: MatchDetailsTitle(leagueName),
+        title: MatchDetailsTitle(leagueName,matchDate),
         leading: IconButton(
             onPressed: () {
               Modular.to.pop();
             },
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
+            icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 24)),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.share, color: Colors.white)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.star_rate_rounded, color: Colors.white)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.share, color: Colors.white, size: 20)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.star_rate_rounded, color: Colors.white, size: 20)),
         ],
       ),
       body: SingleChildScrollView(

@@ -5,6 +5,7 @@ import 'package:score_live/app/custom_widgets/event_text_sample.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class MatchGoalsWidget extends StatelessWidget {
   const MatchGoalsWidget(this.liveMatch, {super.key});
@@ -13,9 +14,8 @@ class MatchGoalsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const int intPlaceholder = 0;
-    final int homeTeamID = liveMatch.teams?.home?.id ?? intPlaceholder;
-    final int awayTeamID = liveMatch.teams?.away?.id ?? intPlaceholder;
+    final int homeTeamID = liveMatch.teams?.home?.id ?? AppConstVariables.intPlaceholder;
+    final int awayTeamID = liveMatch.teams?.away?.id ?? AppConstVariables.intPlaceholder;
 
     return BlocBuilder<MatchDetailsCubit, MatchDetailsState>(
       builder: (context, state) {
@@ -58,13 +58,13 @@ class MatchGoalsWidget extends StatelessWidget {
                       children: [
                         for (final event in matchEvents) ...[
                           if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                            if (homeTeamID == event.team!.id && event.type == 'Goal')
+                            if (homeTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
                               EventTextSample(
-                                  time: event.time?.elapsed.toString() ?? '',
-                                  player: event.player?.name ?? '',
+                                  time: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                  player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                   isHomeTeam: true)
                             else
-                              const SizedBox(height: 0),
+                              const SizedBox.shrink(),
                         ]
                       ],
                     ),
@@ -95,13 +95,13 @@ class MatchGoalsWidget extends StatelessWidget {
                       children: [
                         for (final event in matchEvents) ...[
                           if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                            if (awayTeamID == event.team!.id && event.type == 'Goal')
+                            if (awayTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
                               EventTextSample(
-                                  time: event.time?.elapsed.toString() ?? '',
-                                  player: event.player?.name ?? '',
+                                  time: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                  player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                   isHomeTeam: false)
                             else
-                              const SizedBox(height: 0),
+                              const SizedBox.shrink(),
                         ]
                       ],
                     ),
