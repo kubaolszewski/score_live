@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class HalvesResultDisplay extends StatelessWidget {
   const HalvesResultDisplay({super.key, required this.liveMatch, required this.isHalfTime});
@@ -10,13 +11,12 @@ class HalvesResultDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const int intPlaceholder = 0;
     final String homeTeamName = liveMatch.teams?.home?.name ?? context.localizations.unknownHomeTeam;
     final String awayTeamName = liveMatch.teams?.away?.name ?? context.localizations.unknownAwayTeam;
-    final int halfTimeHomeGoals = liveMatch.score?.halftime?.home ?? intPlaceholder;
-    final int halfTimeAwayGoals = liveMatch.score?.halftime?.away ?? intPlaceholder;
-    final int fullTimeHomeGoals = liveMatch.score?.fulltime?.home ?? intPlaceholder;
-    final int fullTimeAwayGoals = liveMatch.score?.fulltime?.away ?? intPlaceholder;
+    final int halfTimeHomeGoals = liveMatch.score?.halftime?.home ?? AppConstVariables.intPlaceholder;
+    final int halfTimeAwayGoals = liveMatch.score?.halftime?.away ?? AppConstVariables.intPlaceholder;
+    final int fullTimeHomeGoals = liveMatch.score?.fulltime?.home ?? AppConstVariables.intPlaceholder;
+    final int fullTimeAwayGoals = liveMatch.score?.fulltime?.away ?? AppConstVariables.intPlaceholder;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
