@@ -1,5 +1,6 @@
 import 'package:score_live/data/live_matches_remote_service.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class HomeScreenRepository {
   HomeScreenRepository(this.liveMatchesRemoteService);
@@ -308,12 +309,7 @@ class HomeScreenRepository {
   }
 
   Future<List<LiveMatchModel>?> fetchMatchesByDate(String date) async {
-    // return (await liveMatchesRemoteService.fetchMatchesByDate(season: '2023', date: date))
-    //     .response!
-    //     .where(
-    //       (element) => element.fixture!.status!.short == AppConstVariables.fullTime,
-    //     )
-    //     .toList();
+    // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.fullTime, date: date)).response;
     final response = [
       {
         "fixture": {
@@ -613,8 +609,9 @@ class HomeScreenRepository {
     return response.map(LiveMatchModel.fromJson).toList();
   }
 
-  Future<List<LiveMatchModel>?> fetchUpcomingMatches() async {
-    // return (await liveMatchesRemoteService.fetchUpcomingMatches(next: '20')).response;
+  Future<List<LiveMatchModel>?> fetchUpcomingMatches(String date) async {
+    // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.matchNotStarted, date: date))
+    //     .response;
     final response = [
       {
         "fixture": {

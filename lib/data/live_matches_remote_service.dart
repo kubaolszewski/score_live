@@ -16,13 +16,8 @@ abstract class LiveMatchesRemoteService {
 
   @GET('/fixtures')
   Future<LiveMatchesFixtures> fetchMatchesByDate({
-    @Query("season") required String season,
+    @Query("status") required String status,
     @Query("date") required String date,
-  });
-
-  @GET('/fixtures')
-  Future<LiveMatchesFixtures> fetchUpcomingMatches({
-    @Query("next") required String next,
   });
 
   @GET('/fixtures/events')

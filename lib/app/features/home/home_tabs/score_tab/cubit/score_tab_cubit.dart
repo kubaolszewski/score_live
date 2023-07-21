@@ -16,8 +16,10 @@ class ScoreTabCubit extends Cubit<ScoreTabState> {
     String formattedDate = DateFormat('yyyy-MM-dd').format(date);
     emit(const LoadingMatchesState());
     try {
-      final matchesByDate = await homeScreenRepository.fetchMatchesByDate(formattedDate);
-      if(matchesByDate!.isNotEmpty) {
+      final matchesByDate = await homeScreenRepository.fetchMatchesByDate(
+        formattedDate,
+      );
+      if (matchesByDate!.isNotEmpty) {
         emit(MatchesLoadedState(matchesByDate));
       }
     } catch (error) {

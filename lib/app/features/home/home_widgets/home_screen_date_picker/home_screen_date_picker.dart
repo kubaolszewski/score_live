@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
+import 'package:score_live/app/features/home/home_tabs/upcoming_tab/cubit/upcoming_tab_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
@@ -35,6 +36,7 @@ class HomeScreenDatePicker extends StatelessWidget {
                   width: 55,
                   onDateChange: (pickedDate) {
                     context.read<HomeCubit>().switchDate(pickedDate);
+                    context.read<UpcomingTabCubit>().fetchUpcomingMatches(pickedDate);
                     context.read<ScoreTabCubit>().fetchMatchesByDate(pickedDate);
                   },
                 ),

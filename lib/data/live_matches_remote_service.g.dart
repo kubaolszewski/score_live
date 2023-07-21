@@ -47,42 +47,14 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
 
   @override
   Future<LiveMatchesFixtures> fetchMatchesByDate({
-    required String season,
+    required String status,
     required String date,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'season': season,
+      r'status': status,
       r'date': date,
     };
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<LiveMatchesFixtures>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/fixtures',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = LiveMatchesFixtures.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<LiveMatchesFixtures> fetchUpcomingMatches(
-      {required String next}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'next': next};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
