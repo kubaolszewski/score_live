@@ -13,6 +13,6 @@ class HomeState with _$HomeState {
 HomeState._();
 
   bool get isUpcomingActive => homeOptions == HomeOptions.upcoming; 
-  @Default(true) bool get isScoreActive => homeOptions == HomeOptions.score; 
+  bool get isScoreActive => homeOptions == HomeOptions.score; 
   bool get isFavoritesActive => homeOptions == HomeOptions.favorites; 
 }
