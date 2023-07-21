@@ -15,6 +15,7 @@ import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class MatchDetailsView extends StatelessWidget {
   const MatchDetailsView({
@@ -26,9 +27,8 @@ class MatchDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String stringplaceholder = '';
     final String leagueName = liveMatch.league?.name ?? context.localizations.unknownLeague;
-    final String matchDate = liveMatch.fixture?.date ?? stringplaceholder;
+    final String matchDate = liveMatch.fixture?.date ?? AppConstVariables.stringPlaceholder;
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(

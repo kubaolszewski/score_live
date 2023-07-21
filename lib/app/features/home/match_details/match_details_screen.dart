@@ -5,6 +5,7 @@ import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_view.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class MatchDetailsScreen extends StatelessWidget {
   const MatchDetailsScreen({
@@ -16,8 +17,7 @@ class MatchDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const int intPlaceholder = 0;
-    final int teamID = liveMatch.fixture?.id ?? intPlaceholder;
+    final int teamID = liveMatch.fixture?.id ?? AppConstVariables.intPlaceholder;
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeCubit>(create: (context) => Modular.get<HomeCubit>()),
