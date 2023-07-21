@@ -9,15 +9,10 @@ part 'home_state.dart';
 part 'home_cubit.freezed.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(const HomeState());
+  HomeCubit() : super(HomeState());
 
   void switchDate(DateTime newDate) {
     emit(state.copyWith(date: newDate));
-  }
-
-  void toggleButton(bool isUpcomingActive, bool isScoreActive, bool isFavoritesActive) {
-    emit(state.copyWith(
-        isUpcomingActive: isUpcomingActive, isScoreActive: isScoreActive, isFavoritesActive: isFavoritesActive));
   }
 
   void switchHomeOptions(HomeOptions chosenOption) {

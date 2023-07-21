@@ -23,9 +23,6 @@ mixin _$HomeState {
   HomeOptions get homeOptions => throw _privateConstructorUsedError;
   DateTime? get date => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  bool get isUpcomingActive => throw _privateConstructorUsedError;
-  bool get isScoreActive => throw _privateConstructorUsedError;
-  bool get isFavoritesActive => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -44,9 +41,6 @@ abstract class $HomeStateCopyWith<$Res> {
       HomeOptions homeOptions,
       DateTime? date,
       bool isLoading,
-      bool isUpcomingActive,
-      bool isScoreActive,
-      bool isFavoritesActive,
       String? errorMessage});
 }
 
@@ -68,9 +62,6 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? homeOptions = null,
     Object? date = freezed,
     Object? isLoading = null,
-    Object? isUpcomingActive = null,
-    Object? isScoreActive = null,
-    Object? isFavoritesActive = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -94,18 +85,6 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isUpcomingActive: null == isUpcomingActive
-          ? _value.isUpcomingActive
-          : isUpcomingActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isScoreActive: null == isScoreActive
-          ? _value.isScoreActive
-          : isScoreActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isFavoritesActive: null == isFavoritesActive
-          ? _value.isFavoritesActive
-          : isFavoritesActive // ignore: cast_nullable_to_non_nullable
-              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -127,9 +106,6 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       HomeOptions homeOptions,
       DateTime? date,
       bool isLoading,
-      bool isUpcomingActive,
-      bool isScoreActive,
-      bool isFavoritesActive,
       String? errorMessage});
 }
 
@@ -149,9 +125,6 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? homeOptions = null,
     Object? date = freezed,
     Object? isLoading = null,
-    Object? isUpcomingActive = null,
-    Object? isScoreActive = null,
-    Object? isFavoritesActive = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_$_HomeState(
@@ -175,18 +148,6 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isUpcomingActive: null == isUpcomingActive
-          ? _value.isUpcomingActive
-          : isUpcomingActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isScoreActive: null == isScoreActive
-          ? _value.isScoreActive
-          : isScoreActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isFavoritesActive: null == isFavoritesActive
-          ? _value.isFavoritesActive
-          : isFavoritesActive // ignore: cast_nullable_to_non_nullable
-              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -197,19 +158,17 @@ class __$$_HomeStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HomeState implements _HomeState {
-  const _$_HomeState(
+class _$_HomeState extends _HomeState {
+  _$_HomeState(
       {final List<LiveMatchModel>? liveMatchModel = const [],
       final List<MatchEventsModel>? matchEventsModel = const [],
       this.homeOptions = HomeOptions.score,
       this.date,
       this.isLoading = false,
-      this.isUpcomingActive = false,
-      this.isScoreActive = true,
-      this.isFavoritesActive = false,
       this.errorMessage})
       : _liveMatchModel = liveMatchModel,
-        _matchEventsModel = matchEventsModel;
+        _matchEventsModel = matchEventsModel,
+        super._();
 
   final List<LiveMatchModel>? _liveMatchModel;
   @override
@@ -243,20 +202,11 @@ class _$_HomeState implements _HomeState {
   @JsonKey()
   final bool isLoading;
   @override
-  @JsonKey()
-  final bool isUpcomingActive;
-  @override
-  @JsonKey()
-  final bool isScoreActive;
-  @override
-  @JsonKey()
-  final bool isFavoritesActive;
-  @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'HomeState(liveMatchModel: $liveMatchModel, matchEventsModel: $matchEventsModel, homeOptions: $homeOptions, date: $date, isLoading: $isLoading, isUpcomingActive: $isUpcomingActive, isScoreActive: $isScoreActive, isFavoritesActive: $isFavoritesActive, errorMessage: $errorMessage)';
+    return 'HomeState(liveMatchModel: $liveMatchModel, matchEventsModel: $matchEventsModel, homeOptions: $homeOptions, date: $date, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -273,12 +223,6 @@ class _$_HomeState implements _HomeState {
             (identical(other.date, date) || other.date == date) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.isUpcomingActive, isUpcomingActive) ||
-                other.isUpcomingActive == isUpcomingActive) &&
-            (identical(other.isScoreActive, isScoreActive) ||
-                other.isScoreActive == isScoreActive) &&
-            (identical(other.isFavoritesActive, isFavoritesActive) ||
-                other.isFavoritesActive == isFavoritesActive) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -291,9 +235,6 @@ class _$_HomeState implements _HomeState {
       homeOptions,
       date,
       isLoading,
-      isUpcomingActive,
-      isScoreActive,
-      isFavoritesActive,
       errorMessage);
 
   @JsonKey(ignore: true)
@@ -303,17 +244,15 @@ class _$_HomeState implements _HomeState {
       __$$_HomeStateCopyWithImpl<_$_HomeState>(this, _$identity);
 }
 
-abstract class _HomeState implements HomeState {
-  const factory _HomeState(
+abstract class _HomeState extends HomeState {
+  factory _HomeState(
       {final List<LiveMatchModel>? liveMatchModel,
       final List<MatchEventsModel>? matchEventsModel,
       final HomeOptions homeOptions,
       final DateTime? date,
       final bool isLoading,
-      final bool isUpcomingActive,
-      final bool isScoreActive,
-      final bool isFavoritesActive,
       final String? errorMessage}) = _$_HomeState;
+  _HomeState._() : super._();
 
   @override
   List<LiveMatchModel>? get liveMatchModel;
@@ -325,12 +264,6 @@ abstract class _HomeState implements HomeState {
   DateTime? get date;
   @override
   bool get isLoading;
-  @override
-  bool get isUpcomingActive;
-  @override
-  bool get isScoreActive;
-  @override
-  bool get isFavoritesActive;
   @override
   String? get errorMessage;
   @override
