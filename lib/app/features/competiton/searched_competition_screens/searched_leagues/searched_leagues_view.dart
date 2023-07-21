@@ -3,16 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/custom_widgets/search_list_tile.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/core/dimensions_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class SearchedLeaguesView extends StatelessWidget {
   const SearchedLeaguesView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.sizeOf(context).height;
-    double width = double.infinity;
-    const String stringPlaceholder = '';
+    double height = context.mediaQueryHeight;
+    double width = AppConstVariables.widthInfinity;
 
     return BlocBuilder<CompetitionCubit, CompetitionState>(
       builder: (context, state) {
@@ -55,9 +56,8 @@ class SearchedLeaguesView extends StatelessWidget {
                     itemCount: leagues.length,
                     itemBuilder: (context, index) {
                       final league = leagues[index];
-                      final String leagueFlag = league.country?.flag ??
-                          'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
-                      final String leagueRegion = league.country?.name ?? stringPlaceholder;
+                      final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
+                      final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
                       final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
                       return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
                     },

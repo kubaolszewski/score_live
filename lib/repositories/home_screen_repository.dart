@@ -1,5 +1,6 @@
 import 'package:score_live/data/live_matches_remote_service.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class HomeScreenRepository {
   HomeScreenRepository(this.liveMatchesRemoteService);
@@ -10,7 +11,7 @@ class HomeScreenRepository {
     // return (await liveMatchesRemoteService.fetchMatchesByDate(season: '2023', date: date))
     //     .response!
     //     .where(
-    //       (element) => element.fixture!.status!.short == 'FT',
+    //       (element) => element.fixture!.status!.short == AppConstVariables.fullTime,
     //     )
     //     .toList();
     final response = [
