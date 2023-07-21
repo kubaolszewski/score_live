@@ -2,7 +2,7 @@ part of 'home_cubit.dart';
 
 @freezed
 class HomeState with _$HomeState {
-   factory HomeState({
+  factory HomeState({
     @Default([]) List<LiveMatchModel>? liveMatchModel,
     @Default([]) List<MatchEventsModel>? matchEventsModel,
     @Default(HomeOptions.score) HomeOptions homeOptions,
@@ -10,9 +10,9 @@ class HomeState with _$HomeState {
     @Default(false) bool isLoading,
     String? errorMessage,
   }) = _HomeState;
-HomeState._();
+  HomeState._();
 
-  bool get isUpcomingActive => homeOptions == HomeOptions.upcoming; 
-  bool get isScoreActive => homeOptions == HomeOptions.score; 
-  bool get isFavoritesActive => homeOptions == HomeOptions.favorites; 
+  bool get isUpcomingActive => homeOptions == HomeOptions.upcoming;
+  bool get isScoreActive => homeOptions == HomeOptions.score;
+  bool get isFavoritesActive => homeOptions == HomeOptions.favorites;
 }

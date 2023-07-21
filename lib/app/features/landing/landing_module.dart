@@ -10,6 +10,7 @@ import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/app/features/home/home_screen.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
+import 'package:score_live/app/features/home/home_tabs/upcoming_tab/cubit/upcoming_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now/cubit/live_now_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
@@ -35,6 +36,7 @@ class LandingModule extends Module {
         Bind.singleton((i) => MatchDetailsCubit(i())),
         Bind.singleton((i) => CompetitionCubit(i())),
         Bind.singleton((i) => LiveNowCubit(i())),
+        Bind.singleton((i) => UpcomingTabCubit(i())),
         Bind.singleton((i) => ScoreTabCubit(i())),
         Bind.singleton((i) => TopResultsTabCubit(i())),
         Bind.singleton((i) => RegionTabCubit(i())),
