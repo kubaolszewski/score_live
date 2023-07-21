@@ -1,10 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
-class OptionsButtonDesign extends StatelessWidget {
-  const OptionsButtonDesign({
-    super.key, required this.isActive, required this.buttonTitle,
+class OptionsButton extends StatelessWidget {
+  const OptionsButton({
+    super.key,
+    required this.isActive,
+    required this.buttonTitle,
   });
 
   final bool isActive;
@@ -25,9 +26,10 @@ class OptionsButtonDesign extends StatelessWidget {
       child: Text(
         buttonTitle,
         style: TextStyle(
-            color: isActive ? Colors.white : AppColors.inactiveTextGrey,
-            fontSize: 16,
-            fontWeight: FontWeight.bold),
+          color: isActive ? Colors.white : AppColors.inactiveTextGrey,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
