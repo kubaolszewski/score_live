@@ -3,17 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/custom_widgets/search_list_tile.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/core/dimensions_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class SearchedTeamsView extends StatelessWidget {
   const SearchedTeamsView({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.sizeOf(context).height;
-    double width = double.infinity;
-    const String stringPlaceholder = '';
+    double height = context.mediaQueryHeight;
+    double width = AppConstVariables.widthInfinity;
 
     return BlocBuilder<CompetitionCubit, CompetitionState>(
       builder: (context, state) {
@@ -56,9 +56,9 @@ class SearchedTeamsView extends StatelessWidget {
                     itemCount: teams.length,
                     itemBuilder: (context, index) {
                       final team = teams[index];
-                      final String teamFlag = team.team?.logo ?? stringPlaceholder;
-                      final String teamRegion = team.team?.country ?? stringPlaceholder;
-                      final String teamName = team.team?.name ?? stringPlaceholder;
+                      final String teamFlag = team.team?.logo ?? AppConstVariables.stringPlaceholder;
+                      final String teamRegion = team.team?.country ?? AppConstVariables.stringPlaceholder;
+                      final String teamName = team.team?.name ?? AppConstVariables.stringPlaceholder;
                       return SearchListTile(flag: teamFlag, region: teamRegion, name: teamName);
                     },
                   ),

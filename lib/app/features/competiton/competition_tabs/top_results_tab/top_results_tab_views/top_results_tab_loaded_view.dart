@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/search_list_tile.dart';
 import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/core/dimensions_context.dart';
 import 'package:score_live/models/league_model/league_model.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class TopResultsTabLoadedView extends StatelessWidget {
   const TopResultsTabLoadedView({super.key, required this.results});
@@ -10,9 +12,8 @@ class TopResultsTabLoadedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String stringPlaceholder = '';
-    double height = MediaQuery.sizeOf(context).height;
-    double width = double.infinity;
+    double height = context.mediaQueryHeight;
+    double width = AppConstVariables.widthInfinity;
     if (results.isEmpty) {
       return SizedBox(
         height: 200,
@@ -46,9 +47,9 @@ class TopResultsTabLoadedView extends StatelessWidget {
                 itemCount: results.length,
                 itemBuilder: (context, index) {
                   final league = results[index];
-                  final String leagueFlag = league.country?.flag ?? stringPlaceholder;
-                  final String leagueRegion = league.country?.name ?? stringPlaceholder;
-                  final String leagueName = league.league?.name ?? stringPlaceholder;
+                  final String leagueFlag = league.country?.flag ?? AppConstVariables.stringPlaceholder;
+                  final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
+                  final String leagueName = league.league?.name ?? AppConstVariables.stringPlaceholder;
                   return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
                 },
               ),
