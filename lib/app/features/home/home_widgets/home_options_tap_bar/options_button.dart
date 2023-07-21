@@ -15,7 +15,7 @@ class OptionsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(bottom: 2.0),
-      decoration: isActive == true
+      decoration: isActive
           ? const BoxDecoration(
               border: Border(
                   bottom: BorderSide(
