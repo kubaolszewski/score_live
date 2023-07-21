@@ -22,7 +22,6 @@ class HomeOptionsTapBar extends StatelessWidget {
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    _homeCubit(context).toggleButton(true, false, false);
                     _homeCubit(context).switchHomeOptions(HomeOptions.upcoming);
                   },
                   child:
@@ -32,7 +31,6 @@ class HomeOptionsTapBar extends StatelessWidget {
               Expanded(
                 child: TextButton(
                     onPressed: () {
-                      _homeCubit(context).toggleButton(false, true, false);
                       _homeCubit(context).switchHomeOptions(HomeOptions.score);
                     },
                     child: OptionsButton(isActive: state.isScoreActive, buttonTitle: context.localizations.homeScore)),
@@ -40,7 +38,6 @@ class HomeOptionsTapBar extends StatelessWidget {
               Expanded(
                 child: TextButton(
                     onPressed: () {
-                      _homeCubit(context).toggleButton(false, false, true);
                       _homeCubit(context).switchHomeOptions(HomeOptions.favorites);
                     },
                     child: OptionsButton(

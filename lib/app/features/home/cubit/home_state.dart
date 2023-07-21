@@ -2,15 +2,17 @@ part of 'home_cubit.dart';
 
 @freezed
 class HomeState with _$HomeState {
-  const factory HomeState({
+   factory HomeState({
     @Default([]) List<LiveMatchModel>? liveMatchModel,
     @Default([]) List<MatchEventsModel>? matchEventsModel,
     @Default(HomeOptions.score) HomeOptions homeOptions,
     DateTime? date,
     @Default(false) bool isLoading,
-    @Default(false) bool isUpcomingActive,
-    @Default(true) bool isScoreActive,
-    @Default(false) bool isFavoritesActive,
     String? errorMessage,
   }) = _HomeState;
+HomeState._();
+
+  bool get isUpcomingActive => homeOptions == HomeOptions.upcoming; 
+  bool get isScoreActive => homeOptions == HomeOptions.score; 
+  bool get isFavoritesActive => homeOptions == HomeOptions.favorites; 
 }
