@@ -6,6 +6,7 @@ import 'package:score_live/app/custom_widgets/match_league_and_timer_badge.dart'
 import 'package:score_live/app/custom_widgets/match_details_tile/elements/match_result_display.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class MatchDetailsTile extends StatelessWidget {
   const MatchDetailsTile({
@@ -19,7 +20,7 @@ class MatchDetailsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = double.infinity;
+    double width = AppConstVariables.widthInfinity;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Container(

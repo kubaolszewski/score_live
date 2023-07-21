@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
 class MatchLeagueAndTimerBadge extends StatelessWidget {
@@ -13,11 +14,9 @@ class MatchLeagueAndTimerBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String stringPlaceholder = '';
-    final String flag = liveMatch.league?.flag ??
-        'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-design-business-contract-agreement-flat-symbol-white-98077091.jpg';
+    final String flag = liveMatch.league?.flag ?? AppConstVariables.defaultLeagueLogo;
     final String leagueName = liveMatch.league?.name ?? context.localizations.unknownLeague;
-    final String matchStatusShort = liveMatch.fixture?.status?.short ?? stringPlaceholder;
+    final String matchStatusShort = liveMatch.fixture?.status?.short ?? AppConstVariables.stringPlaceholder;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -55,7 +54,7 @@ class MatchLeagueAndTimerBadge extends StatelessWidget {
             )
           ],
         ),
-        matchStatusShort != 'FT'
+        matchStatusShort != AppConstVariables.fullTime
             ? Container(
                 height: 30,
                 width: 50,
@@ -68,15 +67,18 @@ class MatchLeagueAndTimerBadge extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 5,
-                      backgroundColor:
-                          matchStatusShort == 'TBD' || matchStatusShort == 'NS' || matchStatusShort == 'SUSP'
-                              ? Colors.red
-                              : Colors.green,
+                      backgroundColor: matchStatusShort == AppConstVariables.matchTimeToBeDefined ||
+                              matchStatusShort == AppConstVariables.matchNotStarted ||
+                              matchStatusShort == AppConstVariables.matchSuspended
+                          ? Colors.red
+                          : Colors.green,
                     ),
                     Text(
                       matchStatusShort,
                       style: TextStyle(
-                          color: matchStatusShort == 'TBD' || matchStatusShort == 'NS' || matchStatusShort == 'SUSP'
+                          color: matchStatusShort == AppConstVariables.matchTimeToBeDefined ||
+                                  matchStatusShort == AppConstVariables.matchNotStarted ||
+                                  matchStatusShort == AppConstVariables.matchSuspended
                               ? Colors.black
                               : Colors.green,
                           fontWeight: FontWeight.bold),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/search_list_tile.dart';
 import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/core/dimensions_context.dart';
 import 'package:score_live/models/league_model/league_model.dart';
 
 class RegionTabLoadedView extends StatelessWidget {
@@ -10,8 +11,8 @@ class RegionTabLoadedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.sizeOf(context).height;
-    double width = MediaQuery.sizeOf(context).width;
+    double height = context.mediaQueryHeight;
+    double width = context.mediaQueryWidth;
     
     if (leaguesbyRegion.isEmpty) {
       return SizedBox(

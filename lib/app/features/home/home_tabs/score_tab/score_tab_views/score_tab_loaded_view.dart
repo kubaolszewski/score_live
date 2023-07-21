@@ -5,6 +5,7 @@ import 'package:score_live/app/custom_widgets/wide_match_tile/wide_match_tile.da
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class ScoreTabLoadedView extends StatelessWidget {
   const ScoreTabLoadedView({
@@ -16,8 +17,7 @@ class ScoreTabLoadedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = double.infinity;
-    const String stringPlaceholder = '';
+    double width = AppConstVariables.widthInfinity;
 
     if (matchesByDate.isEmpty) {
       return SizedBox(
@@ -40,8 +40,8 @@ class ScoreTabLoadedView extends StatelessWidget {
         itemCount: matchesByDate.length,
         itemBuilder: (context, index) {
           final match = matchesByDate[index];
-          final String flag = match.league?.flag ?? stringPlaceholder;
-          final String leagueName = match.league?.name ?? stringPlaceholder;
+          final String flag = match.league?.flag ?? AppConstVariables.stringPlaceholder;
+          final String leagueName = match.league?.name ?? AppConstVariables.stringPlaceholder;
           return Column(
             children: [
               Padding(
