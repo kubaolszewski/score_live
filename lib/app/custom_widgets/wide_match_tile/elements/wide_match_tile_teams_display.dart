@@ -27,8 +27,8 @@ class WideMatchTileTeamsDisplay extends StatelessWidget {
               children: [
                 CachedNetworkImage(
                   imageUrl: homeTeamLogo,
-                  width: 35,
-                  height: 35,
+                  width: 26,
+                  height: 26,
                   fit: BoxFit.fill,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
@@ -50,8 +50,8 @@ class WideMatchTileTeamsDisplay extends StatelessWidget {
               children: [
                 CachedNetworkImage(
                   imageUrl: awayTeamLogo,
-                  width: 35,
-                  height: 35,
+                  width: 26,
+                  height: 26,
                   fit: BoxFit.fill,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
