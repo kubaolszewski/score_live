@@ -18,7 +18,7 @@ class WideMatchListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
       child: InkWell(
         onTap: () {
           Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: match);
