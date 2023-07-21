@@ -5,6 +5,7 @@ import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class CompetitionSearchBar extends StatelessWidget {
   CompetitionSearchBar({super.key});
@@ -14,7 +15,7 @@ class CompetitionSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = double.infinity;
+    double width = AppConstVariables.widthInfinity;
     String dropdownValue = 'Team';
 
     return BlocBuilder<CompetitionCubit, CompetitionState>(
