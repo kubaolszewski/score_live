@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:score_live/models/league_model/league_model.dart';
+import 'package:score_live/models/line_up_model/line_up_model.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
@@ -23,6 +24,15 @@ class MatchEvents with _$MatchEvents {
   }) = _MatchEvents;
 
   factory MatchEvents.fromJson(Map<String, dynamic> json) => _$MatchEventsFromJson(json);
+}
+
+@freezed
+class MatchLineUps with _$MatchLineUps {
+  factory MatchLineUps({
+    @Default([]) List<LineUpModel> response,
+  }) = _MatchLineUps;
+
+  factory MatchLineUps.fromJson(Map<String, dynamic> json) => _$MatchLineUpsFromJson(json);
 }
 
 @freezed

@@ -306,6 +306,150 @@ abstract class _MatchEvents implements MatchEvents {
       throw _privateConstructorUsedError;
 }
 
+MatchLineUps _$MatchLineUpsFromJson(Map<String, dynamic> json) {
+  return _MatchLineUps.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MatchLineUps {
+  List<LineUpModel> get response => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MatchLineUpsCopyWith<MatchLineUps> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MatchLineUpsCopyWith<$Res> {
+  factory $MatchLineUpsCopyWith(
+          MatchLineUps value, $Res Function(MatchLineUps) then) =
+      _$MatchLineUpsCopyWithImpl<$Res, MatchLineUps>;
+  @useResult
+  $Res call({List<LineUpModel> response});
+}
+
+/// @nodoc
+class _$MatchLineUpsCopyWithImpl<$Res, $Val extends MatchLineUps>
+    implements $MatchLineUpsCopyWith<$Res> {
+  _$MatchLineUpsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_value.copyWith(
+      response: null == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<LineUpModel>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_MatchLineUpsCopyWith<$Res>
+    implements $MatchLineUpsCopyWith<$Res> {
+  factory _$$_MatchLineUpsCopyWith(
+          _$_MatchLineUps value, $Res Function(_$_MatchLineUps) then) =
+      __$$_MatchLineUpsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<LineUpModel> response});
+}
+
+/// @nodoc
+class __$$_MatchLineUpsCopyWithImpl<$Res>
+    extends _$MatchLineUpsCopyWithImpl<$Res, _$_MatchLineUps>
+    implements _$$_MatchLineUpsCopyWith<$Res> {
+  __$$_MatchLineUpsCopyWithImpl(
+      _$_MatchLineUps _value, $Res Function(_$_MatchLineUps) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_$_MatchLineUps(
+      response: null == response
+          ? _value._response
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<LineUpModel>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_MatchLineUps implements _MatchLineUps {
+  _$_MatchLineUps({final List<LineUpModel> response = const []})
+      : _response = response;
+
+  factory _$_MatchLineUps.fromJson(Map<String, dynamic> json) =>
+      _$$_MatchLineUpsFromJson(json);
+
+  final List<LineUpModel> _response;
+  @override
+  @JsonKey()
+  List<LineUpModel> get response {
+    if (_response is EqualUnmodifiableListView) return _response;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_response);
+  }
+
+  @override
+  String toString() {
+    return 'MatchLineUps(response: $response)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_MatchLineUps &&
+            const DeepCollectionEquality().equals(other._response, _response));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_response));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_MatchLineUpsCopyWith<_$_MatchLineUps> get copyWith =>
+      __$$_MatchLineUpsCopyWithImpl<_$_MatchLineUps>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MatchLineUpsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MatchLineUps implements MatchLineUps {
+  factory _MatchLineUps({final List<LineUpModel> response}) = _$_MatchLineUps;
+
+  factory _MatchLineUps.fromJson(Map<String, dynamic> json) =
+      _$_MatchLineUps.fromJson;
+
+  @override
+  List<LineUpModel> get response;
+  @override
+  @JsonKey(ignore: true)
+  _$$_MatchLineUpsCopyWith<_$_MatchLineUps> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 League _$LeagueFromJson(Map<String, dynamic> json) {
   return _League.fromJson(json);
 }

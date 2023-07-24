@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MatchDetailsState {
   List<MatchEventsModel> get matchEvents => throw _privateConstructorUsedError;
+  List<LineUpModel> get lineUps => throw _privateConstructorUsedError;
   DetailsOptions get detailsOptions => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
@@ -34,6 +35,7 @@ abstract class $MatchDetailsStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<MatchEventsModel> matchEvents,
+      List<LineUpModel> lineUps,
       DetailsOptions detailsOptions,
       bool isLoading,
       String errorMessage});
@@ -53,6 +55,7 @@ class _$MatchDetailsStateCopyWithImpl<$Res, $Val extends MatchDetailsState>
   @override
   $Res call({
     Object? matchEvents = null,
+    Object? lineUps = null,
     Object? detailsOptions = null,
     Object? isLoading = null,
     Object? errorMessage = null,
@@ -62,6 +65,10 @@ class _$MatchDetailsStateCopyWithImpl<$Res, $Val extends MatchDetailsState>
           ? _value.matchEvents
           : matchEvents // ignore: cast_nullable_to_non_nullable
               as List<MatchEventsModel>,
+      lineUps: null == lineUps
+          ? _value.lineUps
+          : lineUps // ignore: cast_nullable_to_non_nullable
+              as List<LineUpModel>,
       detailsOptions: null == detailsOptions
           ? _value.detailsOptions
           : detailsOptions // ignore: cast_nullable_to_non_nullable
@@ -88,6 +95,7 @@ abstract class _$$_MatchDetailsStateCopyWith<$Res>
   @useResult
   $Res call(
       {List<MatchEventsModel> matchEvents,
+      List<LineUpModel> lineUps,
       DetailsOptions detailsOptions,
       bool isLoading,
       String errorMessage});
@@ -105,6 +113,7 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? matchEvents = null,
+    Object? lineUps = null,
     Object? detailsOptions = null,
     Object? isLoading = null,
     Object? errorMessage = null,
@@ -114,6 +123,10 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
           ? _value._matchEvents
           : matchEvents // ignore: cast_nullable_to_non_nullable
               as List<MatchEventsModel>,
+      lineUps: null == lineUps
+          ? _value._lineUps
+          : lineUps // ignore: cast_nullable_to_non_nullable
+              as List<LineUpModel>,
       detailsOptions: null == detailsOptions
           ? _value.detailsOptions
           : detailsOptions // ignore: cast_nullable_to_non_nullable
@@ -135,10 +148,12 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
 class _$_MatchDetailsState extends _MatchDetailsState {
   _$_MatchDetailsState(
       {final List<MatchEventsModel> matchEvents = const [],
+      final List<LineUpModel> lineUps = const [],
       this.detailsOptions = DetailsOptions.summary,
       this.isLoading = false,
       this.errorMessage = ''})
       : _matchEvents = matchEvents,
+        _lineUps = lineUps,
         super._();
 
   final List<MatchEventsModel> _matchEvents;
@@ -148,6 +163,15 @@ class _$_MatchDetailsState extends _MatchDetailsState {
     if (_matchEvents is EqualUnmodifiableListView) return _matchEvents;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_matchEvents);
+  }
+
+  final List<LineUpModel> _lineUps;
+  @override
+  @JsonKey()
+  List<LineUpModel> get lineUps {
+    if (_lineUps is EqualUnmodifiableListView) return _lineUps;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_lineUps);
   }
 
   @override
@@ -162,7 +186,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
 
   @override
   String toString() {
-    return 'MatchDetailsState(matchEvents: $matchEvents, detailsOptions: $detailsOptions, isLoading: $isLoading, errorMessage: $errorMessage)';
+    return 'MatchDetailsState(matchEvents: $matchEvents, lineUps: $lineUps, detailsOptions: $detailsOptions, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -172,6 +196,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
             other is _$_MatchDetailsState &&
             const DeepCollectionEquality()
                 .equals(other._matchEvents, _matchEvents) &&
+            const DeepCollectionEquality().equals(other._lineUps, _lineUps) &&
             (identical(other.detailsOptions, detailsOptions) ||
                 other.detailsOptions == detailsOptions) &&
             (identical(other.isLoading, isLoading) ||
@@ -184,6 +209,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_matchEvents),
+      const DeepCollectionEquality().hash(_lineUps),
       detailsOptions,
       isLoading,
       errorMessage);
@@ -199,6 +225,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
 abstract class _MatchDetailsState extends MatchDetailsState {
   factory _MatchDetailsState(
       {final List<MatchEventsModel> matchEvents,
+      final List<LineUpModel> lineUps,
       final DetailsOptions detailsOptions,
       final bool isLoading,
       final String errorMessage}) = _$_MatchDetailsState;
@@ -206,6 +233,8 @@ abstract class _MatchDetailsState extends MatchDetailsState {
 
   @override
   List<MatchEventsModel> get matchEvents;
+  @override
+  List<LineUpModel> get lineUps;
   @override
   DetailsOptions get detailsOptions;
   @override
