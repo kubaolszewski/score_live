@@ -133,7 +133,7 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MatchDetailsState extends _MatchDetailsState {
-  const _$_MatchDetailsState(
+  _$_MatchDetailsState(
       {final List<MatchEventsModel> matchEvents = const [],
       this.detailsOptions = DetailsOptions.summary,
       this.isLoading = false,
@@ -197,12 +197,12 @@ class _$_MatchDetailsState extends _MatchDetailsState {
 }
 
 abstract class _MatchDetailsState extends MatchDetailsState {
-  const factory _MatchDetailsState(
+  factory _MatchDetailsState(
       {final List<MatchEventsModel> matchEvents,
       final DetailsOptions detailsOptions,
       final bool isLoading,
       final String errorMessage}) = _$_MatchDetailsState;
-  const _MatchDetailsState._() : super._();
+  _MatchDetailsState._() : super._();
 
   @override
   List<MatchEventsModel> get matchEvents;

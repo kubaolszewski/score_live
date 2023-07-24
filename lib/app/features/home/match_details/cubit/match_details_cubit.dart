@@ -8,7 +8,7 @@ part 'match_details_state.dart';
 part 'match_details_cubit.freezed.dart';
 
 class MatchDetailsCubit extends Cubit<MatchDetailsState> {
-  MatchDetailsCubit(this.matchDetailsRepository) : super(const MatchDetailsState());
+  MatchDetailsCubit(this.matchDetailsRepository) : super(MatchDetailsState());
 
   final MatchDetailsRepository matchDetailsRepository;
 
@@ -25,9 +25,7 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
   Future<void> fetchMatchGoals(String matchID) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final matchEvents = await matchDetailsRepository.fetchMatchEvents(
-        matchID
-      );
+      final matchEvents = await matchDetailsRepository.fetchMatchEvents(matchID);
       emit(state.copyWith(matchEvents: matchEvents, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
