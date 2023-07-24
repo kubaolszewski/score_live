@@ -308,7 +308,7 @@ class HomeScreenRepository {
     return response.map(LiveMatchModel.fromJson).toList();
   }
 
-  Future<List<LiveMatchModel>?> fetchMatchesByDate(String date) async {
+  Future<List<LiveMatchModel>?> fetchMatchesByDate(String status, String date) async {
     // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.fullTime, date: date)).response;
     final response = [
       {
@@ -609,7 +609,7 @@ class HomeScreenRepository {
     return response.map(LiveMatchModel.fromJson).toList();
   }
 
-  Future<List<LiveMatchModel>?> fetchUpcomingMatches(String date) async {
+  Future<List<LiveMatchModel>?> fetchUpcomingMatches(String status, String date) async {
     // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.matchNotStarted, date: date))
     //     .response;
     final response = [

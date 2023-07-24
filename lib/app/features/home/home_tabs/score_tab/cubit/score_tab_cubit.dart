@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/repositories/home_screen_repository.dart';
 
 part 'score_tab_state.dart';
@@ -15,15 +16,17 @@ class ScoreTabCubit extends Cubit<ScoreTabState> {
   Future<void> fetchMatchesByDate(DateTime date) async {
     String formattedDate = DateFormat('yyyy-MM-dd').format(date);
     emit(const LoadingMatchesState());
-    try {
-      final matchesByDate = await homeScreenRepository.fetchMatchesByDate(
-        formattedDate,
-      );
-      if (matchesByDate!.isNotEmpty) {
-        emit(MatchesLoadedState(matchesByDate));
+    if (date.isBefore(DateTime.now()) || date.isAtSameMomentAs(DateTime.now())) {
+      try {
+        final matchesByDate = await homeScreenRepository.fetchMatchesByDate(AppConstVariables.fullTime, formattedDate);
+        if (matchesByDate!.isNotEmpty) {
+          emit(MatchesLoadedState(matchesByDate));
+        }
+      } catch (error) {
+        emit(ErrorMatchesState(error.toString()));
       }
-    } catch (error) {
-      emit(ErrorMatchesState(error.toString()));
+    } else {
+      emit(const ErrorMatchesState('No results.'));
     }
   }
 }
