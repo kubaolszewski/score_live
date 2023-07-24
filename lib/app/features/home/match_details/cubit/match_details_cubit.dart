@@ -23,16 +23,6 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
     }
   }
 
-  Future<void> fetchMatchGoals(String matchID) async {
-    emit(state.copyWith(isLoading: true));
-    try {
-      final matchEvents = await matchDetailsRepository.fetchMatchEvents(matchID);
-      emit(state.copyWith(matchEvents: matchEvents, isLoading: false));
-    } catch (error) {
-      emit(state.copyWith(errorMessage: error.toString()));
-    }
-  }
-
   Future<void> fetchLineUps(String matchID) async {
     emit(state.copyWith(isLoading: true));
     try {
