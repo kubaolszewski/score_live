@@ -26,8 +26,6 @@ class UpcomingTabCubit extends Cubit<UpcomingTabState> {
       } catch (error) {
         emit(ErrorMatchesState(error.toString()));
       }
-    } else {
-      emit(const ErrorMatchesState('No results.'));
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
 class UpcomingTabErrorView extends StatelessWidget {
@@ -13,8 +14,9 @@ class UpcomingTabErrorView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        errorMessage,
-        style: CommonTextStyles.basicWhiteTextWithWeight
+        errorMessage.isNotEmpty ? 
+        errorMessage : context.localizations.noResults,
+        style: const CustomTextStyle(color: Colors.white, fontWeight: FontWeight.w700)
       ),
     );
   }
