@@ -3,6 +3,7 @@ import 'package:score_live/app/custom_widgets/search_list_tile.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/dimensions_context.dart';
 import 'package:score_live/models/league_model/league_model.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class RegionTabLoadedView extends StatelessWidget {
   const RegionTabLoadedView({super.key, required this.leaguesbyRegion});
@@ -40,9 +41,9 @@ class RegionTabLoadedView extends StatelessWidget {
                 itemCount: leaguesbyRegion.length,
                 itemBuilder: (context, index) {
                   final league = leaguesbyRegion[index];
-                  final String leagueFlag = league.country?.flag ?? '';
-                  final String leagueRegion = league.country?.name ?? '';
-                  final String leagueName = league.league?.name ?? '';
+                  final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
+                  final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
+                  final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
                   return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
                 },
               ),

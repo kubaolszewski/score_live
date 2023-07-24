@@ -21,6 +21,7 @@
   "unknownHomeTeam" : "Unknown home team",
   "unknownAwayTeam" : "Unknown away team",
   "unknownLeague" : "Unknown league",
+  "unknownTeam" : "Unknown team",
   "noDetailsInfo" : "No details about this match.",
   "halfTime" : "Half Time",
   "fullTime" : "Full Time",
