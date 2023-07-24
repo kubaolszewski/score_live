@@ -19,15 +19,9 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
   String? baseUrl;
 
   @override
-  Future<LiveMatchesFixtures> fetchMatchesByDate({
-    required String season,
-    required String date,
-  }) async {
+  Future<LiveMatchesFixtures> fetchLiveMatches({required String live}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'season': season,
-      r'date': date,
-    };
+    final queryParameters = <String, dynamic>{r'live': live};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -52,9 +46,15 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
   }
 
   @override
-  Future<LiveMatchesFixtures> fetchLiveMatches({required String live}) async {
+  Future<LiveMatchesFixtures> fetchMatchesByDate({
+    required String status,
+    required String date,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'live': live};
+    final queryParameters = <String, dynamic>{
+      r'status': status,
+      r'date': date,
+    };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(

@@ -5,22 +5,23 @@ import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/repositories/home_screen_repository.dart';
 
-part 'score_tab_state.dart';
-part 'score_tab_cubit.freezed.dart';
+part 'upcoming_tab_state.dart';
+part 'upcoming_tab_cubit.freezed.dart';
 
-class ScoreTabCubit extends Cubit<ScoreTabState> {
-  ScoreTabCubit(this.homeScreenRepository) : super(const LoadingMatchesState());
+class UpcomingTabCubit extends Cubit<UpcomingTabState> {
+  UpcomingTabCubit(this.homeScreenRepository) : super(const LoadingMatchesState());
 
   final HomeScreenRepository homeScreenRepository;
 
-  Future<void> fetchMatchesByDate(DateTime date) async {
+  Future<void> fetchUpcomingMatches(DateTime date) async {
     String formattedDate = DateFormat('yyyy-MM-dd').format(date);
     emit(const LoadingMatchesState());
-    if (date.isBefore(DateTime.now()) || date.isAtSameMomentAs(DateTime.now())) {
+    if (date.isAtSameMomentAs(DateTime.now()) || date.isAfter(DateTime.now())) {
       try {
-        final matchesByDate = await homeScreenRepository.fetchMatchesByDate(AppConstVariables.fullTime, formattedDate);
-        if (matchesByDate!.isNotEmpty) {
-          emit(MatchesLoadedState(matchesByDate));
+        final upcomingMatches =
+            await homeScreenRepository.fetchUpcomingMatches(AppConstVariables.matchNotStarted, formattedDate);
+        if (upcomingMatches!.isNotEmpty) {
+          emit(MatchesLoadedState(upcomingMatches.take(20).toList()));
         }
       } catch (error) {
         emit(ErrorMatchesState(error.toString()));

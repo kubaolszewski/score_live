@@ -7,13 +7,8 @@ class HomeScreenRepository {
 
   final LiveMatchesRemoteService liveMatchesRemoteService;
 
-  Future<List<LiveMatchModel>?> fetchMatchesByDate(String date) async {
-    // return (await liveMatchesRemoteService.fetchMatchesByDate(season: '2023', date: date))
-    //     .response!
-    //     .where(
-    //       (element) => element.fixture!.status!.short == AppConstVariables.fullTime,
-    //     )
-    //     .toList();
+  Future<List<LiveMatchModel>?> fetchLiveMatches() async {
+    // return (await liveMatchesRemoteService.fetchLiveMatches(live: 'all')).response;
     final response = [
       {
         "fixture": {
@@ -313,8 +308,8 @@ class HomeScreenRepository {
     return response.map(LiveMatchModel.fromJson).toList();
   }
 
-  Future<List<LiveMatchModel>?> fetchLiveMatches() async {
-    // return (await liveMatchesRemoteService.fetchLiveMatches(live: 'all')).response;
+  Future<List<LiveMatchModel>?> fetchMatchesByDate(String status, String date) async {
+    // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.fullTime, date: date)).response;
     final response = [
       {
         "fixture": {
@@ -606,6 +601,224 @@ class HomeScreenRepository {
         "score": {
           "halftime": {"home": 0, "away": 1},
           "fulltime": {"home": 0, "away": 3},
+          "extratime": {"home": null, "away": null},
+          "penalty": {"home": null, "away": null}
+        }
+      }
+    ];
+    return response.map(LiveMatchModel.fromJson).toList();
+  }
+
+  Future<List<LiveMatchModel>?> fetchUpcomingMatches(String status, String date) async {
+    // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.matchNotStarted, date: date))
+    //     .response;
+    final response = [
+      {
+        "fixture": {
+          "id": 1021889,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2023-07-21T11:00:00+00:00",
+          "timestamp": 1689937200,
+          "periods": {"first": null, "second": null},
+          "venue": {"id": 2557, "name": "Larrakia Park", "city": "Darwin"},
+          "status": {"long": "Not Started", "short": "NS", "elapsed": null}
+        },
+        "league": {
+          "id": 193,
+          "name": "Northern Territory Premier League",
+          "country": "Australia",
+          "logo": "https://media-2.api-sports.io/football/leagues/193.png",
+          "flag": "https://media-3.api-sports.io/flags/au.svg",
+          "season": 2023,
+          "round": "Regular Season - 12"
+        },
+        "teams": {
+          "home": {
+            "id": 3779,
+            "name": "Darwin Olympic",
+            "logo": "https://media-2.api-sports.io/football/teams/3779.png",
+            "winner": null
+          },
+          "away": {
+            "id": 3781,
+            "name": "Mindil Aces",
+            "logo": "https://media-3.api-sports.io/football/teams/3781.png",
+            "winner": null
+          }
+        },
+        "goals": {"home": null, "away": null},
+        "score": {
+          "halftime": {"home": null, "away": null},
+          "fulltime": {"home": null, "away": null},
+          "extratime": {"home": null, "away": null},
+          "penalty": {"home": null, "away": null}
+        }
+      },
+      {
+        "fixture": {
+          "id": 1047245,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2023-07-21T11:00:00+00:00",
+          "timestamp": 1689937200,
+          "periods": {"first": null, "second": null},
+          "venue": {"id": null, "name": "TBC", "city": "TBC"},
+          "status": {"long": "Not Started", "short": "NS", "elapsed": null}
+        },
+        "league": {
+          "id": 667,
+          "name": "Friendlies Clubs",
+          "country": "World",
+          "logo": "https://media-2.api-sports.io/football/leagues/667.png",
+          "flag": null,
+          "season": 2023,
+          "round": "Club Friendlies 3"
+        },
+        "teams": {
+          "home": {
+            "id": 5914,
+            "name": "Rochefort",
+            "logo": "https://media-3.api-sports.io/football/teams/5914.png",
+            "winner": null
+          },
+          "away": {
+            "id": 10244,
+            "name": "Seraing United",
+            "logo": "https://media-3.api-sports.io/football/teams/10244.png",
+            "winner": null
+          }
+        },
+        "goals": {"home": null, "away": null},
+        "score": {
+          "halftime": {"home": null, "away": null},
+          "fulltime": {"home": null, "away": null},
+          "extratime": {"home": null, "away": null},
+          "penalty": {"home": null, "away": null}
+        }
+      },
+      {
+        "fixture": {
+          "id": 1039066,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2023-07-21T11:30:00+00:00",
+          "timestamp": 1689939000,
+          "periods": {"first": null, "second": null},
+          "venue": {"id": null, "name": "Akademie Liefering - Platz 2", "city": "Salzburg"},
+          "status": {"long": "Not Started", "short": "NS", "elapsed": null}
+        },
+        "league": {
+          "id": 667,
+          "name": "Friendlies Clubs",
+          "country": "World",
+          "logo": "https://media-2.api-sports.io/football/leagues/667.png",
+          "flag": null,
+          "season": 2023,
+          "round": "Club Friendlies 3"
+        },
+        "teams": {
+          "home": {
+            "id": 1400,
+            "name": "FC Liefering",
+            "logo": "https://media-1.api-sports.io/football/teams/1400.png",
+            "winner": null
+          },
+          "away": {
+            "id": 11225,
+            "name": "LASK Juniors",
+            "logo": "https://media-1.api-sports.io/football/teams/11225.png",
+            "winner": null
+          }
+        },
+        "goals": {"home": null, "away": null},
+        "score": {
+          "halftime": {"home": null, "away": null},
+          "fulltime": {"home": null, "away": null},
+          "extratime": {"home": null, "away": null},
+          "penalty": {"home": null, "away": null}
+        }
+      },
+      {
+        "fixture": {
+          "id": 1021406,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2023-07-21T11:35:00+00:00",
+          "timestamp": 1689939300,
+          "periods": {"first": null, "second": null},
+          "venue": {"id": null, "name": "SAIC Motor Pudong Arena", "city": "Shanghai"},
+          "status": {"long": "Not Started", "short": "NS", "elapsed": null}
+        },
+        "league": {
+          "id": 169,
+          "name": "Super League",
+          "country": "China",
+          "logo": "https://media-1.api-sports.io/football/leagues/169.png",
+          "flag": "https://media-3.api-sports.io/flags/cn.svg",
+          "season": 2023,
+          "round": "Regular Season - 18"
+        },
+        "teams": {
+          "home": {
+            "id": 836,
+            "name": "SHANGHAI SIPG",
+            "logo": "https://media-2.api-sports.io/football/teams/836.png",
+            "winner": null
+          },
+          "away": {
+            "id": 849,
+            "name": "Shijiazhuang Y. J.",
+            "logo": "https://media-2.api-sports.io/football/teams/849.png",
+            "winner": null
+          }
+        },
+        "goals": {"home": null, "away": null},
+        "score": {
+          "halftime": {"home": null, "away": null},
+          "fulltime": {"home": null, "away": null},
+          "extratime": {"home": null, "away": null},
+          "penalty": {"home": null, "away": null}
+        }
+      },
+      {
+        "fixture": {
+          "id": 1021407,
+          "referee": null,
+          "timezone": "UTC",
+          "date": "2023-07-21T11:35:00+00:00",
+          "timestamp": 1689939300,
+          "periods": {"first": null, "second": null},
+          "venue": {"id": 355, "name": "Zhengzhou Hanghai Stadium", "city": "Zhengzhou"},
+          "status": {"long": "Not Started", "short": "NS", "elapsed": null}
+        },
+        "league": {
+          "id": 169,
+          "name": "Super League",
+          "country": "China",
+          "logo": "https://media-1.api-sports.io/football/leagues/169.png",
+          "flag": "https://media-3.api-sports.io/flags/cn.svg",
+          "season": 2023,
+          "round": "Regular Season - 18"
+        },
+        "teams": {
+          "home": {
+            "id": 840,
+            "name": "Henan Jianye",
+            "logo": "https://media-2.api-sports.io/football/teams/840.png",
+            "winner": null
+          },
+          "away": {
+            "id": 2626,
+            "name": "Nantong Zhiyun",
+            "logo": "https://media-1.api-sports.io/football/teams/2626.png",
+            "winner": null
+          }
+        },
+        "goals": {"home": null, "away": null},
+        "score": {
+          "halftime": {"home": null, "away": null},
+          "fulltime": {"home": null, "away": null},
           "extratime": {"home": null, "away": null},
           "penalty": {"home": null, "away": null}
         }

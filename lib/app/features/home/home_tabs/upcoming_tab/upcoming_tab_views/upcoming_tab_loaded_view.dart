@@ -7,19 +7,19 @@ import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
-class ScoreTabLoadedView extends StatelessWidget {
-  const ScoreTabLoadedView({
+class UpcomingTabLoadedView extends StatelessWidget {
+  const UpcomingTabLoadedView({
     super.key,
-    required this.matchesByDate,
+    required this.upcomingMatches,
   });
 
-  final List<LiveMatchModel> matchesByDate;
+  final List<LiveMatchModel> upcomingMatches;
 
   @override
   Widget build(BuildContext context) {
     double width = AppConstVariables.widthInfinity;
 
-    if (matchesByDate.isEmpty) {
+    if (upcomingMatches.isEmpty) {
       return SizedBox(
         height: 200,
         child: Center(
@@ -37,11 +37,11 @@ class ScoreTabLoadedView extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         physics: const ScrollPhysics(),
-        itemCount: matchesByDate.length,
+        itemCount: upcomingMatches.length,
         itemBuilder: (context, index) {
-          final match = matchesByDate[index];
+          final match = upcomingMatches[index];
           final String flag = match.league?.flag ?? AppConstVariables.defaultLeagueLogo;
-          final String leagueName = match.league?.name ?? context.localizations.unknownLeague;
+          final String leagueName = match.league?.name ?? AppConstVariables.stringPlaceholder;
           return Column(
             children: [
               Padding(

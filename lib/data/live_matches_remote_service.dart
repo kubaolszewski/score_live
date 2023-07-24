@@ -10,14 +10,14 @@ abstract class LiveMatchesRemoteService {
   static LiveMatchesRemoteService create(ApiClient dio) => _LiveMatchesRemoteService(dio.dio);
 
   @GET('/fixtures')
-  Future<LiveMatchesFixtures> fetchMatchesByDate({
-    @Query("season") required String season,
-    @Query("date") required String date,
+  Future<LiveMatchesFixtures> fetchLiveMatches({
+    @Query("live") required String live,
   });
 
   @GET('/fixtures')
-  Future<LiveMatchesFixtures> fetchLiveMatches({
-    @Query("live") required String live,
+  Future<LiveMatchesFixtures> fetchMatchesByDate({
+    @Query("status") required String status,
+    @Query("date") required String date,
   });
 
   @GET('/fixtures/events')
