@@ -14,33 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-StartXi _$StartXiFromJson(Map<String, dynamic> json) {
+StartXI _$StartXIFromJson(Map<String, dynamic> json) {
   return _StartXi.fromJson(json);
 }
 
 /// @nodoc
-mixin _$StartXi {
-  StartXiPlayer? get player => throw _privateConstructorUsedError;
+mixin _$StartXI {
+  StartXIPlayer? get player => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $StartXiCopyWith<StartXi> get copyWith => throw _privateConstructorUsedError;
+  $StartXICopyWith<StartXI> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StartXiCopyWith<$Res> {
-  factory $StartXiCopyWith(StartXi value, $Res Function(StartXi) then) =
-      _$StartXiCopyWithImpl<$Res, StartXi>;
+abstract class $StartXICopyWith<$Res> {
+  factory $StartXICopyWith(StartXI value, $Res Function(StartXI) then) =
+      _$StartXICopyWithImpl<$Res, StartXI>;
   @useResult
-  $Res call({StartXiPlayer? player});
+  $Res call({StartXIPlayer? player});
 
-  $StartXiPlayerCopyWith<$Res>? get player;
+  $StartXIPlayerCopyWith<$Res>? get player;
 }
 
 /// @nodoc
-class _$StartXiCopyWithImpl<$Res, $Val extends StartXi>
-    implements $StartXiCopyWith<$Res> {
-  _$StartXiCopyWithImpl(this._value, this._then);
+class _$StartXICopyWithImpl<$Res, $Val extends StartXI>
+    implements $StartXICopyWith<$Res> {
+  _$StartXICopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -56,39 +56,39 @@ class _$StartXiCopyWithImpl<$Res, $Val extends StartXi>
       player: freezed == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as StartXiPlayer?,
+              as StartXIPlayer?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $StartXiPlayerCopyWith<$Res>? get player {
+  $StartXIPlayerCopyWith<$Res>? get player {
     if (_value.player == null) {
       return null;
     }
 
-    return $StartXiPlayerCopyWith<$Res>(_value.player!, (value) {
+    return $StartXIPlayerCopyWith<$Res>(_value.player!, (value) {
       return _then(_value.copyWith(player: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_StartXiCopyWith<$Res> implements $StartXiCopyWith<$Res> {
+abstract class _$$_StartXiCopyWith<$Res> implements $StartXICopyWith<$Res> {
   factory _$$_StartXiCopyWith(
           _$_StartXi value, $Res Function(_$_StartXi) then) =
       __$$_StartXiCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StartXiPlayer? player});
+  $Res call({StartXIPlayer? player});
 
   @override
-  $StartXiPlayerCopyWith<$Res>? get player;
+  $StartXIPlayerCopyWith<$Res>? get player;
 }
 
 /// @nodoc
 class __$$_StartXiCopyWithImpl<$Res>
-    extends _$StartXiCopyWithImpl<$Res, _$_StartXi>
+    extends _$StartXICopyWithImpl<$Res, _$_StartXi>
     implements _$$_StartXiCopyWith<$Res> {
   __$$_StartXiCopyWithImpl(_$_StartXi _value, $Res Function(_$_StartXi) _then)
       : super(_value, _then);
@@ -102,7 +102,7 @@ class __$$_StartXiCopyWithImpl<$Res>
       player: freezed == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as StartXiPlayer?,
+              as StartXIPlayer?,
     ));
   }
 }
@@ -116,11 +116,11 @@ class _$_StartXi implements _StartXi {
       _$$_StartXiFromJson(json);
 
   @override
-  final StartXiPlayer? player;
+  final StartXIPlayer? player;
 
   @override
   String toString() {
-    return 'StartXi(player: $player)';
+    return 'StartXI(player: $player)';
   }
 
   @override
@@ -149,25 +149,25 @@ class _$_StartXi implements _StartXi {
   }
 }
 
-abstract class _StartXi implements StartXi {
-  const factory _StartXi({final StartXiPlayer? player}) = _$_StartXi;
+abstract class _StartXi implements StartXI {
+  const factory _StartXi({final StartXIPlayer? player}) = _$_StartXi;
 
   factory _StartXi.fromJson(Map<String, dynamic> json) = _$_StartXi.fromJson;
 
   @override
-  StartXiPlayer? get player;
+  StartXIPlayer? get player;
   @override
   @JsonKey(ignore: true)
   _$$_StartXiCopyWith<_$_StartXi> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-StartXiPlayer _$StartXiPlayerFromJson(Map<String, dynamic> json) {
+StartXIPlayer _$StartXIPlayerFromJson(Map<String, dynamic> json) {
   return _StartXiPlayer.fromJson(json);
 }
 
 /// @nodoc
-mixin _$StartXiPlayer {
+mixin _$StartXIPlayer {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   int? get number => throw _privateConstructorUsedError;
@@ -176,23 +176,23 @@ mixin _$StartXiPlayer {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $StartXiPlayerCopyWith<StartXiPlayer> get copyWith =>
+  $StartXIPlayerCopyWith<StartXIPlayer> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StartXiPlayerCopyWith<$Res> {
-  factory $StartXiPlayerCopyWith(
-          StartXiPlayer value, $Res Function(StartXiPlayer) then) =
-      _$StartXiPlayerCopyWithImpl<$Res, StartXiPlayer>;
+abstract class $StartXIPlayerCopyWith<$Res> {
+  factory $StartXIPlayerCopyWith(
+          StartXIPlayer value, $Res Function(StartXIPlayer) then) =
+      _$StartXIPlayerCopyWithImpl<$Res, StartXIPlayer>;
   @useResult
   $Res call({int? id, String? name, int? number, String? pos, String? grid});
 }
 
 /// @nodoc
-class _$StartXiPlayerCopyWithImpl<$Res, $Val extends StartXiPlayer>
-    implements $StartXiPlayerCopyWith<$Res> {
-  _$StartXiPlayerCopyWithImpl(this._value, this._then);
+class _$StartXIPlayerCopyWithImpl<$Res, $Val extends StartXIPlayer>
+    implements $StartXIPlayerCopyWith<$Res> {
+  _$StartXIPlayerCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -235,7 +235,7 @@ class _$StartXiPlayerCopyWithImpl<$Res, $Val extends StartXiPlayer>
 
 /// @nodoc
 abstract class _$$_StartXiPlayerCopyWith<$Res>
-    implements $StartXiPlayerCopyWith<$Res> {
+    implements $StartXIPlayerCopyWith<$Res> {
   factory _$$_StartXiPlayerCopyWith(
           _$_StartXiPlayer value, $Res Function(_$_StartXiPlayer) then) =
       __$$_StartXiPlayerCopyWithImpl<$Res>;
@@ -246,7 +246,7 @@ abstract class _$$_StartXiPlayerCopyWith<$Res>
 
 /// @nodoc
 class __$$_StartXiPlayerCopyWithImpl<$Res>
-    extends _$StartXiPlayerCopyWithImpl<$Res, _$_StartXiPlayer>
+    extends _$StartXIPlayerCopyWithImpl<$Res, _$_StartXiPlayer>
     implements _$$_StartXiPlayerCopyWith<$Res> {
   __$$_StartXiPlayerCopyWithImpl(
       _$_StartXiPlayer _value, $Res Function(_$_StartXiPlayer) _then)
@@ -308,7 +308,7 @@ class _$_StartXiPlayer implements _StartXiPlayer {
 
   @override
   String toString() {
-    return 'StartXiPlayer(id: $id, name: $name, number: $number, pos: $pos, grid: $grid)';
+    return 'StartXIPlayer(id: $id, name: $name, number: $number, pos: $pos, grid: $grid)';
   }
 
   @override
@@ -341,7 +341,7 @@ class _$_StartXiPlayer implements _StartXiPlayer {
   }
 }
 
-abstract class _StartXiPlayer implements StartXiPlayer {
+abstract class _StartXiPlayer implements StartXIPlayer {
   const factory _StartXiPlayer(
       {final int? id,
       final String? name,

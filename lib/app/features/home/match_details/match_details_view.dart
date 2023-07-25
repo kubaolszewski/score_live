@@ -65,7 +65,7 @@ class MatchDetailsView extends StatelessWidget {
                   case DetailsOptions.lineUp:
                     return MatchLineUpTab(
                       liveMatch: liveMatch,
-                      lineUp: matchLineUps,
+                      lineUps: matchLineUps,
                     );
                   case DetailsOptions.stats:
                     return const MatchStatsTab();

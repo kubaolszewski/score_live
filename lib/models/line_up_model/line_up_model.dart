@@ -12,7 +12,7 @@ class LineUpModel with _$LineUpModel {
   const factory LineUpModel({
     Team? team,
     String? formation,
-    List<StartXi>? startXi,
+    List<StartXI>? startXI,
     List<Substitute>? substitutes,
     Coach? coach,
   }) = _LineUpModel;

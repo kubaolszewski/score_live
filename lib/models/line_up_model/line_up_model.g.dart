@@ -12,8 +12,8 @@ _$_LineUpModel _$$_LineUpModelFromJson(Map<String, dynamic> json) =>
           ? null
           : Team.fromJson(json['team'] as Map<String, dynamic>),
       formation: json['formation'] as String?,
-      startXi: (json['startXi'] as List<dynamic>?)
-          ?.map((e) => StartXi.fromJson(e as Map<String, dynamic>))
+      startXI: (json['startXI'] as List<dynamic>?)
+          ?.map((e) => StartXI.fromJson(e as Map<String, dynamic>))
           .toList(),
       substitutes: (json['substitutes'] as List<dynamic>?)
           ?.map((e) => Substitute.fromJson(e as Map<String, dynamic>))
@@ -27,7 +27,7 @@ Map<String, dynamic> _$$_LineUpModelToJson(_$_LineUpModel instance) =>
     <String, dynamic>{
       'team': instance.team,
       'formation': instance.formation,
-      'startXi': instance.startXi,
+      'startXI': instance.startXI,
       'substitutes': instance.substitutes,
       'coach': instance.coach,
     };

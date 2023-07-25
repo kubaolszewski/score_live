@@ -4,17 +4,17 @@ part 'start_xi.freezed.dart';
 part 'start_xi.g.dart';
 
 @freezed
-class StartXi with _$StartXi {
-  const factory StartXi({
-    StartXiPlayer? player,
+class StartXI with _$StartXI {
+  const factory StartXI({
+    StartXIPlayer? player,
   }) = _StartXi;
 
-  factory StartXi.fromJson(Map<String, dynamic> json) => _$StartXiFromJson(json);
+  factory StartXI.fromJson(Map<String, dynamic> json) => _$StartXIFromJson(json);
 }
 
 @freezed
-class StartXiPlayer with _$StartXiPlayer {
-  const factory StartXiPlayer({
+class StartXIPlayer with _$StartXIPlayer {
+  const factory StartXIPlayer({
     int? id,
     String? name,
     int? number,
@@ -22,5 +22,5 @@ class StartXiPlayer with _$StartXiPlayer {
     String? grid,
   }) = _StartXiPlayer;
 
-  factory StartXiPlayer.fromJson(Map<String, dynamic> json) => _$StartXiPlayerFromJson(json);
+  factory StartXIPlayer.fromJson(Map<String, dynamic> json) => _$StartXIPlayerFromJson(json);
 }

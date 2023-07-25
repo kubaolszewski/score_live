@@ -7,16 +7,16 @@ class MatchLineUpTab extends StatelessWidget {
   const MatchLineUpTab({
     super.key,
     required this.liveMatch,
-    required this.lineUp,
+    required this.lineUps,
   });
 
   final LiveMatchModel liveMatch;
-  final List<LineUpModel> lineUp;
+  final List<LineUpModel> lineUps;
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: LineUpsDisplay(lineUp: lineUp),
+      child: LineUpsDisplay(lineUps: lineUps),
     );
   }
 }

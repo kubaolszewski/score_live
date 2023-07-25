@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
 class EventTextSample extends StatelessWidget {
-  const EventTextSample({super.key, required this.time, required this.player, required this.isHomeTeam});
+  const EventTextSample({
+    super.key,
+    required this.leadingProperty,
+    required this.player,
+    required this.isHomeTeam,
+  });
 
-  final String time;
+  final String leadingProperty;
   final String player;
   final bool isHomeTeam;
 
@@ -14,13 +19,13 @@ class EventTextSample extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         if (isHomeTeam == true) ...[
-          Text(time, style: CommonTextStyles.basicWhiteTextWithWeight),
-          const SizedBox(width: 5),
+          Text(leadingProperty, style: CommonTextStyles.basicWhiteTextWithWeight),
+          const SizedBox(width: 10),
           Text(player, style: CommonTextStyles.basicWhiteTextWithWeight),
         ] else ...[
           Text(player, style: CommonTextStyles.basicWhiteTextWithWeight),
-          const SizedBox(width: 5),
-          Text(time, style: CommonTextStyles.basicWhiteTextWithWeight),
+          const SizedBox(width: 10),
+          Text(leadingProperty, style: CommonTextStyles.basicWhiteTextWithWeight),
         ],
       ],
     );

@@ -9,7 +9,7 @@ part of 'start_xi.dart';
 _$_StartXi _$$_StartXiFromJson(Map<String, dynamic> json) => _$_StartXi(
       player: json['player'] == null
           ? null
-          : StartXiPlayer.fromJson(json['player'] as Map<String, dynamic>),
+          : StartXIPlayer.fromJson(json['player'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_StartXiToJson(_$_StartXi instance) =>

@@ -22,7 +22,7 @@ LineUpModel _$LineUpModelFromJson(Map<String, dynamic> json) {
 mixin _$LineUpModel {
   Team? get team => throw _privateConstructorUsedError;
   String? get formation => throw _privateConstructorUsedError;
-  List<StartXi>? get startXi => throw _privateConstructorUsedError;
+  List<StartXI>? get startXI => throw _privateConstructorUsedError;
   List<Substitute>? get substitutes => throw _privateConstructorUsedError;
   Coach? get coach => throw _privateConstructorUsedError;
 
@@ -41,7 +41,7 @@ abstract class $LineUpModelCopyWith<$Res> {
   $Res call(
       {Team? team,
       String? formation,
-      List<StartXi>? startXi,
+      List<StartXI>? startXI,
       List<Substitute>? substitutes,
       Coach? coach});
 
@@ -64,7 +64,7 @@ class _$LineUpModelCopyWithImpl<$Res, $Val extends LineUpModel>
   $Res call({
     Object? team = freezed,
     Object? formation = freezed,
-    Object? startXi = freezed,
+    Object? startXI = freezed,
     Object? substitutes = freezed,
     Object? coach = freezed,
   }) {
@@ -77,10 +77,10 @@ class _$LineUpModelCopyWithImpl<$Res, $Val extends LineUpModel>
           ? _value.formation
           : formation // ignore: cast_nullable_to_non_nullable
               as String?,
-      startXi: freezed == startXi
-          ? _value.startXi
-          : startXi // ignore: cast_nullable_to_non_nullable
-              as List<StartXi>?,
+      startXI: freezed == startXI
+          ? _value.startXI
+          : startXI // ignore: cast_nullable_to_non_nullable
+              as List<StartXI>?,
       substitutes: freezed == substitutes
           ? _value.substitutes
           : substitutes // ignore: cast_nullable_to_non_nullable
@@ -128,7 +128,7 @@ abstract class _$$_LineUpModelCopyWith<$Res>
   $Res call(
       {Team? team,
       String? formation,
-      List<StartXi>? startXi,
+      List<StartXI>? startXI,
       List<Substitute>? substitutes,
       Coach? coach});
 
@@ -151,7 +151,7 @@ class __$$_LineUpModelCopyWithImpl<$Res>
   $Res call({
     Object? team = freezed,
     Object? formation = freezed,
-    Object? startXi = freezed,
+    Object? startXI = freezed,
     Object? substitutes = freezed,
     Object? coach = freezed,
   }) {
@@ -164,10 +164,10 @@ class __$$_LineUpModelCopyWithImpl<$Res>
           ? _value.formation
           : formation // ignore: cast_nullable_to_non_nullable
               as String?,
-      startXi: freezed == startXi
-          ? _value._startXi
-          : startXi // ignore: cast_nullable_to_non_nullable
-              as List<StartXi>?,
+      startXI: freezed == startXI
+          ? _value._startXI
+          : startXI // ignore: cast_nullable_to_non_nullable
+              as List<StartXI>?,
       substitutes: freezed == substitutes
           ? _value._substitutes
           : substitutes // ignore: cast_nullable_to_non_nullable
@@ -186,10 +186,10 @@ class _$_LineUpModel implements _LineUpModel {
   const _$_LineUpModel(
       {this.team,
       this.formation,
-      final List<StartXi>? startXi,
+      final List<StartXI>? startXI,
       final List<Substitute>? substitutes,
       this.coach})
-      : _startXi = startXi,
+      : _startXI = startXI,
         _substitutes = substitutes;
 
   factory _$_LineUpModel.fromJson(Map<String, dynamic> json) =>
@@ -199,12 +199,12 @@ class _$_LineUpModel implements _LineUpModel {
   final Team? team;
   @override
   final String? formation;
-  final List<StartXi>? _startXi;
+  final List<StartXI>? _startXI;
   @override
-  List<StartXi>? get startXi {
-    final value = _startXi;
+  List<StartXI>? get startXI {
+    final value = _startXI;
     if (value == null) return null;
-    if (_startXi is EqualUnmodifiableListView) return _startXi;
+    if (_startXI is EqualUnmodifiableListView) return _startXI;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -224,7 +224,7 @@ class _$_LineUpModel implements _LineUpModel {
 
   @override
   String toString() {
-    return 'LineUpModel(team: $team, formation: $formation, startXi: $startXi, substitutes: $substitutes, coach: $coach)';
+    return 'LineUpModel(team: $team, formation: $formation, startXI: $startXI, substitutes: $substitutes, coach: $coach)';
   }
 
   @override
@@ -235,7 +235,7 @@ class _$_LineUpModel implements _LineUpModel {
             (identical(other.team, team) || other.team == team) &&
             (identical(other.formation, formation) ||
                 other.formation == formation) &&
-            const DeepCollectionEquality().equals(other._startXi, _startXi) &&
+            const DeepCollectionEquality().equals(other._startXI, _startXI) &&
             const DeepCollectionEquality()
                 .equals(other._substitutes, _substitutes) &&
             (identical(other.coach, coach) || other.coach == coach));
@@ -247,7 +247,7 @@ class _$_LineUpModel implements _LineUpModel {
       runtimeType,
       team,
       formation,
-      const DeepCollectionEquality().hash(_startXi),
+      const DeepCollectionEquality().hash(_startXI),
       const DeepCollectionEquality().hash(_substitutes),
       coach);
 
@@ -269,7 +269,7 @@ abstract class _LineUpModel implements LineUpModel {
   const factory _LineUpModel(
       {final Team? team,
       final String? formation,
-      final List<StartXi>? startXi,
+      final List<StartXI>? startXI,
       final List<Substitute>? substitutes,
       final Coach? coach}) = _$_LineUpModel;
 
@@ -281,7 +281,7 @@ abstract class _LineUpModel implements LineUpModel {
   @override
   String? get formation;
   @override
-  List<StartXi>? get startXi;
+  List<StartXI>? get startXI;
   @override
   List<Substitute>? get substitutes;
   @override

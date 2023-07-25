@@ -40,7 +40,8 @@ class HalvesEventsDisplay extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                                 child: EventTextSample(
-                                    time: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                    leadingProperty:
+                                        event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                     player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                     isHomeTeam: true),
                               )
@@ -54,7 +55,8 @@ class HalvesEventsDisplay extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                                 child: EventTextSample(
-                                    time: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                    leadingProperty:
+                                        event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                     player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                     isHomeTeam: true),
                               )
@@ -83,7 +85,8 @@ class HalvesEventsDisplay extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                                 child: EventTextSample(
-                                    time: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                    leadingProperty:
+                                        event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                     player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                     isHomeTeam: false),
                               )
@@ -97,7 +100,8 @@ class HalvesEventsDisplay extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                                 child: EventTextSample(
-                                    time: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                    leadingProperty:
+                                        event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                     player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                     isHomeTeam: false),
                               )

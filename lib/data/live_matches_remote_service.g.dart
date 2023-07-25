@@ -119,7 +119,7 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
     )
             .compose(
               _dio.options,
-              '/fixtures/lineup',
+              '/fixtures/lineups',
               queryParameters: queryParameters,
               data: _data,
             )
