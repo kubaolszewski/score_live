@@ -64,8 +64,8 @@ class MatchLeagueAndTimerBadge extends StatelessWidget {
                   color: matchStatusShort == AppConstVariables.matchTimeToBeDefined ||
                           matchStatusShort == AppConstVariables.matchNotStarted ||
                           matchStatusShort == AppConstVariables.matchSuspended
-                      ? Colors.transparent
-                      : AppColors.liveTimerBackgroundGreen,
+                      ? AppColors.liveTimerBackgroundGreen
+                      : Colors.transparent,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -84,7 +84,7 @@ class MatchLeagueAndTimerBadge extends StatelessWidget {
                           color: matchStatusShort == AppConstVariables.matchTimeToBeDefined ||
                                   matchStatusShort == AppConstVariables.matchNotStarted ||
                                   matchStatusShort == AppConstVariables.matchSuspended
-                              ? Colors.white
+                              ? Colors.black
                               : Colors.green,
                           fontWeight: FontWeight.bold),
                     ),
