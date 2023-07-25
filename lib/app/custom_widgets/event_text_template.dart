@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-class EventTextSample extends StatelessWidget {
-  const EventTextSample({
+class EventTextTemplate extends StatelessWidget {
+  const EventTextTemplate({
     super.key,
     required this.leadingProperty,
     required this.player,

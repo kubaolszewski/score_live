@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/event_text_sample.dart';
+import 'package:score_live/app/custom_widgets/event_text_template.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
@@ -58,7 +58,7 @@ class LineUpsDisplay extends StatelessWidget {
                     const SizedBox(height: 10),
                     if (homeTeamLineUp != null)
                       for (final player in homeTeamLineUp) ...[
-                        EventTextSample(
+                        EventTextTemplate(
                             leadingProperty: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
                             player: player.player?.name ?? AppConstVariables.stringPlaceholder,
                             isHomeTeam: true),
@@ -92,7 +92,7 @@ class LineUpsDisplay extends StatelessWidget {
                   const SizedBox(height: 10),
                   if (awayTeamLineUp != null)
                     for (final awayPlayer in awayTeamLineUp) ...[
-                      EventTextSample(
+                      EventTextTemplate(
                           leadingProperty: awayPlayer.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
                           player: awayPlayer.player?.name ?? AppConstVariables.stringPlaceholder,
                           isHomeTeam: false),
