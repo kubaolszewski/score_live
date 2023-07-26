@@ -6,6 +6,7 @@ import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class UpcomingTabLoadedView extends StatelessWidget {
   const UpcomingTabLoadedView({
@@ -20,13 +21,13 @@ class UpcomingTabLoadedView extends StatelessWidget {
     double width = AppConstVariables.widthInfinity;
 
     if (upcomingMatches.isEmpty) {
-      return SizedBox(
-        height: 200,
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Center(
           child: Text(
             context.localizations.pastMatchesCheck,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white, fontSize: 24),
+            style: const CustomTextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.w700),
           ),
         ),
       );
@@ -77,9 +78,9 @@ class UpcomingTabLoadedView extends StatelessWidget {
                     const SizedBox(width: 10),
                     Text(
                       leagueName,
-                      style: const TextStyle(
-                        color: Colors.grey,
+                      style: const CustomTextStyle(
                         fontSize: 14,
+                        color: Colors.grey,
                         fontWeight: FontWeight.bold,
                       ),
                     )
