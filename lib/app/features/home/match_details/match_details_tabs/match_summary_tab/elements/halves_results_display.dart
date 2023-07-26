@@ -13,6 +13,7 @@ class HalvesResultDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     final String homeTeamName = liveMatch.teams?.home?.name ?? context.localizations.unknownHomeTeam;
     final String awayTeamName = liveMatch.teams?.away?.name ?? context.localizations.unknownAwayTeam;
+    final String matchStatusShort = liveMatch.fixture?.status?.short ?? AppConstVariables.stringPlaceholder;
     final int halfTimeHomeGoals = liveMatch.score?.halftime?.home ?? AppConstVariables.intPlaceholder;
     final int halfTimeAwayGoals = liveMatch.score?.halftime?.away ?? AppConstVariables.intPlaceholder;
     final int fullTimeHomeGoals = liveMatch.score?.fulltime?.home ?? AppConstVariables.intPlaceholder;
@@ -60,8 +61,10 @@ class HalvesResultDisplay extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '$homeTeamName $fullTimeHomeGoals - '
-                    '$fullTimeAwayGoals $awayTeamName',
+                    matchStatusShort != 'FT'
+                        ? context.localizations.matchNotEnded
+                        : '$homeTeamName $fullTimeHomeGoals - '
+                            '$fullTimeAwayGoals $awayTeamName',
                     textAlign: TextAlign.center,
                     style: const TextStyle(color: Colors.white, fontSize: 16),
                   )

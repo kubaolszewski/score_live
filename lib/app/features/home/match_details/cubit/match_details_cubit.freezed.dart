@@ -132,13 +132,14 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MatchDetailsState implements _MatchDetailsState {
-  const _$_MatchDetailsState(
+class _$_MatchDetailsState extends _MatchDetailsState {
+  _$_MatchDetailsState(
       {final List<MatchEventsModel> matchEvents = const [],
       this.detailsOptions = DetailsOptions.summary,
       this.isLoading = false,
       this.errorMessage = ''})
-      : _matchEvents = matchEvents;
+      : _matchEvents = matchEvents,
+        super._();
 
   final List<MatchEventsModel> _matchEvents;
   @override
@@ -195,12 +196,13 @@ class _$_MatchDetailsState implements _MatchDetailsState {
           this, _$identity);
 }
 
-abstract class _MatchDetailsState implements MatchDetailsState {
-  const factory _MatchDetailsState(
+abstract class _MatchDetailsState extends MatchDetailsState {
+  factory _MatchDetailsState(
       {final List<MatchEventsModel> matchEvents,
       final DetailsOptions detailsOptions,
       final bool isLoading,
       final String errorMessage}) = _$_MatchDetailsState;
+  _MatchDetailsState._() : super._();
 
   @override
   List<MatchEventsModel> get matchEvents;
