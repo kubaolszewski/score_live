@@ -24,7 +24,7 @@ class UpcomingTabLoadedView extends StatelessWidget {
         height: 200,
         child: Center(
           child: Text(
-            context.localizations.noMatchesAtDate,
+            context.localizations.pastMatchesCheck,
             textAlign: TextAlign.center,
             style: const TextStyle(color: Colors.white, fontSize: 24),
           ),

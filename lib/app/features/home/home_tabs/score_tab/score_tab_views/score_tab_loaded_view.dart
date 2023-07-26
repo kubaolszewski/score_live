@@ -24,7 +24,7 @@ class ScoreTabLoadedView extends StatelessWidget {
         height: 200,
         child: Center(
           child: Text(
-            context.localizations.noMatchesAtDate,
+            context.localizations.noMatchesFinished,
             textAlign: TextAlign.center,
             style: const TextStyle(color: Colors.white, fontSize: 24),
           ),

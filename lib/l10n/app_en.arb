@@ -14,8 +14,10 @@
 
   "matchDetailsButton" : "Details",
 
-  "noMatchesLive" : "No matches happening right now.",
-  "noMatchesAtDate" : "No matches were played on this date.",
+  "noMatchesLive" : "No matches live.",
+  "noMatchesFinished" : "No matches were finished on this date yet.",
+  "pastMatchesCheck" : "Can't check past matches in this tab.",
+
 
   "currentDay" : "Today",
   "matchDetailsSummary" : "Summary",

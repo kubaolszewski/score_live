@@ -14,8 +14,9 @@
 
   "matchDetailsButton" : "Szczegóły",
 
-  "noMatchesLive" : "Bark spotkań live.",
-  "noMatchesAtDate" : "Tego dnia nie odbywał się żaden mecz",
+  "noMatchesLive" : "Brak spotkań na żywo.",
+  "noMatchesAtDate" : "Tego dnia nie odbył się jeszcze żaden mecz.",
+  "noMatchesUpcoming" : "Żaden mecz nie został zaplanowany tego dnia.",
 
   "currentDay" : "Dziś",
   "matchDetailsSummary" : "Przebieg",
