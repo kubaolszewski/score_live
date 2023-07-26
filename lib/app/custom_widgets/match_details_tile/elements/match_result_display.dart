@@ -23,20 +23,23 @@ class MatchResultDisplay extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-          child: SizedBox(
-            child: Column(
-              children: [
-                CachedNetworkImage(
-                  width: 55,
-                  height: 55,
-                  imageUrl: homeTeamLogo,
-                  fit: BoxFit.fill,
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
-                  errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
-                ),
-                Text(homeTeamName, textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteTextWithWeight),
-              ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
+            child: SizedBox(
+              child: Column(
+                children: [
+                  CachedNetworkImage(
+                    width: 36,
+                    height: 36,
+                    imageUrl: homeTeamLogo,
+                    fit: BoxFit.fill,
+                    progressIndicatorBuilder: (context, url, downloadProgress) =>
+                        CircularProgressIndicator(value: downloadProgress.progress, color: AppColors.mainThemePink),
+                    errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
+                  ),
+                  Text(homeTeamName, textAlign: TextAlign.center, style: CommonTextStyles.basicWhiteTextWithWeight),
+                ],
+              ),
             ),
           ),
         ),
@@ -74,8 +77,8 @@ class MatchResultDisplay extends StatelessWidget {
             child: Column(
               children: [
                 CachedNetworkImage(
-                  width: 55,
-                  height: 55,
+                  width: 36,
+                  height: 36,
                   imageUrl: awayTeamLogo,
                   fit: BoxFit.fill,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>

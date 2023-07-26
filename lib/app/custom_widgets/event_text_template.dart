@@ -16,7 +16,7 @@ class EventTextTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: isHomeTeam == true ? MainAxisAlignment.start : MainAxisAlignment.end,
       children: [
         if (isHomeTeam == true) ...[
           Text(leadingProperty, style: CommonTextStyles.basicWhiteTextWithWeight),

@@ -43,74 +43,59 @@ class MatchGoalsWidget extends StatelessWidget {
             ),
           );
         }
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+        return ListView(
+          shrinkWrap: true,
+          primary: false,
           children: [
-            Expanded(
-              flex: 2,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 150,
-                    child: ListView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      children: [
-                        for (final event in matchEvents) ...[
-                          if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                            if (homeTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
-                              EventTextTemplate(
-                                  leadingProperty:
-                                      event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                                  player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                                  isHomeTeam: true)
-                            else
-                              const SizedBox.shrink(),
-                        ]
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SafeArea(
+                  child: Wrap(
+                    direction: Axis.vertical,
+                    crossAxisAlignment: WrapCrossAlignment.start,
+                    children: [
+                      for (final event in matchEvents) ...[
+                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                          if (homeTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
+                            EventTextTemplate(
+                                leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                player: event.player?.name ?? AppConstVariables.stringPlaceholder,
+                                isHomeTeam: true),
                       ],
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-            const Expanded(
-              flex: 1,
-              child: Column(
-                children: [
-                  Icon(
-                    Icons.sports_soccer,
-                    color: Colors.grey,
+                ),
+                const Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.sports_soccer,
+                        color: Colors.grey,
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 150,
-                    child: ListView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      children: [
-                        for (final event in matchEvents) ...[
-                          if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                            if (awayTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
-                              EventTextTemplate(
-                                  leadingProperty:
-                                      event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                                  player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                                  isHomeTeam: false)
-                            else
-                              const SizedBox.shrink(),
-                        ]
+                ),
+                SafeArea(
+                  child: Wrap(
+                    direction: Axis.vertical,
+                    crossAxisAlignment: WrapCrossAlignment.end,
+                    children: [
+                      for (final event in matchEvents) ...[
+                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                          if (awayTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
+                            EventTextTemplate(
+                                leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                player: event.player?.name ?? AppConstVariables.stringPlaceholder,
+                                isHomeTeam: false)
                       ],
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            )
+                )
+              ],
+            ),
           ],
         );
       },
