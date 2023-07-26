@@ -25,8 +25,6 @@ class ScoreTabCubit extends Cubit<ScoreTabState> {
       } catch (error) {
         emit(ErrorMatchesState(error.toString()));
       }
-    } else {
-      emit(const ErrorMatchesState('No results.'));
     }
   }
 }

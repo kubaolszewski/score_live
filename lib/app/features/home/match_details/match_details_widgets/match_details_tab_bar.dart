@@ -21,45 +21,35 @@ class MatchDetailsTabBar extends StatelessWidget {
           child: Row(
             children: [
               TextButton(
-                  onPressed: () {
-                    _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.summary);
-                  },
+                  onPressed: () => _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.summary),
                   child: OptionsButton(
                     isActive: state.isSummaryActive,
                     buttonTitle: context.localizations.matchDetailsSummary,
                   )),
               const SizedBox(width: 15),
               TextButton(
-                  onPressed: () {
-                    _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.lineUp);
-                  },
+                  onPressed: () => _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.lineUp),
                   child: OptionsButton(
                     isActive: state.isLineUpActive,
                     buttonTitle: context.localizations.matchDetailsLineUp,
                   )),
               const SizedBox(width: 15),
               TextButton(
-                  onPressed: () {
-                    _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.stats);
-                  },
+                  onPressed: () => _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.stats),
                   child: OptionsButton(
                     isActive: state.isStatsActive,
                     buttonTitle: context.localizations.matchDetailsStats,
                   )),
               const SizedBox(width: 15),
               TextButton(
-                  onPressed: () {
-                    _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.h2H);
-                  },
+                  onPressed: () => _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.h2H),
                   child: OptionsButton(
                     isActive: state.isH2HActive,
                     buttonTitle: context.localizations.matchDetailsH2H,
                   )),
               const SizedBox(width: 15),
               TextButton(
-                  onPressed: () {
-                    _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.standings);
-                  },
+                  onPressed: () => _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.standings),
                   child: OptionsButton(
                     isActive: state.isStandingActive,
                     buttonTitle: context.localizations.matchDetailsStandings,
