@@ -4,6 +4,7 @@ part of 'match_details_cubit.dart';
 class MatchDetailsState with _$MatchDetailsState {
   factory MatchDetailsState({
     @Default([]) List<MatchEventsModel> matchEvents,
+    @Default([]) List<LineUpModel> lineUps,
     @Default(DetailsOptions.summary) DetailsOptions detailsOptions,
     @Default(false) bool isLoading,
     @Default('') String errorMessage,

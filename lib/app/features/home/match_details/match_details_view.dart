@@ -32,7 +32,7 @@ class MatchDetailsView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
-        title: MatchDetailsTitle(leagueName,matchDate),
+        title: MatchDetailsTitle(leagueName, matchDate),
         leading: IconButton(
             onPressed: () {
               Modular.to.pop();
@@ -55,6 +55,7 @@ class MatchDetailsView extends StatelessWidget {
             BlocBuilder<MatchDetailsCubit, MatchDetailsState>(
               builder: (context, state) {
                 final matchEvents = state.matchEvents;
+                final matchLineUps = state.lineUps;
                 switch (state.detailsOptions) {
                   case DetailsOptions.summary:
                     return MatchSummaryTab(
@@ -62,7 +63,10 @@ class MatchDetailsView extends StatelessWidget {
                       matchEvents: matchEvents,
                     );
                   case DetailsOptions.lineUp:
-                    return const MatchLineUpTab();
+                    return MatchLineUpTab(
+                      liveMatch: liveMatch,
+                      lineUps: matchLineUps,
+                    );
                   case DetailsOptions.stats:
                     return const MatchStatsTab();
                   case DetailsOptions.h2H:
