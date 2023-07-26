@@ -1,6 +1,7 @@
 import 'package:score_live/data/live_matches_remote_service.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
+import 'package:score_live/models/statistics_model/statistics_model.dart';
 
 class MatchDetailsRepository {
   MatchDetailsRepository(this.liveMatchesRemoteService);
@@ -323,5 +324,54 @@ class MatchDetailsRepository {
       }
     ];
     return response.map(LineUpModel.fromJson).toList();
+  }
+
+  Future<List<StatisticsModel>> fetchMatchStats(String matchID) async {
+    // return (await liveMatchesRemoteService.fetchMatchStats(matchID: matchID)).response;
+    final response = [
+      {
+        "team": {"id": 33, "name": "Manchester United", "logo": "https://media-1.api-sports.io/football/teams/33.png"},
+        "statistics": [
+          {"type": "Shots on Goal", "value": 8},
+          {"type": "Shots off Goal", "value": 5},
+          {"type": "Total Shots", "value": 16},
+          {"type": "Blocked Shots", "value": 3},
+          {"type": "Shots insidebox", "value": 12},
+          {"type": "Shots outsidebox", "value": 4},
+          {"type": "Fouls", "value": 11},
+          {"type": "Corner Kicks", "value": 5},
+          {"type": "Offsides", "value": 2},
+          {"type": "Ball Possession", "value": "49%"},
+          {"type": "Yellow Cards", "value": 1},
+          {"type": "Red Cards", "value": null},
+          {"type": "Goalkeeper Saves", "value": 2},
+          {"type": "Total passes", "value": 422},
+          {"type": "Passes accurate", "value": 334},
+          {"type": "Passes %", "value": "79%"}
+        ]
+      },
+      {
+        "team": {"id": 63, "name": "Leeds", "logo": "https://media-1.api-sports.io/football/teams/63.png"},
+        "statistics": [
+          {"type": "Shots on Goal", "value": 3},
+          {"type": "Shots off Goal", "value": 6},
+          {"type": "Total Shots", "value": 10},
+          {"type": "Blocked Shots", "value": 1},
+          {"type": "Shots insidebox", "value": 3},
+          {"type": "Shots outsidebox", "value": 7},
+          {"type": "Fouls", "value": 9},
+          {"type": "Corner Kicks", "value": 4},
+          {"type": "Offsides", "value": 3},
+          {"type": "Ball Possession", "value": "51%"},
+          {"type": "Yellow Cards", "value": 2},
+          {"type": "Red Cards", "value": null},
+          {"type": "Goalkeeper Saves", "value": 3},
+          {"type": "Total passes", "value": 438},
+          {"type": "Passes accurate", "value": 343},
+          {"type": "Passes %", "value": "78%"}
+        ]
+      }
+    ];
+    return response.map(StatisticsModel.fromJson).toList();
   }
 }
