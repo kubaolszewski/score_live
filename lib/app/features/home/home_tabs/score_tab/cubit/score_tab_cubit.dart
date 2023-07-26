@@ -14,17 +14,22 @@ class ScoreTabCubit extends Cubit<ScoreTabState> {
   final HomeScreenRepository homeScreenRepository;
 
   Future<void> fetchMatchesByDate(DateTime date) async {
-    String formattedDate = DateFormat('yyyy-MM-dd').format(date);
-    emit(const LoadingMatchesState());
-    if (date.isBefore(DateTime.now()) || date.isAtSameMomentAs(DateTime.now())) {
-      try {
-        final matchesByDate = await homeScreenRepository.fetchMatchesByDate(AppConstVariables.fullTime, formattedDate);
-        if (matchesByDate!.isNotEmpty) {
+    String formattedStringDate = DateFormat('yyyy-MM-dd').format(date);
+    DateTime formattedDate = DateFormat('yyyy-MM-dd').parse(formattedStringDate);
+    DateTime formattedActualDate = DateFormat('yyyy-MM-dd').parse(DateFormat('yyyy-MM-dd').format(DateTime.now()));
+    try {
+      if (formattedDate.isBefore(formattedActualDate) || formattedDate.isAtSameMomentAs(formattedActualDate)) {
+        emit(const LoadingMatchesState());
+        final matchesByDate =
+            await homeScreenRepository.fetchMatchesByDate(AppConstVariables.fullTime, formattedStringDate);
+        if (matchesByDate != null) {
           emit(MatchesLoadedState(matchesByDate));
         }
-      } catch (error) {
-        emit(ErrorMatchesState(error.toString()));
+      } else {
+        emit(const MatchesLoadedState([]));
       }
+    } catch (error) {
+      emit(ErrorMatchesState(error.toString()));
     }
   }
 }
