@@ -40,9 +40,9 @@ class StatsDisplayForStringValues extends StatelessWidget {
                   alignment: AlignmentDirectional.centerEnd,
                   children: [
                     Container(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
-                        height: 10,
-                        width: AppConstVariables.statsBarWidth),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
+                      height: 10,
+                    ),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.mainThemePink),
                       height: 10,
@@ -57,9 +57,9 @@ class StatsDisplayForStringValues extends StatelessWidget {
                   alignment: AlignmentDirectional.centerStart,
                   children: [
                     Container(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
-                        height: 10,
-                        width: AppConstVariables.statsBarWidth),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
+                      height: 10,
+                    ),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.statsBarGrey),
                       height: 10,

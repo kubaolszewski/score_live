@@ -26,11 +26,11 @@ class StatsDisplayForIntValues extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(homeTotalValue.toString(),
+              Text('$homeTotalValue',
                   style: const CustomTextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w700)),
               Text(valueName,
                   style: const CustomTextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w700)),
-              Text(awayTotalValue.toString(),
+              Text('$awayTotalValue',
                   style: const CustomTextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w700)),
             ],
           ),
@@ -42,9 +42,9 @@ class StatsDisplayForIntValues extends StatelessWidget {
                   alignment: AlignmentDirectional.centerEnd,
                   children: [
                     Container(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
-                        height: 10,
-                        width: AppConstVariables.statsBarWidth),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
+                      height: 10,
+                    ),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.mainThemePink),
                       height: 10,
@@ -59,9 +59,9 @@ class StatsDisplayForIntValues extends StatelessWidget {
                   alignment: AlignmentDirectional.centerStart,
                   children: [
                     Container(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
-                        height: 10,
-                        width: AppConstVariables.statsBarWidth),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
+                      height: 10,
+                    ),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.statsBarGrey),
                       height: 10,
