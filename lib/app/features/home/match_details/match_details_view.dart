@@ -46,7 +46,7 @@ class MatchDetailsView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 25),
+            const SizedBox(height: 20),
             MatchDetailsTile(
               leagueName: leagueName,
               liveMatch: liveMatch,

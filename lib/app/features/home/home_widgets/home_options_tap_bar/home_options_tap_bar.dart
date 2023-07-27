@@ -21,25 +21,19 @@ class HomeOptionsTapBar extends StatelessWidget {
             children: [
               Expanded(
                 child: TextButton(
-                  onPressed: () {
-                    _homeCubit(context).switchHomeOptions(HomeOptions.upcoming);
-                  },
+                  onPressed: () => _homeCubit(context).switchHomeOptions(HomeOptions.upcoming),
                   child:
                       OptionsButton(isActive: state.isUpcomingActive, buttonTitle: context.localizations.homeUpcoming),
                 ),
               ),
               Expanded(
                 child: TextButton(
-                    onPressed: () {
-                      _homeCubit(context).switchHomeOptions(HomeOptions.score);
-                    },
+                    onPressed: () => _homeCubit(context).switchHomeOptions(HomeOptions.score),
                     child: OptionsButton(isActive: state.isScoreActive, buttonTitle: context.localizations.homeScore)),
               ),
               Expanded(
                 child: TextButton(
-                    onPressed: () {
-                      _homeCubit(context).switchHomeOptions(HomeOptions.favorites);
-                    },
+                    onPressed: () => _homeCubit(context).switchHomeOptions(HomeOptions.favorites),
                     child: OptionsButton(
                         isActive: state.isFavoritesActive, buttonTitle: context.localizations.homeFavorites)),
               ),

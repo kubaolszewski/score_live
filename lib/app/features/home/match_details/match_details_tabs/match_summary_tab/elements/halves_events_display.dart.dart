@@ -6,11 +6,11 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class HalvesEventsDisplay extends StatelessWidget {
-  const HalvesEventsDisplay({super.key, required this.liveMatch, required this.matchEvents, required this.isHalfTime});
+  const HalvesEventsDisplay({super.key, required this.liveMatch, required this.matchEvents, required this.isFirstHalf});
 
   final LiveMatchModel liveMatch;
   final List<MatchEventsModel> matchEvents;
-  final bool isHalfTime;
+  final bool isFirstHalf;
 
   @override
   Widget build(BuildContext context) {
@@ -21,99 +21,77 @@ class HalvesEventsDisplay extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         color: AppColors.listTileGrey,
       ),
-      height: 200,
-      child: Row(
+      child: ListView(
+        shrinkWrap: true,
+        primary: false,
         children: [
-          Expanded(
-            flex: 1,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 200,
-                  child: ListView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      if (isHalfTime == true)
-                        for (final event in matchEvents) ...[
-                          if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                            if (homeTeamID == event.team?.id && event.time!.elapsed! < 45)
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                                child: EventTextTemplate(
-                                    leadingProperty:
-                                        event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                                    player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                                    isHomeTeam: true),
-                              )
-                            else
-                              const SizedBox.shrink(),
-                        ]
-                      else
-                        for (final event in matchEvents) ...[
-                          if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                            if (homeTeamID == event.team?.id && event.time!.elapsed! > 45)
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                                child: EventTextTemplate(
-                                    leadingProperty:
-                                        event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                                    player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                                    isHomeTeam: true),
-                              )
-                            else
-                              const SizedBox.shrink(),
-                        ]
-                    ],
-                  ),
-                )
-              ],
-            ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Wrap(
+                  direction: Axis.vertical,
+                  children: [
+                    if (isFirstHalf == true)
+                      for (final event in matchEvents) ...[
+                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                          if (homeTeamID == event.team?.id && event.time!.elapsed! < 45)
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0, top: 8.0),
+                              child: EventTextTemplate(
+                                  leadingProperty:
+                                      event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                  player: event.player?.name ?? AppConstVariables.stringPlaceholder,
+                                  isHomeTeam: true),
+                            )
+                      ]
+                    else
+                      for (final event in matchEvents) ...[
+                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                          if (homeTeamID == event.team?.id && event.time!.elapsed! > 45)
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0, top: 8.0),
+                              child: EventTextTemplate(
+                                  leadingProperty:
+                                      event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                  player: event.player?.name ?? AppConstVariables.stringPlaceholder,
+                                  isHomeTeam: true),
+                            )
+                      ]
+                  ],
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  if (isFirstHalf == true)
+                    for (final event in matchEvents) ...[
+                      if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                        if (awayTeamID == event.team?.id && event.time!.elapsed! < 45)
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0, top: 8.0),
+                            child: EventTextTemplate(
+                                leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                player: event.player?.name ?? AppConstVariables.stringPlaceholder,
+                                isHomeTeam: false),
+                          )
+                    ]
+                  else
+                    for (final event in matchEvents) ...[
+                      if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
+                        if (awayTeamID == event.team?.id && event.time!.elapsed! > 45)
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0, top: 8.0),
+                            child: EventTextTemplate(
+                                leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
+                                player: event.player?.name ?? AppConstVariables.stringPlaceholder,
+                                isHomeTeam: false),
+                          )
+                    ]
+                ],
+              )
+            ],
           ),
-          Expanded(
-            flex: 1,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 200,
-                  child: ListView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      if (isHalfTime == true)
-                        for (final event in matchEvents) ...[
-                          if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                            if (awayTeamID == event.team?.id && event.time!.elapsed! < 45)
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                                child: EventTextTemplate(
-                                    leadingProperty:
-                                        event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                                    player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                                    isHomeTeam: false),
-                              )
-                            else
-                              const SizedBox.shrink(),
-                        ]
-                      else
-                        for (final event in matchEvents) ...[
-                          if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                            if (awayTeamID == event.team?.id && event.time!.elapsed! > 45)
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                                child: EventTextTemplate(
-                                    leadingProperty:
-                                        event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                                    player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                                    isHomeTeam: false),
-                              )
-                            else
-                              const SizedBox.shrink(),
-                        ]
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
         ],
       ),
     );
