@@ -21,7 +21,7 @@ class MatchDetailsScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeCubit>(create: (context) => Modular.get<HomeCubit>()),
-        BlocProvider(create: (context) => Modular.get<MatchDetailsCubit>()..fetchMatchEvents(teamID.toString())),
+        BlocProvider(create: (context) => Modular.get<MatchDetailsCubit>()..fetchMatchInfo(teamID.toString())),
       ],
       child: MatchDetailsView(liveMatch: liveMatch),
     );
