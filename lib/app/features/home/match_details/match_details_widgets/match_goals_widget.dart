@@ -51,7 +51,7 @@ class MatchGoalsWidget extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SafeArea(
+                Expanded(
                   child: Wrap(
                     direction: Axis.vertical,
                     crossAxisAlignment: WrapCrossAlignment.start,
