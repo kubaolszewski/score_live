@@ -35,8 +35,6 @@ class MatchStatsTab extends StatelessWidget {
         matchStats[0].statistics?[9].filterBallPossession ?? AppConstVariables.intPlaceholder;
     final int awayBallPossession =
         matchStats[1].statistics?[9].filterBallPossession ?? AppConstVariables.intPlaceholder;
-    const int possessionSum = 100;
-    const double statsBarWidth = 180;
     return Container(
       padding: const EdgeInsets.all(12.0),
       color: AppColors.listTileGrey,
@@ -67,11 +65,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.mainThemePink),
                       height: 10,
-                      width: homeShotsTotal / shotsTotalSum * statsBarWidth,
+                      width: homeShotsTotal / shotsTotalSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -84,11 +82,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.statsBarGrey),
                       height: 10,
-                      width: awayShotsTotal / shotsTotalSum * statsBarWidth,
+                      width: awayShotsTotal / shotsTotalSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -117,11 +115,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.mainThemePink),
                       height: 10,
-                      width: homeShotsOnGoal / shotsOnGoalSum * statsBarWidth,
+                      width: homeShotsOnGoal / shotsOnGoalSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -134,11 +132,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.statsBarGrey),
                       height: 10,
-                      width: awayShotsOnGoal / shotsOnGoalSum * statsBarWidth,
+                      width: awayShotsOnGoal / shotsOnGoalSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -166,11 +164,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.mainThemePink),
                       height: 10,
-                      width: homeFouls / foulsSum * statsBarWidth,
+                      width: homeFouls / foulsSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -183,11 +181,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.statsBarGrey),
                       height: 10,
-                      width: awayFouls / foulsSum * statsBarWidth,
+                      width: awayFouls / foulsSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -216,11 +214,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.mainThemePink),
                       height: 10,
-                      width: homeCorners / cornersSum * statsBarWidth,
+                      width: homeCorners / cornersSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -233,11 +231,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.statsBarGrey),
                       height: 10,
-                      width: awayCorners / cornersSum * statsBarWidth,
+                      width: awayCorners / cornersSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -266,11 +264,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.mainThemePink),
                       height: 10,
-                      width: homeBallPossession / possessionSum * statsBarWidth,
+                      width: homeBallPossession / AppConstVariables.ballPossessionSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -283,11 +281,11 @@ class MatchStatsTab extends StatelessWidget {
                     Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: Colors.grey),
                         height: 10,
-                        width: statsBarWidth),
+                        width: AppConstVariables.statsBarWidth),
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.statsBarGrey),
                       height: 10,
-                      width: awayBallPossession / possessionSum * statsBarWidth,
+                      width: awayBallPossession / AppConstVariables.ballPossessionSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
