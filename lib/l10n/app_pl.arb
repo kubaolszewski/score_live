@@ -16,7 +16,7 @@
 
   "noMatchesLive" : "Brak spotkań na żywo.",
   "noMatchesFinished" : "Tego dnia nie odbył się jeszcze żaden mecz.",
-  "pastMatchesCheck" : "Żaden mecz nie został zaplanowany tego dnia.",
+  "pastMatchesCheck" : "Nie można sprawdzić poprzednich meczów w tej zakładce.",
 
   "currentDay" : "Dziś",
   "matchDetailsSummary" : "Przebieg",
