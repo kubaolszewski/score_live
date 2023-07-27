@@ -4,10 +4,10 @@ import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class HalvesResultDisplay extends StatelessWidget {
-  const HalvesResultDisplay({super.key, required this.liveMatch, required this.isHalfTime});
+  const HalvesResultDisplay({super.key, required this.liveMatch, required this.isFirstHalf});
 
   final LiveMatchModel liveMatch;
-  final bool isHalfTime;
+  final bool isFirstHalf;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class HalvesResultDisplay extends StatelessWidget {
       child: SizedBox(
         child: Column(
           children: [
-            if (isHalfTime == true) ...[
+            if (isFirstHalf == true) ...[
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
