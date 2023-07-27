@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/stast_display_for_string_values.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/stats_display_for_int_values.dart';
+import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/single_stat_display.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/teams_header.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
@@ -46,29 +45,29 @@ class MatchStatsTab extends StatelessWidget {
         children: [
           TeamsHeader(homeTeamLogo: homeTeamLogo, awayTeamLogo: awayTeamLogo),
           const SizedBox(height: 31),
-          StatsDisplayForIntValues(
+          SingleStatDisplay(
               homeTotalValue: homeShotsTotal,
               awayTotalValue: awayShotsTotal,
               valueName: shotsTotal,
               totalValueSum: shotsTotalSum),
-          StatsDisplayForIntValues(
+          SingleStatDisplay(
               homeTotalValue: homeShotsOnGoal,
               awayTotalValue: awayShotsOnGoal,
               valueName: shotsOnGoal,
               totalValueSum: shotsOnGoalSum),
-          StatsDisplayForIntValues(
+          SingleStatDisplay(
             homeTotalValue: homeFouls,
             awayTotalValue: awayFouls,
             valueName: fouls,
             totalValueSum: foulsSum,
           ),
-          StatsDisplayForIntValues(
+          SingleStatDisplay(
             homeTotalValue: homeCorners,
             awayTotalValue: awayCorners,
             valueName: corners,
             totalValueSum: cornersSum,
           ),
-          StatsDisplayForStringValues(
+          SingleStatDisplay(
             homeTotalValue: homeBallPossession,
             awayTotalValue: awayBallPossession,
             valueName: ballPossession,

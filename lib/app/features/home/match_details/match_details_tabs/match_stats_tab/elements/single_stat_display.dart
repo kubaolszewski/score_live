@@ -3,19 +3,19 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-class StatsDisplayForIntValues extends StatelessWidget {
-  const StatsDisplayForIntValues({
+class SingleStatDisplay extends StatelessWidget {
+  const SingleStatDisplay({
     super.key,
     required this.homeTotalValue,
     required this.awayTotalValue,
     required this.valueName,
-    required this.totalValueSum,
+    this.totalValueSum,
   });
 
   final int homeTotalValue;
   final int awayTotalValue;
   final String valueName;
-  final int totalValueSum;
+  final int? totalValueSum;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,9 @@ class StatsDisplayForIntValues extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.mainThemePink),
                       height: 10,
-                      width: homeTotalValue / totalValueSum * AppConstVariables.statsBarWidth,
+                      width: totalValueSum != null
+                          ? homeTotalValue / totalValueSum! * AppConstVariables.statsBarWidth
+                          : homeTotalValue / AppConstVariables.ballPossessionSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
@@ -65,7 +67,9 @@ class StatsDisplayForIntValues extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.statsBarGrey),
                       height: 10,
-                      width: awayTotalValue / totalValueSum * AppConstVariables.statsBarWidth,
+                      width: totalValueSum != null
+                          ? awayTotalValue / totalValueSum! * AppConstVariables.statsBarWidth
+                          : awayTotalValue / AppConstVariables.ballPossessionSum * AppConstVariables.statsBarWidth,
                     ),
                   ],
                 ),
