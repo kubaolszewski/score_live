@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 
-final _dateYyyyMmDdDashFormat = DateFormat('yyyy-MM-dd');
+final _dateYyyyMmDdDashFormat = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat);
 
 extension DateFormatterToDateTime on DateTime {
   DateTime formatDateToDateTime() {
