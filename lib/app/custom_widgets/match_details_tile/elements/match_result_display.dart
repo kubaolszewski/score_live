@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/core/date_formatter_extension.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
@@ -18,7 +19,9 @@ class MatchResultDisplay extends StatelessWidget {
     final String homeTeamName = liveMatch.teams?.home?.name ?? context.localizations.unknownHomeTeam;
     final String awayTeamName = liveMatch.teams?.away?.name ?? context.localizations.unknownAwayTeam;
     final String matchStatusShort = liveMatch.fixture?.status?.short ?? AppConstVariables.stringPlaceholder;
-    final String matchStatusLong = liveMatch.fixture?.status?.long! ?? AppConstVariables.stringPlaceholder;
+    final String matchStatusLong = liveMatch.fixture?.status?.long ?? AppConstVariables.stringPlaceholder;
+    final String matchStartingHour = liveMatch.fixture?.date ?? AppConstVariables.stringPlaceholder;
+    final String matchStartingHourFormatted = matchStartingHour.hourFromDate();
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -50,14 +53,27 @@ class MatchResultDisplay extends StatelessWidget {
             children: [
               matchStatusShort == AppConstVariables.matchNotStarted ||
                       matchStatusShort == AppConstVariables.matchTimeToBeDefined
-                  ? Text(
-                      matchStatusLong,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  ? Column(
+                      children: [
+                        Text(
+                          matchStatusLong,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          matchStartingHourFormatted,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     )
                   : Text(
                       '${liveMatch.goals!.home} - '
