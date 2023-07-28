@@ -3,6 +3,7 @@ abstract class AppConstVariables {
   static const statsBarWidth = 180.00;
   static const ballPossessionSum = 100;
   static const dateYyyyMmDdDashFormat = 'yyyy-MM-dd';
+  static const assetsPath = 'assets/images/event_icons/';
   static const defaultLeagueLogo =
       'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-'
       'design-business-contract-agreement-flat-symbol-white-98077091.jpg';
