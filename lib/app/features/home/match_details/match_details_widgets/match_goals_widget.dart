@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/custom_widgets/text_without_leading_icon.dart';
+import 'package:score_live/app/custom_widgets/event_text_without_leading_icon.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/core/applocalization_context.dart';
@@ -59,7 +59,7 @@ class MatchGoalsWidget extends StatelessWidget {
                       for (final event in matchEvents) ...[
                         if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
                           if (homeTeamID == event.team!.id && event.type == AppConstVariables.goal) ...[
-                            TextWithoutLeadingIcon(
+                            EventTextWithoutLeadingIcon(
                                 leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                 player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                 isHomeTeam: true),
@@ -90,7 +90,7 @@ class MatchGoalsWidget extends StatelessWidget {
                       for (final event in matchEvents) ...[
                         if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
                           if (awayTeamID == event.team!.id && event.type == AppConstVariables.goal) ...[
-                            TextWithoutLeadingIcon(
+                            EventTextWithoutLeadingIcon(
                                 leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                 player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                 isHomeTeam: false),
