@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_widgets/match_goals_widget.dart';
 import 'package:score_live/app/custom_widgets/header_with_league_and_timer/header_with_league_and_timer.dart';
 import 'package:score_live/app/custom_widgets/match_details_tile/elements/match_result_display.dart';
@@ -36,11 +34,7 @@ class MatchDetailsTile extends StatelessWidget {
               const SizedBox(height: 5),
               const Divider(color: Colors.grey, thickness: 0.5),
               const SizedBox(height: 5),
-              BlocBuilder<HomeCubit, HomeState>(
-                builder: (context, state) {
-                  return MatchGoalsWidget(liveMatch);
-                },
-              ),
+              MatchGoalsWidget(liveMatch),
             ],
           ),
         ),
