@@ -36,18 +36,18 @@ class FirstHalfEventsDisplay extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                             child: EventTextTemplate(
+                                event:event,
                                 leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                 player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                 isHomeTeam: true),
                           )
-                        else
-                          const SizedBox.shrink()
                     ]
                   ],
                 ),
               ),
               Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     for (final event in matchEvents) ...[
                       if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
@@ -55,12 +55,11 @@ class FirstHalfEventsDisplay extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                             child: EventTextTemplate(
+                                event:event,
                                 leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                 player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                 isHomeTeam: false),
                           )
-                        else
-                          const SizedBox.shrink()
                     ]
                   ],
                 ),

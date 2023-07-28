@@ -58,11 +58,14 @@ class MatchGoalsWidget extends StatelessWidget {
                     children: [
                       for (final event in matchEvents) ...[
                         if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                          if (homeTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
+                          if (homeTeamID == event.team!.id && event.type == AppConstVariables.goalEvent) ...[
                             EventTextTemplate(
+                                event:event,
                                 leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                 player: event.player?.name ?? AppConstVariables.stringPlaceholder,
                                 isHomeTeam: true),
+                            const SizedBox(height: 2)
+                          ]
                       ],
                     ],
                   ),
@@ -87,11 +90,14 @@ class MatchGoalsWidget extends StatelessWidget {
                     children: [
                       for (final event in matchEvents) ...[
                         if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                          if (awayTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
+                          if (awayTeamID == event.team!.id && event.type == AppConstVariables.goalEvent) ...[
                             EventTextTemplate(
+                                event:event,
                                 leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
                                 player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                                isHomeTeam: false)
+                                isHomeTeam: false),
+                            const SizedBox(height: 2)
+                          ]
                       ],
                     ],
                   ),
