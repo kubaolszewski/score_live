@@ -13,5 +13,16 @@ abstract class AppConstVariables {
   static const matchTimeToBeDefined = 'TBD';
   static const matchNotStarted = 'NS';
   static const matchSuspended = 'SUSP';
-  static const goalEvent = 'Goal';
+  static const goal = 'Goal';
+  static const normalGoal = 'Normal Goal';
+  static const ownGoal = 'Own Goal';
+  static const penaltyGoal = 'Penalty';
+  static const penaltyMissed = 'Missed Penalty';
+  static const card = 'Card';
+  static const yellowCard = 'Yellow Card';
+  static const redCard = 'Red Card';
+  static const substitution = 'Subst';
+  static const varCheck = 'Var';
+  static const varGoalCancelled = 'Goal cancelled';
+  static const varPenaltyConfirmed = 'Penalty Confirmed';
 }
