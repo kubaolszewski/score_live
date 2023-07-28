@@ -30,82 +30,53 @@ class EventTextTemplate extends StatelessWidget {
           if (event!.type == AppConstVariables.goal) const Icon(Icons.sports_soccer, color: Colors.white, size: 16),
           if (event!.type == AppConstVariables.card) ...[
             if (event!.detail == AppConstVariables.yellowCard)
-              const Image(
-                image: AssetImage('${AppConstVariables.assetsPath}yellow_card.png'),
-                width: 16,
-                height: 16,
-              )
+              _iconDisplay('${AppConstVariables.assetsPath}yellow_card.png')
             else if (event!.detail == AppConstVariables.redCard)
-              const Image(
-                image: AssetImage('${AppConstVariables.assetsPath}red_card.png'),
-                width: 16,
-                height: 16,
-              ),
+              _iconDisplay('${AppConstVariables.assetsPath}red_card.png')
           ],
           if (event!.type == AppConstVariables.substitution)
-            const Image(
-              image: AssetImage('${AppConstVariables.assetsPath}substitution.png'),
-              width: 16,
-              height: 16,
-            ),
-          if (event!.type == AppConstVariables.varCheck)
-            const Image(
-              image: AssetImage('${AppConstVariables.assetsPath}var.png'),
-              width: 16,
-              height: 16,
-            ),
+            _iconDisplay('${AppConstVariables.assetsPath}substitution.png'),
+          if (event!.type == AppConstVariables.varCheck) _iconDisplay('${AppConstVariables.assetsPath}var.png'),
+          const SizedBox(width: 12),
           Expanded(
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                player,
-                style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
-              ),
+              child: Text(player,
+                  style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
             ),
           ),
         ] else ...[
           Expanded(
             child: Align(
               alignment: Alignment.centerRight,
-              child: Text(
-                player,
-                style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
-              ),
+              child: Text(player,
+                  style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
             ),
           ),
           const SizedBox(width: 12),
           if (event!.type == AppConstVariables.goal) const Icon(Icons.sports_soccer, color: Colors.white, size: 16),
           if (event!.type == AppConstVariables.card) ...[
             if (event!.detail == AppConstVariables.yellowCard)
-              const Image(
-                image: AssetImage('${AppConstVariables.assetsPath}yellow_card.png'),
-                width: 16,
-                height: 16,
-              )
+              _iconDisplay('${AppConstVariables.assetsPath}yellow_card.png')
             else if (event!.detail == AppConstVariables.redCard)
-              const Image(
-                image: AssetImage('${AppConstVariables.assetsPath}red_card.png'),
-                width: 16,
-                height: 16,
-              ),
+              _iconDisplay('${AppConstVariables.assetsPath}red_card.png')
           ],
           if (event!.type == AppConstVariables.substitution)
-            const Image(
-              image: AssetImage('${AppConstVariables.assetsPath}substitution.png'),
-              width: 16,
-              height: 16,
-            ),
-          if (event!.type == AppConstVariables.varCheck)
-            const Image(
-              image: AssetImage('${AppConstVariables.assetsPath}var.png'),
-              width: 16,
-              height: 16,
-            ),
+            _iconDisplay('${AppConstVariables.assetsPath}substitution.png'),
+          if (event!.type == AppConstVariables.varCheck) _iconDisplay('${AppConstVariables.assetsPath}var.png'),
           const SizedBox(width: 6),
           Text("$leadingProperty'",
               style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
         ],
       ],
+    );
+  }
+
+  Image _iconDisplay(String assetPath) {
+    return Image(
+      image: AssetImage(assetPath),
+      width: 16,
+      height: 16,
     );
   }
 }
