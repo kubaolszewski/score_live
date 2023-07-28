@@ -15,25 +15,24 @@ class MatchInProgressTimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool matchStatusCheck = matchStatusShort == AppConstVariables.matchTimeToBeDefined ||
+                matchStatusShort == AppConstVariables.matchNotStarted ||
+                matchStatusShort == AppConstVariables.matchSuspended;
     return Container(
       height: 30,
       width: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
-        color: matchStatusShort == AppConstVariables.matchTimeToBeDefined ||
-                matchStatusShort == AppConstVariables.matchNotStarted ||
-                matchStatusShort == AppConstVariables.matchSuspended
-            ? AppColors.liveTimerBackgroundGreen
-            : Colors.transparent,
+        color: matchStatusCheck
+            ? Colors.transparent
+            : AppColors.liveTimerBackgroundGreen
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           CircleAvatar(
             radius: 5,
-            backgroundColor: matchStatusShort == AppConstVariables.matchTimeToBeDefined ||
-                    matchStatusShort == AppConstVariables.matchNotStarted ||
-                    matchStatusShort == AppConstVariables.matchSuspended
+            backgroundColor: matchStatusCheck
                 ? Colors.red
                 : Colors.green,
           ),
@@ -41,9 +40,7 @@ class MatchInProgressTimer extends StatelessWidget {
             matchTimeElapsed.toString(),
             style: CustomTextStyle(
                 fontSize: 14,
-                color: matchStatusShort == AppConstVariables.matchTimeToBeDefined ||
-                        matchStatusShort == AppConstVariables.matchNotStarted ||
-                        matchStatusShort == AppConstVariables.matchSuspended
+                color: matchStatusCheck
                     ? Colors.black
                     : Colors.green,
                 fontWeight: FontWeight.bold),
