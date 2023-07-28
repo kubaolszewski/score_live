@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
+import 'package:score_live/core/date_format_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/repositories/home_screen_repository.dart';
@@ -16,7 +17,7 @@ class UpcomingTabCubit extends Cubit<UpcomingTabState> {
   Future<void> fetchUpcomingMatches(DateTime date) async {
     String formattedStringDate = DateFormat('yyyy-MM-dd').format(date);
     DateTime formattedDate = DateFormat('yyyy-MM-dd').parse(formattedStringDate);
-    DateTime formattedActualDate = DateFormat('yyyy-MM-dd').parse(DateFormat('yyyy-MM-dd').format(DateTime.now()));
+    DateTime formattedActualDate = DateTime.now().formatActualDateToDateTime('yyyy-MM-dd');
     try {
       if (formattedDate.isAtSameMomentAs(formattedActualDate) || formattedDate.isAfter(formattedActualDate)) {
         emit(const LoadingMatchesState());

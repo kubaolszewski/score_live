@@ -20,10 +20,10 @@ class MatchSummaryTab extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          HalvesEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents, isHalfTime: true),
-          HalvesResultDisplay(liveMatch: liveMatch, isHalfTime: true),
-          HalvesEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents, isHalfTime: false),
-          HalvesResultDisplay(liveMatch: liveMatch, isHalfTime: false),
+          HalvesEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents, isFirstHalf: true),
+          HalvesResultDisplay(liveMatch: liveMatch, isFirstHalf: true),
+          HalvesEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents, isFirstHalf: false),
+          HalvesResultDisplay(liveMatch: liveMatch, isFirstHalf: false),
         ],
       ),
     );
