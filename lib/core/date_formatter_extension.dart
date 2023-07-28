@@ -1,7 +1,15 @@
 import 'package:intl/intl.dart';
 
-extension DateTimeFormatter on DateTime {
-  DateTime formatActualDateToDateTime(String formatter) {
-    return DateTime.parse(DateFormat(formatter).format(this));
+final _dateYyyyMmDdDashFormat = DateFormat('yyyy-MM-dd');
+
+extension DateFormatterToDateTime on DateTime {
+  DateTime formatDateToDateTime() {
+    return DateTime.parse(_dateYyyyMmDdDashFormat.format(this));
+  }
+}
+
+extension DateFormatterToString on String {
+  String formatDateToString(String formatter) {
+    return DateFormat(formatter).format(_dateYyyyMmDdDashFormat.parse(this));
   }
 }

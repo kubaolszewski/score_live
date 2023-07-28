@@ -15,9 +15,9 @@ class UpcomingTabCubit extends Cubit<UpcomingTabState> {
   final HomeScreenRepository homeScreenRepository;
 
   Future<void> fetchUpcomingMatches(DateTime date) async {
-    String formattedStringDate = DateFormat('yyyy-MM-dd').format(date);
-    DateTime formattedDate = DateFormat('yyyy-MM-dd').parse(formattedStringDate);
-    DateTime formattedActualDate = DateTime.now().formatActualDateToDateTime('yyyy-MM-dd');
+    String formattedStringDate = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat).format(date);
+    DateTime formattedDate = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat).parse(formattedStringDate);
+    DateTime formattedActualDate = DateTime.now().formatDateToDateTime();
     try {
       if (formattedDate.isAtSameMomentAs(formattedActualDate) || formattedDate.isAfter(formattedActualDate)) {
         emit(const LoadingMatchesState());

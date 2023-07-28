@@ -15,9 +15,9 @@ class ScoreTabCubit extends Cubit<ScoreTabState> {
   final HomeScreenRepository homeScreenRepository;
 
   Future<void> fetchMatchesByDate(DateTime date) async {
-    final formattedQueryDate = DateFormat('yyyy-MM-dd').format(date);
-    final formattedDate = DateFormat('yyyy-MM-dd').parse(formattedQueryDate);
-    final formattedActualDate = DateTime.now().formatActualDateToDateTime('yyyy-MM-dd');
+    final formattedQueryDate = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat).format(date);
+    final formattedDate = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat).parse(formattedQueryDate);
+    final formattedActualDate = DateTime.now().formatDateToDateTime();
     try {
       if (formattedDate.isBefore(formattedActualDate) || formattedDate.isAtSameMomentAs(formattedActualDate)) {
         emit(const LoadingMatchesState());
