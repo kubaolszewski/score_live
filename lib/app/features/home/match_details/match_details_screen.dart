@@ -17,11 +17,11 @@ class MatchDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int teamID = liveMatch.fixture?.id ?? AppConstVariables.intPlaceholder;
+    final int matchID = liveMatch.fixture?.id ?? AppConstVariables.intPlaceholder;
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeCubit>(create: (context) => Modular.get<HomeCubit>()),
-        BlocProvider(create: (context) => Modular.get<MatchDetailsCubit>()..fetchMatchInfo(teamID.toString())),
+        BlocProvider(create: (context) => Modular.get<MatchDetailsCubit>()..fetchMatchInfo(matchID.toString())),
       ],
       child: MatchDetailsView(liveMatch: liveMatch),
     );
