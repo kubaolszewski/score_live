@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/event_text_template.dart';
+import 'package:score_live/app/custom_widgets/text_without_leading_icon.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
@@ -26,19 +26,25 @@ class TeamsLineUpsDisplay extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    CachedNetworkImage(
-                        width: 32,
-                        height: 32,
-                        imageUrl: homeTeamLogo,
-                        errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white)),
-                    const SizedBox(width: 10),
-                    Text(
-                      homeTeamName,
-                      style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
-                    ),
-                  ],
+                SizedBox(
+                  height: 60,
+                  child: Row(
+                    children: [
+                      CachedNetworkImage(
+                          width: 32,
+                          height: 32,
+                          imageUrl: homeTeamLogo,
+                          errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white)),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          homeTeamName,
+                          textAlign: TextAlign.start,
+                          style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 10),
                 Text(
@@ -52,7 +58,7 @@ class TeamsLineUpsDisplay extends StatelessWidget {
                 const SizedBox(height: 10),
                 if (homeTeamLineUp != null)
                   for (final player in homeTeamLineUp) ...[
-                    EventTextTemplate(
+                    TextWithoutLeadingIcon(
                       leadingProperty: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
                       player: player.player?.name ?? AppConstVariables.stringPlaceholder,
                       isHomeTeam: true,
@@ -62,39 +68,47 @@ class TeamsLineUpsDisplay extends StatelessWidget {
               ],
             ),
           )
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    awayTeamName,
-                    style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
+        : Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                SizedBox(
+                  height: 60,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          awayTeamName,
+                          textAlign: TextAlign.end,
+                          style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      CachedNetworkImage(
+                          width: 32,
+                          height: 32,
+                          imageUrl: awayTeamLogo,
+                          errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white)),
+                    ],
                   ),
-                  const SizedBox(width: 10),
-                  CachedNetworkImage(
-                      width: 32,
-                      height: 32,
-                      imageUrl: awayTeamLogo,
-                      errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white)),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Text(
-                awayTeamFormation,
-                style: const CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(height: 10),
-              if (awayTeamLineUp != null)
-                for (final player in awayTeamLineUp) ...[
-                  EventTextTemplate(
-                    leadingProperty: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
-                    player: player.player?.name ?? AppConstVariables.stringPlaceholder,
-                    isHomeTeam: false,
-                  ),
-                  const SizedBox(height: 5),
-                ],
-            ],
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  awayTeamFormation,
+                  style: const CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 10),
+                if (awayTeamLineUp != null)
+                  for (final player in awayTeamLineUp) ...[
+                    TextWithoutLeadingIcon(
+                      leadingProperty: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
+                      player: player.player?.name ?? AppConstVariables.stringPlaceholder,
+                      isHomeTeam: false,
+                    ),
+                    const SizedBox(height: 5),
+                  ],
+              ],
+            ),
           );
   }
 }

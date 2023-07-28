@@ -3,8 +3,8 @@ import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-class EventTextTemplate extends StatelessWidget {
-  const EventTextTemplate({
+class EventTextWithLeadingIcon extends StatelessWidget {
+  const EventTextWithLeadingIcon({
     super.key,
     this.event,
     required this.leadingProperty,
