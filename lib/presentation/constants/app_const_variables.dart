@@ -22,8 +22,8 @@ abstract class AppConstVariables {
   static const card = 'Card';
   static const yellowCard = 'Yellow Card';
   static const redCard = 'Red Card';
-  static const substitution = 'Subst';
-  static const varCheck = 'Var';
+  static const substitution = 'subst';
+  static const varCheck = 'var';
   static const varGoalCancelled = 'Goal cancelled';
   static const varPenaltyConfirmed = 'Penalty Confirmed';
 }
