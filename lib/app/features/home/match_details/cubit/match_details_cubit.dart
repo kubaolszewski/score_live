@@ -28,6 +28,24 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
     }
   }
 
+  int homeWinsCounter() {
+    return state.teamsH2h
+        .where((element) => element.teams?.home?.winner == true && element.teams?.home?.winner != null)
+        .length;
+  }
+
+  int awayWinsCounter() {
+    return state.teamsH2h
+        .where((element) => element.teams?.away?.winner == true && element.teams?.away?.winner != null)
+        .length;
+  }
+
+  int drawsCounter() {
+    return state.teamsH2h
+        .where((element) => element.teams?.home?.winner == null || element.teams?.away?.winner == null)
+        .length;
+  }
+
   void switchDetailsOptions(DetailsOptions chosenOption) {
     emit(state.copyWith(detailsOptions: chosenOption));
   }

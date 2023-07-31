@@ -30,7 +30,7 @@ abstract class LiveMatchesRemoteService {
     @Query("fixture") required String matchID,
   });
 
-  @GET('/fixtures/h2h')
+  @GET('/fixtures/headtohead')
   Future<LiveMatchesFixtures> fetchTeamsH2h({
     @Query("h2h") required String teamsIdNumbers,
     @Query("last") required String lastFixtures,

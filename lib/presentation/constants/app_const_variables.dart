@@ -1,5 +1,6 @@
 abstract class AppConstVariables {
   static const widthInfinity = double.infinity;
+  static const h2hRatioBar = 148;
   static const defaultLeagueLogo =
       'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-'
       'design-business-contract-agreement-flat-symbol-white-98077091.jpg';
