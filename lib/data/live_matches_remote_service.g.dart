@@ -132,6 +132,39 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
     return value;
   }
 
+  @override
+  Future<LiveMatchesFixtures> fetchTeamsH2h({
+    required String teamsIdNumbers,
+    required String lastFixtures,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'h2h': teamsIdNumbers,
+      r'last': lastFixtures,
+    };
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<LiveMatchesFixtures>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/fixtures/h2h',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = LiveMatchesFixtures.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
