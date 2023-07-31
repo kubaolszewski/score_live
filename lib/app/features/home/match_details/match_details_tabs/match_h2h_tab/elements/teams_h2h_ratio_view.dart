@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
@@ -24,18 +25,18 @@ class TeamsH2HRatioView extends StatelessWidget {
     final draws = _matchDetailsCubit(context).drawsCounter();
     return Row(
       children: [
-        const Expanded(
+        Expanded(
           child: Text(
-            '10 Matches',
-            style: CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
+            context.localizations.matchesNumber,
+            style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
           ),
         ),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Total Wins',
-                  style: CustomTextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w700)),
+              Text(context.localizations.totalWins,
+                  style: const CustomTextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w700)),
               const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -97,7 +98,7 @@ class TeamsH2HRatioView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 12),
-              Text('$draws Draws',
+              Text('$draws ${context.localizations.draws}',
                   style: const CustomTextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w700)),
             ],
           ),

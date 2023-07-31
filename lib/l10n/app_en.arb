@@ -18,6 +18,10 @@
   "noMatchesFinished" : "No matches were finished on this date yet.",
   "pastMatchesCheck" : "Can't check past matches in this tab.",
 
+  "lastMatchesHeader" : "LAST 5 MATCHES",
+  "matchesNumber" : "10 Matches",
+  "totalWins" : "Total Wins:",
+  "draws" : "Draws",
 
   "currentDay" : "Today",
   "matchDetailsSummary" : "Summary",
@@ -45,7 +49,7 @@
   "region" : "Region",
   "competitionFavorites" : "Favorites",
 
-  "dataErrorInfo" : "Something went wrong - leagues are not provided yet.",
+  "dataErrorInfo" : "Something went wrong - data are not provided yet.",
   "topHeader" : "TOP COMPETITIONS",
   "searchHeader" : "Results:",
   
