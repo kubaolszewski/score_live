@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
+import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/repositories/match_details_repository.dart';
 
@@ -13,12 +14,15 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
 
   final MatchDetailsRepository matchDetailsRepository;
 
-  Future<void> fetchMatchEvents(String matchID) async {
+  Future<void> fetchMatchEvents(String teamsIdNumbers, String matchID) async {
     emit(state.copyWith(isLoading: true));
     try {
       final matchEvents = await matchDetailsRepository.fetchMatchEvents(matchID);
       final lineUps = await matchDetailsRepository.fetchMatchLineUps(matchID);
-      emit(state.copyWith(lineUps: lineUps, matchEvents: matchEvents, isLoading: false));
+      final teamsH2h = await matchDetailsRepository.fetchTeamsH2h(teamsIdNumbers, matchID);
+      if (teamsH2h!.isNotEmpty) {
+        emit(state.copyWith(lineUps: lineUps, matchEvents: matchEvents, teamsH2h: teamsH2h, isLoading: false));
+      }
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
