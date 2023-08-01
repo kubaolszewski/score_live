@@ -21,94 +21,89 @@ class TeamsLineUpsDisplay extends StatelessWidget {
     final String awayTeamName = lineUps[1].team?.name ?? AppConstVariables.stringPlaceholder;
     final String awayTeamLogo = lineUps[1].team?.logo ?? AppConstVariables.defaultTeamLogo;
     final String awayTeamFormation = lineUps[1].formation ?? AppConstVariables.stringPlaceholder;
-    return isHomeTeam == true
-        ? Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 60,
-                  child: Row(
-                    children: [
-                      CachedNetworkImage(
-                          width: 32,
-                          height: 32,
-                          imageUrl: homeTeamLogo,
-                          errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white)),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          homeTeamName,
-                          textAlign: TextAlign.start,
-                          style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  homeTeamFormation,
-                  style: const CustomTextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                if (homeTeamLineUp != null)
-                  for (final player in homeTeamLineUp) ...[
-                    EventTextWithoutIcon(
-                      time: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
-                      player: player.player?.name ?? AppConstVariables.stringPlaceholder,
-                      isHomeTeam: true,
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: isHomeTeam ? CrossAxisAlignment.start : CrossAxisAlignment.end,
+        children: [
+          if (isHomeTeam == true) ...[
+            SizedBox(
+              height: 60,
+              child: Row(
+                children: [
+                  CachedNetworkImage(
+                      width: 32,
+                      height: 32,
+                      imageUrl: homeTeamLogo,
+                      errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white)),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      homeTeamName,
+                      textAlign: TextAlign.start,
+                      style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
                     ),
-                    const SizedBox(height: 5),
-                  ],
-              ],
-            ),
-          )
-        : Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                SizedBox(
-                  height: 60,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          awayTeamName,
-                          textAlign: TextAlign.end,
-                          style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      CachedNetworkImage(
-                          width: 32,
-                          height: 32,
-                          imageUrl: awayTeamLogo,
-                          errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white)),
-                    ],
                   ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  awayTeamFormation,
-                  style: const CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w700),
-                ),
-                const SizedBox(height: 10),
-                if (awayTeamLineUp != null)
-                  for (final player in awayTeamLineUp) ...[
-                    EventTextWithoutIcon(
-                      time: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
-                      player: player.player?.name ?? AppConstVariables.stringPlaceholder,
-                      isHomeTeam: false,
-                    ),
-                    const SizedBox(height: 5),
-                  ],
-              ],
+                ],
+              ),
             ),
-          );
+            const SizedBox(height: 10),
+            Text(
+              homeTeamFormation,
+              style: const CustomTextStyle(
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(height: 10),
+            if (homeTeamLineUp != null)
+              for (final player in homeTeamLineUp) ...[
+                EventTextWithoutIcon(
+                  time: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
+                  player: player.player?.name ?? AppConstVariables.stringPlaceholder,
+                  isHomeTeam: true,
+                ),
+                const SizedBox(height: 5),
+              ],
+          ] else ...[
+            SizedBox(
+              height: 60,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      awayTeamName,
+                      textAlign: TextAlign.end,
+                      style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  CachedNetworkImage(
+                      width: 32,
+                      height: 32,
+                      imageUrl: awayTeamLogo,
+                      errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white)),
+                ],
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              awayTeamFormation,
+              style: const CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 10),
+            if (awayTeamLineUp != null)
+              for (final player in awayTeamLineUp) ...[
+                EventTextWithoutIcon(
+                  time: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
+                  player: player.player?.name ?? AppConstVariables.stringPlaceholder,
+                  isHomeTeam: false,
+                ),
+                const SizedBox(height: 5),
+              ]
+          ]
+        ],
+      ),
+    );
   }
 }
