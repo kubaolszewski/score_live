@@ -16,34 +16,25 @@ class MatchInProgressTimer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool matchStatusCheck = matchStatusShort == AppConstVariables.matchTimeToBeDefined ||
-                matchStatusShort == AppConstVariables.matchNotStarted ||
-                matchStatusShort == AppConstVariables.matchSuspended;
+        matchStatusShort == AppConstVariables.matchNotStarted ||
+        matchStatusShort == AppConstVariables.matchSuspended;
     return Container(
       height: 30,
       width: 50,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
-        color: matchStatusCheck
-            ? Colors.transparent
-            : AppColors.liveTimerBackgroundGreen
-      ),
+          borderRadius: BorderRadius.circular(24),
+          color: matchStatusCheck ? Colors.transparent : AppColors.liveTimerBackgroundGreen),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           CircleAvatar(
             radius: 5,
-            backgroundColor: matchStatusCheck
-                ? Colors.red
-                : Colors.green,
+            backgroundColor: matchStatusCheck ? Colors.red : Colors.green,
           ),
           Text(
-            matchTimeElapsed.toString(),
+            matchStatusCheck ? '--:--' : matchTimeElapsed.toString(),
             style: CustomTextStyle(
-                fontSize: 14,
-                color: matchStatusCheck
-                    ? Colors.black
-                    : Colors.green,
-                fontWeight: FontWeight.bold),
+                fontSize: 14, color: matchStatusCheck ? Colors.white : Colors.green, fontWeight: FontWeight.bold),
           ),
         ],
       ),

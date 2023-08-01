@@ -61,7 +61,7 @@ class HalvesResultDisplay extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    matchStatusShort != 'FT'
+                    matchStatusShort != AppConstVariables.fullTime
                         ? context.localizations.matchNotEnded
                         : '$homeTeamName $fullTimeHomeGoals - '
                             '$fullTimeAwayGoals $awayTeamName',

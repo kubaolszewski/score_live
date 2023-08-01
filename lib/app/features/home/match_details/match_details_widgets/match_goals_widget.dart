@@ -52,9 +52,9 @@ class MatchGoalsWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: Wrap(
-                    direction: Axis.vertical,
-                    crossAxisAlignment: WrapCrossAlignment.start,
+                  flex: 3,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       for (final event in matchEvents) ...[
                         if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
@@ -68,20 +68,22 @@ class MatchGoalsWidget extends StatelessWidget {
                   ),
                 ),
                 const Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.sports_soccer,
-                        color: Colors.grey,
-                      ),
-                    ],
+                  child: SizedBox(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.sports_soccer,
+                          color: Colors.grey,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                SafeArea(
-                  child: Wrap(
-                    direction: Axis.vertical,
-                    crossAxisAlignment: WrapCrossAlignment.end,
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       for (final event in matchEvents) ...[
                         if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
