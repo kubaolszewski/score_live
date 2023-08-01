@@ -15,7 +15,7 @@ class MatchDetailsTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final actualDateFormattedToString = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat).format(DateTime.now());
     final dateFromModelCheckerToString = matchDate.formatDateToYyyyMmDdString(AppConstVariables.dateYyyyMmDdDashFormat);
-    final dateFromModelFormattedToString = matchDate.formatDateToYyyyMmDdString('MMM d, yyyy');
+    final dateFromModelFormattedToString = matchDate.formatDateToYyyyMmDdString(AppConstVariables.dateMmmDYyyyWithComaFormat);
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
