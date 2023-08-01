@@ -37,8 +37,8 @@ class FirstHalfEventsDisplay extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                           child: EventTextWithLeadingIcon(
                               event: event,
-                              leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                              player: event.player?.name ?? AppConstVariables.stringPlaceholder,
+                              leadingProperty: event.timeElapsed.toString(),
+                              player: event.playerName,
                               isHomeTeam: true),
                         )
                       else
@@ -57,8 +57,8 @@ class FirstHalfEventsDisplay extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 8.0, top: 8.0),
                           child: EventTextWithLeadingIcon(
                               event: event,
-                              leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                              player: event.player?.name ?? AppConstVariables.stringPlaceholder,
+                              leadingProperty: event.timeElapsed.toString(),
+                              player: event.playerName,
                               isHomeTeam: false),
                         )
                       else
