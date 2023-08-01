@@ -4,12 +4,12 @@ import 'package:score_live/presentation/constants/text_styles.dart';
 class EventTextWithoutIcon extends StatelessWidget {
   const EventTextWithoutIcon({
     super.key,
-    required this.leadingProperty,
+    required this.time,
     required this.player,
     required this.isHomeTeam,
   });
 
-  final String leadingProperty;
+  final String time;
   final String player;
   final bool isHomeTeam;
 
@@ -23,7 +23,7 @@ class EventTextWithoutIcon extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "$leadingProperty $player",
+                    "$time $player",
                     style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
                   ),
                 ),
@@ -32,7 +32,7 @@ class EventTextWithoutIcon extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    "$player $leadingProperty",
+                    "$player $time",
                     style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
                   ),
                 ),

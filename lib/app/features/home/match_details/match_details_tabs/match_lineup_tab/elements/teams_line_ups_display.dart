@@ -59,7 +59,7 @@ class TeamsLineUpsDisplay extends StatelessWidget {
                 if (homeTeamLineUp != null)
                   for (final player in homeTeamLineUp) ...[
                     EventTextWithoutIcon(
-                      leadingProperty: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
+                      time: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
                       player: player.player?.name ?? AppConstVariables.stringPlaceholder,
                       isHomeTeam: true,
                     ),
@@ -101,7 +101,7 @@ class TeamsLineUpsDisplay extends StatelessWidget {
                 if (awayTeamLineUp != null)
                   for (final player in awayTeamLineUp) ...[
                     EventTextWithoutIcon(
-                      leadingProperty: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
+                      time: player.player?.number.toString() ?? AppConstVariables.stringPlaceholder,
                       player: player.player?.name ?? AppConstVariables.stringPlaceholder,
                       isHomeTeam: false,
                     ),
