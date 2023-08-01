@@ -26,7 +26,12 @@ abstract class LiveMatchesRemoteService {
   });
 
   @GET('/fixtures/lineups')
-  Future<MatchLineUps>fetchMatchLineUps({
+  Future<MatchLineUps> fetchMatchLineUps({
+    @Query("fixture") required String matchID,
+  });
+
+  @GET('/fixtures/statistics')
+  Future<MatchStatistics> fetchMatchStats({
     @Query("fixture") required String matchID,
   });
 }

@@ -55,7 +55,8 @@ class MatchDetailsView extends StatelessWidget {
             BlocBuilder<MatchDetailsCubit, MatchDetailsState>(
               builder: (context, state) {
                 final matchEvents = state.matchEvents;
-                final matchLineUps = state.lineUps;
+                final matchLineUps = state.matchLineUps;
+                final matchStats = state.matchStats;
                 switch (state.detailsOptions) {
                   case DetailsOptions.summary:
                     return MatchSummaryTab(
@@ -68,7 +69,9 @@ class MatchDetailsView extends StatelessWidget {
                       lineUps: matchLineUps,
                     );
                   case DetailsOptions.stats:
-                    return const MatchStatsTab();
+                    return MatchStatsTab(
+                      matchStats: matchStats,
+                    );
                   case DetailsOptions.h2H:
                     return const MatchH2HTab();
                   case DetailsOptions.standings:

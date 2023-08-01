@@ -450,6 +450,151 @@ abstract class _MatchLineUps implements MatchLineUps {
       throw _privateConstructorUsedError;
 }
 
+MatchStatistics _$MatchStatisticsFromJson(Map<String, dynamic> json) {
+  return _MatchStatistics.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MatchStatistics {
+  List<StatisticsModel> get response => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MatchStatisticsCopyWith<MatchStatistics> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MatchStatisticsCopyWith<$Res> {
+  factory $MatchStatisticsCopyWith(
+          MatchStatistics value, $Res Function(MatchStatistics) then) =
+      _$MatchStatisticsCopyWithImpl<$Res, MatchStatistics>;
+  @useResult
+  $Res call({List<StatisticsModel> response});
+}
+
+/// @nodoc
+class _$MatchStatisticsCopyWithImpl<$Res, $Val extends MatchStatistics>
+    implements $MatchStatisticsCopyWith<$Res> {
+  _$MatchStatisticsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_value.copyWith(
+      response: null == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<StatisticsModel>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_MatchStatisticsCopyWith<$Res>
+    implements $MatchStatisticsCopyWith<$Res> {
+  factory _$$_MatchStatisticsCopyWith(
+          _$_MatchStatistics value, $Res Function(_$_MatchStatistics) then) =
+      __$$_MatchStatisticsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<StatisticsModel> response});
+}
+
+/// @nodoc
+class __$$_MatchStatisticsCopyWithImpl<$Res>
+    extends _$MatchStatisticsCopyWithImpl<$Res, _$_MatchStatistics>
+    implements _$$_MatchStatisticsCopyWith<$Res> {
+  __$$_MatchStatisticsCopyWithImpl(
+      _$_MatchStatistics _value, $Res Function(_$_MatchStatistics) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_$_MatchStatistics(
+      response: null == response
+          ? _value._response
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<StatisticsModel>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_MatchStatistics implements _MatchStatistics {
+  _$_MatchStatistics({final List<StatisticsModel> response = const []})
+      : _response = response;
+
+  factory _$_MatchStatistics.fromJson(Map<String, dynamic> json) =>
+      _$$_MatchStatisticsFromJson(json);
+
+  final List<StatisticsModel> _response;
+  @override
+  @JsonKey()
+  List<StatisticsModel> get response {
+    if (_response is EqualUnmodifiableListView) return _response;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_response);
+  }
+
+  @override
+  String toString() {
+    return 'MatchStatistics(response: $response)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_MatchStatistics &&
+            const DeepCollectionEquality().equals(other._response, _response));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_response));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_MatchStatisticsCopyWith<_$_MatchStatistics> get copyWith =>
+      __$$_MatchStatisticsCopyWithImpl<_$_MatchStatistics>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MatchStatisticsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MatchStatistics implements MatchStatistics {
+  factory _MatchStatistics({final List<StatisticsModel> response}) =
+      _$_MatchStatistics;
+
+  factory _MatchStatistics.fromJson(Map<String, dynamic> json) =
+      _$_MatchStatistics.fromJson;
+
+  @override
+  List<StatisticsModel> get response;
+  @override
+  @JsonKey(ignore: true)
+  _$$_MatchStatisticsCopyWith<_$_MatchStatistics> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 League _$LeagueFromJson(Map<String, dynamic> json) {
   return _League.fromJson(json);
 }
