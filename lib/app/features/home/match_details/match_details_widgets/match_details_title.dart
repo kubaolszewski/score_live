@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/core/date_formatter_extension.dart';
+import 'package:score_live/core/date_formatter_ext.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
@@ -15,7 +15,7 @@ class MatchDetailsTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final actualDateFormattedToString = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat).format(DateTime.now());
     final dateFromModelCheckerToString = matchDate.formatDateToYyyyMmDdString(AppConstVariables.dateYyyyMmDdDashFormat);
-    final dateFromModelFormattedToString = matchDate.formatDateToYyyyMmDdString('MMM d, yyyy');
+    final dateFromModelFormattedToString = matchDate.formatDateToYyyyMmDdString(AppConstVariables.dateMmmDYyyyWithComaFormat);
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,

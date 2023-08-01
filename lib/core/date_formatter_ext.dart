@@ -2,7 +2,8 @@ import 'package:intl/intl.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 final _dateYyyyMmDdDashFormat = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat);
-
+const _basicDateTimeWithHourFormat = 'yyyy-MM-ddTkk:mm';
+const _hourWithMinutesExtractedFormat = 'kk:mm';
 
 extension DateFormatterToDateTime on DateTime {
   DateTime formatDateToDateTime() {
@@ -16,6 +17,7 @@ extension DateFormatterToString on String {
   }
 
   String hourFromDate() {
-    return DateFormat('kk:mm').format(DateFormat('yyyy-MM-ddTkk:mm').parse(this));
+    return DateFormat(_hourWithMinutesExtractedFormat)
+        .format(DateFormat(_basicDateTimeWithHourFormat).parse(this).add(const Duration(hours: 3)));
   }
 }

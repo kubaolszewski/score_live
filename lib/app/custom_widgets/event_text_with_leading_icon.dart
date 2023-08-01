@@ -18,6 +18,8 @@ class EventTextWithLeadingIcon extends StatelessWidget {
   final bool isHomeTeam;
   @override
   Widget build(BuildContext context) {
+    final eventType = event?.type ?? AppConstVariables.stringPlaceholder;
+    final eventDetail = event?.detail ?? AppConstVariables.stringPlaceholder;
     return Row(
       mainAxisAlignment: isHomeTeam == true ? MainAxisAlignment.start : MainAxisAlignment.end,
       children: [
@@ -27,16 +29,16 @@ class EventTextWithLeadingIcon extends StatelessWidget {
             style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
           ),
           const SizedBox(width: 6),
-          if (event!.type == AppConstVariables.goal) const Icon(Icons.sports_soccer, color: Colors.white, size: 16),
-          if (event!.type == AppConstVariables.card) ...[
-            if (event!.detail == AppConstVariables.yellowCard)
+          if (eventType == AppConstVariables.goal) const Icon(Icons.sports_soccer, color: Colors.white, size: 16),
+          if (eventType == AppConstVariables.card) ...[
+            if (eventDetail == AppConstVariables.yellowCard)
               _iconDisplay('${AppConstVariables.assetsPath}yellow_card.png')
-            else if (event!.detail == AppConstVariables.redCard)
+            else if (eventDetail == AppConstVariables.redCard)
               _iconDisplay('${AppConstVariables.assetsPath}red_card.png')
           ],
-          if (event!.type == AppConstVariables.substitution)
+          if (eventType == AppConstVariables.substitution)
             _iconDisplay('${AppConstVariables.assetsPath}substitution.png'),
-          if (event!.type == AppConstVariables.varCheck) _iconDisplay('${AppConstVariables.assetsPath}var.png'),
+          if (eventType == AppConstVariables.varCheck) _iconDisplay('${AppConstVariables.assetsPath}var.png'),
           const SizedBox(width: 12),
           Expanded(
             child: Align(
@@ -54,16 +56,16 @@ class EventTextWithLeadingIcon extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          if (event!.type == AppConstVariables.goal) const Icon(Icons.sports_soccer, color: Colors.white, size: 16),
-          if (event!.type == AppConstVariables.card) ...[
-            if (event!.detail == AppConstVariables.yellowCard)
+          if (eventType == AppConstVariables.goal) const Icon(Icons.sports_soccer, color: Colors.white, size: 16),
+          if (eventType == AppConstVariables.card) ...[
+            if (eventDetail == AppConstVariables.yellowCard)
               _iconDisplay('${AppConstVariables.assetsPath}yellow_card.png')
-            else if (event!.detail == AppConstVariables.redCard)
+            else if (eventDetail == AppConstVariables.redCard)
               _iconDisplay('${AppConstVariables.assetsPath}red_card.png')
           ],
-          if (event!.type == AppConstVariables.substitution)
+          if (eventType == AppConstVariables.substitution)
             _iconDisplay('${AppConstVariables.assetsPath}substitution.png'),
-          if (event!.type == AppConstVariables.varCheck) _iconDisplay('${AppConstVariables.assetsPath}var.png'),
+          if (eventType == AppConstVariables.varCheck) _iconDisplay('${AppConstVariables.assetsPath}var.png'),
           const SizedBox(width: 6),
           Text("$leadingProperty'",
               style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),

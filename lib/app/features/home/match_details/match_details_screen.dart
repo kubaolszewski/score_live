@@ -17,7 +17,7 @@ class MatchDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int matchID = liveMatch.fixture?.id ?? AppConstVariables.intPlaceholder;
+    final matchID = liveMatch.fixture?.id ?? AppConstVariables.intPlaceholder;
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeCubit>(create: (context) => Modular.get<HomeCubit>()),
