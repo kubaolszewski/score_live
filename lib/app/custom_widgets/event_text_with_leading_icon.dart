@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/app/custom_widgets/events_widgets/card_event_widget.dart';
+import 'package:score_live/app/custom_widgets/events_widgets/goal_event_widget.dart';
+import 'package:score_live/app/custom_widgets/events_widgets/substitution_event_widget.dart';
+import 'package:score_live/app/custom_widgets/events_widgets/var_event_widget.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
@@ -7,15 +12,18 @@ class EventTextWithLeadingIcon extends StatelessWidget {
   const EventTextWithLeadingIcon({
     super.key,
     this.event,
-    required this.leadingProperty,
+    this.assist,
+    required this.time,
     required this.player,
     required this.isHomeTeam,
   });
 
   final MatchEventsModel? event;
-  final String leadingProperty;
+  final String? assist;
+  final String time;
   final String player;
   final bool isHomeTeam;
+
   @override
   Widget build(BuildContext context) {
     final eventType = event?.type ?? AppConstVariables.stringPlaceholder;
@@ -25,60 +33,34 @@ class EventTextWithLeadingIcon extends StatelessWidget {
       children: [
         if (isHomeTeam == true) ...[
           Text(
-            "$leadingProperty'",
-            style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
+            "$time'",
+            style: const CustomTextStyle(fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700),
           ),
           const SizedBox(width: 6),
-          if (eventType == AppConstVariables.goal) const Icon(Icons.sports_soccer, color: Colors.white, size: 16),
-          if (eventType == AppConstVariables.card) ...[
-            if (eventDetail == AppConstVariables.yellowCard)
-              _iconDisplay('${AppConstVariables.assetsPath}yellow_card.png')
-            else if (eventDetail == AppConstVariables.redCard)
-              _iconDisplay('${AppConstVariables.assetsPath}red_card.png')
-          ],
+          if (eventType == AppConstVariables.goal)
+            GoalEventWidget(player: player, assist: assist, isHomeTeam: isHomeTeam),
+          if (eventType == AppConstVariables.card)
+            CardEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
           if (eventType == AppConstVariables.substitution)
-            _iconDisplay('${AppConstVariables.assetsPath}substitution.png'),
-          if (eventType == AppConstVariables.varCheck) _iconDisplay('${AppConstVariables.assetsPath}var.png'),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(player,
-                  style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
-            ),
-          ),
+            SubstitutionEventWidget(assist: assist, player: player, isHomeTeam: isHomeTeam),
+          if (eventType == AppConstVariables.varCheck)
+            VarEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam)
         ] else ...[
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Text(player,
-                  style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
-            ),
-          ),
-          const SizedBox(width: 12),
-          if (eventType == AppConstVariables.goal) const Icon(Icons.sports_soccer, color: Colors.white, size: 16),
-          if (eventType == AppConstVariables.card) ...[
-            if (eventDetail == AppConstVariables.yellowCard)
-              _iconDisplay('${AppConstVariables.assetsPath}yellow_card.png')
-            else if (eventDetail == AppConstVariables.redCard)
-              _iconDisplay('${AppConstVariables.assetsPath}red_card.png')
-          ],
+          if (eventType == AppConstVariables.goal)
+            GoalEventWidget(player: player, assist: assist, isHomeTeam: isHomeTeam),
+          if (eventType == AppConstVariables.card)
+            CardEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
           if (eventType == AppConstVariables.substitution)
-            _iconDisplay('${AppConstVariables.assetsPath}substitution.png'),
-          if (eventType == AppConstVariables.varCheck) _iconDisplay('${AppConstVariables.assetsPath}var.png'),
+            SubstitutionEventWidget(assist: assist, player: player, isHomeTeam: isHomeTeam),
+          if (eventType == AppConstVariables.varCheck)
+            VarEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
           const SizedBox(width: 6),
-          Text("$leadingProperty'",
-              style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
+          Text(
+            "$time'",
+            style: const CustomTextStyle(fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700),
+          ),
         ],
       ],
-    );
-  }
-
-  Image _iconDisplay(String assetPath) {
-    return Image(
-      image: AssetImage(assetPath),
-      width: 16,
-      height: 16,
     );
   }
 }

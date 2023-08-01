@@ -25,50 +25,34 @@ class FirstHalfEventsDisplay extends StatelessWidget {
         shrinkWrap: true,
         primary: false,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Column(
             children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    for (final event in matchEvents) ...[
-                      if (event.validFirstHalfEvents(homeTeamID))
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                          child: EventTextWithLeadingIcon(
-                              event: event,
-                              leadingProperty: event.timeElapsed.toString(),
-                              player: event.playerName,
-                              isHomeTeam: true),
-                        )
-                      else
-                        const SizedBox.shrink()
-                    ]
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    for (final event in matchEvents) ...[
-                      if (event.validFirstHalfEvents(awayTeamID))
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                          child: EventTextWithLeadingIcon(
-                              event: event,
-                              leadingProperty: event.timeElapsed.toString(),
-                              player: event.playerName,
-                              isHomeTeam: false),
-                        )
-                      else
-                        const SizedBox.shrink()
-                    ]
-                  ],
-                ),
-              ),
+              for (final event in matchEvents.reversed) ...[
+                if (event.validFirstHalfEvents(homeTeamID))
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, top: 8.0),
+                    child: EventTextWithLeadingIcon(
+                        event: event,
+                        assist: event.assistPlayerName,
+                        time: event.timeElapsed.toString(),
+                        player: event.playerName,
+                        isHomeTeam: true),
+                  ),
+                if (event.validFirstHalfEvents(awayTeamID))
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0, top: 8.0),
+                    child: EventTextWithLeadingIcon(
+                        event: event,
+                        assist: event.assistPlayerName,
+                        time: event.timeElapsed.toString(),
+                        player: event.playerName,
+                        isHomeTeam: false),
+                  )
+                else
+                  const SizedBox.shrink()
+              ]
             ],
-          )
+          ),
         ],
       ),
     );

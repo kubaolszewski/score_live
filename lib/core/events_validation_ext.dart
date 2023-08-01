@@ -5,6 +5,7 @@ extension EventsValidation on MatchEventsModel {
   int get teamIdFromEvent => team?.id ?? AppConstVariables.intPlaceholder;
   get timeElapsed => time?.elapsed ?? AppConstVariables.stringPlaceholder;
   String get playerName => player?.name ?? AppConstVariables.stringPlaceholder;
+  String get assistPlayerName => assist?.name ?? AppConstVariables.stringPlaceholder;
   bool validFirstHalfEvents(int teamId) {
     if (team?.id != null && time?.elapsed != null && player?.name != null) {
       if (teamId == teamIdFromEvent && timeElapsed <= 45) return true;
