@@ -17,6 +17,7 @@ extension DateFormatterToString on String {
   }
 
   String hourFromDate() {
-    return DateFormat(_hourWithMinutesExtractedFormat).format(DateFormat(_basicDateTimeWithHourFormat).parse(this));
+    return DateFormat(_hourWithMinutesExtractedFormat)
+        .format(DateFormat(_basicDateTimeWithHourFormat).parse(this).add(const Duration(hours: 3)));
   }
 }
