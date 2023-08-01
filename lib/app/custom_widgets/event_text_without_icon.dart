@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-class EventTextWithoutLeadingIcon extends StatelessWidget {
-  const EventTextWithoutLeadingIcon({
+class EventTextWithoutIcon extends StatelessWidget {
+  const EventTextWithoutIcon({
     super.key,
     required this.leadingProperty,
     required this.player,

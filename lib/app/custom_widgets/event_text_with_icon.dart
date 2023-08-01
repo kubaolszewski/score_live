@@ -8,8 +8,8 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-class EventTextWithLeadingIcon extends StatelessWidget {
-  const EventTextWithLeadingIcon({
+class EventTextWithtIcon extends StatelessWidget {
+  const EventTextWithtIcon({
     super.key,
     this.event,
     this.assist,

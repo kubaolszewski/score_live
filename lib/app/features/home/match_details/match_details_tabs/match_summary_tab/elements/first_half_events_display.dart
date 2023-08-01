@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/event_text_with_leading_icon.dart';
+import 'package:score_live/app/custom_widgets/event_text_with_icon.dart';
 import 'package:score_live/core/events_validation_ext.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
@@ -31,7 +31,7 @@ class FirstHalfEventsDisplay extends StatelessWidget {
                 if (event.validFirstHalfEvents(homeTeamID))
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                    child: EventTextWithLeadingIcon(
+                    child: EventTextWithtIcon(
                         event: event,
                         assist: event.assistPlayerName,
                         time: event.timeElapsed.toString(),
@@ -41,7 +41,7 @@ class FirstHalfEventsDisplay extends StatelessWidget {
                 if (event.validFirstHalfEvents(awayTeamID))
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                    child: EventTextWithLeadingIcon(
+                    child: EventTextWithtIcon(
                         event: event,
                         assist: event.assistPlayerName,
                         time: event.timeElapsed.toString(),
