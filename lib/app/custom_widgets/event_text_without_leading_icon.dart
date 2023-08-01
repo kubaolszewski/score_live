@@ -18,27 +18,25 @@ class EventTextWithoutLeadingIcon extends StatelessWidget {
     return Row(
       mainAxisAlignment: isHomeTeam == true ? MainAxisAlignment.start : MainAxisAlignment.end,
       children: [
-        if (isHomeTeam == true) ...[
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "$leadingProperty' $player",
-                style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
+        isHomeTeam == true
+            ? Expanded(
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "$leadingProperty' $player",
+                    style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
+                  ),
+                ),
+              )
+            : Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "$player $leadingProperty'",
+                    style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
+                  ),
+                ),
               ),
-            ),
-          ),
-        ] else ...[
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                "$player $leadingProperty'",
-                style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
-              ),
-            ),
-          ),
-        ],
       ],
     );
   }
