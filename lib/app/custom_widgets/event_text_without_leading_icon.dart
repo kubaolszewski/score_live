@@ -23,7 +23,7 @@ class EventTextWithoutLeadingIcon extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "$leadingProperty' $player",
+                    "$leadingProperty $player",
                     style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
                   ),
                 ),
@@ -32,7 +32,7 @@ class EventTextWithoutLeadingIcon extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    "$player $leadingProperty'",
+                    "$player $leadingProperty",
                     style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700),
                   ),
                 ),
