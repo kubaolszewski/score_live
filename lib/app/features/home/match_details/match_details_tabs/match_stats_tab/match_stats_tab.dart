@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/single_stat_display.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/teams_header.dart';
+import 'package:score_live/core/stats_getter_ext.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class MatchStatsTab extends StatelessWidget {
   const MatchStatsTab({super.key, required this.matchStats});
@@ -12,30 +12,10 @@ class MatchStatsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String homeTeamLogo = matchStats[0].team?.logo ?? AppConstVariables.defaultTeamLogo;
-    final String awayTeamLogo = matchStats[1].team?.logo ?? AppConstVariables.defaultTeamLogo;
-    final String shotsTotal = matchStats[0].statistics?[2].type ?? AppConstVariables.stringPlaceholder;
-    final int homeShotsTotal = matchStats[0].statistics?[2].value ?? AppConstVariables.intPlaceholder;
-    final int awayShotsTotal = matchStats[1].statistics?[2].value ?? AppConstVariables.intPlaceholder;
-    final int shotsTotalSum = homeShotsTotal + awayShotsTotal;
-    final String shotsOnGoal = matchStats[0].statistics?[0].type ?? AppConstVariables.stringPlaceholder;
-    final int homeShotsOnGoal = matchStats[0].statistics?[0].value ?? AppConstVariables.intPlaceholder;
-    final int awayShotsOnGoal = matchStats[1].statistics?[0].value ?? AppConstVariables.intPlaceholder;
-    final shotsOnGoalSum = homeShotsOnGoal + awayShotsOnGoal;
-    final String fouls = matchStats[0].statistics?[6].type ?? AppConstVariables.stringPlaceholder;
-    final int homeFouls = matchStats[0].statistics?[6].value ?? AppConstVariables.intPlaceholder;
-    final int awayFouls = matchStats[1].statistics?[6].value ?? AppConstVariables.intPlaceholder;
-    final foulsSum = homeFouls + awayFouls;
-    final String corners = matchStats[0].statistics?[7].type ?? AppConstVariables.stringPlaceholder;
-    final int homeCorners = matchStats[0].statistics?[7].value ?? AppConstVariables.intPlaceholder;
-    final int awayCorners = matchStats[1].statistics?[7].value ?? AppConstVariables.intPlaceholder;
-    final cornersSum = homeCorners + awayCorners;
-    final String ballPossession = matchStats[0].statistics?[9].type ?? AppConstVariables.stringPlaceholder;
-    final int homeBallPossession =
-        matchStats[0].statistics?[9].filterBallPossession ?? AppConstVariables.intPlaceholder;
-    final int awayBallPossession =
-        matchStats[1].statistics?[9].filterBallPossession ?? AppConstVariables.intPlaceholder;
-
+    final shotsTotalSum = matchStats.homeShotsTotal + matchStats.awayShotsTotal;
+    final shotsOnGoalSum = matchStats.homeShotsOnGoal + matchStats.awayShotsOnGoal;
+    final foulsSum = matchStats.homeFouls + matchStats.awayFouls;
+    final cornersSum = matchStats.homeCorners + matchStats.awayCorners;
     return Container(
       padding: const EdgeInsets.all(12.0),
       color: AppColors.listTileGrey,
@@ -43,34 +23,34 @@ class MatchStatsTab extends StatelessWidget {
         shrinkWrap: true,
         primary: false,
         children: [
-          TeamsHeader(homeTeamLogo: homeTeamLogo, awayTeamLogo: awayTeamLogo),
+          TeamsHeader(homeTeamLogo: matchStats.homeTeamLogo, awayTeamLogo: matchStats.awayTeamLogo),
           const SizedBox(height: 31),
           SingleStatDisplay(
-              homeTotalValue: homeShotsTotal,
-              awayTotalValue: awayShotsTotal,
-              valueName: shotsTotal,
+              homeTotalValue: matchStats.homeShotsTotal,
+              awayTotalValue: matchStats.awayShotsTotal,
+              valueName: matchStats.shotsTotal,
               totalValueSum: shotsTotalSum),
           SingleStatDisplay(
-              homeTotalValue: homeShotsOnGoal,
-              awayTotalValue: awayShotsOnGoal,
-              valueName: shotsOnGoal,
+              homeTotalValue: matchStats.homeShotsOnGoal,
+              awayTotalValue: matchStats.awayShotsOnGoal,
+              valueName: matchStats.shotsOnGoal,
               totalValueSum: shotsOnGoalSum),
           SingleStatDisplay(
-            homeTotalValue: homeFouls,
-            awayTotalValue: awayFouls,
-            valueName: fouls,
+            homeTotalValue: matchStats.homeFouls,
+            awayTotalValue: matchStats.awayFouls,
+            valueName: matchStats.fouls,
             totalValueSum: foulsSum,
           ),
           SingleStatDisplay(
-            homeTotalValue: homeCorners,
-            awayTotalValue: awayCorners,
-            valueName: corners,
+            homeTotalValue: matchStats.homeCorners,
+            awayTotalValue: matchStats.awayCorners,
+            valueName: matchStats.corners,
             totalValueSum: cornersSum,
           ),
           SingleStatDisplay(
-            homeTotalValue: homeBallPossession,
-            awayTotalValue: awayBallPossession,
-            valueName: ballPossession,
+            homeTotalValue: matchStats.homeBallPossession,
+            awayTotalValue: matchStats.awayBallPossession,
+            valueName: matchStats.ballPossession,
           ),
         ],
       ),
