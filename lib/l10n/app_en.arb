@@ -18,7 +18,7 @@
   "noMatchesFinished" : "No matches were finished on this date yet.",
   "pastMatchesCheck" : "Can't check past matches in this tab.",
 
-  "lastMatchesHeader" : "LAST 5 MATCHES",
+  "lastMatchesHeader" : "LAST MATCHES:",
   "matchesNumber" : "10 Matches",
   "totalWins" : "Total Wins:",
   "draws" : "Draws",

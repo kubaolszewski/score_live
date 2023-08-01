@@ -23,7 +23,7 @@ class LastMatchesH2HView extends StatelessWidget {
           shrinkWrap: true,
           primary: false,
           children: [
-            for (int matchIndex = 0; matchIndex < 5; matchIndex++)
+            for (int matchIndex = 0; matchIndex < teamsH2h.length; matchIndex++)
               WideMatchListTile(
                 match: teamsH2h[matchIndex],
               ),
