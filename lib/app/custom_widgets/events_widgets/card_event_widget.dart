@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/core/enums.dart';
+import 'package:score_live/core/events_validation_ext.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
@@ -16,28 +18,23 @@ class CardEventWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final yellowCard = EventType.yellowCard.eventTypeFormatter();
+    final redCard = EventType.redCard.eventTypeFormatter();
+
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         if (isHomeTeam) ...[
-          if (eventDetail == AppConstVariables.yellowCard) ...[
-            const Image(
-              image: AssetImage(AssetsPaths.yellowCard),
-              width: 16,
-              height: 16,
-            ),
+          if (eventDetail == yellowCard) ...[
+            const Image(image: AssetImage(AssetsPaths.yellowCard), width: 16, height: 16),
             const SizedBox(width: 12),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(player,
                   style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
             ),
-          ] else if (eventDetail == AppConstVariables.redCard) ...[
-            const Image(
-              image: AssetImage(AssetsPaths.redCard),
-              width: 16,
-              height: 16,
-            ),
+          ] else if (eventDetail == redCard) ...[
+            const Image(image: AssetImage(AssetsPaths.redCard), width: 16, height: 16),
             const SizedBox(width: 12),
             Align(
               alignment: Alignment.centerLeft,
@@ -49,30 +46,22 @@ class CardEventWidget extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (eventDetail == AppConstVariables.yellowCard) ...[
+              if (eventDetail == yellowCard) ...[
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(player,
                       style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
                 ),
                 const SizedBox(width: 12),
-                const Image(
-                  image: AssetImage(AssetsPaths.yellowCard),
-                  width: 16,
-                  height: 16,
-                ),
-              ] else if (eventDetail == AppConstVariables.redCard) ...[
+                const Image(image: AssetImage(AssetsPaths.yellowCard), width: 16, height: 16),
+              ] else if (eventDetail == redCard) ...[
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(player,
                       style: const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
                 ),
                 const SizedBox(width: 12),
-                const Image(
-                  image: AssetImage(AssetsPaths.redCard),
-                  width: 16,
-                  height: 16,
-                ),
+                const Image(image: AssetImage(AssetsPaths.redCard), width: 16, height: 16),
               ],
             ],
           ),

@@ -1,3 +1,4 @@
+import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
@@ -27,5 +28,26 @@ extension EventsValidation on MatchEventsModel {
       if (teamId == teamIdFromEvent && timeElapsed > 45) return true;
     }
     return false;
+  }
+}
+
+extension EventTypeCheckersFormatter on EventType {
+  String eventTypeFormatter() {
+    if (name == 'substitution') {
+      return AppConstVariables.substitution;
+    }
+    if (name == 'card') {
+      return AppConstVariables.card;
+    }
+    if (name == 'varCheck') {
+      return AppConstVariables.varCheck;
+    }
+    if (name == 'yellowCard') {
+      return AppConstVariables.yellowCard;
+    }
+    if (name == 'redCard') {
+      return AppConstVariables.redCard;
+    }
+    return AppConstVariables.goal;
   }
 }

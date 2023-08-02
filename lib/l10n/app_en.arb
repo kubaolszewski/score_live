@@ -33,6 +33,7 @@
   "matchDetailsStats" : "Stats",
   "matchDetailsH2H" : "H2H",
   "matchDetailsStandings" : "Standings",
+  "assist" : "Asst: ",
   "playerIn" : "In: ",
   "playerOut" : "Out: ",
 

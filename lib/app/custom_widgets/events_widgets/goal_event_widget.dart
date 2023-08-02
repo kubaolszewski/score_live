@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
@@ -36,7 +37,7 @@ class GoalEventWidget extends StatelessWidget {
                 Expanded(
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Asst: $assist',
+                    child: Text('${context.localizations.assist} $assist',
                         style: const CustomTextStyle(
                             fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700)),
                   ),
@@ -60,7 +61,7 @@ class GoalEventWidget extends StatelessWidget {
                 Expanded(
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Asst: $assist',
+                    child: Text('${context.localizations.assist} $assist',
                         style: const CustomTextStyle(
                             fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700)),
                   ),

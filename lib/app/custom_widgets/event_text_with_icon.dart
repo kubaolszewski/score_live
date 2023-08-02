@@ -3,6 +3,8 @@ import 'package:score_live/app/custom_widgets/events_widgets/card_event_widget.d
 import 'package:score_live/app/custom_widgets/events_widgets/goal_event_widget.dart';
 import 'package:score_live/app/custom_widgets/events_widgets/substitution_event_widget.dart';
 import 'package:score_live/app/custom_widgets/events_widgets/var_event_widget.dart';
+import 'package:score_live/core/enums.dart';
+import 'package:score_live/core/events_validation_ext.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
@@ -26,9 +28,14 @@ class EventTextWithtIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final goal = EventType.goal.eventTypeFormatter();
+    final card = EventType.card.eventTypeFormatter();
+    final substitution = EventType.substitution.eventTypeFormatter();
+    final varCheck = EventType.varCheck.eventTypeFormatter();
     final eventType = event?.type ?? AppConstVariables.stringPlaceholder;
     final eventDetail = event?.detail ?? AppConstVariables.stringPlaceholder;
     final playerIn = assist ?? AppConstVariables.stringPlaceholder;
+
     return Row(
       mainAxisAlignment: isHomeTeam == true ? MainAxisAlignment.start : MainAxisAlignment.end,
       children: [
@@ -38,23 +45,17 @@ class EventTextWithtIcon extends StatelessWidget {
             style: const CustomTextStyle(fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700),
           ),
           const SizedBox(width: 6),
-          if (eventType == AppConstVariables.goal)
-            GoalEventWidget(player: player, assist: assist, isHomeTeam: isHomeTeam),
-          if (eventType == AppConstVariables.card)
-            CardEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
-          if (eventType == AppConstVariables.substitution)
+          if (eventType == goal) GoalEventWidget(player: player, assist: assist, isHomeTeam: isHomeTeam),
+          if (eventType == card) CardEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
+          if (eventType == substitution)
             SubstitutionEventWidget(playerIn: playerIn, playerOut: player, isHomeTeam: isHomeTeam),
-          if (eventType == AppConstVariables.varCheck)
-            VarEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam)
+          if (eventType == varCheck) VarEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam)
         ] else ...[
-          if (eventType == AppConstVariables.goal)
-            GoalEventWidget(player: player, assist: assist, isHomeTeam: isHomeTeam),
-          if (eventType == AppConstVariables.card)
-            CardEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
-          if (eventType == AppConstVariables.substitution)
+          if (eventType == goal) GoalEventWidget(player: player, assist: assist, isHomeTeam: isHomeTeam),
+          if (eventType == card) CardEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
+          if (eventType == substitution)
             SubstitutionEventWidget(playerIn: playerIn, playerOut: player, isHomeTeam: isHomeTeam),
-          if (eventType == AppConstVariables.varCheck)
-            VarEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
+          if (eventType == varCheck) VarEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
           const SizedBox(width: 6),
           Text(
             "$time'",
