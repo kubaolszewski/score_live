@@ -24,7 +24,7 @@ class HalvesResultDisplay extends StatelessWidget {
       child: SizedBox(
         child: Column(
           children: [
-            if (isFirstHalf == true) ...[
+            if (isFirstHalf) ...[
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

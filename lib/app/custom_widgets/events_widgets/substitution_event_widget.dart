@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
@@ -19,9 +20,9 @@ class SubstitutionEventWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        if (isHomeTeam == true) ...[
+        if (isHomeTeam) ...[
           const Image(
-            image: AssetImage(('${AppConstVariables.assetsPath}substitution.png')),
+            image: AssetImage(AssetsPaths.substitution),
             width: 16,
             height: 16,
           ),
@@ -36,9 +37,9 @@ class SubstitutionEventWidget extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Row(
                       children: [
-                        const Text(
-                          'In: ',
-                          style: CustomTextStyle(fontSize: 12, color: Colors.green, fontWeight: FontWeight.w700),
+                        Text(
+                          context.localizations.playerIn,
+                          style: const CustomTextStyle(fontSize: 12, color: Colors.green, fontWeight: FontWeight.w700),
                         ),
                         Text(playerIn,
                             style:
@@ -52,8 +53,8 @@ class SubstitutionEventWidget extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Row(
                       children: [
-                        const Text('Out: ',
-                            style: CustomTextStyle(fontSize: 12, color: Colors.red, fontWeight: FontWeight.w700)),
+                        Text(context.localizations.playerOut,
+                            style: const CustomTextStyle(fontSize: 12, color: Colors.red, fontWeight: FontWeight.w700)),
                         Text(playerOut,
                             style: const CustomTextStyle(
                                 fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700)),
@@ -75,9 +76,9 @@ class SubstitutionEventWidget extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Row(
                       children: [
-                        const Text(
-                          'In: ',
-                          style: CustomTextStyle(fontSize: 12, color: Colors.green, fontWeight: FontWeight.w700),
+                         Text(
+                          context.localizations.playerIn,
+                          style: const CustomTextStyle(fontSize: 12, color: Colors.green, fontWeight: FontWeight.w700),
                         ),
                         Text(playerIn,
                             style:
@@ -91,8 +92,8 @@ class SubstitutionEventWidget extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Row(
                       children: [
-                        const Text('Out: ',
-                            style: CustomTextStyle(fontSize: 12, color: Colors.red, fontWeight: FontWeight.w700)),
+                         Text(context.localizations.playerOut,
+                            style: const CustomTextStyle(fontSize: 12, color: Colors.red, fontWeight: FontWeight.w700)),
                         Text(playerOut,
                             style: const CustomTextStyle(
                                 fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700)),
@@ -105,7 +106,7 @@ class SubstitutionEventWidget extends StatelessWidget {
           ),
           const SizedBox(width: 12),
           const Image(
-            image: AssetImage(('${AppConstVariables.assetsPath}substitution.png')),
+            image: AssetImage(AssetsPaths.substitution),
             width: 16,
             height: 16,
           ),

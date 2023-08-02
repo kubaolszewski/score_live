@@ -4,7 +4,6 @@ abstract class AppConstVariables {
   static const ballPossessionSum = 100;
   static const dateYyyyMmDdDashFormat = 'yyyy-MM-dd';
   static const dateMmmDYyyyWithComaFormat = 'MMM d, yyyy';
-  static const assetsPath = 'assets/images/event_icons/';
   static const defaultLeagueLogo =
       'https://thumbs.dreamstime.com/b/handshake-vector-icon-black-illustration-isolated-graphic-web-'
       'design-business-contract-agreement-flat-symbol-white-98077091.jpg';
@@ -27,4 +26,11 @@ abstract class AppConstVariables {
   static const varCheck = 'var';
   static const varGoalCancelled = 'Goal cancelled';
   static const varPenaltyConfirmed = 'Penalty Confirmed';
+}
+
+abstract class AssetsPaths {
+  static const yellowCard = 'assets/images/event_icons/yellow_card.png';
+  static const redCard = 'assets/images/event_icons/red_card.png';
+  static const substitution = 'assets/images/event_icons/substitution.png';
+  static const varCheck = 'assets/images/event_icons/var.png';
 }

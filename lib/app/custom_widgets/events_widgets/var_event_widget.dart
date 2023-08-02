@@ -3,7 +3,6 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-
 class VarEventWidget extends StatelessWidget {
   const VarEventWidget({
     super.key,
@@ -20,9 +19,9 @@ class VarEventWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        if (isHomeTeam == true) ...[
+        if (isHomeTeam) ...[
           Image(
-            image: const AssetImage(('${AppConstVariables.assetsPath}var.png')),
+            image: const AssetImage(AssetsPaths.varCheck),
             width: 16,
             height: 16,
             color: eventDetail == AppConstVariables.varGoalCancelled ? Colors.red : Colors.white,
@@ -39,7 +38,7 @@ class VarEventWidget extends StatelessWidget {
             width: 12,
           ),
           Image(
-            image: const AssetImage(('${AppConstVariables.assetsPath}var.png')),
+            image: const AssetImage(AssetsPaths.varCheck),
             width: 16,
             height: 16,
             color: eventDetail == AppConstVariables.varGoalCancelled ? Colors.red : Colors.white,

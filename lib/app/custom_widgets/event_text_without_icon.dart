@@ -18,7 +18,7 @@ class EventTextWithoutIcon extends StatelessWidget {
     return Row(
       mainAxisAlignment: isHomeTeam == true ? MainAxisAlignment.start : MainAxisAlignment.end,
       children: [
-        isHomeTeam == true
+        isHomeTeam
             ? Expanded(
                 child: Align(
                   alignment: Alignment.centerLeft,

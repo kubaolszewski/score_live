@@ -18,7 +18,7 @@ class GoalEventWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        if (isHomeTeam == true) ...[
+        if (isHomeTeam) ...[
           const Icon(Icons.sports_soccer, color: Colors.white, size: 16),
           const SizedBox(width: 12),
           SizedBox(

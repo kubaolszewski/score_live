@@ -33,6 +33,9 @@
   "matchDetailsStats" : "Stats",
   "matchDetailsH2H" : "H2H",
   "matchDetailsStandings" : "Standings",
+  "playerIn" : "In: ",
+  "playerOut" : "Out: ",
+
 
   "competitionAppBarTitle" : "Browse Competition",
 

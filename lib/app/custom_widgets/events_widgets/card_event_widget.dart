@@ -19,10 +19,10 @@ class CardEventWidget extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        if (isHomeTeam == true) ...[
+        if (isHomeTeam) ...[
           if (eventDetail == AppConstVariables.yellowCard) ...[
             const Image(
-              image: AssetImage('${AppConstVariables.assetsPath}yellow_card.png'),
+              image: AssetImage(AssetsPaths.yellowCard),
               width: 16,
               height: 16,
             ),
@@ -34,7 +34,7 @@ class CardEventWidget extends StatelessWidget {
             ),
           ] else if (eventDetail == AppConstVariables.redCard) ...[
             const Image(
-              image: AssetImage('${AppConstVariables.assetsPath}red_card.png'),
+              image: AssetImage(AssetsPaths.redCard),
               width: 16,
               height: 16,
             ),
@@ -57,7 +57,7 @@ class CardEventWidget extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 const Image(
-                  image: AssetImage('${AppConstVariables.assetsPath}yellow_card.png'),
+                  image: AssetImage(AssetsPaths.yellowCard),
                   width: 16,
                   height: 16,
                 ),
@@ -69,7 +69,7 @@ class CardEventWidget extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 const Image(
-                  image: AssetImage('${AppConstVariables.assetsPath}red_card.png'),
+                  image: AssetImage(AssetsPaths.redCard),
                   width: 16,
                   height: 16,
                 ),

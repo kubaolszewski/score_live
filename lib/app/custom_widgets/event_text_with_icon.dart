@@ -32,7 +32,7 @@ class EventTextWithtIcon extends StatelessWidget {
     return Row(
       mainAxisAlignment: isHomeTeam == true ? MainAxisAlignment.start : MainAxisAlignment.end,
       children: [
-        if (isHomeTeam == true) ...[
+        if (isHomeTeam) ...[
           Text(
             "$time'",
             style: const CustomTextStyle(fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700),
