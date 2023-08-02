@@ -15,7 +15,7 @@ class LiveNowCubit extends Cubit<LiveNowState> {
     emit(const LoadingMatchesState());
     try {
       final liveMatches = await homeScreenRepository.fetchLiveMatches();
-      if (liveMatches!.isNotEmpty) {
+      if (liveMatches != null && liveMatches.isNotEmpty) {
         emit(MatchesLoadedState(liveMatches));
       }
     } catch (error) {
