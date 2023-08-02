@@ -6,13 +6,13 @@ import 'package:score_live/presentation/constants/text_styles.dart';
 class SubstitutionEventWidget extends StatelessWidget {
   const SubstitutionEventWidget({
     super.key,
-    required this.assist,
-    required this.player,
+    required this.playerIn,
+    required this.playerOut,
     required this.isHomeTeam,
   });
 
-  final String? assist;
-  final String player;
+  final String? playerIn;
+  final String playerOut;
   final bool isHomeTeam;
 
   @override
@@ -40,7 +40,7 @@ class SubstitutionEventWidget extends StatelessWidget {
                           'In: ',
                           style: CustomTextStyle(fontSize: 12, color: Colors.green, fontWeight: FontWeight.w700),
                         ),
-                        Text(assist!,
+                        Text(playerIn!,
                             style:
                                 const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
                       ],
@@ -54,7 +54,7 @@ class SubstitutionEventWidget extends StatelessWidget {
                       children: [
                         const Text('Out: ',
                             style: CustomTextStyle(fontSize: 12, color: Colors.red, fontWeight: FontWeight.w700)),
-                        Text(player,
+                        Text(playerOut,
                             style: const CustomTextStyle(
                                 fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700)),
                       ],
@@ -79,7 +79,7 @@ class SubstitutionEventWidget extends StatelessWidget {
                           'In: ',
                           style: CustomTextStyle(fontSize: 12, color: Colors.green, fontWeight: FontWeight.w700),
                         ),
-                        Text(assist!,
+                        Text(playerIn!,
                             style:
                                 const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
                       ],
@@ -93,7 +93,7 @@ class SubstitutionEventWidget extends StatelessWidget {
                       children: [
                         const Text('Out: ',
                             style: CustomTextStyle(fontSize: 12, color: Colors.red, fontWeight: FontWeight.w700)),
-                        Text(player,
+                        Text(playerOut,
                             style: const CustomTextStyle(
                                 fontSize: 12, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w700)),
                       ],

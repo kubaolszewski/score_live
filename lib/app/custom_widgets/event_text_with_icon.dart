@@ -42,7 +42,7 @@ class EventTextWithtIcon extends StatelessWidget {
           if (eventType == AppConstVariables.card)
             CardEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
           if (eventType == AppConstVariables.substitution)
-            SubstitutionEventWidget(assist: assist, player: player, isHomeTeam: isHomeTeam),
+            SubstitutionEventWidget(playerIn: assist, playerOut: player, isHomeTeam: isHomeTeam),
           if (eventType == AppConstVariables.varCheck)
             VarEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam)
         ] else ...[
@@ -51,7 +51,7 @@ class EventTextWithtIcon extends StatelessWidget {
           if (eventType == AppConstVariables.card)
             CardEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
           if (eventType == AppConstVariables.substitution)
-            SubstitutionEventWidget(assist: assist, player: player, isHomeTeam: isHomeTeam),
+            SubstitutionEventWidget(playerIn: assist, playerOut: player, isHomeTeam: isHomeTeam),
           if (eventType == AppConstVariables.varCheck)
             VarEventWidget(eventDetail: eventDetail, player: player, isHomeTeam: isHomeTeam),
           const SizedBox(width: 6),
