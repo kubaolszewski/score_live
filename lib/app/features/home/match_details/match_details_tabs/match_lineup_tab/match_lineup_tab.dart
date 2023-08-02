@@ -16,26 +16,22 @@ class MatchLineUpTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(8.0),
-          color: AppColors.listTileGrey,
-          child: ListView(
-            shrinkWrap: true,
-            primary: false,
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      color: AppColors.listTileGrey,
+      child: ListView(
+        shrinkWrap: true,
+        primary: false,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TeamsLineUpsDisplay(lineUps: lineUps, isHomeTeam: true),
-                  TeamsLineUpsDisplay(lineUps: lineUps, isHomeTeam: false),
-                ],
-              )
+              TeamsLineUpsDisplay(lineUps: lineUps, isHomeTeam: true),
+              TeamsLineUpsDisplay(lineUps: lineUps, isHomeTeam: false),
             ],
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
