@@ -37,6 +37,10 @@
   "matchDetailsStats" : "Statystyki",
   "matchDetailsH2H" : "H2H",
   "matchDetailsStandings" : "Tabela",
+  "assist" : "Asys :",
+  "playerIn" : "Zmiana: ",
+  "playerOut" : "Za: ",
+
 
   "competitionAppBarTitle" : "Wyszukaj rozgrywki",
 

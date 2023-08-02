@@ -3,6 +3,7 @@ import 'package:score_live/models/league_model/league_model.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
+import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
 
 part 'live_matches_fixtures.g.dart';
@@ -33,6 +34,15 @@ class MatchLineUps with _$MatchLineUps {
   }) = _MatchLineUps;
 
   factory MatchLineUps.fromJson(Map<String, dynamic> json) => _$MatchLineUpsFromJson(json);
+}
+
+@freezed
+class MatchStatistics with _$MatchStatistics {
+  factory MatchStatistics({
+    @Default([]) List<StatisticsModel> response,
+  }) = _MatchStatistics;
+
+  factory MatchStatistics.fromJson(Map<String, dynamic> json) => _$MatchStatisticsFromJson(json);
 }
 
 @freezed

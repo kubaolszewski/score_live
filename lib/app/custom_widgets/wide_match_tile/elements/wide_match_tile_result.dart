@@ -11,6 +11,8 @@ class WideMatchTileResult extends StatelessWidget {
   Widget build(BuildContext context) {
     final int homeTeamGoals = match.goals?.home ?? AppConstVariables.intPlaceholder;
     final int awayTeamGoals = match.goals?.away ?? AppConstVariables.intPlaceholder;
+    final String matchStatusShort = match.fixture?.status?.short ?? AppConstVariables.stringPlaceholder;
+    final bool matchStatusCheck = matchStatusShort == AppConstVariables.matchNotStarted;
     return Padding(
       padding: const EdgeInsets.only(right: 24.0),
       child: Column(
@@ -20,7 +22,7 @@ class WideMatchTileResult extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                '$homeTeamGoals',
+                matchStatusCheck ? '--' : '$homeTeamGoals',
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 14,
@@ -33,7 +35,7 @@ class WideMatchTileResult extends StatelessWidget {
           Row(
             children: [
               Text(
-                '$awayTeamGoals',
+                matchStatusCheck ? '--' : '$awayTeamGoals',
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 14,

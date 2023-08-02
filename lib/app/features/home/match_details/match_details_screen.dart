@@ -23,8 +23,7 @@ class MatchDetailsScreen extends StatelessWidget {
       providers: [
         BlocProvider<HomeCubit>(create: (context) => Modular.get<HomeCubit>()),
         BlocProvider(
-            create: (context) =>
-                Modular.get<MatchDetailsCubit>()..fetchMatchEvents(teamsIdNumbers, matchID.toString())),
+            create: (context) => Modular.get<MatchDetailsCubit>()..fetchMatchInfo(teamsIdNumbers, matchID.toString())),
       ],
       child: MatchDetailsView(liveMatch: liveMatch),
     );

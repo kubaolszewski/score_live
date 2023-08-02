@@ -56,6 +56,7 @@ class MatchDetailsView extends StatelessWidget {
               builder: (context, state) {
                 final matchEvents = state.matchEvents;
                 final matchLineUps = state.lineUps;
+                final matchStats = state.matchStats;
                 final teamsH2h = state.teamsH2h;
                 switch (state.detailsOptions) {
                   case DetailsOptions.summary:
@@ -63,7 +64,9 @@ class MatchDetailsView extends StatelessWidget {
                   case DetailsOptions.lineUp:
                     return MatchLineUpTab(liveMatch: liveMatch, lineUps: matchLineUps);
                   case DetailsOptions.stats:
-                    return const MatchStatsTab();
+                    return MatchStatsTab(
+                      matchStats: matchStats,
+                    );
                   case DetailsOptions.h2H:
                     return MatchH2HTab(match: liveMatch, teamsH2h: teamsH2h);
                   case DetailsOptions.standings:
