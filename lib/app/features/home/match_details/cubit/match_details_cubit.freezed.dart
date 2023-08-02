@@ -17,6 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MatchDetailsState {
   List<MatchEventsModel> get matchEvents => throw _privateConstructorUsedError;
+  List<LineUpModel> get lineUps => throw _privateConstructorUsedError;
+  List<LiveMatchModel> get teamsH2h => throw _privateConstructorUsedError;
   List<LineUpModel> get matchLineUps => throw _privateConstructorUsedError;
   List<StatisticsModel> get matchStats => throw _privateConstructorUsedError;
   DetailsOptions get detailsOptions => throw _privateConstructorUsedError;
@@ -36,6 +38,8 @@ abstract class $MatchDetailsStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<MatchEventsModel> matchEvents,
+      List<LineUpModel> lineUps,
+      List<LiveMatchModel> teamsH2h,
       List<LineUpModel> matchLineUps,
       List<StatisticsModel> matchStats,
       DetailsOptions detailsOptions,
@@ -57,6 +61,8 @@ class _$MatchDetailsStateCopyWithImpl<$Res, $Val extends MatchDetailsState>
   @override
   $Res call({
     Object? matchEvents = null,
+    Object? lineUps = null,
+    Object? teamsH2h = null,
     Object? matchLineUps = null,
     Object? matchStats = null,
     Object? detailsOptions = null,
@@ -68,6 +74,14 @@ class _$MatchDetailsStateCopyWithImpl<$Res, $Val extends MatchDetailsState>
           ? _value.matchEvents
           : matchEvents // ignore: cast_nullable_to_non_nullable
               as List<MatchEventsModel>,
+      lineUps: null == lineUps
+          ? _value.lineUps
+          : lineUps // ignore: cast_nullable_to_non_nullable
+              as List<LineUpModel>,
+      teamsH2h: null == teamsH2h
+          ? _value.teamsH2h
+          : teamsH2h // ignore: cast_nullable_to_non_nullable
+              as List<LiveMatchModel>,
       matchLineUps: null == matchLineUps
           ? _value.matchLineUps
           : matchLineUps // ignore: cast_nullable_to_non_nullable
@@ -102,6 +116,8 @@ abstract class _$$_MatchDetailsStateCopyWith<$Res>
   @useResult
   $Res call(
       {List<MatchEventsModel> matchEvents,
+      List<LineUpModel> lineUps,
+      List<LiveMatchModel> teamsH2h,
       List<LineUpModel> matchLineUps,
       List<StatisticsModel> matchStats,
       DetailsOptions detailsOptions,
@@ -121,6 +137,8 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? matchEvents = null,
+    Object? lineUps = null,
+    Object? teamsH2h = null,
     Object? matchLineUps = null,
     Object? matchStats = null,
     Object? detailsOptions = null,
@@ -132,6 +150,14 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
           ? _value._matchEvents
           : matchEvents // ignore: cast_nullable_to_non_nullable
               as List<MatchEventsModel>,
+      lineUps: null == lineUps
+          ? _value._lineUps
+          : lineUps // ignore: cast_nullable_to_non_nullable
+              as List<LineUpModel>,
+      teamsH2h: null == teamsH2h
+          ? _value._teamsH2h
+          : teamsH2h // ignore: cast_nullable_to_non_nullable
+              as List<LiveMatchModel>,
       matchLineUps: null == matchLineUps
           ? _value._matchLineUps
           : matchLineUps // ignore: cast_nullable_to_non_nullable
@@ -161,12 +187,16 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
 class _$_MatchDetailsState extends _MatchDetailsState {
   _$_MatchDetailsState(
       {final List<MatchEventsModel> matchEvents = const [],
+      final List<LineUpModel> lineUps = const [],
+      final List<LiveMatchModel> teamsH2h = const [],
       final List<LineUpModel> matchLineUps = const [],
       final List<StatisticsModel> matchStats = const [],
       this.detailsOptions = DetailsOptions.summary,
       this.isLoading = false,
       this.errorMessage = ''})
       : _matchEvents = matchEvents,
+        _lineUps = lineUps,
+        _teamsH2h = teamsH2h,
         _matchLineUps = matchLineUps,
         _matchStats = matchStats,
         super._();
@@ -178,6 +208,24 @@ class _$_MatchDetailsState extends _MatchDetailsState {
     if (_matchEvents is EqualUnmodifiableListView) return _matchEvents;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_matchEvents);
+  }
+
+  final List<LineUpModel> _lineUps;
+  @override
+  @JsonKey()
+  List<LineUpModel> get lineUps {
+    if (_lineUps is EqualUnmodifiableListView) return _lineUps;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_lineUps);
+  }
+
+  final List<LiveMatchModel> _teamsH2h;
+  @override
+  @JsonKey()
+  List<LiveMatchModel> get teamsH2h {
+    if (_teamsH2h is EqualUnmodifiableListView) return _teamsH2h;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_teamsH2h);
   }
 
   final List<LineUpModel> _matchLineUps;
@@ -210,7 +258,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
 
   @override
   String toString() {
-    return 'MatchDetailsState(matchEvents: $matchEvents, matchLineUps: $matchLineUps, matchStats: $matchStats, detailsOptions: $detailsOptions, isLoading: $isLoading, errorMessage: $errorMessage)';
+    return 'MatchDetailsState(matchEvents: $matchEvents, lineUps: $lineUps, teamsH2h: $teamsH2h, matchLineUps: $matchLineUps, matchStats: $matchStats, detailsOptions: $detailsOptions, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -220,6 +268,8 @@ class _$_MatchDetailsState extends _MatchDetailsState {
             other is _$_MatchDetailsState &&
             const DeepCollectionEquality()
                 .equals(other._matchEvents, _matchEvents) &&
+            const DeepCollectionEquality().equals(other._lineUps, _lineUps) &&
+            const DeepCollectionEquality().equals(other._teamsH2h, _teamsH2h) &&
             const DeepCollectionEquality()
                 .equals(other._matchLineUps, _matchLineUps) &&
             const DeepCollectionEquality()
@@ -236,6 +286,8 @@ class _$_MatchDetailsState extends _MatchDetailsState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_matchEvents),
+      const DeepCollectionEquality().hash(_lineUps),
+      const DeepCollectionEquality().hash(_teamsH2h),
       const DeepCollectionEquality().hash(_matchLineUps),
       const DeepCollectionEquality().hash(_matchStats),
       detailsOptions,
@@ -253,6 +305,8 @@ class _$_MatchDetailsState extends _MatchDetailsState {
 abstract class _MatchDetailsState extends MatchDetailsState {
   factory _MatchDetailsState(
       {final List<MatchEventsModel> matchEvents,
+      final List<LineUpModel> lineUps,
+      final List<LiveMatchModel> teamsH2h,
       final List<LineUpModel> matchLineUps,
       final List<StatisticsModel> matchStats,
       final DetailsOptions detailsOptions,
@@ -262,6 +316,10 @@ abstract class _MatchDetailsState extends MatchDetailsState {
 
   @override
   List<MatchEventsModel> get matchEvents;
+  @override
+  List<LineUpModel> get lineUps;
+  @override
+  List<LiveMatchModel> get teamsH2h;
   @override
   List<LineUpModel> get matchLineUps;
   @override
