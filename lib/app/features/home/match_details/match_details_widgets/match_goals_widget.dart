@@ -60,9 +60,7 @@ class MatchGoalsWidget extends StatelessWidget {
                       for (final event in matchEvents) ...[
                         if (event.validGoalsEventsOnly(homeTeamID))
                           EventTextWithoutIcon(
-                              time: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                              player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                              isHomeTeam: true),
+                              time: event.timeElapsed.toString(), player: event.playerName, isHomeTeam: true),
                         const SizedBox(height: 2)
                       ],
                     ],
@@ -73,10 +71,7 @@ class MatchGoalsWidget extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.sports_soccer,
-                          color: Colors.grey,
-                        ),
+                        Icon(Icons.sports_soccer, color: Colors.grey),
                       ],
                     ),
                   ),
@@ -89,9 +84,7 @@ class MatchGoalsWidget extends StatelessWidget {
                       for (final event in matchEvents) ...[
                         if (event.validGoalsEventsOnly(awayTeamID))
                           EventTextWithoutIcon(
-                              time: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                              player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                              isHomeTeam: false),
+                              time: event.timeElapsed.toString(), player: event.playerName, isHomeTeam: false),
                         const SizedBox(height: 2)
                       ],
                     ],
