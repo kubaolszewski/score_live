@@ -52,8 +52,6 @@ class SecondHalfEventsDisplay extends StatelessWidget {
                         player: event.playerName,
                         isHomeTeam: false),
                   )
-                else
-                  const SizedBox.shrink()
               ]
             ],
           ),
