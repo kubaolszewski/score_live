@@ -11,7 +11,7 @@ class SubstitutionEventWidget extends StatelessWidget {
     required this.isHomeTeam,
   });
 
-  final String? playerIn;
+  final String playerIn;
   final String playerOut;
   final bool isHomeTeam;
 
@@ -40,7 +40,7 @@ class SubstitutionEventWidget extends StatelessWidget {
                           'In: ',
                           style: CustomTextStyle(fontSize: 12, color: Colors.green, fontWeight: FontWeight.w700),
                         ),
-                        Text(playerIn!,
+                        Text(playerIn,
                             style:
                                 const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
                       ],
@@ -79,7 +79,7 @@ class SubstitutionEventWidget extends StatelessWidget {
                           'In: ',
                           style: CustomTextStyle(fontSize: 12, color: Colors.green, fontWeight: FontWeight.w700),
                         ),
-                        Text(playerIn!,
+                        Text(playerIn,
                             style:
                                 const CustomTextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w700)),
                       ],
