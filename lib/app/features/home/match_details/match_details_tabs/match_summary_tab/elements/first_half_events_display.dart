@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/event_text_template.dart';
+import 'package:score_live/app/custom_widgets/event_text_with_icon.dart';
 import 'package:score_live/core/events_validation_ext.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
@@ -14,8 +14,8 @@ class FirstHalfEventsDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int homeTeamID = liveMatch.teams?.home?.id ?? AppConstVariables.intPlaceholder;
-    final int awayTeamID = liveMatch.teams?.away?.id ?? AppConstVariables.intPlaceholder;
+    final homeTeamID = liveMatch.teams?.home?.id ?? AppConstVariables.intPlaceholder;
+    final awayTeamID = liveMatch.teams?.away?.id ?? AppConstVariables.intPlaceholder;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -25,47 +25,32 @@ class FirstHalfEventsDisplay extends StatelessWidget {
         shrinkWrap: true,
         primary: false,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Column(
             children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    for (final event in matchEvents) ...[
-                      if (event.validFirstHalfEvents(homeTeamID))
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                          child: EventTextTemplate(
-                              leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                              player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                              isHomeTeam: true),
-                        )
-                      else
-                        const SizedBox.shrink()
-                    ]
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    for (final event in matchEvents) ...[
-                      if (event.validFirstHalfEvents(awayTeamID))
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0, top: 8.0),
-                          child: EventTextTemplate(
-                              leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                              player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                              isHomeTeam: false),
-                        )
-                      else
-                        const SizedBox.shrink()
-                    ]
-                  ],
-                ),
-              ),
+              for (final event in matchEvents.reversed) ...[
+                if (event.validFirstHalfEvents(homeTeamID))
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, top: 8.0),
+                    child: EventTextWithtIcon(
+                        event: event,
+                        assist: event.assistPlayerName,
+                        time: event.timeElapsed.toString(),
+                        player: event.playerName,
+                        isHomeTeam: true),
+                  ),
+                if (event.validFirstHalfEvents(awayTeamID))
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0, top: 8.0),
+                    child: EventTextWithtIcon(
+                        event: event,
+                        assist: event.assistPlayerName,
+                        time: event.timeElapsed.toString(),
+                        player: event.playerName,
+                        isHomeTeam: false),
+                  )
+              ],
             ],
-          )
+          ),
         ],
       ),
     );

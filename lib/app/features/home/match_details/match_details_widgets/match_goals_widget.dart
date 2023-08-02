@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:score_live/app/custom_widgets/event_text_without_icon.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/custom_widgets/event_text_template.dart';
+import 'package:score_live/core/events_validation_ext.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
@@ -57,12 +58,10 @@ class MatchGoalsWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       for (final event in matchEvents) ...[
-                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                          if (homeTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
-                            EventTextTemplate(
-                                leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                                player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                                isHomeTeam: true),
+                        if (event.validGoalsEventsOnly(homeTeamID))
+                          EventTextWithoutIcon(
+                              time: event.timeElapsed.toString(), player: event.playerName, isHomeTeam: true),
+                        const SizedBox(height: 2)
                       ],
                     ],
                   ),
@@ -72,10 +71,7 @@ class MatchGoalsWidget extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.sports_soccer,
-                          color: Colors.grey,
-                        ),
+                        Icon(Icons.sports_soccer, color: Colors.grey),
                       ],
                     ),
                   ),
@@ -86,12 +82,10 @@ class MatchGoalsWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       for (final event in matchEvents) ...[
-                        if (event.team?.id != null && event.time?.elapsed != null && event.player?.name != null)
-                          if (awayTeamID == event.team!.id && event.type == AppConstVariables.goalEvent)
-                            EventTextTemplate(
-                                leadingProperty: event.time?.elapsed.toString() ?? AppConstVariables.stringPlaceholder,
-                                player: event.player?.name ?? AppConstVariables.stringPlaceholder,
-                                isHomeTeam: false)
+                        if (event.validGoalsEventsOnly(awayTeamID))
+                          EventTextWithoutIcon(
+                              time: event.timeElapsed.toString(), player: event.playerName, isHomeTeam: false),
+                        const SizedBox(height: 2)
                       ],
                     ],
                   ),

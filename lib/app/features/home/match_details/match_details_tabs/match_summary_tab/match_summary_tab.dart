@@ -18,13 +18,13 @@ class MatchSummaryTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         children: [
-          FirstHalfEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents),
-          HalvesResultDisplay(liveMatch: liveMatch, isFirstHalf: true),
-          SecondHalfEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents),
           HalvesResultDisplay(liveMatch: liveMatch, isFirstHalf: false),
+          SecondHalfEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents),
+          HalvesResultDisplay(liveMatch: liveMatch, isFirstHalf: true),
+          FirstHalfEventsDisplay(liveMatch: liveMatch, matchEvents: matchEvents),
         ],
       ),
     );

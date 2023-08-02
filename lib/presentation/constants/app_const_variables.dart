@@ -14,5 +14,23 @@ abstract class AppConstVariables {
   static const matchTimeToBeDefined = 'TBD';
   static const matchNotStarted = 'NS';
   static const matchSuspended = 'SUSP';
-  static const goalEvent = 'Goal';
+  static const goal = 'Goal';
+  static const normalGoal = 'Normal Goal';
+  static const ownGoal = 'Own Goal';
+  static const penaltyGoal = 'Penalty';
+  static const penaltyMissed = 'Missed Penalty';
+  static const card = 'Card';
+  static const yellowCard = 'Yellow Card';
+  static const redCard = 'Red Card';
+  static const substitution = 'subst';
+  static const varCheck = 'var';
+  static const varGoalCancelled = 'Goal cancelled';
+  static const varPenaltyConfirmed = 'Penalty Confirmed';
+}
+
+abstract class AssetsPaths {
+  static const yellowCard = 'assets/images/event_icons/yellow_card.png';
+  static const redCard = 'assets/images/event_icons/red_card.png';
+  static const substitution = 'assets/images/event_icons/substitution.png';
+  static const varCheck = 'assets/images/event_icons/var.png';
 }
