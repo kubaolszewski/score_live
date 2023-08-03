@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/core/match_properties_getter_ext.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
@@ -22,12 +23,9 @@ class TeamsH2HRatioView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeTeamLogo = match.teams?.home?.logo ?? AppConstVariables.defaultTeamLogo;
-    final awayTeamLogo = match.teams?.away?.logo ?? AppConstVariables.defaultTeamLogo;
-    final homeTeamId = match.teams?.home?.id ?? AppConstVariables.intPlaceholder;
-    final homeTeamWins = _matchDetailsCubit(context).winsCounter(homeTeamId, amountOfFixtures).$1;
-    final awayTeamWins = _matchDetailsCubit(context).winsCounter(homeTeamId, amountOfFixtures).$2;
-    final draws = _matchDetailsCubit(context).winsCounter(homeTeamId, amountOfFixtures).$3;
+    final homeTeamWins = _matchDetailsCubit(context).winsCounter(match.homeTeamId, amountOfFixtures).$1;
+    final awayTeamWins = _matchDetailsCubit(context).winsCounter(match.homeTeamId, amountOfFixtures).$2;
+    final draws = _matchDetailsCubit(context).winsCounter(match.homeTeamId, amountOfFixtures).$3;
     return Row(
       children: [
         Expanded(
@@ -47,7 +45,7 @@ class TeamsH2HRatioView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                    child: CachedNetworkImage(imageUrl: homeTeamLogo, width: 20, height: 20),
+                    child: CachedNetworkImage(imageUrl: match.homeTeamLogo, width: 20, height: 20),
                   ),
                   Expanded(
                     flex: 4,
@@ -76,7 +74,7 @@ class TeamsH2HRatioView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                    child: CachedNetworkImage(imageUrl: awayTeamLogo, width: 20, height: 20),
+                    child: CachedNetworkImage(imageUrl: match.awayTeamLogo, width: 20, height: 20),
                   ),
                   Expanded(
                     flex: 4,
