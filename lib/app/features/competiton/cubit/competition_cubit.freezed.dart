@@ -171,8 +171,8 @@ class __$$_CompetitionStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CompetitionState implements _CompetitionState {
-  const _$_CompetitionState(
+class _$_CompetitionState extends _CompetitionState {
+  _$_CompetitionState(
       {final List<LeagueModel> leagueResults = const [],
       final List<TeamModel> teamResults = const [],
       this.browsingOptions = BrowsingOptions.top,
@@ -181,7 +181,8 @@ class _$_CompetitionState implements _CompetitionState {
       this.isSearchingLeagueByName = true,
       this.isLoading = false})
       : _leagueResults = leagueResults,
-        _teamResults = teamResults;
+        _teamResults = teamResults,
+        super._();
 
   final List<LeagueModel> _leagueResults;
   @override
@@ -261,8 +262,8 @@ class _$_CompetitionState implements _CompetitionState {
       __$$_CompetitionStateCopyWithImpl<_$_CompetitionState>(this, _$identity);
 }
 
-abstract class _CompetitionState implements CompetitionState {
-  const factory _CompetitionState(
+abstract class _CompetitionState extends CompetitionState {
+  factory _CompetitionState(
       {final List<LeagueModel> leagueResults,
       final List<TeamModel> teamResults,
       final BrowsingOptions browsingOptions,
@@ -270,6 +271,7 @@ abstract class _CompetitionState implements CompetitionState {
       final String? errorMessage,
       final bool isSearchingLeagueByName,
       final bool isLoading}) = _$_CompetitionState;
+  _CompetitionState._() : super._();
 
   @override
   List<LeagueModel> get leagueResults;
