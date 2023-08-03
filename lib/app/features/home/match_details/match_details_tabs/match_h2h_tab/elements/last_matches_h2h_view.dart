@@ -8,9 +8,11 @@ class LastMatchesH2HView extends StatelessWidget {
   const LastMatchesH2HView({
     super.key,
     required this.teamsH2h,
+    required this.amountOfFixtures,
   });
 
   final List<LiveMatchModel> teamsH2h;
+  final int amountOfFixtures;
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +21,11 @@ class LastMatchesH2HView extends StatelessWidget {
         Text(context.localizations.lastMatchesHeader,
             style: const CustomTextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w700)),
         const SizedBox(height: 16),
-        ListView(
+        ListView.builder(
+          itemCount: amountOfFixtures,
           shrinkWrap: true,
           primary: false,
-          children: [
-            for (int matchIndex = 0; matchIndex < teamsH2h.length; matchIndex++)
-              WideMatchListTile(
-                match: teamsH2h[matchIndex],
-              ),
-          ],
+          itemBuilder: (context, index) => WideMatchListTile(match: teamsH2h[index]),
         ),
       ],
     );

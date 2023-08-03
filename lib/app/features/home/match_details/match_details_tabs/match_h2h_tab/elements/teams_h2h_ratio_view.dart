@@ -12,17 +12,22 @@ class TeamsH2HRatioView extends StatelessWidget {
   const TeamsH2HRatioView({
     super.key,
     required this.match,
+    required this.amountOfFixtures,
   });
 
   final LiveMatchModel match;
+  final int amountOfFixtures;
 
   MatchDetailsCubit _matchDetailsCubit(BuildContext context) => context.read<MatchDetailsCubit>();
 
   @override
   Widget build(BuildContext context) {
-    final homeTeamWins = _matchDetailsCubit(context).homeWinsCounter();
-    final awayTeamWins = _matchDetailsCubit(context).awayWinsCounter();
-    final draws = _matchDetailsCubit(context).drawsCounter();
+    final homeTeamLogo = match.teams?.home?.logo ?? AppConstVariables.defaultTeamLogo;
+    final awayTeamLogo = match.teams?.away?.logo ?? AppConstVariables.defaultTeamLogo;
+    final homeTeamId = match.teams?.home?.id ?? AppConstVariables.intPlaceholder;
+    final homeTeamWins = _matchDetailsCubit(context).winsCounter(homeTeamId, amountOfFixtures).$1;
+    final awayTeamWins = _matchDetailsCubit(context).winsCounter(homeTeamId, amountOfFixtures).$2;
+    final draws = _matchDetailsCubit(context).winsCounter(homeTeamId, amountOfFixtures).$3;
     return Row(
       children: [
         Expanded(
@@ -42,8 +47,7 @@ class TeamsH2HRatioView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                    child: CachedNetworkImage(
-                        imageUrl: match.teams?.home?.logo ?? AppConstVariables.defaultTeamLogo, width: 20, height: 20),
+                    child: CachedNetworkImage(imageUrl: homeTeamLogo, width: 20, height: 20),
                   ),
                   Expanded(
                     flex: 4,
@@ -57,7 +61,7 @@ class TeamsH2HRatioView extends StatelessWidget {
                             decoration:
                                 BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.mainThemePink),
                             height: 6,
-                            width: homeTeamWins / 10 * AppConstVariables.h2hRatioBar),
+                            width: homeTeamWins / amountOfFixtures * AppConstVariables.h2hRatioBar),
                       ],
                     ),
                   ),
@@ -72,8 +76,7 @@ class TeamsH2HRatioView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                    child: CachedNetworkImage(
-                        imageUrl: match.teams?.away?.logo ?? AppConstVariables.defaultTeamLogo, width: 20, height: 20),
+                    child: CachedNetworkImage(imageUrl: awayTeamLogo, width: 20, height: 20),
                   ),
                   Expanded(
                     flex: 4,
@@ -87,7 +90,7 @@ class TeamsH2HRatioView extends StatelessWidget {
                             decoration:
                                 BoxDecoration(borderRadius: BorderRadius.circular(4), color: AppColors.statsBarGrey),
                             height: 6,
-                            width: awayTeamWins / 10 * AppConstVariables.h2hRatioBar),
+                            width: awayTeamWins / amountOfFixtures * AppConstVariables.h2hRatioBar),
                       ],
                     ),
                   ),

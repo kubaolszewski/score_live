@@ -5,6 +5,7 @@ import 'package:score_live/models/line_up_model/line_up_model.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/repositories/match_details_repository.dart';
 
 part 'match_details_state.dart';
@@ -36,22 +37,27 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
     }
   }
 
-  int homeWinsCounter() {
-    return state.teamsH2h
-        .where((element) => element.teams?.home?.winner == true && element.teams?.home?.winner != null)
-        .length;
-  }
+  (int, int, int) winsCounter(int teamId, int amountOfFixtures) {
+    int team1Wins = 0;
+    int draws = 0;
 
-  int awayWinsCounter() {
-    return state.teamsH2h
-        .where((element) => element.teams?.away?.winner == true && element.teams?.away?.winner != null)
-        .length;
-  }
+    for (final fixture in state.teamsH2h) {
+      final didHomeTeamWon = fixture.teams?.home?.winner;
+      final didAwayTeamWon = fixture.teams?.away?.winner;
+      final homeTeamId = fixture.teams?.home?.id ?? AppConstVariables.intPlaceholder;
+      final awayTeamId = fixture.teams?.away?.id ?? AppConstVariables.intPlaceholder;
 
-  int drawsCounter() {
-    return state.teamsH2h
-        .where((element) => element.teams?.home?.winner == null || element.teams?.away?.winner == null)
-        .length;
+      if (homeTeamId == teamId) {
+        if (didHomeTeamWon != null && didHomeTeamWon) team1Wins++;
+      } else if (awayTeamId == teamId) {
+        if (didAwayTeamWon != null && didAwayTeamWon) team1Wins++;
+      }
+      if (didHomeTeamWon == null && didAwayTeamWon == null) draws++;
+    }
+
+    int team2Wins = amountOfFixtures - team1Wins - draws;
+
+    return (team1Wins, team2Wins, draws);
   }
 
   void switchDetailsOptions(DetailsOptions chosenOption) {

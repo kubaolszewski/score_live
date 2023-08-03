@@ -17,14 +17,14 @@ class MatchH2HTab extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Column(
         children: [
-          TeamsH2HRatioView(match: match),
+          TeamsH2HRatioView(match: match, amountOfFixtures: teamsH2h.length),
           const SizedBox(height: 32),
           const Divider(
             thickness: 0.5,
             color: Colors.grey,
           ),
           const SizedBox(height: 32),
-          LastMatchesH2HView(teamsH2h: teamsH2h)
+          LastMatchesH2HView(teamsH2h: teamsH2h, amountOfFixtures: teamsH2h.length)
         ],
       ),
     );

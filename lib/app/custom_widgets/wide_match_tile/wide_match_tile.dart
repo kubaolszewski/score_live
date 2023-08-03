@@ -20,9 +20,7 @@ class WideMatchListTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
       child: InkWell(
-        onTap: () {
-          Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: match);
-        },
+        onTap: () => Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: match),
         child: Container(
           decoration: BoxDecoration(
             color: AppColors.listTileGrey,
