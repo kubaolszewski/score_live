@@ -19,9 +19,10 @@
   "pastMatchesCheck" : "Nie można sprawdzić poprzednich meczów w tej zakładce.",
 
   "lastMatchesHeader" : "OSTATNIE SPOTKANIA:",
-  "matchesNumber" : "10 spotkań",
+  "matchesNumber" : "{count, plural, =0 { Meczów} =1 { Mecz} =2 { Mecze} few { Mecze} other { Meczów}}",
   "totalWins" : "Bilans wygranych:",
-  "draws" : "Remisy",
+  "draws" : "{count, plural, =0 { Remisów} =1 { Remis} =2 { Remisy} few { Remisy} other { Remisów}}",
+
 
   "currentDay" : "Dziś",
   "matchDetailsSummary" : "Przebieg",

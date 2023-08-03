@@ -19,9 +19,19 @@
   "pastMatchesCheck" : "Can't check past matches in this tab.",
 
   "lastMatchesHeader" : "LAST MATCHES:",
-  "matchesNumber" : "10 Matches",
+  "matchesNumber" : "{count, plural, =0 { Matches} =1 { Match} other { Matches}}",
+  "@matchesNumber" : {
+    "placeholders" : {
+      "count" : {}
+    }
+  },
   "totalWins" : "Total Wins:",
-  "draws" : "Draws",
+  "draws" : "{count, plural, =0 { Draws} =1 { Draw} other { Draws}}",
+  "@draws" : {
+    "placeholders" : {
+      "count" : {}
+    }
+  },
 
   "currentDay" : "Today",
   "matchDetailsSummary" : "Summary",

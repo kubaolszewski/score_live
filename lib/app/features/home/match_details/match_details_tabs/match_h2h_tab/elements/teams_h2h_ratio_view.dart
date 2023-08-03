@@ -30,7 +30,7 @@ class TeamsH2HRatioView extends StatelessWidget {
       children: [
         Expanded(
           child: Text(
-            context.localizations.matchesNumber,
+            '$amountOfFixtures ${context.localizations.matchesNumber(amountOfFixtures)}',
             style: const CustomTextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
           ),
         ),
@@ -99,7 +99,7 @@ class TeamsH2HRatioView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 12),
-              Text('$draws ${context.localizations.draws}',
+              Text('$draws ${context.localizations.draws(draws)}',
                   style: const CustomTextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w700)),
             ],
           ),
