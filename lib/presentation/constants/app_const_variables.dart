@@ -1,5 +1,6 @@
 abstract class AppConstVariables {
   static const widthInfinity = double.infinity;
+  static const h2hRatioBar = 148;
   static const statsBarWidth = 180.00;
   static const ballPossessionSum = 100;
   static const dateYyyyMmDdDashFormat = 'yyyy-MM-dd';

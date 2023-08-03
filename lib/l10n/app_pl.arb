@@ -18,6 +18,12 @@
   "noMatchesFinished" : "Tego dnia nie odbył się jeszcze żaden mecz.",
   "pastMatchesCheck" : "Nie można sprawdzić poprzednich meczów w tej zakładce.",
 
+  "lastMatchesHeader" : "OSTATNIE SPOTKANIA:",
+  "matchesNumber" : "{count, plural, =0 { Meczów} =1 { Mecz} =2 { Mecze} few { Mecze} other { Meczów}}",
+  "totalWins" : "Bilans wygranych:",
+  "draws" : "{count, plural, =0 { Remisów} =1 { Remis} =2 { Remisy} few { Remisy} other { Remisów}}",
+
+
   "currentDay" : "Dziś",
   "matchDetailsSummary" : "Przebieg",
   "unknownHomeTeam" : "Nieznana drużyna gospodarzy",
@@ -48,7 +54,7 @@
   "region" : "Region",
   "competitionFavorites" : "Obserwowane",
 
-  "dataErrorInfo" : "Coś poszło nie tak - dane nie są obecnie przysyłane.",
+  "dataErrorInfo" : "Coś poszło nie tak - dane nie są obecnie dostarczane.",
   "topHeader" : "POPULARNE ROZGRYWKI",
   "searchHeader" : "Wyniki:",
 

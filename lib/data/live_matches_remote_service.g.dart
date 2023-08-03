@@ -179,7 +179,7 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
     )
             .compose(
               _dio.options,
-              '/fixtures/h2h',
+              '/fixtures/headtohead',
               queryParameters: queryParameters,
               data: _data,
             )

@@ -18,6 +18,20 @@
   "noMatchesFinished" : "No matches were finished on this date yet.",
   "pastMatchesCheck" : "Can't check past matches in this tab.",
 
+  "lastMatchesHeader" : "LAST MATCHES:",
+  "matchesNumber" : "{count, plural, =0 { Matches} =1 { Match} other { Matches}}",
+  "@matchesNumber" : {
+    "placeholders" : {
+      "count" : {}
+    }
+  },
+  "totalWins" : "Total Wins:",
+  "draws" : "{count, plural, =0 { Draws} =1 { Draw} other { Draws}}",
+  "@draws" : {
+    "placeholders" : {
+      "count" : {}
+    }
+  },
 
   "currentDay" : "Today",
   "matchDetailsSummary" : "Summary",
@@ -49,7 +63,7 @@
   "region" : "Region",
   "competitionFavorites" : "Favorites",
 
-  "dataErrorInfo" : "Something went wrong - leagues are not provided yet.",
+  "dataErrorInfo" : "Something went wrong - data are not provided yet.",
   "topHeader" : "TOP COMPETITIONS",
   "searchHeader" : "Results:",
   
