@@ -25,7 +25,10 @@ class LastMatchesH2HView extends StatelessWidget {
           itemCount: amountOfFixtures,
           shrinkWrap: true,
           primary: false,
-          itemBuilder: (context, index) => WideMatchListTile(match: teamsH2h[index]),
+          itemBuilder: (context, index) => WideMatchListTile(
+            match: teamsH2h[index],
+            isBrowsingH2HTab: true,
+          ),
         ),
       ],
     );
