@@ -59,6 +59,18 @@ Map<String, dynamic> _$$_MatchStatisticsToJson(_$_MatchStatistics instance) =>
       'response': instance.response,
     };
 
+_$_Standings _$$_StandingsFromJson(Map<String, dynamic> json) => _$_Standings(
+      response: (json['response'] as List<dynamic>?)
+              ?.map((e) => StandingsModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+    );
+
+Map<String, dynamic> _$$_StandingsToJson(_$_Standings instance) =>
+    <String, dynamic>{
+      'response': instance.response,
+    };
+
 _$_League _$$_LeagueFromJson(Map<String, dynamic> json) => _$_League(
       response: (json['response'] as List<dynamic>?)
               ?.map((e) => LeagueModel.fromJson(e as Map<String, dynamic>))

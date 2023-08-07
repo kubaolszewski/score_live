@@ -595,6 +595,148 @@ abstract class _MatchStatistics implements MatchStatistics {
       throw _privateConstructorUsedError;
 }
 
+Standings _$StandingsFromJson(Map<String, dynamic> json) {
+  return _Standings.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Standings {
+  List<StandingsModel> get response => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $StandingsCopyWith<Standings> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StandingsCopyWith<$Res> {
+  factory $StandingsCopyWith(Standings value, $Res Function(Standings) then) =
+      _$StandingsCopyWithImpl<$Res, Standings>;
+  @useResult
+  $Res call({List<StandingsModel> response});
+}
+
+/// @nodoc
+class _$StandingsCopyWithImpl<$Res, $Val extends Standings>
+    implements $StandingsCopyWith<$Res> {
+  _$StandingsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_value.copyWith(
+      response: null == response
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<StandingsModel>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_StandingsCopyWith<$Res> implements $StandingsCopyWith<$Res> {
+  factory _$$_StandingsCopyWith(
+          _$_Standings value, $Res Function(_$_Standings) then) =
+      __$$_StandingsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<StandingsModel> response});
+}
+
+/// @nodoc
+class __$$_StandingsCopyWithImpl<$Res>
+    extends _$StandingsCopyWithImpl<$Res, _$_Standings>
+    implements _$$_StandingsCopyWith<$Res> {
+  __$$_StandingsCopyWithImpl(
+      _$_Standings _value, $Res Function(_$_Standings) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_$_Standings(
+      response: null == response
+          ? _value._response
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<StandingsModel>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Standings implements _Standings {
+  _$_Standings({final List<StandingsModel> response = const []})
+      : _response = response;
+
+  factory _$_Standings.fromJson(Map<String, dynamic> json) =>
+      _$$_StandingsFromJson(json);
+
+  final List<StandingsModel> _response;
+  @override
+  @JsonKey()
+  List<StandingsModel> get response {
+    if (_response is EqualUnmodifiableListView) return _response;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_response);
+  }
+
+  @override
+  String toString() {
+    return 'Standings(response: $response)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Standings &&
+            const DeepCollectionEquality().equals(other._response, _response));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_response));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_StandingsCopyWith<_$_Standings> get copyWith =>
+      __$$_StandingsCopyWithImpl<_$_Standings>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_StandingsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Standings implements Standings {
+  factory _Standings({final List<StandingsModel> response}) = _$_Standings;
+
+  factory _Standings.fromJson(Map<String, dynamic> json) =
+      _$_Standings.fromJson;
+
+  @override
+  List<StandingsModel> get response;
+  @override
+  @JsonKey(ignore: true)
+  _$$_StandingsCopyWith<_$_Standings> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 League _$LeagueFromJson(Map<String, dynamic> json) {
   return _League.fromJson(json);
 }
