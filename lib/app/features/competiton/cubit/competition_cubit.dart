@@ -10,7 +10,7 @@ part 'competition_state.dart';
 part 'competition_cubit.freezed.dart';
 
 class CompetitionCubit extends Cubit<CompetitionState> {
-  CompetitionCubit(this.competitionScreenRepository) : super(const CompetitionState());
+  CompetitionCubit(this.competitionScreenRepository) : super(CompetitionState());
 
   final CompetitionScreenRepository competitionScreenRepository;
 
