@@ -4,6 +4,7 @@ import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
 import 'package:score_live/models/live_match_model/live_match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
+import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/repositories/match_details_repository.dart';
@@ -16,19 +17,21 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
 
   final MatchDetailsRepository matchDetailsRepository;
 
-  Future<void> fetchMatchInfo(String teamsIdNumbers, String matchID) async {
+  Future<void> fetchMatchInfo(String teamsIdNumbers, String matchID, String leagueId, String yearFromSeason) async {
     emit(state.copyWith(isLoading: true));
     try {
       final matchEvents = await matchDetailsRepository.fetchMatchEvents(matchID);
       final matchLineUps = await matchDetailsRepository.fetchMatchLineUps(matchID);
       final matchStats = await matchDetailsRepository.fetchMatchStats(matchID);
       final teamsH2h = await matchDetailsRepository.fetchTeamsH2h(teamsIdNumbers, matchID);
+      final teamStandings = await matchDetailsRepository.fetchTeamStandings(leagueId, yearFromSeason);
       if (teamsH2h != null && teamsH2h.isNotEmpty) {
         emit(state.copyWith(
           matchEvents: matchEvents,
           matchLineUps: matchLineUps,
           matchStats: matchStats,
           teamsH2h: teamsH2h,
+          teamStandings: teamStandings,
           isLoading: false,
         ));
       }

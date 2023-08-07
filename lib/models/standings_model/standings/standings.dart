@@ -6,8 +6,8 @@ part 'standings.freezed.dart';
 part 'standings.g.dart';
 
 @freezed
-class Standing with _$Standing {
-  const factory Standing({
+class Standings with _$Standings {
+  const factory Standings({
     int? rank,
     Team? team,
     int? points,
@@ -20,7 +20,7 @@ class Standing with _$Standing {
     SeasonResult? home,
     SeasonResult? away,
     String? update,
-  }) = _Standing;
+  }) = _Standings;
 
-  factory Standing.fromJson(Map<String, dynamic> json) => _$StandingFromJson(json);
+  factory Standings.fromJson(Map<String, dynamic> json) => _$StandingsFromJson(json);
 }

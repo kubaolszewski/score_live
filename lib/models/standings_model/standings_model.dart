@@ -7,14 +7,23 @@ part 'standings_model.g.dart';
 @freezed
 class StandingsModel with _$StandingsModel {
   const factory StandingsModel({
+    League? league,
+  }) = _StandingsModel;
+
+  factory StandingsModel.fromJson(Map<String, dynamic> json) => _$StandingsModelFromJson(json);
+}
+
+@freezed
+class League with _$League {
+  const factory League({
     int? id,
     String? name,
     String? country,
     String? logo,
     String? flag,
     int? season,
-    List<List<Standing>>? standings,
-  }) = _StandingsModel;
+    List<List<Standings>>? standings,
+  }) = _League;
 
-  factory StandingsModel.fromJson(Map<String, dynamic> json) => _$StandingsModelFromJson(json);
+  factory League.fromJson(Map<String, dynamic> json) => _$LeagueFromJson(json);
 }
