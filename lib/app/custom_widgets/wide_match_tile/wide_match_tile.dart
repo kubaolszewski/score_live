@@ -11,16 +11,19 @@ class WideMatchListTile extends StatelessWidget {
   const WideMatchListTile({
     super.key,
     required this.match,
+    this.isBrowsingH2HTab,
   });
 
   final LiveMatchModel match;
+  final bool? isBrowsingH2HTab;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
       child: InkWell(
-        onTap: () => Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: match),
+        onTap:
+            isBrowsingH2HTab == true ? null : () => Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: match),
         child: Container(
           decoration: BoxDecoration(
             color: AppColors.listTileGrey,
