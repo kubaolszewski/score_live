@@ -7,6 +7,7 @@ class MatchDetailsState with _$MatchDetailsState {
     @Default([]) List<LineUpModel> matchLineUps,
     @Default([]) List<StatisticsModel> matchStats,
     @Default([]) List<LiveMatchModel> teamsH2h,
+    @Default([]) List<StandingsModel> teamStandings,
     @Default(DetailsOptions.summary) DetailsOptions detailsOptions,
     @Default(false) bool isLoading,
     @Default('') String errorMessage,

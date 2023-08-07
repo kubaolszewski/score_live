@@ -179,7 +179,7 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
     )
             .compose(
               _dio.options,
-              '/fixtures/h2h',
+              '/fixtures/headtohead',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -189,6 +189,39 @@ class _LiveMatchesRemoteService implements LiveMatchesRemoteService {
               baseUrl,
             ))));
     final value = LiveMatchesFixtures.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<Standings> fetchTeamStandings({
+    required String leagueID,
+    required String season,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'league': leagueID,
+      r'season': season,
+    };
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<Standings>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/standings',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = Standings.fromJson(_result.data!);
     return value;
   }
 

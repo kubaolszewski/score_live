@@ -20,6 +20,7 @@ mixin _$MatchDetailsState {
   List<LineUpModel> get matchLineUps => throw _privateConstructorUsedError;
   List<StatisticsModel> get matchStats => throw _privateConstructorUsedError;
   List<LiveMatchModel> get teamsH2h => throw _privateConstructorUsedError;
+  List<StandingsModel> get teamStandings => throw _privateConstructorUsedError;
   DetailsOptions get detailsOptions => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
@@ -40,6 +41,7 @@ abstract class $MatchDetailsStateCopyWith<$Res> {
       List<LineUpModel> matchLineUps,
       List<StatisticsModel> matchStats,
       List<LiveMatchModel> teamsH2h,
+      List<StandingsModel> teamStandings,
       DetailsOptions detailsOptions,
       bool isLoading,
       String errorMessage});
@@ -62,6 +64,7 @@ class _$MatchDetailsStateCopyWithImpl<$Res, $Val extends MatchDetailsState>
     Object? matchLineUps = null,
     Object? matchStats = null,
     Object? teamsH2h = null,
+    Object? teamStandings = null,
     Object? detailsOptions = null,
     Object? isLoading = null,
     Object? errorMessage = null,
@@ -83,6 +86,10 @@ class _$MatchDetailsStateCopyWithImpl<$Res, $Val extends MatchDetailsState>
           ? _value.teamsH2h
           : teamsH2h // ignore: cast_nullable_to_non_nullable
               as List<LiveMatchModel>,
+      teamStandings: null == teamStandings
+          ? _value.teamStandings
+          : teamStandings // ignore: cast_nullable_to_non_nullable
+              as List<StandingsModel>,
       detailsOptions: null == detailsOptions
           ? _value.detailsOptions
           : detailsOptions // ignore: cast_nullable_to_non_nullable
@@ -112,6 +119,7 @@ abstract class _$$_MatchDetailsStateCopyWith<$Res>
       List<LineUpModel> matchLineUps,
       List<StatisticsModel> matchStats,
       List<LiveMatchModel> teamsH2h,
+      List<StandingsModel> teamStandings,
       DetailsOptions detailsOptions,
       bool isLoading,
       String errorMessage});
@@ -132,6 +140,7 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
     Object? matchLineUps = null,
     Object? matchStats = null,
     Object? teamsH2h = null,
+    Object? teamStandings = null,
     Object? detailsOptions = null,
     Object? isLoading = null,
     Object? errorMessage = null,
@@ -153,6 +162,10 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
           ? _value._teamsH2h
           : teamsH2h // ignore: cast_nullable_to_non_nullable
               as List<LiveMatchModel>,
+      teamStandings: null == teamStandings
+          ? _value._teamStandings
+          : teamStandings // ignore: cast_nullable_to_non_nullable
+              as List<StandingsModel>,
       detailsOptions: null == detailsOptions
           ? _value.detailsOptions
           : detailsOptions // ignore: cast_nullable_to_non_nullable
@@ -177,6 +190,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
       final List<LineUpModel> matchLineUps = const [],
       final List<StatisticsModel> matchStats = const [],
       final List<LiveMatchModel> teamsH2h = const [],
+      final List<StandingsModel> teamStandings = const [],
       this.detailsOptions = DetailsOptions.summary,
       this.isLoading = false,
       this.errorMessage = ''})
@@ -184,6 +198,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
         _matchLineUps = matchLineUps,
         _matchStats = matchStats,
         _teamsH2h = teamsH2h,
+        _teamStandings = teamStandings,
         super._();
 
   final List<MatchEventsModel> _matchEvents;
@@ -222,6 +237,15 @@ class _$_MatchDetailsState extends _MatchDetailsState {
     return EqualUnmodifiableListView(_teamsH2h);
   }
 
+  final List<StandingsModel> _teamStandings;
+  @override
+  @JsonKey()
+  List<StandingsModel> get teamStandings {
+    if (_teamStandings is EqualUnmodifiableListView) return _teamStandings;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_teamStandings);
+  }
+
   @override
   @JsonKey()
   final DetailsOptions detailsOptions;
@@ -234,7 +258,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
 
   @override
   String toString() {
-    return 'MatchDetailsState(matchEvents: $matchEvents, matchLineUps: $matchLineUps, matchStats: $matchStats, teamsH2h: $teamsH2h, detailsOptions: $detailsOptions, isLoading: $isLoading, errorMessage: $errorMessage)';
+    return 'MatchDetailsState(matchEvents: $matchEvents, matchLineUps: $matchLineUps, matchStats: $matchStats, teamsH2h: $teamsH2h, teamStandings: $teamStandings, detailsOptions: $detailsOptions, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -249,6 +273,8 @@ class _$_MatchDetailsState extends _MatchDetailsState {
             const DeepCollectionEquality()
                 .equals(other._matchStats, _matchStats) &&
             const DeepCollectionEquality().equals(other._teamsH2h, _teamsH2h) &&
+            const DeepCollectionEquality()
+                .equals(other._teamStandings, _teamStandings) &&
             (identical(other.detailsOptions, detailsOptions) ||
                 other.detailsOptions == detailsOptions) &&
             (identical(other.isLoading, isLoading) ||
@@ -264,6 +290,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
       const DeepCollectionEquality().hash(_matchLineUps),
       const DeepCollectionEquality().hash(_matchStats),
       const DeepCollectionEquality().hash(_teamsH2h),
+      const DeepCollectionEquality().hash(_teamStandings),
       detailsOptions,
       isLoading,
       errorMessage);
@@ -282,6 +309,7 @@ abstract class _MatchDetailsState extends MatchDetailsState {
       final List<LineUpModel> matchLineUps,
       final List<StatisticsModel> matchStats,
       final List<LiveMatchModel> teamsH2h,
+      final List<StandingsModel> teamStandings,
       final DetailsOptions detailsOptions,
       final bool isLoading,
       final String errorMessage}) = _$_MatchDetailsState;
@@ -295,6 +323,8 @@ abstract class _MatchDetailsState extends MatchDetailsState {
   List<StatisticsModel> get matchStats;
   @override
   List<LiveMatchModel> get teamsH2h;
+  @override
+  List<StandingsModel> get teamStandings;
   @override
   DetailsOptions get detailsOptions;
   @override
