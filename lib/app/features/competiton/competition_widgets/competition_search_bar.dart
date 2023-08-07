@@ -11,14 +11,13 @@ import 'package:score_live/presentation/constants/text_styles.dart';
 class CompetitionSearchBar extends StatelessWidget {
   CompetitionSearchBar({super.key});
 
-  final List<String> searchTypes = <String>['Team', 'League (name)'];
   final TextEditingController searchingController = TextEditingController();
 
   CompetitionCubit _competitionCubit(BuildContext context) => context.read<CompetitionCubit>();
 
   @override
   Widget build(BuildContext context) {
-    String dropdownValue = searchTypes.first;
+    String dropdownValue = AppConstVariables.searchTypes.first;
 
     return BlocBuilder<CompetitionCubit, CompetitionState>(
       builder: (context, state) {
@@ -50,7 +49,7 @@ class CompetitionSearchBar extends StatelessWidget {
                           underline: const SizedBox.shrink(),
                           dropdownColor: AppColors.mainThemePink,
                           value: dropdownValue,
-                          items: searchTypes.map<DropdownMenuItem<String>>(
+                          items: AppConstVariables.searchTypes.map<DropdownMenuItem<String>>(
                             (String value) {
                               return DropdownMenuItem<String>(
                                 value: value,

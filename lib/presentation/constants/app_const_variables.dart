@@ -27,6 +27,7 @@ abstract class AppConstVariables {
   static const varCheck = 'var';
   static const varGoalCancelled = 'Goal cancelled';
   static const varPenaltyConfirmed = 'Penalty Confirmed';
+  static const searchTypes = ['Team', 'League (name)'];
 }
 
 abstract class AssetsPaths {
