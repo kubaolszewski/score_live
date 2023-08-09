@@ -32,6 +32,7 @@
       "count" : {}
     }
   },
+  "clubText" : "Club",
 
   "currentDay" : "Today",
   "matchDetailsSummary" : "Summary",
