@@ -7,14 +7,13 @@ class LeagueStandingsHeader extends StatelessWidget {
   const LeagueStandingsHeader({
     super.key,
   });
-  final double headerHeight = 30.0;
 
   @override
   Widget build(BuildContext context) {
     const List<String> headers = AppConstVariables.standingsHeadersText;
 
     return SizedBox(
-      height: headerHeight,
+      height: 30.0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -46,7 +45,7 @@ class LeagueStandingsHeader extends StatelessWidget {
                       HeaderText(
                         headerString: headers[i],
                       ),
-                      const SizedBox(width: 12),
+                      const SizedBox(width: 11),
                     ],
                   ],
                 )

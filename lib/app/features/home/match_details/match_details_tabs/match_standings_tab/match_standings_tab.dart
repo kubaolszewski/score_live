@@ -41,83 +41,92 @@ class MatchStandingsTab extends StatelessWidget {
               final losses = leagueStandings?[index].all?.lose ?? AppConstVariables.intPlaceholder;
               final goalsDiff = leagueStandings?[index].goalsDiff ?? AppConstVariables.intPlaceholder;
               final points = leagueStandings?[index].points ?? AppConstVariables.intPlaceholder;
-              return Container(
-                color: (teamId == homeTeamId || teamId == awayTeamId) ? Colors.grey[800] : Colors.transparent,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Row(
+              return Column(
+                children: [
+                  Container(
+                    color: (teamId == homeTeamId || teamId == awayTeamId) ? Colors.grey[800] : Colors.transparent,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
                             children: [
-                              Container(width: 2, height: 30, color: Colors.blue),
-                              const SizedBox(width: 8),
-                              Text(
-                                teamRank.toString(),
-                                style: const CustomTextStyle(
-                                    fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
+                              Row(
+                                children: [
+                                  if (teamRank > 0 && teamRank <= 4)
+                                    Container(width: 2, height: 30, color: Colors.blue)
+                                  else if (teamRank > 4 && teamRank <= 6)
+                                    Container(width: 2, height: 30, color: Colors.orange)
+                                  else if (teamRank > 6 && teamRank == 7)
+                                    Container(width: 2, height: 30, color: Colors.green),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    teamRank.toString(),
+                                    style: const CustomTextStyle(
+                                        fontSize: 14, color: Colors.white, fontWeight: FontWeight.w900),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                    child: Text(
+                                      teamName,
+                                      style: const CustomTextStyle(
+                                          fontSize: 14, color: Colors.white, fontWeight: FontWeight.w900),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  teamName,
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 6.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  gamesPlayed.toString(),
                                   style: const CustomTextStyle(
                                       fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
                                 ),
-                              ),
-                            ],
+                                const SizedBox(width: 12),
+                                Text(
+                                  wins.toString(),
+                                  style: const CustomTextStyle(
+                                      fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
+                                ),
+                                const SizedBox(width: 12),
+                                Text(
+                                  draws.toString(),
+                                  style: const CustomTextStyle(
+                                      fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
+                                ),
+                                const SizedBox(width: 12),
+                                Text(
+                                  losses.toString(),
+                                  style: const CustomTextStyle(
+                                      fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
+                                ),
+                                const SizedBox(width: 12),
+                                Text(
+                                  goalsDiff.toString(),
+                                  style: const CustomTextStyle(
+                                      fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
+                                ),
+                                const SizedBox(width: 12),
+                                Text(
+                                  points.toString(),
+                                  style: const CustomTextStyle(
+                                      fontSize: 16, color: Colors.red, fontWeight: FontWeight.w900),
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                gamesPlayed.toString(),
-                                style: const CustomTextStyle(
-                                    fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
-                              ),
-                              const SizedBox(width: 12),
-                              Text(
-                                wins.toString(),
-                                style: const CustomTextStyle(
-                                    fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
-                              ),
-                              const SizedBox(width: 12),
-                              Text(
-                                draws.toString(),
-                                style: const CustomTextStyle(
-                                    fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
-                              ),
-                              const SizedBox(width: 12),
-                              Text(
-                                losses.toString(),
-                                style: const CustomTextStyle(
-                                    fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
-                              ),
-                              const SizedBox(width: 12),
-                              Text(
-                                goalsDiff.toString(),
-                                style: const CustomTextStyle(
-                                    fontSize: 16, color: Colors.white, fontWeight: FontWeight.w900),
-                              ),
-                              const SizedBox(width: 12),
-                              Text(
-                                points.toString(),
-                                style:
-                                    const CustomTextStyle(fontSize: 16, color: Colors.red, fontWeight: FontWeight.w900),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 10)
+                ],
               );
             },
           ),
