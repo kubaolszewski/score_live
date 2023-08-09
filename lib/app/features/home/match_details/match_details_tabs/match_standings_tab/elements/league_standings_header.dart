@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
@@ -17,17 +18,18 @@ class LeagueStandingsHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const SizedBox(
+          SizedBox(
             child: Row(
               children: [
-                Text(
+                const Text(
                   '#',
                   style: CustomTextStyle(fontSize: 16, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w900),
                 ),
-                SizedBox(width: 18),
+                const SizedBox(width: 18),
                 Text(
-                  'Club',
-                  style: CustomTextStyle(fontSize: 16, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w900),
+                  context.localizations.clubText,
+                  style: const CustomTextStyle(
+                      fontSize: 16, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w900),
                 ),
               ],
             ),
