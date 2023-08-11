@@ -1,6 +1,6 @@
 import 'package:score_live/data/live_matches_remote_service.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
@@ -380,7 +380,7 @@ class MatchDetailsRepository {
     return response.map(StatisticsModel.fromJson).toList();
   }
 
-  Future<List<LiveMatchModel>?> fetchTeamsH2h(String teamsIdNumbers, String lastFixtures) async {
+  Future<List<MatchModel>?> fetchTeamsH2h(String teamsIdNumbers, String lastFixtures) async {
     // commented on purpose
     // return (await liveMatchesRemoteService.fetchTeamsH2h(teamsIdNumbers: teamsIdNumbers, lastFixtures: '10'))
     //     .response;
@@ -806,7 +806,7 @@ class MatchDetailsRepository {
         }
       }
     ];
-    return response.map(LiveMatchModel.fromJson).toList();
+    return response.map(MatchModel.fromJson).toList();
   }
 
   Future<List<StandingsModel>> fetchTeamStandings(String leagueId, String yearFromSeason) async {

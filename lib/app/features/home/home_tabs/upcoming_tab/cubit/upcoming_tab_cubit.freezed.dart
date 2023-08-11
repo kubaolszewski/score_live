@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UpcomingTabState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
+    required TResult Function(List<MatchModel> matches) matchesLoaded,
     required TResult Function() LoadingMatches,
     required TResult Function(String errorMessage) errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult? Function(List<MatchModel> matches)? matchesLoaded,
     TResult? Function()? LoadingMatches,
     TResult? Function(String errorMessage)? errorMatchesState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult Function(List<MatchModel> matches)? matchesLoaded,
     TResult Function()? LoadingMatches,
     TResult Function(String errorMessage)? errorMatchesState,
     required TResult orElse(),
@@ -86,7 +86,7 @@ abstract class _$$MatchesLoadedStateCopyWith<$Res> {
           $Res Function(_$MatchesLoadedState) then) =
       __$$MatchesLoadedStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<LiveMatchModel> matches});
+  $Res call({List<MatchModel> matches});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class __$$MatchesLoadedStateCopyWithImpl<$Res>
       null == matches
           ? _value._matches
           : matches // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchModel>,
+              as List<MatchModel>,
     ));
   }
 }
@@ -114,12 +114,12 @@ class __$$MatchesLoadedStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MatchesLoadedState implements MatchesLoadedState {
-  const _$MatchesLoadedState(final List<LiveMatchModel> matches)
+  const _$MatchesLoadedState(final List<MatchModel> matches)
       : _matches = matches;
 
-  final List<LiveMatchModel> _matches;
+  final List<MatchModel> _matches;
   @override
-  List<LiveMatchModel> get matches {
+  List<MatchModel> get matches {
     if (_matches is EqualUnmodifiableListView) return _matches;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_matches);
@@ -152,7 +152,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
+    required TResult Function(List<MatchModel> matches) matchesLoaded,
     required TResult Function() LoadingMatches,
     required TResult Function(String errorMessage) errorMatchesState,
   }) {
@@ -162,7 +162,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult? Function(List<MatchModel> matches)? matchesLoaded,
     TResult? Function()? LoadingMatches,
     TResult? Function(String errorMessage)? errorMatchesState,
   }) {
@@ -172,7 +172,7 @@ class _$MatchesLoadedState implements MatchesLoadedState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult Function(List<MatchModel> matches)? matchesLoaded,
     TResult Function()? LoadingMatches,
     TResult Function(String errorMessage)? errorMatchesState,
     required TResult orElse(),
@@ -219,10 +219,10 @@ class _$MatchesLoadedState implements MatchesLoadedState {
 }
 
 abstract class MatchesLoadedState implements UpcomingTabState {
-  const factory MatchesLoadedState(final List<LiveMatchModel> matches) =
+  const factory MatchesLoadedState(final List<MatchModel> matches) =
       _$MatchesLoadedState;
 
-  List<LiveMatchModel> get matches;
+  List<MatchModel> get matches;
   @JsonKey(ignore: true)
   _$$MatchesLoadedStateCopyWith<_$MatchesLoadedState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -266,7 +266,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
+    required TResult Function(List<MatchModel> matches) matchesLoaded,
     required TResult Function() LoadingMatches,
     required TResult Function(String errorMessage) errorMatchesState,
   }) {
@@ -276,7 +276,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult? Function(List<MatchModel> matches)? matchesLoaded,
     TResult? Function()? LoadingMatches,
     TResult? Function(String errorMessage)? errorMatchesState,
   }) {
@@ -286,7 +286,7 @@ class _$LoadingMatchesState implements LoadingMatchesState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult Function(List<MatchModel> matches)? matchesLoaded,
     TResult Function()? LoadingMatches,
     TResult Function(String errorMessage)? errorMatchesState,
     required TResult orElse(),
@@ -401,7 +401,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<LiveMatchModel> matches) matchesLoaded,
+    required TResult Function(List<MatchModel> matches) matchesLoaded,
     required TResult Function() LoadingMatches,
     required TResult Function(String errorMessage) errorMatchesState,
   }) {
@@ -411,7 +411,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult? Function(List<MatchModel> matches)? matchesLoaded,
     TResult? Function()? LoadingMatches,
     TResult? Function(String errorMessage)? errorMatchesState,
   }) {
@@ -421,7 +421,7 @@ class _$ErrorMatchesState implements ErrorMatchesState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<LiveMatchModel> matches)? matchesLoaded,
+    TResult Function(List<MatchModel> matches)? matchesLoaded,
     TResult Function()? LoadingMatches,
     TResult Function(String errorMessage)? errorMatchesState,
     required TResult orElse(),

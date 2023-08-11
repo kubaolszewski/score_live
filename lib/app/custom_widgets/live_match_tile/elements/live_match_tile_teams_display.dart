@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
@@ -9,7 +9,7 @@ import 'package:score_live/presentation/constants/text_styles.dart';
 class LiveMatchTileTeamsDisplay extends StatelessWidget {
   const LiveMatchTileTeamsDisplay({super.key, required this.liveMatch});
 
-  final LiveMatchModel liveMatch;
+  final MatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {

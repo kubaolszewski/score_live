@@ -1,7 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:score_live/data/live_matches_remote_service.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class HomeScreenRepository {
@@ -9,7 +9,7 @@ class HomeScreenRepository {
 
   final LiveMatchesRemoteService liveMatchesRemoteService;
 
-  Future<List<LiveMatchModel>?> fetchLiveMatches() async {
+  Future<List<MatchModel>?> fetchLiveMatches() async {
     // return (await liveMatchesRemoteService.fetchLiveMatches(live: 'all')).response;
     final response = [
       {
@@ -307,10 +307,10 @@ class HomeScreenRepository {
         }
       }
     ];
-    return response.map(LiveMatchModel.fromJson).toList();
+    return response.map(MatchModel.fromJson).toList();
   }
 
-  Future<List<LiveMatchModel>?> fetchMatchesByDate(String status, String date) async {
+  Future<List<MatchModel>?> fetchMatchesByDate(String status, String date) async {
     // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.fullTime, date: date)).response;
     final response = [
       {
@@ -608,10 +608,10 @@ class HomeScreenRepository {
         }
       }
     ];
-    return response.map(LiveMatchModel.fromJson).toList();
+    return response.map(MatchModel.fromJson).toList();
   }
 
-  Future<List<LiveMatchModel>?> fetchUpcomingMatches(String status, String date) async {
+  Future<List<MatchModel>?> fetchUpcomingMatches(String status, String date) async {
     // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.matchNotStarted, date: date))
     //     .response;
     final response = [
@@ -826,6 +826,6 @@ class HomeScreenRepository {
         }
       }
     ];
-    return response.map(LiveMatchModel.fromJson).toList();
+    return response.map(MatchModel.fromJson).toList();
   }
 }

@@ -3,7 +3,7 @@ part of 'home_cubit.dart';
 @freezed
 class HomeState with _$HomeState {
   factory HomeState({
-    @Default([]) List<LiveMatchModel>? liveMatchModel,
+    @Default([]) List<MatchModel>? matchModel,
     @Default([]) List<MatchEventsModel>? matchEventsModel,
     @Default(HomeOptions.score) HomeOptions homeOptions,
     DateTime? date,

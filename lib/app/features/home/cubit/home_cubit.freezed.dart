@@ -16,8 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeState {
-  List<LiveMatchModel>? get liveMatchModel =>
-      throw _privateConstructorUsedError;
+  List<MatchModel>? get matchModel => throw _privateConstructorUsedError;
   List<MatchEventsModel>? get matchEventsModel =>
       throw _privateConstructorUsedError;
   HomeOptions get homeOptions => throw _privateConstructorUsedError;
@@ -36,7 +35,7 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
   $Res call(
-      {List<LiveMatchModel>? liveMatchModel,
+      {List<MatchModel>? matchModel,
       List<MatchEventsModel>? matchEventsModel,
       HomeOptions homeOptions,
       DateTime? date,
@@ -57,7 +56,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? liveMatchModel = freezed,
+    Object? matchModel = freezed,
     Object? matchEventsModel = freezed,
     Object? homeOptions = null,
     Object? date = freezed,
@@ -65,10 +64,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
-      liveMatchModel: freezed == liveMatchModel
-          ? _value.liveMatchModel
-          : liveMatchModel // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchModel>?,
+      matchModel: freezed == matchModel
+          ? _value.matchModel
+          : matchModel // ignore: cast_nullable_to_non_nullable
+              as List<MatchModel>?,
       matchEventsModel: freezed == matchEventsModel
           ? _value.matchEventsModel
           : matchEventsModel // ignore: cast_nullable_to_non_nullable
@@ -101,7 +100,7 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {List<LiveMatchModel>? liveMatchModel,
+      {List<MatchModel>? matchModel,
       List<MatchEventsModel>? matchEventsModel,
       HomeOptions homeOptions,
       DateTime? date,
@@ -120,7 +119,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? liveMatchModel = freezed,
+    Object? matchModel = freezed,
     Object? matchEventsModel = freezed,
     Object? homeOptions = null,
     Object? date = freezed,
@@ -128,10 +127,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? errorMessage = freezed,
   }) {
     return _then(_$_HomeState(
-      liveMatchModel: freezed == liveMatchModel
-          ? _value._liveMatchModel
-          : liveMatchModel // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchModel>?,
+      matchModel: freezed == matchModel
+          ? _value._matchModel
+          : matchModel // ignore: cast_nullable_to_non_nullable
+              as List<MatchModel>?,
       matchEventsModel: freezed == matchEventsModel
           ? _value._matchEventsModel
           : matchEventsModel // ignore: cast_nullable_to_non_nullable
@@ -160,23 +159,23 @@ class __$$_HomeStateCopyWithImpl<$Res>
 
 class _$_HomeState extends _HomeState {
   _$_HomeState(
-      {final List<LiveMatchModel>? liveMatchModel = const [],
+      {final List<MatchModel>? matchModel = const [],
       final List<MatchEventsModel>? matchEventsModel = const [],
       this.homeOptions = HomeOptions.score,
       this.date,
       this.isLoading = false,
       this.errorMessage})
-      : _liveMatchModel = liveMatchModel,
+      : _matchModel = matchModel,
         _matchEventsModel = matchEventsModel,
         super._();
 
-  final List<LiveMatchModel>? _liveMatchModel;
+  final List<MatchModel>? _matchModel;
   @override
   @JsonKey()
-  List<LiveMatchModel>? get liveMatchModel {
-    final value = _liveMatchModel;
+  List<MatchModel>? get matchModel {
+    final value = _matchModel;
     if (value == null) return null;
-    if (_liveMatchModel is EqualUnmodifiableListView) return _liveMatchModel;
+    if (_matchModel is EqualUnmodifiableListView) return _matchModel;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -206,7 +205,7 @@ class _$_HomeState extends _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(liveMatchModel: $liveMatchModel, matchEventsModel: $matchEventsModel, homeOptions: $homeOptions, date: $date, isLoading: $isLoading, errorMessage: $errorMessage)';
+    return 'HomeState(matchModel: $matchModel, matchEventsModel: $matchEventsModel, homeOptions: $homeOptions, date: $date, isLoading: $isLoading, errorMessage: $errorMessage)';
   }
 
   @override
@@ -215,7 +214,7 @@ class _$_HomeState extends _HomeState {
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
             const DeepCollectionEquality()
-                .equals(other._liveMatchModel, _liveMatchModel) &&
+                .equals(other._matchModel, _matchModel) &&
             const DeepCollectionEquality()
                 .equals(other._matchEventsModel, _matchEventsModel) &&
             (identical(other.homeOptions, homeOptions) ||
@@ -230,7 +229,7 @@ class _$_HomeState extends _HomeState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_liveMatchModel),
+      const DeepCollectionEquality().hash(_matchModel),
       const DeepCollectionEquality().hash(_matchEventsModel),
       homeOptions,
       date,
@@ -246,7 +245,7 @@ class _$_HomeState extends _HomeState {
 
 abstract class _HomeState extends HomeState {
   factory _HomeState(
-      {final List<LiveMatchModel>? liveMatchModel,
+      {final List<MatchModel>? matchModel,
       final List<MatchEventsModel>? matchEventsModel,
       final HomeOptions homeOptions,
       final DateTime? date,
@@ -255,7 +254,7 @@ abstract class _HomeState extends HomeState {
   _HomeState._() : super._();
 
   @override
-  List<LiveMatchModel>? get liveMatchModel;
+  List<MatchModel>? get matchModel;
   @override
   List<MatchEventsModel>? get matchEventsModel;
   @override

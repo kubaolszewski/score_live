@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/custom_widgets/event_text_without_icon.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/core/events_validation_ext.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
@@ -11,7 +11,7 @@ import 'package:score_live/presentation/constants/app_const_variables.dart';
 class MatchGoalsWidget extends StatelessWidget {
   const MatchGoalsWidget(this.liveMatch, {super.key});
 
-  final LiveMatchModel liveMatch;
+  final MatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {

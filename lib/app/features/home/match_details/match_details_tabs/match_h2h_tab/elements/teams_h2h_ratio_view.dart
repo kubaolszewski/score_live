@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/match_properties_getter_ext.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
@@ -16,7 +16,7 @@ class TeamsH2HRatioView extends StatelessWidget {
     required this.amountOfFixtures,
   });
 
-  final LiveMatchModel match;
+  final MatchModel match;
   final int amountOfFixtures;
 
   MatchDetailsCubit _matchDetailsCubit(BuildContext context) => context.read<MatchDetailsCubit>();

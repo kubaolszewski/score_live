@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_standings_tab/elements/league_standings_header.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_standings_tab/elements/team_name_display.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_standings_tab/elements/team_stats_display.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
@@ -10,7 +10,7 @@ import 'package:score_live/presentation/constants/app_const_variables.dart';
 class MatchStandingsTab extends StatelessWidget {
   const MatchStandingsTab({super.key, required this.match, required this.standings});
 
-  final LiveMatchModel match;
+  final MatchModel match;
   final List<StandingsModel> standings;
   final double space = 8.0;
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class WideMatchTileResult extends StatelessWidget {
   const WideMatchTileResult({super.key, required this.match});
 
-  final LiveMatchModel match;
+  final MatchModel match;
 
   @override
   Widget build(BuildContext context) {
