@@ -19,7 +19,7 @@ mixin _$MatchDetailsState {
   List<MatchEventsModel> get matchEvents => throw _privateConstructorUsedError;
   List<LineUpModel> get matchLineUps => throw _privateConstructorUsedError;
   List<StatisticsModel> get matchStats => throw _privateConstructorUsedError;
-  List<LiveMatchModel> get teamsH2h => throw _privateConstructorUsedError;
+  List<MatchModel> get teamsH2h => throw _privateConstructorUsedError;
   List<StandingsModel> get teamStandings => throw _privateConstructorUsedError;
   DetailsOptions get detailsOptions => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $MatchDetailsStateCopyWith<$Res> {
       {List<MatchEventsModel> matchEvents,
       List<LineUpModel> matchLineUps,
       List<StatisticsModel> matchStats,
-      List<LiveMatchModel> teamsH2h,
+      List<MatchModel> teamsH2h,
       List<StandingsModel> teamStandings,
       DetailsOptions detailsOptions,
       bool isLoading,
@@ -85,7 +85,7 @@ class _$MatchDetailsStateCopyWithImpl<$Res, $Val extends MatchDetailsState>
       teamsH2h: null == teamsH2h
           ? _value.teamsH2h
           : teamsH2h // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchModel>,
+              as List<MatchModel>,
       teamStandings: null == teamStandings
           ? _value.teamStandings
           : teamStandings // ignore: cast_nullable_to_non_nullable
@@ -118,7 +118,7 @@ abstract class _$$_MatchDetailsStateCopyWith<$Res>
       {List<MatchEventsModel> matchEvents,
       List<LineUpModel> matchLineUps,
       List<StatisticsModel> matchStats,
-      List<LiveMatchModel> teamsH2h,
+      List<MatchModel> teamsH2h,
       List<StandingsModel> teamStandings,
       DetailsOptions detailsOptions,
       bool isLoading,
@@ -161,7 +161,7 @@ class __$$_MatchDetailsStateCopyWithImpl<$Res>
       teamsH2h: null == teamsH2h
           ? _value._teamsH2h
           : teamsH2h // ignore: cast_nullable_to_non_nullable
-              as List<LiveMatchModel>,
+              as List<MatchModel>,
       teamStandings: null == teamStandings
           ? _value._teamStandings
           : teamStandings // ignore: cast_nullable_to_non_nullable
@@ -189,7 +189,7 @@ class _$_MatchDetailsState extends _MatchDetailsState {
       {final List<MatchEventsModel> matchEvents = const [],
       final List<LineUpModel> matchLineUps = const [],
       final List<StatisticsModel> matchStats = const [],
-      final List<LiveMatchModel> teamsH2h = const [],
+      final List<MatchModel> teamsH2h = const [],
       final List<StandingsModel> teamStandings = const [],
       this.detailsOptions = DetailsOptions.summary,
       this.isLoading = false,
@@ -228,10 +228,10 @@ class _$_MatchDetailsState extends _MatchDetailsState {
     return EqualUnmodifiableListView(_matchStats);
   }
 
-  final List<LiveMatchModel> _teamsH2h;
+  final List<MatchModel> _teamsH2h;
   @override
   @JsonKey()
-  List<LiveMatchModel> get teamsH2h {
+  List<MatchModel> get teamsH2h {
     if (_teamsH2h is EqualUnmodifiableListView) return _teamsH2h;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_teamsH2h);
@@ -308,7 +308,7 @@ abstract class _MatchDetailsState extends MatchDetailsState {
       {final List<MatchEventsModel> matchEvents,
       final List<LineUpModel> matchLineUps,
       final List<StatisticsModel> matchStats,
-      final List<LiveMatchModel> teamsH2h,
+      final List<MatchModel> teamsH2h,
       final List<StandingsModel> teamStandings,
       final DetailsOptions detailsOptions,
       final bool isLoading,
@@ -322,7 +322,7 @@ abstract class _MatchDetailsState extends MatchDetailsState {
   @override
   List<StatisticsModel> get matchStats;
   @override
-  List<LiveMatchModel> get teamsH2h;
+  List<MatchModel> get teamsH2h;
   @override
   List<StandingsModel> get teamStandings;
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_lineup_tab/elements/teams_line_ups_display.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class MatchLineUpTab extends StatelessWidget {
@@ -11,7 +11,7 @@ class MatchLineUpTab extends StatelessWidget {
     required this.lineUps,
   });
 
-  final LiveMatchModel liveMatch;
+  final MatchModel liveMatch;
   final List<LineUpModel> lineUps;
 
   @override

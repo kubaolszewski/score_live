@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/wide_match_tile/wide_match_tile.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
 class LastMatchesH2HView extends StatelessWidget {
@@ -11,7 +11,7 @@ class LastMatchesH2HView extends StatelessWidget {
     required this.amountOfFixtures,
   });
 
-  final List<LiveMatchModel> teamsH2h;
+  final List<MatchModel> teamsH2h;
   final int amountOfFixtures;
 
   @override

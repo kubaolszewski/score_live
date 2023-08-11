@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/league_badge.dart';
 import 'package:score_live/app/custom_widgets/wide_match_tile/wide_match_tile.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
@@ -12,7 +12,7 @@ class ScoreTabLoadedView extends StatelessWidget {
     required this.matchesByDate,
   });
 
-  final List<LiveMatchModel> matchesByDate;
+  final List<MatchModel> matchesByDate;
 
   @override
   Widget build(BuildContext context) {

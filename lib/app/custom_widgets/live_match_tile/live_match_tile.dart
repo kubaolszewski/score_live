@@ -3,7 +3,7 @@ import 'package:score_live/app/custom_widgets/live_match_tile/elements/live_matc
 import 'package:score_live/app/custom_widgets/live_match_tile/elements/live_match_tile_teams_display.dart';
 import 'package:score_live/app/custom_widgets/header_with_league_and_timer/header_with_league_and_timer.dart';
 import 'package:score_live/core/dimensions_context.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class LiveMatchTile extends StatelessWidget {
@@ -12,7 +12,7 @@ class LiveMatchTile extends StatelessWidget {
     required this.liveMatch,
   });
 
-  final LiveMatchModel liveMatch;
+  final MatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/live_match_model/live_goals/live_goals.dart';
+import 'package:score_live/models/match_model/live_goals/live_goals.dart';
 
 part 'live_score.freezed.dart';
 part 'live_score.g.dart';

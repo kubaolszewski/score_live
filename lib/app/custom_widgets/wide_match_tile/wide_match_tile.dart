@@ -4,7 +4,7 @@ import 'package:score_live/app/custom_widgets/wide_match_tile/elements/wide_matc
 import 'package:score_live/app/custom_widgets/wide_match_tile/elements/wide_match_tile_result.dart';
 import 'package:score_live/app/custom_widgets/wide_match_tile/elements/wide_match_tile_teams_display.dart';
 import 'package:score_live/app/features/home/home_module.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class WideMatchListTile extends StatelessWidget {
@@ -14,7 +14,7 @@ class WideMatchListTile extends StatelessWidget {
     this.isBrowsingH2HTab,
   });
 
-  final LiveMatchModel match;
+  final MatchModel match;
   final bool? isBrowsingH2HTab;
 
   @override
