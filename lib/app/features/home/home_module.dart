@@ -14,10 +14,10 @@ import 'package:score_live/repositories/match_details_repository.dart';
 class HomeModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind.factory((i) => ApiClient()),
-        Bind.factory((i) => LiveMatchesRemoteService.create(i())),
-        Bind.factory((i) => HomeScreenRepository(i())),
-        Bind.factory((i) => MatchDetailsRepository(i())),
+        Bind.singleton((i) => ApiClient()),
+        Bind.singleton((i) => LiveMatchesRemoteService.create(i())),
+        Bind.singleton((i) => HomeScreenRepository(i())),
+        Bind.singleton((i) => MatchDetailsRepository(i())),
         Bind.singleton((i) => HomeCubit()),
         Bind.singleton((i) => MatchDetailsCubit(i())),
         Bind.singleton((i) => LiveNowCubit(i())),

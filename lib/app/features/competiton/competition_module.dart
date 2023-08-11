@@ -12,9 +12,9 @@ import 'package:score_live/repositories/competition_screen_repository.dart';
 class CompetitionModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind.factory((i) => ApiClient()),
-        Bind.factory((i) => BrowsingRemoteService.create(i())),
-        Bind.factory((i) => CompetitionScreenRepository(i())),
+        Bind.singleton((i) => ApiClient()),
+        Bind.singleton((i) => BrowsingRemoteService.create(i())),
+        Bind.singleton((i) => CompetitionScreenRepository(i())),
         Bind.singleton((i) => CompetitionCubit(i())),
         Bind.singleton((i) => TopResultsTabCubit(i())),
         Bind.singleton((i) => RegionTabCubit(i())),
