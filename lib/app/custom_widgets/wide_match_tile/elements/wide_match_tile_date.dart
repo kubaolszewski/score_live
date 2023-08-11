@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
@@ -10,7 +10,7 @@ class WideMatchTileDate extends StatelessWidget {
     required this.match,
   });
 
-  final LiveMatchModel match;
+  final MatchModel match;
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:score_live/models/league_model/league_model.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
@@ -13,7 +13,7 @@ part 'live_matches_fixtures.freezed.dart';
 @freezed
 class LiveMatchesFixtures with _$LiveMatchesFixtures {
   factory LiveMatchesFixtures({
-    List<LiveMatchModel>? response,
+    List<MatchModel>? response,
   }) = _LiveMatchesFixtures;
 
   factory LiveMatchesFixtures.fromJson(Map<String, dynamic> json) => _$LiveMatchesFixturesFromJson(json);

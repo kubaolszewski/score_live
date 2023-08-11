@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/custom_widgets/event_text_with_icon.dart';
 import 'package:score_live/core/events_validation_ext.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
@@ -9,7 +9,7 @@ import 'package:score_live/presentation/constants/app_const_variables.dart';
 class FirstHalfEventsDisplay extends StatelessWidget {
   const FirstHalfEventsDisplay({super.key, required this.liveMatch, required this.matchEvents});
 
-  final LiveMatchModel liveMatch;
+  final MatchModel liveMatch;
   final List<MatchEventsModel> matchEvents;
 
   @override

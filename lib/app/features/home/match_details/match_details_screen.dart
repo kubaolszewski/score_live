@@ -6,7 +6,7 @@ import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_view.dart';
 import 'package:score_live/core/date_formatter_ext.dart';
-import 'package:score_live/models/live_match_model/live_match_model.dart';
+import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class MatchDetailsScreen extends StatelessWidget {
@@ -15,7 +15,7 @@ class MatchDetailsScreen extends StatelessWidget {
     required this.liveMatch,
   });
 
-  final LiveMatchModel liveMatch;
+  final MatchModel liveMatch;
 
   @override
   Widget build(BuildContext context) {
