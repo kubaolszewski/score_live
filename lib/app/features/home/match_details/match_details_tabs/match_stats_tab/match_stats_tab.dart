@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/single_stat_display.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/teams_header.dart';
+import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/stats_getter_ext.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class MatchStatsTab extends StatelessWidget {
   const MatchStatsTab({super.key, required this.matchStats});
@@ -12,10 +14,24 @@ class MatchStatsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (matchStats.isEmpty) {
+      return SizedBox(
+        height: 200,
+        child: Center(
+          child: Text(
+            context.localizations.noStats,
+            textAlign: TextAlign.center,
+            style: const CustomTextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w700),
+          ),
+        ),
+      );
+    }
+
     final shotsTotalSum = matchStats.homeShotsTotal + matchStats.awayShotsTotal;
     final shotsOnGoalSum = matchStats.homeShotsOnGoal + matchStats.awayShotsOnGoal;
     final foulsSum = matchStats.homeFouls + matchStats.awayFouls;
     final cornersSum = matchStats.homeCorners + matchStats.awayCorners;
+
     return Container(
       padding: const EdgeInsets.all(12.0),
       color: AppColors.listTileGrey,
