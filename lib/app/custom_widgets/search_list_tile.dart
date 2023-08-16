@@ -17,77 +17,67 @@ class SearchListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: InkWell(
-        onTap: () {},
-        child: Container(
-          decoration: BoxDecoration(
-            color: AppColors.listTileGrey,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 0,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 15,
-                        child: ClipOval(
-                          child: flag.contains('.svg')
-                              ? SvgPicture.network(
-                                  flag,
-                                  fit: BoxFit.fill,
-                                  placeholderBuilder: (context) =>
-                                      const CircularProgressIndicator(color: AppColors.mainThemePink),
-                                )
-                              : CachedNetworkImage(
-                                  imageUrl: flag,
-                                  fit: BoxFit.fill,
-                                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                                      CircularProgressIndicator(
-                                          value: downloadProgress.progress, color: AppColors.mainThemePink),
-                                  errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
-                                ),
-                        ),
-                      ),
-                    ],
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey)),
+          color: Colors.transparent,
+        ),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 24.0, bottom: 24.0, right: 16.0),
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 15,
+                    child: ClipOval(
+                      child: flag.contains('.svg')
+                          ? SvgPicture.network(
+                              flag,
+                              fit: BoxFit.fill,
+                              placeholderBuilder: (context) =>
+                                  const CircularProgressIndicator(color: AppColors.mainThemePink),
+                            )
+                          : CachedNetworkImage(
+                              imageUrl: flag,
+                              fit: BoxFit.fill,
+                              progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(
+                                  value: downloadProgress.progress, color: AppColors.mainThemePink),
+                              errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
+                            ),
+                    ),
                   ),
-                ),
+                ],
               ),
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        region,
-                        style: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        name,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+            ),
+            const SizedBox(width: 12),
+            Align(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    region,
+                    style: const TextStyle(
+                      color: AppColors.inactiveTextGrey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 2),
+                  Text(
+                    name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
