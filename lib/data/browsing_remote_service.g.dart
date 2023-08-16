@@ -46,7 +46,7 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
   }
 
   @override
-  Future<League> fetchLeagues({required String season}) async {
+  Future<League> fetchTopLeagues({required String season}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'season': season};
     final _headers = <String, dynamic>{};

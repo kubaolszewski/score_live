@@ -34,18 +34,18 @@ class CompetitionScreenRepository {
     return response.map(TeamModel.fromJson).toList();
   }
 
-  Future<List<LeagueModel>> fetchLeagues(String yearFromActualDate) async {
-    // return (await browsingRemoteService.fetchLeagues(season: yearFromActualDate))
+  Future<List<LeagueModel>> fetchTopLeagues(String yearFromActualDate) async {
+    // return (await browsingRemoteService.fetchTopLeagues(season: yearFromActualDate))
     //     .response
     //     .where((element) =>
+    //         element.league!.id == 2 ||
+    //         element.league!.id == 3 ||
     //         element.league!.id == 39 ||
     //         element.league!.id == 61 ||
     //         element.league!.id == 78 ||
     //         element.league!.id == 94 ||
-    //         element.league!.id == 106 ||
     //         element.league!.id == 135 ||
-    //         element.league!.id == 140 ||
-    //         element.league!.id == 144)
+    //         element.league!.id == 140)
     //     .toList();
     final response = [
       {

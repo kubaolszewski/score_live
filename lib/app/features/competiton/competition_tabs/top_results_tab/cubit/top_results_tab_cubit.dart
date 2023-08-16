@@ -12,11 +12,11 @@ class TopResultsTabCubit extends Cubit<TopResultsTabState> {
 
   final CompetitionScreenRepository competitionScreenRepository;
 
-  Future<void> fetchLeagues(DateTime date) async {
+  Future<void> fetchTopLeagues(DateTime date) async {
     String yearFromActualDate = DateFormat('yyyy').format(date);
     emit(const LoadingResultsState());
     try {
-      final leagues = await competitionScreenRepository.fetchLeagues(yearFromActualDate);
+      final leagues = await competitionScreenRepository.fetchTopLeagues(yearFromActualDate);
       emit(ResultsLoadedState(leagues));
     } catch (error) {
       emit(ErrorResultsState(error.toString()));

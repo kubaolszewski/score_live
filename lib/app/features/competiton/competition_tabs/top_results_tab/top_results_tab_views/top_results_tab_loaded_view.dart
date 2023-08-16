@@ -27,10 +27,12 @@ class TopResultsTabLoadedView extends StatelessWidget {
       );
     }
 
-    return Center(
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 24),
           Text(
             context.localizations.topHeader,
             style: const TextStyle(
@@ -38,21 +40,19 @@ class TopResultsTabLoadedView extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              width: width,
-              height: height,
-              child: ListView.builder(
-                itemCount: results.length,
-                itemBuilder: (context, index) {
-                  final league = results[index];
-                  final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
-                  final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
-                  final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
-                  return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
-                },
-              ),
+          const SizedBox(height: 16),
+          SizedBox(
+            width: width,
+            height: height,
+            child: ListView.builder(
+              itemCount: results.length,
+              itemBuilder: (context, index) {
+                final league = results[index];
+                final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
+                final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
+                final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
+                return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
+              },
             ),
           ),
         ],

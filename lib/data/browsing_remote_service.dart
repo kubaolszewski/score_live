@@ -15,7 +15,7 @@ abstract class BrowsingRemoteService {
   });
 
   @GET('/leagues')
-  Future<League> fetchLeagues({
+  Future<League> fetchTopLeagues({
     @Query("season") required String season,
   });
 
