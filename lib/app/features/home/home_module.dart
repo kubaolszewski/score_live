@@ -6,18 +6,10 @@ import 'package:score_live/app/features/home/home_tabs/upcoming_tab/cubit/upcomi
 import 'package:score_live/app/features/home/home_widgets/live_now/cubit/live_now_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_screen.dart';
-import 'package:score_live/data/api.client.dart';
-import 'package:score_live/data/live_matches_remote_service.dart';
-import 'package:score_live/repositories/home_screen_repository.dart';
-import 'package:score_live/repositories/match_details_repository.dart';
 
 class HomeModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind.singleton((i) => ApiClient()),
-        Bind.singleton((i) => LiveMatchesRemoteService.create(i())),
-        Bind.singleton((i) => HomeScreenRepository(i())),
-        Bind.singleton((i) => MatchDetailsRepository(i())),
         Bind.singleton((i) => HomeCubit()),
         Bind.singleton((i) => MatchDetailsCubit(i())),
         Bind.singleton((i) => LiveNowCubit(i())),
