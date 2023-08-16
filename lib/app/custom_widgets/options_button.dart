@@ -17,6 +17,7 @@ class OptionsButton extends StatelessWidget {
       opacity: isActive ? 1.0 : 0.5,
       duration: const Duration(milliseconds: 750),
       child: Container(
+        width: 110,
         padding: const EdgeInsets.only(bottom: 2.0),
         decoration: isActive
             ? const BoxDecoration(
@@ -28,6 +29,7 @@ class OptionsButton extends StatelessWidget {
             : null,
         child: Text(
           buttonTitle,
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: isActive ? Colors.white : AppColors.inactiveTextGrey,
             fontSize: 16,

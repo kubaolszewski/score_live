@@ -26,28 +26,24 @@ class MatchDetailsTabBar extends StatelessWidget {
                     isActive: state.isSummaryActive,
                     buttonTitle: context.localizations.matchDetailsSummary,
                   )),
-              const SizedBox(width: 15),
               TextButton(
                   onPressed: () => _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.lineUp),
                   child: OptionsButton(
                     isActive: state.isLineUpActive,
                     buttonTitle: context.localizations.matchDetailsLineUp,
                   )),
-              const SizedBox(width: 15),
               TextButton(
                   onPressed: () => _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.stats),
                   child: OptionsButton(
                     isActive: state.isStatsActive,
                     buttonTitle: context.localizations.matchDetailsStats,
                   )),
-              const SizedBox(width: 15),
               TextButton(
                   onPressed: () => _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.h2H),
                   child: OptionsButton(
                     isActive: state.isH2HActive,
                     buttonTitle: context.localizations.matchDetailsH2H,
                   )),
-              const SizedBox(width: 15),
               TextButton(
                   onPressed: () => _matchDetailsCubit(context).switchDetailsOptions(DetailsOptions.standings),
                   child: OptionsButton(
