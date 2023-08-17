@@ -18,6 +18,8 @@ class SearchListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTap: () {},
       child: Container(
         decoration: const BoxDecoration(
@@ -27,7 +29,7 @@ class SearchListTile extends StatelessWidget {
         child: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 24.0, bottom: 24.0, right: 16.0),
+              padding: const EdgeInsets.only(top: 24.0, bottom: 24.0, right: 16.0, left: 8.0),
               child: Column(
                 children: [
                   CircleAvatar(
