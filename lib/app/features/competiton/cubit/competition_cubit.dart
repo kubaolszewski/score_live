@@ -18,11 +18,11 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     emit(state.copyWith(browsingOptions: chosenOption));
   }
 
-  void switchSearching(String dropdownValue) {
+  void switchSearching(SearchTypes dropdownValue) {
     switch (dropdownValue) {
-      case 'Team':
+      case SearchTypes.team:
         emit(state.copyWith(searchTypes: SearchTypes.team));
-      case 'League':
+      case SearchTypes.league:
         emit(state.copyWith(searchTypes: SearchTypes.league));
     }
   }

@@ -4,6 +4,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/core/enums.dart';
+import 'package:score_live/core/string_formatters_ext.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
@@ -17,7 +19,7 @@ class CompetitionSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String dropdownValue = AppConstVariables.searchTypes.first;
+    SearchTypes dropdownValue = SearchTypes.team;
 
     return BlocBuilder<CompetitionCubit, CompetitionState>(
       builder: (context, state) {
@@ -43,24 +45,24 @@ class CompetitionSearchBar extends StatelessWidget {
                       color: AppColors.mainThemePink,
                       child: ButtonTheme(
                         alignedDropdown: true,
-                        child: DropdownButton(
+                        child: DropdownButton<SearchTypes>(
                           borderRadius: BorderRadius.circular(8),
                           iconEnabledColor: Colors.white,
                           underline: const SizedBox.shrink(),
                           dropdownColor: AppColors.mainThemePink,
                           value: dropdownValue,
-                          items: AppConstVariables.searchTypes.map<DropdownMenuItem<String>>(
-                            (String value) {
-                              return DropdownMenuItem<String>(
+                          items: SearchTypes.values.map<DropdownMenuItem<SearchTypes>>(
+                            (SearchTypes value) {
+                              return DropdownMenuItem<SearchTypes>(
                                 value: value,
                                 child: Text(
-                                  value,
+                                  value.name.capitalize(),
                                   style: const CustomTextStyle(color: Colors.white, fontWeight: FontWeight.w700),
                                 ),
                               );
                             },
                           ).toList(),
-                          onChanged: (String? value) {
+                          onChanged: (SearchTypes? value) {
                             dropdownValue = value!;
                             _competitionCubit(context).switchSearching(dropdownValue);
                           },
@@ -75,9 +77,9 @@ class CompetitionSearchBar extends StatelessWidget {
                 controller: searchingController,
                 onSubmitted: (nameQuery) {
                   switch (dropdownValue) {
-                    case 'Team':
+                    case SearchTypes.team:
                       Modular.to.pushNamed(CompetitionPath.searchedTeamsPath, arguments: nameQuery);
-                    case 'League':
+                    case SearchTypes.league:
                       Modular.to.pushNamed(CompetitionPath.searchedLeaguesPath, arguments: nameQuery);
                   }
                   searchingController.clear();
