@@ -3,8 +3,8 @@ part of 'competition_cubit.dart';
 @freezed
 class CompetitionState with _$CompetitionState {
    factory CompetitionState({
-    @Default([]) List<LeagueModel> leagueResults,
     @Default([]) List<TeamModel> teamResults,
+    @Default([]) List<LeagueModel> leagueResults,
     @Default(BrowsingOptions.top) BrowsingOptions browsingOptions,
     @Default(SearchTypes.team) SearchTypes searchTypes,
     String? errorMessage,

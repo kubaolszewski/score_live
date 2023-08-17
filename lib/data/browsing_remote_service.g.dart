@@ -106,7 +106,7 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
   }
 
   @override
-  Future<League> fetchLeaguesByRegion({
+  Future<League> fetchLeaguesByCountry({
     required String country,
     required String season,
   }) async {

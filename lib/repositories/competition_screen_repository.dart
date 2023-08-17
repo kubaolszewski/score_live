@@ -120,8 +120,8 @@ class CompetitionScreenRepository {
 
   Future<List<LeagueModel>> fetchLeaguesByCountry(String countryQuery, String yearFromActualDate) async {
     // commented on purpose
-    // return (await browsingRemoteService.fetchLeaguesByRegion(country: countryQuery, season: yearFromActualDate))
-    //     .response;
+    // return (await browsingRemoteService.fetchLeaguesByCountry(country: countryQuery, season: yearFromActualDate))
+    // .response;
     final response = [
       {
         "league": {
