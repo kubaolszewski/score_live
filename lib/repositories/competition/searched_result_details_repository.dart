@@ -6,7 +6,7 @@ class SearchedResultDetailsRepository {
 
   final BrowsingRemoteService browsingRemoteService;
 
-  final statusListing = '1H-HT-2H-ET-FT';
+  final statusListing = "1H-HT-2H-ET-FT";
 
   Future<List<MatchModel>?> fetchResultsDetailsByTeamId(String teamId, String yearFromActualDate) async {
     return (await browsingRemoteService.fetchResultsByTeamId(

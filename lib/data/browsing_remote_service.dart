@@ -40,7 +40,7 @@ abstract class BrowsingRemoteService {
 
   @GET('/fixtures')
   Future<LeagueResultsDetails> fetchResultsByTeamId({
-    @Query("league") required String teamId,
+    @Query("team") required String teamId,
     @Query("status") required String status,
     @Query("season") required String season,
   });

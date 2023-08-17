@@ -181,7 +181,7 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'league': teamId,
+      r'team': teamId,
       r'status': status,
       r'season': season,
     };
