@@ -25,7 +25,12 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
       final matchStats = await matchDetailsRepository.fetchMatchStats(matchID);
       final teamsH2h = await matchDetailsRepository.fetchTeamsH2h(teamsIdNumbers, matchID);
       final teamStandings = await matchDetailsRepository.fetchTeamStandings(leagueId, yearFromSeason);
-      if (teamsH2h != null && teamsH2h.isNotEmpty) {
+      final detailsIsEmptyCheck = matchEvents.isNotEmpty &&
+          matchLineUps.isNotEmpty &&
+          matchStats.isNotEmpty &&
+          teamsH2h.isNotEmpty &&
+          teamStandings.isNotEmpty;
+      if (detailsIsEmptyCheck) {
         emit(state.copyWith(
           matchEvents: matchEvents,
           matchLineUps: matchLineUps,
