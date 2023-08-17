@@ -3,6 +3,7 @@ import 'package:score_live/app/custom_widgets/search_list_tile.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/core/dimensions_context.dart';
 import 'package:score_live/models/league_model/league_model.dart';
+import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
 class TopResultsTabLoadedView extends StatelessWidget {
@@ -27,32 +28,32 @@ class TopResultsTabLoadedView extends StatelessWidget {
       );
     }
 
-    return Center(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 24),
           Text(
             context.localizations.topHeader,
             style: const TextStyle(
-              color: Colors.grey,
+              color: AppColors.inactiveTextGrey,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              width: width,
-              height: height,
-              child: ListView.builder(
-                itemCount: results.length,
-                itemBuilder: (context, index) {
-                  final league = results[index];
-                  final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
-                  final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
-                  final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
-                  return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
-                },
-              ),
+          const SizedBox(height: 4),
+          SizedBox(
+            width: width,
+            height: height,
+            child: ListView.builder(
+              itemCount: results.length,
+              itemBuilder: (context, index) {
+                final league = results[index];
+                final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
+                final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
+                final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
+                return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
+              },
             ),
           ),
         ],

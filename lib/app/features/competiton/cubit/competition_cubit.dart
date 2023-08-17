@@ -18,19 +18,19 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     emit(state.copyWith(browsingOptions: chosenOption));
   }
 
-  void switchSearching(String dropdownValue) {
+  void switchSearching(SearchTypes dropdownValue) {
     switch (dropdownValue) {
-      case 'Team':
-        emit(state.copyWith(searchTypes: SearchTypes.teamName));
-      case 'League (name)':
-        emit(state.copyWith(searchTypes: SearchTypes.leagueName));
+      case SearchTypes.team:
+        emit(state.copyWith(searchTypes: SearchTypes.team));
+      case SearchTypes.league:
+        emit(state.copyWith(searchTypes: SearchTypes.league));
     }
   }
 
-  Future<void> searchingTeamsByName(String nameQuery) async {
+  Future<void> searchingTeams(String nameQuery) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final searchedResults = await competitionScreenRepository.fetchTeamsByName(nameQuery);
+      final searchedResults = await competitionScreenRepository.fetchTeams(nameQuery);
       emit(state.copyWith(teamResults: searchedResults, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
@@ -40,20 +40,15 @@ class CompetitionCubit extends Cubit<CompetitionState> {
   Future<void> searchingLeaguesByName(String nameQuery) async {
     String yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
     emit(state.copyWith(isLoading: true));
-    try {
-      final searchedResults = await competitionScreenRepository.fetchLeaguesByName(nameQuery, yearFromActualDate);
-      emit(state.copyWith(leagueResults: searchedResults, isLoading: false));
-    } catch (error) {
-      emit(state.copyWith(errorMessage: error.toString()));
-    }
-  }
 
-  Future<void> searchingLeaguesByCountry(String nameQuery) async {
-    String yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
-    emit(state.copyWith(isLoading: true));
     try {
-      final searchedResults = await competitionScreenRepository.fetchLeaguesByCountry(nameQuery, yearFromActualDate);
-      emit(state.copyWith(leagueResults: searchedResults, isLoading: false));
+      final searchedLeaguesByName = await competitionScreenRepository.fetchLeaguesByName(nameQuery, yearFromActualDate);
+      final searchedLeaguesByCountry =
+          await competitionScreenRepository.fetchLeaguesByCountry(nameQuery, yearFromActualDate);
+
+      final combinedResults = [...searchedLeaguesByName, ...searchedLeaguesByCountry];
+
+      emit(state.copyWith(leagueResults: combinedResults, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }

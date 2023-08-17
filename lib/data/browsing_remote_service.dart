@@ -10,12 +10,12 @@ abstract class BrowsingRemoteService {
   static BrowsingRemoteService create(ApiClient dio) => _BrowsingRemoteService(dio.dio);
 
   @GET('/teams')
-  Future<Team> fetchTeamsByName({
+  Future<Team> fetchTeams({
     @Query("name") required String name,
   });
 
   @GET('/leagues')
-  Future<League> fetchLeagues({
+  Future<League> fetchTopLeagues({
     @Query("season") required String season,
   });
 
@@ -26,7 +26,7 @@ abstract class BrowsingRemoteService {
   });
 
   @GET('/leagues')
-  Future<League> fetchLeaguesByRegion({
+  Future<League> fetchLeaguesByCountry({
     @Query("country") required String country,
     @Query("season") required String season,
   });

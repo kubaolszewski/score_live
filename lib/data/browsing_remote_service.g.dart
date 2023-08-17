@@ -19,7 +19,7 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
   String? baseUrl;
 
   @override
-  Future<Team> fetchTeamsByName({required String name}) async {
+  Future<Team> fetchTeams({required String name}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'name': name};
     final _headers = <String, dynamic>{};
@@ -46,7 +46,7 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
   }
 
   @override
-  Future<League> fetchLeagues({required String season}) async {
+  Future<League> fetchTopLeagues({required String season}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'season': season};
     final _headers = <String, dynamic>{};
@@ -106,7 +106,7 @@ class _BrowsingRemoteService implements BrowsingRemoteService {
   }
 
   @override
-  Future<League> fetchLeaguesByRegion({
+  Future<League> fetchLeaguesByCountry({
     required String country,
     required String season,
   }) async {

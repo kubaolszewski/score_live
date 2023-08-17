@@ -7,8 +7,9 @@ class CompetitionScreenRepository {
 
   final BrowsingRemoteService browsingRemoteService;
 
-  Future<List<TeamModel>> fetchTeamsByName(String nameQuery) async {
-    // return (await browsingRemoteService.fetchTeamsByName(name: nameQuery)).response;
+  Future<List<TeamModel>> fetchTeams(String nameQuery) async {
+    // commented on purpose
+    // return (await browsingRemoteService.fetchTeams(name: nameQuery)).response;
     final response = [
       {
         "team": {
@@ -34,18 +35,19 @@ class CompetitionScreenRepository {
     return response.map(TeamModel.fromJson).toList();
   }
 
-  Future<List<LeagueModel>> fetchLeagues(String yearFromActualDate) async {
-    // return (await browsingRemoteService.fetchLeagues(season: yearFromActualDate))
+  Future<List<LeagueModel>> fetchTopLeagues(String yearFromActualDate) async {
+    // commented on purpose
+    // return (await browsingRemoteService.fetchTopLeagues(season: yearFromActualDate))
     //     .response
     //     .where((element) =>
+    //         element.league!.id == 2 ||
+    //         element.league!.id == 3 ||
     //         element.league!.id == 39 ||
     //         element.league!.id == 61 ||
     //         element.league!.id == 78 ||
     //         element.league!.id == 94 ||
-    //         element.league!.id == 106 ||
     //         element.league!.id == 135 ||
-    //         element.league!.id == 140 ||
-    //         element.league!.id == 144)
+    //         element.league!.id == 140)
     //     .toList();
     final response = [
       {
@@ -81,6 +83,7 @@ class CompetitionScreenRepository {
   }
 
   Future<List<LeagueModel>> fetchLeaguesByName(String nameQuery, String yearFromActualDate) async {
+    // commented on purpose
     // return (await browsingRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate)).response;
     final response = [
       {
@@ -116,8 +119,9 @@ class CompetitionScreenRepository {
   }
 
   Future<List<LeagueModel>> fetchLeaguesByCountry(String countryQuery, String yearFromActualDate) async {
-    // return (await browsingRemoteService.fetchLeaguesByRegion(country: countryQuery, season: yearFromActualDate))
-    //     .response;
+    // commented on purpose
+    // return (await browsingRemoteService.fetchLeaguesByCountry(country: countryQuery, season: yearFromActualDate))
+    // .response;
     final response = [
       {
         "league": {
