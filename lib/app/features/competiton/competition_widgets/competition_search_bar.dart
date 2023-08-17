@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
 import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
@@ -15,7 +15,7 @@ class CompetitionSearchBar extends StatelessWidget {
 
   final TextEditingController searchingController = TextEditingController();
 
-  CompetitionCubit _competitionCubit(BuildContext context) => Modular.get<CompetitionCubit>();
+  CompetitionCubit _competitionCubit(BuildContext context) => context.read<CompetitionCubit>();
 
   @override
   Widget build(BuildContext context) {
