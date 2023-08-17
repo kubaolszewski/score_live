@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/repositories/home_screen_repository.dart';
+import 'package:score_live/repositories/home/home_screen_repository.dart';
 
 part 'live_now_state.dart';
 part 'live_now_cubit.freezed.dart';

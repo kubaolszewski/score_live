@@ -92,3 +92,17 @@ _$_Team _$$_TeamFromJson(Map<String, dynamic> json) => _$_Team(
 Map<String, dynamic> _$$_TeamToJson(_$_Team instance) => <String, dynamic>{
       'response': instance.response,
     };
+
+_$_LeagueResultsDetails _$$_LeagueResultsDetailsFromJson(
+        Map<String, dynamic> json) =>
+    _$_LeagueResultsDetails(
+      response: (json['response'] as List<dynamic>?)
+          ?.map((e) => MatchModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$_LeagueResultsDetailsToJson(
+        _$_LeagueResultsDetails instance) =>
+    <String, dynamic>{
+      'response': instance.response,
+    };

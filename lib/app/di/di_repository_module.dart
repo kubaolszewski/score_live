@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/repositories/competition_screen_repository.dart';
-import 'package:score_live/repositories/home_screen_repository.dart';
-import 'package:score_live/repositories/match_details_repository.dart';
+import 'package:score_live/repositories/competition/competition_screen_repository.dart';
+import 'package:score_live/repositories/home/home_screen_repository.dart';
+import 'package:score_live/repositories/home/match_details_repository.dart';
 
 class DIRepositoryModule extends Module {
   @override
