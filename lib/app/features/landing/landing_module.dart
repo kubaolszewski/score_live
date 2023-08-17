@@ -1,4 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:score_live/app/di/di_network_module.dart';
+import 'package:score_live/app/di/di_repository_module.dart';
+import 'package:score_live/app/di/di_services_module.dart';
 import 'package:score_live/app/features/account/account_screen.dart';
 import 'package:score_live/app/features/account/account_module.dart';
 import 'package:score_live/app/features/competiton/competition_screen.dart';
@@ -15,22 +18,17 @@ import 'package:score_live/app/features/home/home_widgets/live_now/cubit/live_no
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing_screen.dart';
-import 'package:score_live/data/api.client.dart';
-import 'package:score_live/data/browsing_remote_service.dart';
-import 'package:score_live/data/live_matches_remote_service.dart';
-import 'package:score_live/repositories/competition_screen_repository.dart';
-import 'package:score_live/repositories/home_screen_repository.dart';
-import 'package:score_live/repositories/match_details_repository.dart';
 
 class LandingModule extends Module {
   @override
+  final List<Module> imports = [
+    DINetworkModule(),
+    DIServicesModule(),
+    DIRepositoryModule(),
+  ];
+
+  @override
   List<Bind> get binds => [
-        Bind.factory((i) => ApiClient()),
-        Bind.factory((i) => LiveMatchesRemoteService.create(i())),
-        Bind.factory((i) => BrowsingRemoteService.create(i())),
-        Bind.factory((i) => HomeScreenRepository(i())),
-        Bind.factory((i) => MatchDetailsRepository(i())),
-        Bind.factory((i) => CompetitionScreenRepository(i())),
         Bind.singleton((i) => LandingCubit()),
         Bind.singleton((i) => HomeCubit()),
         Bind.singleton((i) => MatchDetailsCubit(i())),
