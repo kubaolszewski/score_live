@@ -6,6 +6,7 @@ class CompetitionState with _$CompetitionState {
     @Default([]) List<LeagueModel> leagueResults,
     @Default([]) List<TeamModel> teamResults,
     @Default(BrowsingOptions.top) BrowsingOptions browsingOptions,
+    @Default(SearchTypes.team) SearchTypes searchTypes,
     String? errorMessage,
     @Default(false) bool isLoading,
   }) = _CompetitionState;

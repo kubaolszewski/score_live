@@ -18,10 +18,19 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     emit(state.copyWith(browsingOptions: chosenOption));
   }
 
-  Future<void> searchingTeamsByName(String nameQuery) async {
+  void switchSearching(String dropdownValue) {
+    switch (dropdownValue) {
+      case 'Team':
+        emit(state.copyWith(searchTypes: SearchTypes.team));
+      case 'League':
+        emit(state.copyWith(searchTypes: SearchTypes.league));
+    }
+  }
+
+  Future<void> searchingTeams(String nameQuery) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final searchedResults = await competitionScreenRepository.fetchTeamsByName(nameQuery);
+      final searchedResults = await competitionScreenRepository.fetchTeams(nameQuery);
       emit(state.copyWith(teamResults: searchedResults, isLoading: false));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
@@ -37,14 +46,6 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
-  }
-
-  Future<List<Object>> combineTeamsAndLeaguesList(String nameQuery) async {
-    String yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
-    final searchedTeams = await competitionScreenRepository.fetchTeamsByName(nameQuery);
-    final searchedLeagues = await competitionScreenRepository.fetchLeaguesByName(nameQuery, yearFromActualDate);
-    final combinedList = [searchedTeams, ...searchedLeagues];
-    return combinedList;
   }
 
   Future<void> searchingLeaguesByCountry(String nameQuery) async {

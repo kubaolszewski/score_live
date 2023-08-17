@@ -10,7 +10,7 @@ abstract class BrowsingRemoteService {
   static BrowsingRemoteService create(ApiClient dio) => _BrowsingRemoteService(dio.dio);
 
   @GET('/teams')
-  Future<Team> fetchTeamsByName({
+  Future<Team> fetchTeams({
     @Query("name") required String name,
   });
 

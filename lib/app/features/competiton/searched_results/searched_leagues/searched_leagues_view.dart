@@ -7,8 +7,8 @@ import 'package:score_live/core/dimensions_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
-class SearchedResultsView extends StatelessWidget {
-  const SearchedResultsView({super.key});
+class SearchedLeaguesView extends StatelessWidget {
+  const SearchedLeaguesView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +26,12 @@ class SearchedResultsView extends StatelessWidget {
         }
 
         final leagues = state.leagueResults;
-        final teams = state.teamResults;
 
-        if ((teams.isEmpty) && (leagues.isEmpty)) {
+        if (leagues.isEmpty) {
           return SizedBox(
             height: 200,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
                   context.localizations.dataErrorInfo,
@@ -53,17 +53,17 @@ class SearchedResultsView extends StatelessWidget {
                   width: width,
                   height: height,
                   child: ListView.builder(
-                    itemCount: teams.length,
+                    itemCount: leagues.length,
                     itemBuilder: (context, index) {
-                      final team = teams[index];
-                      final String teamFlag = team.team?.logo ?? AppConstVariables.defaultTeamLogo;
-                      final String teamRegion = team.team?.country ?? AppConstVariables.stringPlaceholder;
-                      final String teamName = team.team?.name ?? context.localizations.unknownTeam;
-                      return SearchListTile(flag: teamFlag, region: teamRegion, name: teamName);
+                      final league = leagues[index];
+                      final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
+                      final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
+                      final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
+                      return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
                     },
                   ),
                 ),
-              ),
+              )
             ],
           ),
         );

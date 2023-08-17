@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
-import 'package:score_live/app/features/competiton/searched_results/searched_results_view.dart';
+import 'package:score_live/app/features/competiton/searched_results/searched_teams/searched_teams_view.dart';
 import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-class SearchedResultsScreen extends StatelessWidget {
-  const SearchedResultsScreen(
+class SearchedTeamsScreen extends StatelessWidget {
+  const SearchedTeamsScreen(
     this.nameQuery, {
     super.key,
   });
@@ -35,8 +35,8 @@ class SearchedResultsScreen extends StatelessWidget {
         ),
       ),
       body: BlocProvider<CompetitionCubit>(
-        create: (context) => Modular.get<CompetitionCubit>()..combineTeamsAndLeaguesList(nameQuery),
-        child: const SearchedResultsView(),
+        create: (context) => Modular.get<CompetitionCubit>()..searchingTeams(nameQuery),
+        child: const SearchedTeamsView(),
       ),
     );
   }

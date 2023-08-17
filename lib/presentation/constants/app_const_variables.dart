@@ -28,7 +28,7 @@ abstract class AppConstVariables {
   static const varGoalCancelled = 'Goal cancelled';
   static const varPenaltyConfirmed = 'Penalty Confirmed';
   static const standingsHeadersText = ['PL', 'W', 'D', 'L', 'GD', 'PTS'];
-  static const searchTypes = ['Team', 'League (name)'];
+  static const searchTypes = ['Team', 'League'];
 }
 
 abstract class AssetsPaths {

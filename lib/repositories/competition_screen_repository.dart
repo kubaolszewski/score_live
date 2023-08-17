@@ -7,8 +7,9 @@ class CompetitionScreenRepository {
 
   final BrowsingRemoteService browsingRemoteService;
 
-  Future<List<TeamModel>> fetchTeamsByName(String nameQuery) async {
-    return (await browsingRemoteService.fetchTeamsByName(name: nameQuery)).response;
+  Future<List<TeamModel>> fetchTeams(String nameQuery) async {
+    // commented on purpose
+    // return (await browsingRemoteService.fetchTeams(name: nameQuery)).response;
     final response = [
       {
         "team": {
@@ -35,6 +36,7 @@ class CompetitionScreenRepository {
   }
 
   Future<List<LeagueModel>> fetchTopLeagues(String yearFromActualDate) async {
+    // commented on purpose
     // return (await browsingRemoteService.fetchTopLeagues(season: yearFromActualDate))
     //     .response
     //     .where((element) =>
@@ -81,7 +83,8 @@ class CompetitionScreenRepository {
   }
 
   Future<List<LeagueModel>> fetchLeaguesByName(String nameQuery, String yearFromActualDate) async {
-    return (await browsingRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate)).response;
+    // commented on purpose
+    // return (await browsingRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate)).response;
     final response = [
       {
         "league": {
@@ -116,6 +119,7 @@ class CompetitionScreenRepository {
   }
 
   Future<List<LeagueModel>> fetchLeaguesByCountry(String countryQuery, String yearFromActualDate) async {
+    // commented on purpose
     // return (await browsingRemoteService.fetchLeaguesByRegion(country: countryQuery, season: yearFromActualDate))
     //     .response;
     final response = [
