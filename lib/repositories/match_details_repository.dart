@@ -380,7 +380,7 @@ class MatchDetailsRepository {
     return response.map(StatisticsModel.fromJson).toList();
   }
 
-  Future<List<MatchModel>?> fetchTeamsH2h(String teamsIdNumbers, String lastFixtures) async {
+  Future<List<MatchModel>> fetchTeamsH2h(String teamsIdNumbers, String lastFixtures) async {
     // commented on purpose
     // return (await liveMatchesRemoteService.fetchTeamsH2h(teamsIdNumbers: teamsIdNumbers, lastFixtures: '10'))
     //     .response;
