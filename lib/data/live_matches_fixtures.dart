@@ -71,4 +71,14 @@ class Team with _$Team {
   }) = _Team;
 
   factory Team.fromJson(Map<String, dynamic> json) => _$TeamFromJson(json);
+
 }
+@freezed
+class LeagueResultsDetails with _$LeagueResultsDetails {
+  factory LeagueResultsDetails({
+    List<MatchModel>? response,
+  }) = _LeagueResultsDetails;
+
+  factory LeagueResultsDetails.fromJson(Map<String, dynamic> json) => _$LeagueResultsDetailsFromJson(json);
+}
+
