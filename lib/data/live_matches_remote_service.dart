@@ -20,30 +20,4 @@ abstract class LiveMatchesRemoteService {
     @Query("date") required String date,
   });
 
-  @GET('/fixtures/events')
-  Future<MatchEvents> fetchMatchEvents({
-    @Query("fixture") required String matchID,
-  });
-
-  @GET('/fixtures/lineups')
-  Future<MatchLineUps> fetchMatchLineUps({
-    @Query("fixture") required String matchID,
-  });
-
-  @GET('/fixtures/statistics')
-  Future<MatchStatistics> fetchMatchStats({
-    @Query("fixture") required String matchID,
-  });
-
-  @GET('/fixtures/headtohead')
-  Future<LiveMatchesFixtures> fetchTeamsH2h({
-    @Query("h2h") required String teamsIdNumbers,
-    @Query("last") required String lastFixtures,
-  });
-
-  @GET('/standings')
-  Future<Standings> fetchTeamStandings({
-    @Query("league") required String leagueID,
-    @Query("season") required String season,
-  });
 }
