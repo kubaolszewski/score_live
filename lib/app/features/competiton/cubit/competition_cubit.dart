@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/league_model/league_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
-import 'package:score_live/repositories/competition_screen_repository.dart';
+import 'package:score_live/repositories/competition/competition_screen_repository.dart';
 
 part 'competition_state.dart';
 part 'competition_cubit.freezed.dart';

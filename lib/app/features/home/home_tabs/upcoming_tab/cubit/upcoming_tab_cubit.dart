@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:score_live/core/date_formatter_ext.dart';
 import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/repositories/home_screen_repository.dart';
+import 'package:score_live/repositories/home/home_screen_repository.dart';
 
 part 'upcoming_tab_state.dart';
 part 'upcoming_tab_cubit.freezed.dart';

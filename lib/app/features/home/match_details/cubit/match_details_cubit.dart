@@ -7,7 +7,7 @@ import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/repositories/match_details_repository.dart';
+import 'package:score_live/repositories/home/match_details_repository.dart';
 
 part 'match_details_state.dart';
 part 'match_details_cubit.freezed.dart';
