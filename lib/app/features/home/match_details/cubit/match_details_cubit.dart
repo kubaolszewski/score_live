@@ -28,6 +28,7 @@ class MatchDetailsCubit extends Cubit<MatchDetailsState> {
       final detailsIsEmptyCheck = matchEvents.isNotEmpty &&
           matchLineUps.isNotEmpty &&
           matchStats.isNotEmpty &&
+          teamsH2h != null &&
           teamsH2h.isNotEmpty &&
           teamStandings.isNotEmpty;
       if (detailsIsEmptyCheck) {
