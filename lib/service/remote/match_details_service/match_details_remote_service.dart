@@ -1,24 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:score_live/data/api.client.dart';
-import 'package:score_live/data/live_matches_fixtures.dart';
+import 'package:score_live/service/api.client.dart';
+import 'package:score_live/service/live_matches_fixtures.dart';
 
-part 'live_matches_remote_service.g.dart';
+part 'match_details_remote_service.g.dart';
 
 @RestApi()
-abstract class LiveMatchesRemoteService {
-  static LiveMatchesRemoteService create(ApiClient dio) => _LiveMatchesRemoteService(dio.dio);
-
-  @GET('/fixtures')
-  Future<LiveMatchesFixtures> fetchLiveMatches({
-    @Query("live") required String live,
-  });
-
-  @GET('/fixtures')
-  Future<LiveMatchesFixtures> fetchMatchesByDate({
-    @Query("status") required String status,
-    @Query("date") required String date,
-  });
+abstract class MatchDetailsRemoteService {
+  static MatchDetailsRemoteService create(ApiClient dio) => _MatchDetailsRemoteService(dio.dio);
 
   @GET('/fixtures/events')
   Future<MatchEvents> fetchMatchEvents({

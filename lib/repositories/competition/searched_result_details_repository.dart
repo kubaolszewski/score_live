@@ -1,5 +1,5 @@
-import 'package:score_live/data/browsing_remote_service.dart';
 import 'package:score_live/models/match_model/match_model.dart';
+import 'package:score_live/service/remote/browsing_service/browsing_remote_service.dart';
 
 class SearchedResultDetailsRepository {
   SearchedResultDetailsRepository(this.browsingRemoteService);

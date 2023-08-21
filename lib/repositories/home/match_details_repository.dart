@@ -1,4 +1,4 @@
-import 'package:score_live/data/live_matches_remote_service.dart';
+import 'package:score_live/service/remote/match_details_service/match_details_remote_service.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
 import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
@@ -6,13 +6,13 @@ import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 
 class MatchDetailsRepository {
-  MatchDetailsRepository(this.liveMatchesRemoteService);
+  MatchDetailsRepository(this.matchDetailsRemoteService);
 
-  final LiveMatchesRemoteService liveMatchesRemoteService;
+  final MatchDetailsRemoteService matchDetailsRemoteService;
 
   Future<List<MatchEventsModel>> fetchMatchEvents(String matchID) async {
     // commented on purpose
-    // return (await liveMatchesRemoteService.fetchMatchEvents(matchID: matchID)).response;
+    // return (await matchDetailsRemoteService.fetchMatchEvents(matchID: matchID)).response;
     final response = [
       {
         "time": {"elapsed": 4, "extra": null},
@@ -173,7 +173,7 @@ class MatchDetailsRepository {
 
   Future<List<LineUpModel>> fetchMatchLineUps(String matchID) async {
     // commented on purpose
-    // return (await liveMatchesRemoteService.fetchMatchLineUps(matchID: matchID)).response;
+    // return (await matchDetailsRemoteService.fetchMatchLineUps(matchID: matchID)).response;
     final response = [
       {
         "team": {
@@ -332,7 +332,7 @@ class MatchDetailsRepository {
 
   Future<List<StatisticsModel>> fetchMatchStats(String matchID) async {
     // commented on purpose
-    // return (await liveMatchesRemoteService.fetchMatchStats(matchID: matchID)).response;
+    // return (await matchDetailsRemoteService.fetchMatchStats(matchID: matchID)).response;
     final response = [
       {
         "team": {"id": 33, "name": "Manchester United", "logo": "https://media-1.api-sports.io/football/teams/33.png"},
@@ -380,9 +380,9 @@ class MatchDetailsRepository {
     return response.map(StatisticsModel.fromJson).toList();
   }
 
-  Future<List<MatchModel>> fetchTeamsH2h(String teamsIdNumbers, String lastFixtures) async {
+  Future<List<MatchModel>?> fetchTeamsH2h(String teamsIdNumbers, String lastFixtures) async {
     // commented on purpose
-    // return (await liveMatchesRemoteService.fetchTeamsH2h(teamsIdNumbers: teamsIdNumbers, lastFixtures: '10'))
+    // return (await matchDetailsRemoteService.fetchTeamsH2h(teamsIdNumbers: teamsIdNumbers, lastFixtures: '10'))
     //     .response;
     final response = [
       {
@@ -811,7 +811,7 @@ class MatchDetailsRepository {
 
   Future<List<StandingsModel>> fetchTeamStandings(String leagueId, String yearFromSeason) async {
     // commented on purpose
-    // return (await liveMatchesRemoteService.fetchTeamStandings(leagueID: leagueId, season: yearFromSeason)).response;
+    // return (await matchDetailsRemoteService.fetchTeamStandings(leagueID: leagueId, season: yearFromSeason)).response;
     final response = [
       {
         "league": {

@@ -6,6 +6,7 @@ import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_view.dart';
 import 'package:score_live/core/date_formatter_ext.dart';
+import 'package:score_live/core/match_properties_getter_ext.dart';
 import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 
@@ -19,11 +20,11 @@ class MatchDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final teamsIdNumbers = ('${liveMatch.homeTeamId}-${liveMatch.awayTeamId}');
     final matchID = liveMatch.fixture?.id ?? AppConstVariables.intPlaceholder;
-    final teamsIdNumbers = ('${liveMatch.teams?.home?.id}-${liveMatch.teams?.away?.id}');
+    final leagueId = liveMatch.league?.id ?? AppConstVariables.intPlaceholder;
     final season = liveMatch.fixture?.date ?? DateFormat('yyyy').format(DateTime.now());
     final yearFromSeason = season.formatDateToYyyyMmDdString('yyyy');
-    final leagueId = liveMatch.league?.id ?? AppConstVariables.intPlaceholder;
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => Modular.get<HomeCubit>()),
