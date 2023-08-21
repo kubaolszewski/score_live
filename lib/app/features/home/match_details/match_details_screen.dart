@@ -23,6 +23,7 @@ class MatchDetailsScreen extends StatelessWidget {
     final matchID = liveMatch.fixture?.id ?? AppConstVariables.intPlaceholder;
     final leagueId = liveMatch.league?.id ?? AppConstVariables.intPlaceholder;
     final yearFromSeason = liveMatch.yearFromSeason.formatDateToYyyyMmDdString('yyyy');
+    
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => Modular.get<HomeCubit>()),
