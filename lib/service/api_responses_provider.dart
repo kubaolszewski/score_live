@@ -47,6 +47,15 @@ class MatchStatistics with _$MatchStatistics {
 }
 
 @freezed
+class MatchH2H with _$MatchH2H {
+  factory MatchH2H({
+    List<MatchModel>? response,
+  }) = _MatchH2H;
+
+  factory MatchH2H.fromJson(Map<String, dynamic> json) => _$MatchH2HFromJson(json);
+}
+
+@freezed
 class Standings with _$Standings {
   factory Standings({
     @Default([]) List<StandingsModel> response,
