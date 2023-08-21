@@ -1,4 +1,4 @@
-import 'package:score_live/data/match_details_remote_service.dart';
+import 'package:score_live/service/remote/match_details_service/match_details_remote_service.dart';
 import 'package:score_live/models/line_up_model/line_up_model.dart';
 import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';

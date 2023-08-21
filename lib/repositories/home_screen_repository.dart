@@ -1,6 +1,6 @@
 // ignore_for_file: unused_import
 
-import 'package:score_live/data/live_matches_remote_service.dart';
+import 'package:score_live/service/remote/live_matches_service/live_matches_remote_service.dart';
 import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 

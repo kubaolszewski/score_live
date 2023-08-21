@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:score_live/data/api.client.dart';
-import 'package:score_live/data/live_matches_fixtures.dart';
+import 'package:score_live/service/api.client.dart';
+import 'package:score_live/service/live_matches_fixtures.dart';
 
 part 'live_matches_remote_service.g.dart';
 
@@ -19,5 +19,4 @@ abstract class LiveMatchesRemoteService {
     @Query("status") required String status,
     @Query("date") required String date,
   });
-
 }
