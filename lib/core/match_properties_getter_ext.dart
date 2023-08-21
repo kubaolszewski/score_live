@@ -6,4 +6,5 @@ extension MatchPropertiesGetter on MatchModel {
   String get awayTeamLogo => teams?.away?.logo ?? AppConstVariables.defaultTeamLogo;
   int get homeTeamId => teams?.home?.id ?? AppConstVariables.intPlaceholder;
   int get awayTeamId => teams?.away?.id ?? AppConstVariables.intPlaceholder;
+  String get yearFromSeason => fixture?.date ?? AppConstVariables.stringPlaceholder;
 }

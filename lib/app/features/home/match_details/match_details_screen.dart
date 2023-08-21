@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:intl/intl.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_view.dart';
@@ -23,8 +22,7 @@ class MatchDetailsScreen extends StatelessWidget {
     final teamsIdNumbers = ('${liveMatch.homeTeamId}-${liveMatch.awayTeamId}');
     final matchID = liveMatch.fixture?.id ?? AppConstVariables.intPlaceholder;
     final leagueId = liveMatch.league?.id ?? AppConstVariables.intPlaceholder;
-    final season = liveMatch.fixture?.date ?? DateFormat('yyyy').format(DateTime.now());
-    final yearFromSeason = season.formatDateToYyyyMmDdString('yyyy');
+    final yearFromSeason = liveMatch.yearFromSeason.formatDateToYyyyMmDdString('yyyy');
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => Modular.get<HomeCubit>()),
