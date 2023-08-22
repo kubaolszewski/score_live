@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-import 'package:score_live/core/enums.dart';
+import 'package:score_live/app/common/extensions/enums.dart';
 import 'package:score_live/models/league_model/league_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
 import 'package:score_live/repositories/competition/competition_screen_repository.dart';

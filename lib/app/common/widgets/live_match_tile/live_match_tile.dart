@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/live_match_tile/elements/live_match_details_button.dart';
-import 'package:score_live/app/custom_widgets/live_match_tile/elements/live_match_tile_teams_display.dart';
-import 'package:score_live/app/custom_widgets/header_with_league_and_timer/header_with_league_and_timer.dart';
-import 'package:score_live/core/dimensions_context.dart';
+import 'package:score_live/app/common/widgets/live_match_tile/elements/live_match_details_button.dart';
+import 'package:score_live/app/common/widgets/live_match_tile/elements/live_match_tile_teams_display.dart';
+import 'package:score_live/app/common/widgets/header_with_league_and_timer/header_with_league_and_timer.dart';
+import 'package:score_live/app/common/extensions/context/dimensions_context.dart';
 import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/single_stat_display.dart';
 import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/elements/teams_header.dart';
-import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/core/stats_getter_ext.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
+import 'package:score_live/app/common/extensions/stats/stats_getter_ext.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';

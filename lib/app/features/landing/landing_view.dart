@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
-import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class LandingView extends StatelessWidget {

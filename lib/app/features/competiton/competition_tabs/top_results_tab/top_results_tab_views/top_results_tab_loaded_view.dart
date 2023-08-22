@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/search_list_tile.dart';
-import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/core/dimensions_context.dart';
+import 'package:score_live/app/common/widgets/search_list_tile.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
+import 'package:score_live/app/common/extensions/context/dimensions_context.dart';
 import 'package:score_live/models/league_model/league_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
