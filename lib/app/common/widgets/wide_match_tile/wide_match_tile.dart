@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/custom_widgets/wide_match_tile/elements/wide_match_tile_date.dart';
-import 'package:score_live/app/custom_widgets/wide_match_tile/elements/wide_match_tile_result.dart';
-import 'package:score_live/app/custom_widgets/wide_match_tile/elements/wide_match_tile_teams_display.dart';
+import 'package:score_live/app/common/widgets/wide_match_tile/elements/wide_match_tile_date.dart';
+import 'package:score_live/app/common/widgets/wide_match_tile/elements/wide_match_tile_result.dart';
+import 'package:score_live/app/common/widgets/wide_match_tile/elements/wide_match_tile_teams_display.dart';
 import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';

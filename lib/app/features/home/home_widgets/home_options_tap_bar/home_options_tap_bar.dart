@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
-import 'package:score_live/app/custom_widgets/options_button.dart';
-import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/core/enums.dart';
+import 'package:score_live/app/common/widgets/options_button.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
+import 'package:score_live/app/common/extensions/enums.dart';
 
 class HomeOptionsTapBar extends StatelessWidget {
   const HomeOptionsTapBar({super.key});

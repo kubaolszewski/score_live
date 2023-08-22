@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/core/enums.dart';
-import 'package:score_live/core/events_validation_ext.dart';
+import 'package:score_live/app/common/extensions/enums.dart';
+import 'package:score_live/app/common/extensions/match_events/events_validation_ext.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 

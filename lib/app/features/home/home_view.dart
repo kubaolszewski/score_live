@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
+import 'package:score_live/app/common/widgets/custom_app_bar.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_tabs/favorites_tab/favorites_tab.dart';
 import 'package:score_live/app/features/home/home_tabs/score_tab/score_tab.dart';
@@ -10,7 +10,7 @@ import 'package:score_live/app/features/home/home_widgets/home_options_tap_bar/h
 import 'package:score_live/app/features/home/home_widgets/home_screen_app_bar_logo/home_screen_app_bar_logo.dart';
 import 'package:score_live/app/features/home/home_widgets/home_screen_date_picker/home_screen_date_picker.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now/live_now.dart';
-import 'package:score_live/core/enums.dart';
+import 'package:score_live/app/common/extensions/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 
 class HomeView extends StatelessWidget {
