@@ -27,9 +27,7 @@ class LiveMatchDetailsButton extends StatelessWidget {
         ),
         backgroundColor: AppColors.mainThemePink,
       ),
-      onPressed: () {
-        Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: liveMatch);
-      },
+      onPressed: () => Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: liveMatch),
       child: Text(context.localizations.matchDetailsButton,
           style: const CustomTextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w700)),
     );

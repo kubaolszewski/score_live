@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class SearchListTile extends StatelessWidget {
   const SearchListTile({
     super.key,
+    required this.result,
     required this.flag,
     required this.region,
     required this.name,
   });
 
+  final dynamic result;
   final String flag;
   final String region;
   final String name;
@@ -20,7 +24,7 @@ class SearchListTile extends StatelessWidget {
     return InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: () {},
+      onTap: () => Modular.to.pushNamed(CompetitionPath.searchedResultDetailsPath),
       child: Container(
         decoration: const BoxDecoration(
           border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey)),

@@ -3,6 +3,7 @@ import 'package:score_live/app/features/competiton/competition_screen.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/region_tab/cubit/region_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
+import 'package:score_live/app/features/competiton/searched_results/result_details/result_details_screen.dart';
 import 'package:score_live/app/features/competiton/searched_results/searched_leagues/searched_leagues_screen.dart';
 import 'package:score_live/app/features/competiton/searched_results/searched_teams/searched_teams_screen.dart';
 
@@ -28,6 +29,10 @@ class CompetitionModule extends Module {
           CompetitionPath.searchedTeamsScreen,
           child: ((context, args) => SearchedTeamsScreen(args.data)),
         ),
+        ChildRoute(
+          CompetitionPath.searchedResultDetailsScreen,
+          child: ((context, args) => const ResultDetailsScreen()),
+        ),
       ];
 }
 
@@ -35,7 +40,9 @@ mixin CompetitionPath {
   static String path = '/competition';
   static String searchedTeamsScreen = '/teams-results';
   static String searchedLeaguesScreen = '/leagues-results';
+  static String searchedResultDetailsScreen = '/result-details';
 
   static String searchedTeamsPath = '$path$searchedTeamsScreen';
   static String searchedLeaguesPath = '$path$searchedLeaguesScreen';
+  static String searchedResultDetailsPath = '$path$searchedResultDetailsScreen';
 }
