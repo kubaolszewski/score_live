@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:score_live/service/api.client.dart';
-import 'package:score_live/service/live_matches_fixtures.dart';
+import 'package:score_live/service/api_responses_provider.dart';
 
 part 'match_details_remote_service.g.dart';
 
@@ -25,7 +25,7 @@ abstract class MatchDetailsRemoteService {
   });
 
   @GET('/fixtures/headtohead')
-  Future<LiveMatchesFixtures> fetchTeamsH2h({
+  Future<MatchH2H> fetchTeamsH2h({
     @Query("h2h") required String teamsIdNumbers,
     @Query("last") required String lastFixtures,
   });

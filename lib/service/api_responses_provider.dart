@@ -7,8 +7,8 @@ import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
 
-part 'live_matches_fixtures.g.dart';
-part 'live_matches_fixtures.freezed.dart';
+part 'api_responses_provider.g.dart';
+part 'api_responses_provider.freezed.dart';
 
 @freezed
 class LiveMatchesFixtures with _$LiveMatchesFixtures {
@@ -47,6 +47,15 @@ class MatchStatistics with _$MatchStatistics {
 }
 
 @freezed
+class MatchH2H with _$MatchH2H {
+  factory MatchH2H({
+    List<MatchModel>? response,
+  }) = _MatchH2H;
+
+  factory MatchH2H.fromJson(Map<String, dynamic> json) => _$MatchH2HFromJson(json);
+}
+
+@freezed
 class Standings with _$Standings {
   factory Standings({
     @Default([]) List<StandingsModel> response,
@@ -71,8 +80,8 @@ class Team with _$Team {
   }) = _Team;
 
   factory Team.fromJson(Map<String, dynamic> json) => _$TeamFromJson(json);
-
 }
+
 @freezed
 class LeagueResultsDetails with _$LeagueResultsDetails {
   factory LeagueResultsDetails({
@@ -81,4 +90,3 @@ class LeagueResultsDetails with _$LeagueResultsDetails {
 
   factory LeagueResultsDetails.fromJson(Map<String, dynamic> json) => _$LeagueResultsDetailsFromJson(json);
 }
-
