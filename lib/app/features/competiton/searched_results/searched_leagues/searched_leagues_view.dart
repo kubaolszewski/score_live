@@ -56,10 +56,12 @@ class SearchedLeaguesView extends StatelessWidget {
                     itemCount: leagues.length,
                     itemBuilder: (context, index) {
                       final league = leagues[index];
+                      final String leagueId = league.league?.id.toString() ?? AppConstVariables.stringPlaceholder;
                       final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
                       final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
                       final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
-                      return SearchListTile(result: league, flag: leagueFlag, region: leagueRegion, name: leagueName);
+                      return SearchListTile(
+                          resultId: leagueId, flag: leagueFlag, region: leagueRegion, name: leagueName);
                     },
                   ),
                 ),

@@ -8,13 +8,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 class SearchListTile extends StatelessWidget {
   const SearchListTile({
     super.key,
-    required this.result,
+    required this.resultId,
     required this.flag,
     required this.region,
     required this.name,
   });
 
-  final dynamic result;
+  final String resultId;
   final String flag;
   final String region;
   final String name;
@@ -24,7 +24,7 @@ class SearchListTile extends StatelessWidget {
     return InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: () => Modular.to.pushNamed(CompetitionPath.searchedResultDetailsPath),
+      onTap: () => Modular.to.pushNamed(CompetitionPath.searchedResultDetailsPath, arguments: resultId),
       child: Container(
         decoration: const BoxDecoration(
           border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey)),

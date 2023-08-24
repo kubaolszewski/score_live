@@ -38,7 +38,11 @@ class ResultDetailsView extends StatelessWidget {
         ),
         body: BlocBuilder<ResultDetailsCubit, ResultDetailsState>(
           builder: (context, state) {
-            return Container();
+            return const Center(
+              child: Column(
+                children: [],
+              ),
+            );
           },
         ));
   }
