@@ -14,19 +14,6 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
 
   final SearchedResultDetailsRepository searchedResultDetailsRepository;
 
-  Future<void> fetchTeamResult(String resultId) async {
-    String yearFromActualDate = DateFormat('yyyy').format(DateTime.now().formatDateToDateTime());
-    try {
-      final teamDetails =
-          await searchedResultDetailsRepository.fetchResultsDetailsByTeamId(resultId, yearFromActualDate);
-      if (teamDetails != null) {
-        emit(state.copyWith(teamDetails: teamDetails));
-      }
-    } catch (error) {
-      emit(state.copyWith(errorMessage: error.toString()));
-    }
-  }
-
   Future<void> fetchLeagueResult(String resultId) async {
     String yearFromActualDate = DateFormat('yyyy').format(DateTime.now().formatDateToDateTime());
     try {
@@ -34,6 +21,19 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
           await searchedResultDetailsRepository.fetchResultsDetailsByLeagueId(resultId, yearFromActualDate);
       if (leagueDetails != null) {
         emit(state.copyWith(leagueDetails: leagueDetails));
+      }
+    } catch (error) {
+      emit(state.copyWith(errorMessage: error.toString()));
+    }
+  }
+
+  Future<void> fetchTeamResult(String resultId) async {
+    String yearFromActualDate = DateFormat('yyyy').format(DateTime.now().formatDateToDateTime());
+    try {
+      final teamDetails =
+          await searchedResultDetailsRepository.fetchResultsDetailsByTeamId(resultId, yearFromActualDate);
+      if (teamDetails != null) {
+        emit(state.copyWith(teamDetails: teamDetails));
       }
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));

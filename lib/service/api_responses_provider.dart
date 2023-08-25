@@ -83,10 +83,10 @@ class Team with _$Team {
 }
 
 @freezed
-class LeagueResultsDetails with _$LeagueResultsDetails {
-  factory LeagueResultsDetails({
+class ResultsDetails with _$ResultsDetails {
+  factory ResultsDetails({
     List<MatchModel>? response,
-  }) = _LeagueResultsDetails;
+  }) = _ResultsDetails;
 
-  factory LeagueResultsDetails.fromJson(Map<String, dynamic> json) => _$LeagueResultsDetailsFromJson(json);
+  factory ResultsDetails.fromJson(Map<String, dynamic> json) => _$ResultsDetailsFromJson(json);
 }

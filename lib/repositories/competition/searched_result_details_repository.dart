@@ -9,9 +9,7 @@ class SearchedResultDetailsRepository {
   final statusListing = "1H-HT-2H-ET-FT";
 
   Future<List<MatchModel>?> fetchResultsDetailsByTeamId(String teamId, String yearFromActualDate) async {
-    return (await browsingRemoteService.fetchResultsByTeamId(
-            teamId: teamId, status: statusListing, season: yearFromActualDate))
-        .response;
+    return (await browsingRemoteService.fetchResultsByTeamId(teamId: teamId, season: yearFromActualDate)).response;
   }
 
   Future<List<MatchModel>?> fetchResultsDetailsByLeagueId(String leagueId, String yearFromActualDate) async {

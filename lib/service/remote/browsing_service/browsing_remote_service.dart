@@ -32,15 +32,14 @@ abstract class BrowsingRemoteService {
   });
 
   @GET('/fixtures')
-  Future<LeagueResultsDetails> fetchResultsByLeagueId({
+  Future<ResultsDetails> fetchResultsByLeagueId({
     @Query("league") required String leagueId,
     @Query("season") required String season,
   });
 
   @GET('/fixtures')
-  Future<LeagueResultsDetails> fetchResultsByTeamId({
+  Future<ResultsDetails> fetchResultsByTeamId({
     @Query("team") required String teamId,
-    @Query("status") required String status,
     @Query("season") required String season,
   });
 }
