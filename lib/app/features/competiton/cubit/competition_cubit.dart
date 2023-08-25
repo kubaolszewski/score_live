@@ -37,7 +37,7 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     }
   }
 
-  Future<void> searchingLeaguesByName(String nameQuery) async {
+  Future<void> searchingLeagues(String nameQuery) async {
     String yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
     emit(state.copyWith(isLoading: true));
 

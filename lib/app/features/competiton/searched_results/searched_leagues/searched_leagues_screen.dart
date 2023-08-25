@@ -32,7 +32,7 @@ class SearchedLeaguesScreen extends StatelessWidget {
         ),
       ),
       body: BlocProvider<CompetitionCubit>(
-        create: (context) => Modular.get<CompetitionCubit>()..searchingLeaguesByName(nameQuery),
+        create: (context) => Modular.get<CompetitionCubit>()..searchingLeagues(nameQuery),
         child: const SearchedLeaguesView(),
       ),
     );
