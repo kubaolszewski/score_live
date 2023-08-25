@@ -15,8 +15,7 @@ class SearchedResultDetailsRepository {
   }
 
   Future<List<MatchModel>?> fetchResultsDetailsByLeagueId(String leagueId, String yearFromActualDate) async {
-    return (await browsingRemoteService.fetchResultsByLeagueId(
-            leagueId: leagueId, status: statusListing, season: yearFromActualDate))
+    return (await browsingRemoteService.fetchResultsByLeagueId(leagueId: leagueId, season: yearFromActualDate))
         .response;
   }
 }

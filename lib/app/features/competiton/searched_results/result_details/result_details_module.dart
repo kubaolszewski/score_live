@@ -6,7 +6,7 @@ class ResultDetailsModule extends Module {
   @override
   List<Bind> get binds => [
         Bind.singleton<ResultDetailsCubit>(
-          (i) => ResultDetailsCubit(),
+          (i) => ResultDetailsCubit(i()),
         ),
       ];
 
