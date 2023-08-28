@@ -14,7 +14,7 @@ class ResultDetailsModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           ResultDetailsPath.resultDetailsScreen,
-          child: (context, args) => ResultDetailsScreen(args.data),
+          child: (context, args) => const ResultDetailsScreen(),
         )
       ];
 }

@@ -40,7 +40,22 @@ class ResultDetailsView extends StatelessWidget {
           builder: (context, state) {
             return const Center(
               child: Column(
-                children: [],
+                children: [
+                  SizedBox(height: 24),
+                  CircleAvatar(
+                    radius: 24,
+                    child: ClipOval(),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    'Region',
+                    style: CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    'Name',
+                    style: CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
+                  ),
+                ],
               ),
             );
           },

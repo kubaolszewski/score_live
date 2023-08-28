@@ -41,11 +41,10 @@ class RegionTabLoadedView extends StatelessWidget {
                 itemCount: leaguesbyRegion.length,
                 itemBuilder: (context, index) {
                   final league = leaguesbyRegion[index];
-                  final String leagueId = league.league?.id.toString() ?? AppConstVariables.stringPlaceholder;
                   final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
                   final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
                   final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
-                  return SearchListTile(resultId: leagueId, flag: leagueFlag, region: leagueRegion, name: leagueName);
+                  return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
                 },
               ),
             ),

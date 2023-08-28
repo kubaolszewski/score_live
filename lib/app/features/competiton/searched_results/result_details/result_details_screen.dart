@@ -6,9 +6,7 @@ import 'package:score_live/app/features/competiton/searched_results/result_detai
 import 'package:score_live/app/features/competiton/searched_results/result_details/result_details_view.dart';
 
 class ResultDetailsScreen extends StatelessWidget {
-  const ResultDetailsScreen(this.resultId, {super.key});
-
-  final String resultId;
+  const ResultDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
