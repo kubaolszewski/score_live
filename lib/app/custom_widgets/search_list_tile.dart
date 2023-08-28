@@ -5,19 +5,15 @@ import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import '/core/enums.dart';
-
 class SearchListTile extends StatelessWidget {
   const SearchListTile({
     super.key,
-    this.searchType,
     this.resultId,
     required this.flag,
     required this.region,
     required this.name,
   });
 
-  final SearchTypes? searchType;
   final String? resultId;
   final String flag;
   final String region;
@@ -28,18 +24,7 @@ class SearchListTile extends StatelessWidget {
     return InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: () {
-        switch (searchType!) {
-          case SearchTypes.team:
-            Modular.to.pushNamed(
-              CompetitionPath.searchedResultDetailsPath,
-            );
-          case SearchTypes.league:
-            Modular.to.pushNamed(
-              CompetitionPath.searchedResultDetailsPath,
-            );
-        }
-      },
+      onTap: () => Modular.to.pushNamed(CompetitionPath.searchedResultDetailsPath, arguments: resultId),
       child: Container(
         decoration: const BoxDecoration(
           border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey)),

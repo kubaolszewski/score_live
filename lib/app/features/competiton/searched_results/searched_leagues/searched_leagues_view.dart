@@ -61,7 +61,6 @@ class SearchedLeaguesView extends StatelessWidget {
                       final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
                       final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
                       return SearchListTile(
-                          searchType: state.searchTypes,
                           resultId: leagueId,
                           flag: leagueFlag,
                           region: leagueRegion,

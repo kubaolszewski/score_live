@@ -1,10 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
+import 'package:score_live/core/date_formatter_ext.dart';
 import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/league_model/league_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
 import 'package:score_live/repositories/competition/competition_screen_repository.dart';
+
+import '../../../../models/match_model/match_model.dart';
 
 part 'competition_state.dart';
 part 'competition_cubit.freezed.dart';
@@ -48,6 +51,24 @@ class CompetitionCubit extends Cubit<CompetitionState> {
 
       final combinedResults = [...searchedLeaguesByName, ...searchedLeaguesByCountry];
       emit(state.copyWith(leagueResults: combinedResults, isLoading: false, searchTypes: SearchTypes.league));
+    } catch (error) {
+      emit(state.copyWith(errorMessage: error.toString()));
+    }
+  }
+
+  Future<void> fetchDetails(String resultId) async {
+    String yearFromActualDate = DateFormat('yyyy').format(DateTime.now().formatDateToDateTime());
+    try {
+      switch (state.searchTypes) {
+        case SearchTypes.team:
+          final teamDetails =
+              await competitionScreenRepository.fetchResultsDetailsByTeamId(resultId, yearFromActualDate);
+          emit(state.copyWith(teamDetails: teamDetails));
+        case SearchTypes.league:
+          final leagueDetails =
+              await competitionScreenRepository.fetchResultsDetailsByLeagueId(resultId, yearFromActualDate);
+          emit(state.copyWith(leagueDetails: leagueDetails));
+      }
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }

@@ -5,6 +5,8 @@ class CompetitionState with _$CompetitionState {
   factory CompetitionState({
     @Default([]) List<TeamModel> teamResults,
     @Default([]) List<LeagueModel> leagueResults,
+    @Default([]) List<MatchModel>? teamDetails,
+    @Default([]) List<MatchModel>? leagueDetails,
     @Default(BrowsingOptions.top) BrowsingOptions browsingOptions,
     @Default(SearchTypes.team) SearchTypes searchTypes,
     String? errorMessage,

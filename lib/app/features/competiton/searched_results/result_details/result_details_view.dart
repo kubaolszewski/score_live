@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
-import 'package:score_live/app/features/competiton/searched_results/result_details/cubit/result_details_cubit.dart';
+import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
 import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
+
+import 'league_result_details/league_result_details.dart';
+import 'team_result_details/team_result_details.dart';
 
 class ResultDetailsView extends StatelessWidget {
   const ResultDetailsView({
@@ -36,28 +40,14 @@ class ResultDetailsView extends StatelessWidget {
             IconButton(onPressed: () {}, icon: const Icon(Icons.star_rate_rounded, color: Colors.white, size: 20)),
           ],
         ),
-        body: BlocBuilder<ResultDetailsCubit, ResultDetailsState>(
+        body: BlocBuilder<CompetitionCubit, CompetitionState>(
           builder: (context, state) {
-            return const Center(
-              child: Column(
-                children: [
-                  SizedBox(height: 24),
-                  CircleAvatar(
-                    radius: 24,
-                    child: ClipOval(),
-                  ),
-                  SizedBox(height: 12),
-                  Text(
-                    'Region',
-                    style: CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w400),
-                  ),
-                  Text(
-                    'Name',
-                    style: CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-            );
+            final leagueDetails = state.leagueDetails ?? [];
+            final teamDetails = state.teamDetails ?? [];
+            return switch (state.searchTypes) {
+              SearchTypes.team => TeamResultDetails(teamDetails: teamDetails),
+              SearchTypes.league => LeagueResultDetails(leagueDetails: leagueDetails),
+            };
           },
         ));
   }

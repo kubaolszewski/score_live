@@ -31,7 +31,9 @@ class CompetitionModule extends Module {
         ),
         ChildRoute(
           CompetitionPath.searchedResultDetailsScreen,
-          child: ((context, args) => const ResultDetailsScreen()),
+          child: ((context, args) => ResultDetailsScreen(
+                resultId: args.data,
+              )),
         ),
       ];
 }
