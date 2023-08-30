@@ -1,9 +1,13 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/competiton/searched_results/result_details/result_details_screen.dart';
 
+import 'cubit/result_details_cubit.dart';
+
 class ResultDetailsModule extends Module {
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+        Bind.singleton((i) => ResultDetailsCubit(i())),
+      ];
   @override
   List<ModularRoute> get routes => [
         ChildRoute(

@@ -6,14 +6,16 @@ class SearchedResultDetailsRepository {
 
   final BrowsingRemoteService browsingRemoteService;
 
-  final statusListing = "1H-HT-2H-ET-FT";
-
-  Future<List<MatchModel>?> fetchResultsDetailsByTeamId(String teamId, String yearFromActualDate) async {
-    return (await browsingRemoteService.fetchResultsByTeamId(teamId: teamId, season: yearFromActualDate)).response;
+  Future<List<MatchModel>?> fetchResultsByLeagueId(
+      String leagueId, String statusListing, String yearFromActualDate) async {
+    return (await browsingRemoteService.fetchResultsByLeagueId(
+            leagueId: leagueId, status: statusListing, season: yearFromActualDate))
+        .response;
   }
 
-  Future<List<MatchModel>?> fetchResultsDetailsByLeagueId(String leagueId, String yearFromActualDate) async {
-    return (await browsingRemoteService.fetchResultsByLeagueId(leagueId: leagueId, season: yearFromActualDate))
+  Future<List<MatchModel>?> fetchFixturesByLeagueId(String leagueId, String date, String yearFromActualDate) async {
+    return (await browsingRemoteService.fetchFixturesByLeagueId(
+            leagueId: leagueId, date: date, season: yearFromActualDate))
         .response;
   }
 }

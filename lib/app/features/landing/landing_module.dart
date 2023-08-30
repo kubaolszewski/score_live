@@ -39,7 +39,7 @@ class LandingModule extends Module {
         Bind.singleton((i) => ScoreTabCubit(i())),
         Bind.singleton((i) => TopResultsTabCubit(i())),
         Bind.singleton((i) => RegionTabCubit(i())),
-        Bind.singleton((i) => ResultDetailsCubit()),
+        Bind.singleton((i) => ResultDetailsCubit(i())),
       ];
 
   @override

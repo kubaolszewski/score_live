@@ -2,8 +2,6 @@ import 'package:score_live/service/remote/browsing_service/browsing_remote_servi
 import 'package:score_live/models/league_model/league_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
 
-import '../../models/match_model/match_model.dart';
-
 class CompetitionScreenRepository {
   CompetitionScreenRepository(this.browsingRemoteService);
 
@@ -426,16 +424,5 @@ class CompetitionScreenRepository {
       }
     ];
     return response.map(LeagueModel.fromJson).toList();
-  }
-
-  Future<List<MatchModel>?> fetchResultsDetailsByTeamId(String teamId, String yearFromActualDate) async {
-    // commented on purpose
-    // return (await browsingRemoteService.fetchResultsByTeamId(teamId: teamId, season: yearFromActualDate)).response;
-  }
-
-  Future<List<MatchModel>?> fetchResultsDetailsByLeagueId(String leagueId, String yearFromActualDate) async {
-    // commented on purpose
-    // return (await browsingRemoteService.fetchResultsByLeagueId(leagueId: leagueId, season: yearFromActualDate))
-    //     .response;
   }
 }
