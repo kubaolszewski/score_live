@@ -14,7 +14,7 @@ class SearchListTile extends StatelessWidget {
     required this.name,
   });
 
-  final String? resultId;
+  final int? resultId;
   final String flag;
   final String region;
   final String name;
@@ -24,7 +24,8 @@ class SearchListTile extends StatelessWidget {
     return InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: () => Modular.to.pushNamed(CompetitionPath.searchedResultDetailsPath, arguments: resultId),
+      onTap: () => Modular.to.pushNamed(CompetitionPath.searchedResultDetailsPath,
+          arguments: ResultParams(resultId: resultId, flag: flag, region: region, name: name)),
       child: Container(
         decoration: const BoxDecoration(
           border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey)),
@@ -88,4 +89,18 @@ class SearchListTile extends StatelessWidget {
       ),
     );
   }
+}
+
+class ResultParams {
+  final int? resultId;
+  final String flag;
+  final String region;
+  final String name;
+
+  ResultParams({
+    required this.resultId,
+    required this.flag,
+    required this.region,
+    required this.name,
+  });
 }

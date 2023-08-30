@@ -8,9 +8,7 @@ class ResultDetailsModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           ResultDetailsPath.resultDetailsScreen,
-          child: (context, args) => ResultDetailsScreen(
-            resultId: args.data,
-          ),
+          child: (context, args) => ResultDetailsScreen(params: args.data),
         )
       ];
 }

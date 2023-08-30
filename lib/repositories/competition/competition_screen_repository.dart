@@ -9,9 +9,11 @@ class CompetitionScreenRepository {
 
   final BrowsingRemoteService browsingRemoteService;
 
+  final statusListing = "1H-HT-2H-ET-FT";
+
   Future<List<TeamModel>> fetchTeams(String nameQuery) async {
     // commented on purpose
-    return (await browsingRemoteService.fetchTeams(name: nameQuery)).response;
+    // return (await browsingRemoteService.fetchTeams(name: nameQuery)).response;
     final response = [
       {
         "team": {
@@ -86,7 +88,7 @@ class CompetitionScreenRepository {
 
   Future<List<LeagueModel>> fetchLeaguesByName(String nameQuery, String yearFromActualDate) async {
     // commented on purpose
-    return (await browsingRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate)).response;
+    // return (await browsingRemoteService.fetchLeaguesByName(name: nameQuery, season: yearFromActualDate)).response;
     final response = [
       {
         "league": {
@@ -426,14 +428,14 @@ class CompetitionScreenRepository {
     return response.map(LeagueModel.fromJson).toList();
   }
 
-  final statusListing = "1H-HT-2H-ET-FT";
-
   Future<List<MatchModel>?> fetchResultsDetailsByTeamId(String teamId, String yearFromActualDate) async {
-    return (await browsingRemoteService.fetchResultsByTeamId(teamId: teamId, season: yearFromActualDate)).response;
+    // commented on purpose
+    // return (await browsingRemoteService.fetchResultsByTeamId(teamId: teamId, season: yearFromActualDate)).response;
   }
 
   Future<List<MatchModel>?> fetchResultsDetailsByLeagueId(String leagueId, String yearFromActualDate) async {
-    return (await browsingRemoteService.fetchResultsByLeagueId(leagueId: leagueId, season: yearFromActualDate))
-        .response;
+    // commented on purpose
+    // return (await browsingRemoteService.fetchResultsByLeagueId(leagueId: leagueId, season: yearFromActualDate))
+    //     .response;
   }
 }

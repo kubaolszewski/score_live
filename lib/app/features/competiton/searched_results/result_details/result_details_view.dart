@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
+import 'package:score_live/app/custom_widgets/search_list_tile.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
+import 'package:score_live/app/features/competiton/searched_results/result_details/widgets/result_details_header.dart';
 import 'package:score_live/core/applocalization_context.dart';
-import 'package:score_live/core/enums.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-import 'league_result_details/league_result_details.dart';
-import 'team_result_details/team_result_details.dart';
-
 class ResultDetailsView extends StatelessWidget {
-  const ResultDetailsView({
+  const ResultDetailsView(
+    this.params, {
     super.key,
   });
+
+  final ResultParams params;
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +43,11 @@ class ResultDetailsView extends StatelessWidget {
         ),
         body: BlocBuilder<CompetitionCubit, CompetitionState>(
           builder: (context, state) {
-            final leagueDetails = state.leagueDetails ?? [];
-            final teamDetails = state.teamDetails ?? [];
-            return switch (state.searchTypes) {
-              SearchTypes.team => TeamResultDetails(teamDetails: teamDetails),
-              SearchTypes.league => LeagueResultDetails(leagueDetails: leagueDetails),
-            };
+            return Column(
+              children: [
+                ResultDetailsHeader(params),
+              ],
+            );
           },
         ));
   }
