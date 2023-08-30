@@ -31,17 +31,30 @@ abstract class BrowsingRemoteService {
     @Query("season") required String season,
   });
 
+  @GET('/fixtures/rounds')
+  Future<CurrentRounds> getAllRounds({
+    @Query("league") required String leagueId,
+    @Query("season") required String season,
+  });
+
+  @GET('/fixtures/rounds')
+  Future<CurrentRounds> getCurrentRound({
+    @Query("league") required String leagueId,
+    @Query("season") required String season,
+    @Query("current") String current = 'true',
+  });
+
   @GET('/fixtures')
   Future<ResultsDetails> fetchResultsByLeagueId({
     @Query("league") required String leagueId,
-    @Query("status") required String status,
+    @Query("round") required String currentRound,
     @Query("season") required String season,
   });
 
   @GET('/fixtures')
   Future<ResultsDetails> fetchFixturesByLeagueId({
     @Query("league") required String leagueId,
-    @Query("date") required String date,
+    @Query("round") required String round,
     @Query("season") required String season,
   });
 }

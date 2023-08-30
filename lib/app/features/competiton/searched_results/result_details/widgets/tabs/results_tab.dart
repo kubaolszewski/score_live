@@ -26,17 +26,13 @@ class ResultsTab extends StatelessWidget {
       );
     }
 
-    final matchweek = results?.last.league?.round ?? AppConstVariables.stringPlaceholder;
+    final matchweek = results?[0].league?.round ?? AppConstVariables.stringPlaceholder;
 
     return Column(
       children: [
         Text(
           matchweek,
-          style: const CustomTextStyle(
-            fontSize: 22,
-            color: Colors.white,
-            fontWeight: FontWeight.w700,
-          ),
+          style: const CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w700),
         ),
         ListView.builder(
           primary: false,

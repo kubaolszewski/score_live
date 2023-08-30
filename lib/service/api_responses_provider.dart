@@ -90,3 +90,12 @@ class ResultsDetails with _$ResultsDetails {
 
   factory ResultsDetails.fromJson(Map<String, dynamic> json) => _$ResultsDetailsFromJson(json);
 }
+
+@freezed
+class CurrentRounds with _$CurrentRounds {
+  const factory CurrentRounds({
+    @Default([]) List<String> response,
+  }) = _CurrentRound;
+
+  factory CurrentRounds.fromJson(Map<String, dynamic> json) => _$CurrentRoundsFromJson(json);
+}
