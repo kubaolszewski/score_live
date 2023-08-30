@@ -20,9 +20,10 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
   final actualDateFormattedToString = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat).format(DateTime.now());
 
   Future<void> fetchResult(String leagueId) async {
+    
     const statusListing = AppConstVariables.statusListing;
-
     final yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
+
     emit(state.copyWith(isLoading: true));
     try {
       final results =
