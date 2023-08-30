@@ -62,5 +62,10 @@
   "topHeader" : "POPULARNE ROZGRYWKI",
   "searchHeader" : "Wyniki:",
 
+  "resultResultsTab" : "Wyniki",
+  "resultFixturesTab" : "Spotkania",
+  "resultStandingsTab" : "Tabela",
+  "resultStatsTab" : "Statystyki",
+
   "accountAppBarTitle" : "Moje konto"
 }

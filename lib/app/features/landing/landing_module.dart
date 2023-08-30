@@ -9,6 +9,7 @@ import 'package:score_live/app/features/competiton/competition_module.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/region_tab/cubit/region_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
+import 'package:score_live/app/features/competiton/searched_results/result_details/cubit/result_details_cubit.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/home_module.dart';
 import 'package:score_live/app/features/home/home_screen.dart';
@@ -38,7 +39,7 @@ class LandingModule extends Module {
         Bind.singleton((i) => ScoreTabCubit(i())),
         Bind.singleton((i) => TopResultsTabCubit(i())),
         Bind.singleton((i) => RegionTabCubit(i())),
-        
+        Bind.singleton((i) => ResultDetailsCubit()),
       ];
 
   @override

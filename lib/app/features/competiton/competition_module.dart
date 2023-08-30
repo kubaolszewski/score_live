@@ -3,6 +3,7 @@ import 'package:score_live/app/features/competiton/competition_screen.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/region_tab/cubit/region_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
 import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
+import 'package:score_live/app/features/competiton/searched_results/result_details/cubit/result_details_cubit.dart';
 import 'package:score_live/app/features/competiton/searched_results/result_details/result_details_screen.dart';
 import 'package:score_live/app/features/competiton/searched_results/searched_leagues/searched_leagues_screen.dart';
 import 'package:score_live/app/features/competiton/searched_results/searched_teams/searched_teams_screen.dart';
@@ -13,6 +14,7 @@ class CompetitionModule extends Module {
         Bind.singleton((i) => CompetitionCubit(i())),
         Bind.singleton((i) => TopResultsTabCubit(i())),
         Bind.singleton((i) => RegionTabCubit(i())),
+        Bind.singleton((i) => ResultDetailsCubit()),
       ];
 
   @override
