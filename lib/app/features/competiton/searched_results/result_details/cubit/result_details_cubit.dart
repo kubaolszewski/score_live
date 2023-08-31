@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-import 'package:score_live/core/enums.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/repositories/competition/searched_result_details_repository.dart';
 import 'package:score_live/service/api_responses_provider.dart';
 
 import '../../../../../../models/match_model/match_model.dart';
+import '../../../../../common/extensions/enums.dart';
 
 part 'result_details_state.dart';
 part 'result_details_cubit.freezed.dart';

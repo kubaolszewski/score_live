@@ -17,7 +17,6 @@ import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab
 import 'package:score_live/app/features/home/home_tabs/upcoming_tab/cubit/upcoming_tab_cubit.dart';
 import 'package:score_live/app/features/home/home_widgets/live_now/cubit/live_now_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/features/landing/cubit/landing_cubit.dart';
 import 'package:score_live/app/features/landing/landing_screen.dart';
 
 class LandingModule extends Module {
@@ -30,7 +29,6 @@ class LandingModule extends Module {
 
   @override
   List<Bind> get binds => [
-        Bind.singleton((i) => LandingCubit()),
         Bind.singleton((i) => HomeCubit()),
         Bind.singleton((i) => MatchDetailsCubit(i())),
         Bind.singleton((i) => CompetitionCubit(i())),

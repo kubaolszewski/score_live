@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
-import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/app/common/widgets/custom_app_bar.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 

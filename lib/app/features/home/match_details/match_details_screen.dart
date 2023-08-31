@@ -4,8 +4,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:score_live/app/features/home/cubit/home_cubit.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
 import 'package:score_live/app/features/home/match_details/match_details_view.dart';
-import 'package:score_live/core/date_formatter_ext.dart';
-import 'package:score_live/core/match_properties_getter_ext.dart';
+import 'package:score_live/app/common/extensions/date/date_formatter_ext.dart';
+import 'package:score_live/app/common/extensions/match/match_properties_getter_ext.dart';
 import 'package:score_live/models/match_model/match_model.dart';
 
 class MatchDetailsScreen extends StatelessWidget {

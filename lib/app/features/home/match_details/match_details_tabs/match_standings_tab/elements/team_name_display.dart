@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
 import 'package:score_live/models/standings_model/standings/standings.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';

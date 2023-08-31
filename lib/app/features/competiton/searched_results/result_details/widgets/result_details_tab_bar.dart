@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
 import 'package:score_live/app/features/competiton/searched_results/result_details/cubit/result_details_cubit.dart';
-import 'package:score_live/core/applocalization_context.dart';
 
-import '../../../../../../core/enums.dart';
-import '../../../../../custom_widgets/options_button.dart';
+import '../../../../../common/extensions/enums.dart';
+import '../../../../../common/widgets/options_button.dart';
 
 class ResultDetailsTabBar extends StatelessWidget {
   const ResultDetailsTabBar({super.key});

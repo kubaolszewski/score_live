@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/custom_widgets/event_text_without_icon.dart';
+import 'package:score_live/app/common/widgets/event_text_without_icon.dart';
 import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/core/events_validation_ext.dart';
+import 'package:score_live/app/common/extensions/match_events/events_validation_ext.dart';
 import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 

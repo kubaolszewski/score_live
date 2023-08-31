@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/events_widgets/card_event_widget.dart';
-import 'package:score_live/app/custom_widgets/events_widgets/goal_event_widget.dart';
-import 'package:score_live/app/custom_widgets/events_widgets/substitution_event_widget.dart';
-import 'package:score_live/app/custom_widgets/events_widgets/var_event_widget.dart';
-import 'package:score_live/core/enums.dart';
-import 'package:score_live/core/events_validation_ext.dart';
+import 'package:score_live/app/common/widgets/events_widgets/card_event_widget.dart';
+import 'package:score_live/app/common/widgets/events_widgets/goal_event_widget.dart';
+import 'package:score_live/app/common/widgets/events_widgets/substitution_event_widget.dart';
+import 'package:score_live/app/common/widgets/events_widgets/var_event_widget.dart';
+import 'package:score_live/app/common/extensions/enums.dart';
+import 'package:score_live/app/common/extensions/match_events/events_validation_ext.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';

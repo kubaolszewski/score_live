@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/custom_widgets/custom_app_bar.dart';
-import 'package:score_live/app/custom_widgets/search_list_tile.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
 import 'package:score_live/app/features/competiton/searched_results/result_details/cubit/result_details_cubit.dart';
 import 'package:score_live/app/features/competiton/searched_results/result_details/widgets/result_details_header.dart';
 import 'package:score_live/app/features/competiton/searched_results/result_details/widgets/result_details_tab_bar.dart';
@@ -10,11 +9,12 @@ import 'package:score_live/app/features/competiton/searched_results/result_detai
 import 'package:score_live/app/features/competiton/searched_results/result_details/widgets/tabs/results_tab.dart';
 import 'package:score_live/app/features/competiton/searched_results/result_details/widgets/tabs/standings_tab.dart';
 import 'package:score_live/app/features/competiton/searched_results/result_details/widgets/tabs/stats_tab.dart';
-import 'package:score_live/core/applocalization_context.dart';
 import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-import '../../../../../core/enums.dart';
+import '../../../../common/extensions/enums.dart';
+import '../../../../common/widgets/custom_app_bar.dart';
+import '../../../../common/widgets/search_list_tile.dart';
 
 class ResultDetailsView extends StatelessWidget {
   const ResultDetailsView(

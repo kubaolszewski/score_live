@@ -1,4 +1,4 @@
-import 'package:score_live/core/enums.dart';
+import 'package:score_live/app/common/extensions/enums.dart';
 import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 

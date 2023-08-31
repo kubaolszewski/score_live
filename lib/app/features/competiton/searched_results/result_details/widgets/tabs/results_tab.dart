@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/custom_widgets/wide_match_tile/wide_match_tile.dart';
-import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
 import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
+
+import '../../../../../../common/widgets/wide_match_tile/wide_match_tile.dart';
 
 class ResultsTab extends StatelessWidget {
   const ResultsTab({super.key, this.results});

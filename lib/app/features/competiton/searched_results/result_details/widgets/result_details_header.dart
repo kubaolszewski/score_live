@@ -6,7 +6,7 @@ import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart'
 
 import '../../../../../../../presentation/constants/app_colors.dart';
 import '../../../../../../../presentation/constants/text_styles.dart';
-import '../../../../../custom_widgets/search_list_tile.dart';
+import '../../../../../common/widgets/search_list_tile.dart';
 
 class ResultDetailsHeader extends StatelessWidget {
   const ResultDetailsHeader(this.params, {super.key});
