@@ -57,4 +57,10 @@ abstract class BrowsingRemoteService {
     @Query("round") required String round,
     @Query("season") required String season,
   });
+
+  @GET('/standings')
+  Future<Standings> fetchStandings({
+    @Query("league") required String leagueID,
+    @Query("season") required String season,
+  });
 }

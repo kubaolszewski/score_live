@@ -5,7 +5,7 @@ class ResultDetailsState with _$ResultDetailsState {
   factory ResultDetailsState({
     @Default([]) List<MatchModel>? results,
     @Default([]) List<MatchModel>? fixtures,
-    @Default([]) List<Standings> standings,
+    @Default([]) List<StandingsModel> standings,
     @Default([]) List<StatisticsModel> stats,
     @Default(ResultOptions.results) ResultOptions resultOptions,
     @Default(false) bool isLoading,

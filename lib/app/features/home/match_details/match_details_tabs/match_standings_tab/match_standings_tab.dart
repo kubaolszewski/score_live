@@ -14,10 +14,11 @@ class MatchStandingsTab extends StatelessWidget {
 
   final MatchModel match;
   final List<StandingsModel> standings;
-  final double space = 8.0;
 
   @override
   Widget build(BuildContext context) {
+    const double space = 8.0;
+
     if (standings.isEmpty) {
       return SizedBox(
         height: 200,
@@ -39,9 +40,9 @@ class MatchStandingsTab extends StatelessWidget {
       child: Column(
         children: [
           const LeagueStandingsHeader(),
-          SizedBox(height: space),
+          const SizedBox(height: space),
           const Divider(thickness: 0.5),
-          SizedBox(height: space),
+          const SizedBox(height: space),
           ListView.builder(
             shrinkWrap: true,
             primary: false,

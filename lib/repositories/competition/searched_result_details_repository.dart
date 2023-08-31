@@ -1,3 +1,5 @@
+import 'package:score_live/models/standings_model/standings_model.dart';
+
 import '../../models/match_model/match_model.dart';
 import '../../service/remote/browsing_service/browsing_remote_service.dart';
 
@@ -20,6 +22,10 @@ class SearchedResultDetailsRepository {
             round: (await Future.value(getLastRound(leagueId, yearFromActualDate))),
             season: yearFromActualDate))
         .response;
+  }
+
+  Future<List<StandingsModel>> fetchStandings(String leagueId, String yearFromSeason) async {
+    return (await browsingRemoteService.fetchStandings(leagueID: leagueId, season: yearFromSeason)).response;
   }
 
   Future<String> fetchCurrentRound(String leagueId, String yearFromActualDate) async {

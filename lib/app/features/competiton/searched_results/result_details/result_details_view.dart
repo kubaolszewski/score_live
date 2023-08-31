@@ -59,13 +59,17 @@ class ResultDetailsView extends StatelessWidget {
               builder: (context, state) {
                 final results = state.results;
                 final fixtures = state.fixtures;
+                final standings = state.standings;
                 switch (state.resultOptions) {
                   case ResultOptions.results:
                     return ResultsTab(results: results);
                   case ResultOptions.fixtures:
                     return FixturesTab(fixtures: fixtures);
                   case ResultOptions.standings:
-                    return const StandingsTab();
+                    return StandingsTab(
+                      standings: standings,
+                      resultId: params.resultId!,
+                    );
                   case ResultOptions.stats:
                     return const StatsTab();
                 }

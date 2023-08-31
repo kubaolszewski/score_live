@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
+import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/repositories/competition/searched_result_details_repository.dart';
-import 'package:score_live/service/api_responses_provider.dart';
 
 import '../../../../../../models/match_model/match_model.dart';
 import '../../../../../common/extensions/enums.dart';
@@ -23,8 +23,9 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
     try {
       final results = await _searchedResultDetailsRepository.fetchResultsByLeagueId(leagueId, yearFromActualDate);
       final fixtures = await _searchedResultDetailsRepository.fetchFixturesByLeagueId(leagueId, yearFromActualDate);
+      final standings = await _searchedResultDetailsRepository.fetchStandings(leagueId, yearFromActualDate);
 
-      emit(state.copyWith(results: results, fixtures: fixtures, isLoading: false));
+      emit(state.copyWith(results: results, fixtures: fixtures, standings: standings, isLoading: false));
     } catch (error) {
       emit(state.copyWith(
         errorMessage: error.toString(),
