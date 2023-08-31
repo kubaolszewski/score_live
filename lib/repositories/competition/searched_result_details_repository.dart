@@ -1,4 +1,5 @@
 import 'package:score_live/models/standings_model/standings_model.dart';
+import 'package:score_live/models/topscorers_model/topscorers_model.dart';
 
 import '../../models/match_model/match_model.dart';
 import '../../service/remote/browsing_service/browsing_remote_service.dart';
@@ -26,6 +27,10 @@ class SearchedResultDetailsRepository {
 
   Future<List<StandingsModel>> fetchStandings(String leagueId, String yearFromSeason) async {
     return (await browsingRemoteService.fetchStandings(leagueID: leagueId, season: yearFromSeason)).response;
+  }
+
+  Future<List<TopScorersModel>> fetchTopScorers(String leagueId, String yearFromSeason) async {
+    return (await browsingRemoteService.fetchTopScorersFromLeague(leagueID: leagueId, season: yearFromSeason)).response;
   }
 
   Future<String> fetchCurrentRound(String leagueId, String yearFromActualDate) async {

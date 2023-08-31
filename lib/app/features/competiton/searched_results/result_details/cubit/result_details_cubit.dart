@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
-import 'package:score_live/models/statistics_model/statistics_model.dart';
+import 'package:score_live/models/topscorers_model/topscorers_model.dart';
 import 'package:score_live/repositories/competition/searched_result_details_repository.dart';
 
 import '../../../../../../models/match_model/match_model.dart';
@@ -24,8 +24,9 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
       final results = await _searchedResultDetailsRepository.fetchResultsByLeagueId(leagueId, yearFromActualDate);
       final fixtures = await _searchedResultDetailsRepository.fetchFixturesByLeagueId(leagueId, yearFromActualDate);
       final standings = await _searchedResultDetailsRepository.fetchStandings(leagueId, yearFromActualDate);
-
-      emit(state.copyWith(results: results, fixtures: fixtures, standings: standings, isLoading: false));
+      final topScorers = await _searchedResultDetailsRepository.fetchTopScorers(leagueId, yearFromActualDate);
+      emit(state.copyWith(
+          results: results, fixtures: fixtures, standings: standings, topScorers: topScorers, isLoading: false));
     } catch (error) {
       emit(state.copyWith(
         errorMessage: error.toString(),

@@ -6,7 +6,7 @@ class ResultDetailsState with _$ResultDetailsState {
     @Default([]) List<MatchModel>? results,
     @Default([]) List<MatchModel>? fixtures,
     @Default([]) List<StandingsModel> standings,
-    @Default([]) List<StatisticsModel> stats,
+    @Default([]) List<TopScorersModel> topScorers,
     @Default(ResultOptions.results) ResultOptions resultOptions,
     @Default(StatsSwitch.goals) StatsSwitch statsSwitch,
     @Default(false) bool isLoading,

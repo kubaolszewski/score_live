@@ -6,6 +6,7 @@ import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
+import 'package:score_live/models/topscorers_model/topscorers_model.dart';
 
 part 'api_responses_provider.g.dart';
 part 'api_responses_provider.freezed.dart';
@@ -98,4 +99,13 @@ class CurrentRounds with _$CurrentRounds {
   }) = _CurrentRound;
 
   factory CurrentRounds.fromJson(Map<String, dynamic> json) => _$CurrentRoundsFromJson(json);
+}
+
+@freezed
+class TopScorers with _$TopScorers {
+  const factory TopScorers({
+    @Default([]) List<TopScorersModel> response,
+  }) = _TopScorers;
+
+  factory TopScorers.fromJson(Map<String, dynamic> json) => _$TopScorersFromJson(json);
 }
