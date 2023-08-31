@@ -29,10 +29,14 @@ class ResultsTab extends StatelessWidget {
     final matchweek = results?[0].league?.round ?? AppConstVariables.stringPlaceholder;
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          matchweek,
-          style: const CustomTextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w700),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: Text(
+            matchweek,
+            style: CustomTextStyle(fontSize: 16, color: Colors.grey[400]!, fontWeight: FontWeight.w700),
+          ),
         ),
         ListView.builder(
           primary: false,

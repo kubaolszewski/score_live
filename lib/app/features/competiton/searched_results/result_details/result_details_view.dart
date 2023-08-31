@@ -58,13 +58,12 @@ class ResultDetailsView extends StatelessWidget {
             BlocBuilder<ResultDetailsCubit, ResultDetailsState>(
               builder: (context, state) {
                 final results = state.results;
+                final fixtures = state.fixtures;
                 switch (state.resultOptions) {
                   case ResultOptions.results:
-                    return ResultsTab(
-                      results: results,
-                    );
+                    return ResultsTab(results: results);
                   case ResultOptions.fixtures:
-                    return const FixturesTab();
+                    return FixturesTab(fixtures: fixtures);
                   case ResultOptions.standings:
                     return const StandingsTab();
                   case ResultOptions.stats:

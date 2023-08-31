@@ -17,7 +17,7 @@ class ResultDetailsScreen extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => Modular.get<CompetitionCubit>()),
         BlocProvider(create: (context) => Modular.get<ResultDetailsCubit>()
-        ..fetchResult(params.resultId.toString())
+        ..fetchTabsData(params.resultId.toString())
         ),
       ],
       child: ResultDetailsView(params),

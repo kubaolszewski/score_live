@@ -16,28 +16,15 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
 
   final SearchedResultDetailsRepository _searchedResultDetailsRepository;
 
-  Future<void> fetchResult(String leagueId) async {
+  Future<void> fetchTabsData(String leagueId) async {
     final yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
 
     emit(state.copyWith(isLoading: true));
     try {
       final results = await _searchedResultDetailsRepository.fetchResultsByLeagueId(leagueId, yearFromActualDate);
-      emit(state.copyWith(results: results, isLoading: false));
-    } catch (error) {
-      emit(state.copyWith(
-        errorMessage: error.toString(),
-        isLoading: false,
-      ));
-    }
-  }
-
-  Future<void> fetchFixtures(String leagueId) async {
-    final yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
-
-    emit(state.copyWith(isLoading: true));
-    try {
       final fixtures = await _searchedResultDetailsRepository.fetchFixturesByLeagueId(leagueId, yearFromActualDate);
-      emit(state.copyWith(fixtures: fixtures, isLoading: false));
+
+      emit(state.copyWith(results: results, fixtures: fixtures, isLoading: false));
     } catch (error) {
       emit(state.copyWith(
         errorMessage: error.toString(),

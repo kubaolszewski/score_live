@@ -1,5 +1,5 @@
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/service/remote/browsing_service/browsing_remote_service.dart';
+import '../../models/match_model/match_model.dart';
+import '../../service/remote/browsing_service/browsing_remote_service.dart';
 
 class SearchedResultDetailsRepository {
   SearchedResultDetailsRepository(this.browsingRemoteService);
@@ -17,7 +17,7 @@ class SearchedResultDetailsRepository {
   Future<List<MatchModel>?> fetchFixturesByLeagueId(String leagueId, String yearFromActualDate) async {
     return (await browsingRemoteService.fetchFixturesByLeagueId(
             leagueId: leagueId,
-            round: (await Future.value(fetchAllRounds(leagueId, yearFromActualDate))).last,
+            round: (await Future.value(getLastRound(leagueId, yearFromActualDate))),
             season: yearFromActualDate))
         .response;
   }
@@ -28,5 +28,14 @@ class SearchedResultDetailsRepository {
 
   Future<List<String>> fetchAllRounds(String leagueId, String yearFromActualDate) async {
     return (await browsingRemoteService.getAllRounds(leagueId: leagueId, season: yearFromActualDate)).response;
+  }
+
+  Future<String> getLastRound(String leagueId, String yearFromActualDate) async {
+    final currentRound =
+        (await browsingRemoteService.getCurrentRound(leagueId: leagueId, season: yearFromActualDate)).response[0];
+    final allRounds =
+        (await browsingRemoteService.getAllRounds(leagueId: leagueId, season: yearFromActualDate)).response;
+    final lastRound = allRounds[allRounds.indexOf(currentRound) - 1];
+    return lastRound;
   }
 }

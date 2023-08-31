@@ -1,13 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:score_live/app/custom_widgets/wide_match_tile/wide_match_tile.dart';
+import 'package:score_live/core/applocalization_context.dart';
+import 'package:score_live/models/match_model/match_model.dart';
+import 'package:score_live/presentation/constants/app_const_variables.dart';
+import 'package:score_live/presentation/constants/text_styles.dart';
 
 class FixturesTab extends StatelessWidget {
-  const FixturesTab({super.key});
+  const FixturesTab({super.key, this.fixtures});
+
+  final List<MatchModel>? fixtures;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
-      height: 200,
+    if (fixtures == null || fixtures!.isEmpty) {
+      return Center(
+        child: Text(
+          context.localizations.noMatchesFinished,
+          textAlign: TextAlign.center,
+          style: const CustomTextStyle(
+            fontSize: 22,
+            color: Colors.white,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      );
+    }
+
+    final matchweek = fixtures?[0].league?.round ?? AppConstVariables.stringPlaceholder;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: Text(
+            matchweek,
+            style: CustomTextStyle(fontSize: 16, color: Colors.grey[400]!, fontWeight: FontWeight.w700),
+          ),
+        ),
+        ListView.builder(
+          primary: false,
+          shrinkWrap: true,
+          itemCount: fixtures!.length,
+          itemBuilder: (context, index) {
+            return WideMatchListTile(match: fixtures![index]);
+          },
+        )
+      ],
     );
   }
 }
