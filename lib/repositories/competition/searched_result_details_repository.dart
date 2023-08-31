@@ -9,19 +9,19 @@ class SearchedResultDetailsRepository {
   final BrowsingRemoteService browsingRemoteService;
 
   Future<List<MatchModel>?> fetchResultsByLeagueId(String leagueId, String yearFromActualDate) async {
-    return (await browsingRemoteService.fetchResultsByLeagueId(
-            leagueId: leagueId,
-            currentRound: await Future.value(fetchCurrentRound(leagueId, yearFromActualDate)),
-            season: yearFromActualDate))
-        .response;
+    // return (await browsingRemoteService.fetchResultsByLeagueId(
+    //         leagueId: leagueId,
+    //         currentRound: await Future.value(fetchCurrentRound(leagueId, yearFromActualDate)),
+    //         season: yearFromActualDate))
+    //     .response;
   }
 
   Future<List<MatchModel>?> fetchFixturesByLeagueId(String leagueId, String yearFromActualDate) async {
-    return (await browsingRemoteService.fetchFixturesByLeagueId(
-            leagueId: leagueId,
-            round: (await Future.value(getLastRound(leagueId, yearFromActualDate))),
-            season: yearFromActualDate))
-        .response;
+    // return (await browsingRemoteService.fetchFixturesByLeagueId(
+    //         leagueId: leagueId,
+    //         round: (await Future.value(getLastRound(leagueId, yearFromActualDate))),
+    //         season: yearFromActualDate))
+    //     .response;
   }
 
   Future<List<StandingsModel>> fetchStandings(String leagueId, String yearFromSeason) async {

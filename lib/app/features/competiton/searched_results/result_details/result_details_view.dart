@@ -71,7 +71,9 @@ class ResultDetailsView extends StatelessWidget {
                       resultId: params.resultId!,
                     );
                   case ResultOptions.stats:
-                    return const StatsTab();
+                    return StatsTab(
+                      statsSwitch: state.statsSwitch,
+                    );
                 }
               },
             )

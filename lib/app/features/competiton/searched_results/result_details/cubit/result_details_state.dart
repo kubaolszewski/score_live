@@ -8,6 +8,7 @@ class ResultDetailsState with _$ResultDetailsState {
     @Default([]) List<StandingsModel> standings,
     @Default([]) List<StatisticsModel> stats,
     @Default(ResultOptions.results) ResultOptions resultOptions,
+    @Default(StatsSwitch.goals) StatsSwitch statsSwitch,
     @Default(false) bool isLoading,
     String? errorMessage,
   }) = _ResultDetailsState;

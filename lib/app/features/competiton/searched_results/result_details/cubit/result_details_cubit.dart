@@ -34,6 +34,10 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
     }
   }
 
+  void switchStats(StatsSwitch nextStat) {
+    emit(state.copyWith(statsSwitch: nextStat));
+  }
+
   void switchDetailsOptions(ResultOptions chosenOption) {
     emit(state.copyWith(resultOptions: chosenOption));
   }

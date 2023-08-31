@@ -6,7 +6,9 @@ enum BrowsingOptions { top, region, favorites }
 
 enum SearchTypes { team, league }
 
-enum ResultOptions {results, fixtures, standings, stats }
+enum ResultOptions { results, fixtures, standings, stats }
+
+enum StatsSwitch { goals, assists }
 
 enum EventType {
   goal,
