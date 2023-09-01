@@ -60,6 +60,7 @@ class ResultDetailsView extends StatelessWidget {
                 final results = state.results;
                 final fixtures = state.fixtures;
                 final standings = state.standings;
+                final topScorers = state.topScorers;
                 switch (state.resultOptions) {
                   case ResultOptions.results:
                     return ResultsTab(results: results);
@@ -72,6 +73,7 @@ class ResultDetailsView extends StatelessWidget {
                     );
                   case ResultOptions.stats:
                     return StatsTab(
+                      topScorers: topScorers,
                       statsSwitch: state.statsSwitch,
                     );
                 }
