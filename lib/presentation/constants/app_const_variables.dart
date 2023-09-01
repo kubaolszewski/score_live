@@ -11,7 +11,6 @@ abstract class AppConstVariables {
   static const defaultTeamLogo = 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?w=2000';
   static const stringPlaceholder = '';
   static const intPlaceholder = 0;
-  static const statusListing = '1H-HT-2H-ET-FT';
   static const fullTime = 'FT';
   static const matchTimeToBeDefined = 'TBD';
   static const matchNotStarted = 'NS';

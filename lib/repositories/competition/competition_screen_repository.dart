@@ -7,8 +7,6 @@ class CompetitionScreenRepository {
 
   final BrowsingRemoteService browsingRemoteService;
 
-  final statusListing = "1H-HT-2H-ET-FT";
-
   Future<List<TeamModel>> fetchTeams(String nameQuery) async {
     // commented on purpose
     // return (await browsingRemoteService.fetchTeams(name: nameQuery)).response;

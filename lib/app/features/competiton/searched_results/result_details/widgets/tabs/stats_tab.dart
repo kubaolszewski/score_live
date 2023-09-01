@@ -15,7 +15,6 @@ class StatsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     if (topScorers.isEmpty) {
       return SizedBox(
         height: 200,
@@ -37,6 +36,7 @@ class StatsTab extends StatelessWidget {
                 padding: const EdgeInsets.all(12.0),
                 color: AppColors.listTileGrey,
                 child: const Column(
+                  //TODO Display data provided by Api here
                   children: [],
                 ),
               ),
@@ -66,21 +66,20 @@ class StatsHeaderWithSwitch extends StatelessWidget {
               AppConstVariables.goalsHeader,
               style: CustomTextStyle(fontSize: 20, color: Colors.grey[400]!, fontWeight: FontWeight.w700),
             ),
-            SizedBox(
+            const SizedBox(
               width: 96,
               child: Row(
                 children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.arrow_back_ios),
+                  // TODO :Replace with IconButton later
+                  Icon(
+                    Icons.arrow_back_ios,
                     color: Colors.white,
-                    iconSize: 24,
+                    size: 24,
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.arrow_forward_ios),
+                  Icon(
+                    Icons.arrow_forward_ios,
                     color: Colors.white,
-                    iconSize: 24,
+                    size: 24,
                   ),
                 ],
               ),
