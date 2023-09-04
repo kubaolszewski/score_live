@@ -1,5 +1,3 @@
-// ignore_for_file: body_might_complete_normally_nullable
-
 import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/topscorers_model/topscorers_model.dart';
 
@@ -17,6 +15,7 @@ class SearchedResultDetailsRepository {
     //         currentRound: await Future.value(fetchCurrentRound(leagueId, yearFromActualDate)),
     //         season: yearFromActualDate))
     //     .response;
+    return [];
   }
 
   Future<List<MatchModel>?> fetchFixturesByLeagueId(String leagueId, String yearFromActualDate) async {
@@ -25,6 +24,7 @@ class SearchedResultDetailsRepository {
     //         round: (await Future.value(getLastRound(leagueId, yearFromActualDate))),
     //         season: yearFromActualDate))
     //     .response;
+    return [];
   }
 
   Future<List<StandingsModel>> fetchStandings(String leagueId, String yearFromSeason) async {
