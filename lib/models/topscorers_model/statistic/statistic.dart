@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../games/games.dart';
 import '../player_assists/player_assists.dart';
 import '../player_goals/player_goals.dart';
-import '../player_saves/player_saves.dart';
 import '../topscorers_model.dart';
 
 part 'statistic.freezed.dart';
@@ -17,7 +16,6 @@ class Statistic with _$Statistic {
     required Games games,
     required PlayerGoals goals,
     required PlayerAssists assists,
-    required PlayerSaves saves,
   }) = _Statistic;
 
   factory Statistic.fromJson(Map<String, dynamic> json) => _$StatisticFromJson(json);
