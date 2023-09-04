@@ -19,9 +19,7 @@ class SearchedLeaguesScreen extends StatelessWidget {
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
         leading: IconButton(
-            onPressed: () {
-              Modular.to.pop();
-            },
+            onPressed: () => Modular.to.pop(),
             icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,
@@ -32,7 +30,7 @@ class SearchedLeaguesScreen extends StatelessWidget {
         ),
       ),
       body: BlocProvider<CompetitionCubit>(
-        create: (context) => Modular.get<CompetitionCubit>()..searchingLeaguesByName(nameQuery),
+        create: (context) => Modular.get<CompetitionCubit>()..searchingLeagues(nameQuery),
         child: const SearchedLeaguesView(),
       ),
     );

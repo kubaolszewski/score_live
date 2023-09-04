@@ -1,6 +1,6 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/usr/local/Caskroom/flutter/3.10.4/flutter"
+export "FLUTTER_ROOT=/usr/local/Caskroom/flutter/3.13.1/flutter"
 export "FLUTTER_APPLICATION_PATH=/Users/jakubolszewski/score_live"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"

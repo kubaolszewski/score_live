@@ -46,13 +46,15 @@ class TopResultsTabLoadedView extends StatelessWidget {
             width: width,
             height: height,
             child: ListView.builder(
+              shrinkWrap: true,
               itemCount: results.length,
               itemBuilder: (context, index) {
                 final league = results[index];
+                final leagueId = league.league?.id ?? AppConstVariables.intPlaceholder;
                 final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
                 final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
                 final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
-                return SearchListTile(flag: leagueFlag, region: leagueRegion, name: leagueName);
+                return SearchListTile(resultId: leagueId, flag: leagueFlag, region: leagueRegion, name: leagueName);
               },
             ),
           ),

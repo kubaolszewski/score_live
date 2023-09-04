@@ -71,6 +71,12 @@
   "dataErrorInfo" : "Something went wrong - data are not provided yet.",
   "topHeader" : "TOP COMPETITIONS",
   "searchHeader" : "Results:",
+
+  "resultResultsTab" : "Results",
+  "resultFixturesTab" : "Fixtures",
+  "resultStandingsTab" : "Standings",
+  "resultStatsTab" : "Stats",
+
   
   "accountAppBarTitle" : "My Account"
 }

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_standings_tab/elements/league_standings_header.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_standings_tab/elements/team_name_display.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_standings_tab/elements/team_stats_display.dart';
 import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/models/match_model/match_model.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
 
-class MatchStandingsTab extends StatelessWidget {
-  const MatchStandingsTab({super.key, required this.match, required this.standings});
+import '../../../../../../../presentation/constants/app_colors.dart';
+import '../../../../../../../presentation/constants/app_const_variables.dart';
+import '../../../../../../../presentation/constants/text_styles.dart';
+import '../../../../../home/match_details/match_details_tabs/match_standings_tab/elements/league_standings_header.dart';
+import '../../../../../home/match_details/match_details_tabs/match_standings_tab/elements/team_name_display.dart';
+import '../../../../../home/match_details/match_details_tabs/match_standings_tab/elements/team_stats_display.dart';
 
-  final MatchModel match;
+class StandingsTab extends StatelessWidget {
+  const StandingsTab({super.key, required this.standings, required this.resultId});
+
   final List<StandingsModel> standings;
+  final int resultId;
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +48,14 @@ class MatchStandingsTab extends StatelessWidget {
             primary: false,
             itemCount: leagueStandings.length,
             itemBuilder: (context, index) {
-              final homeTeamId = match.teams?.home?.id ?? AppConstVariables.intPlaceholder;
-              final awayTeamId = match.teams?.away?.id ?? AppConstVariables.intPlaceholder;
-              final teamId = leagueStandings[index].team?.id ?? AppConstVariables.intPlaceholder;
+              // TODO: uncomment line below when logic for teams is created
+              // final teamId = leagueStandings[index].team?.id ?? AppConstVariables.intPlaceholder;
               return Column(
                 children: [
                   Container(
-                    color: (teamId == homeTeamId || teamId == awayTeamId) ? Colors.grey[800] : Colors.transparent,
+                    // TODO: uncomment line below when logic for teams is created
+                    // color: (resultId == teamId) ? Colors.grey[800] : Colors.transparent,
+                    color: Colors.transparent,
                     child: Row(
                       children: [
                         TeamNameDisplay(teamIndex: index, leagueStandings: leagueStandings),

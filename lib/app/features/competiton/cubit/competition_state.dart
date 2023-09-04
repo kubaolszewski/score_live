@@ -2,7 +2,7 @@ part of 'competition_cubit.dart';
 
 @freezed
 class CompetitionState with _$CompetitionState {
-   factory CompetitionState({
+  factory CompetitionState({
     @Default([]) List<TeamModel> teamResults,
     @Default([]) List<LeagueModel> leagueResults,
     @Default(BrowsingOptions.top) BrowsingOptions browsingOptions,

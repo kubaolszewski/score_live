@@ -6,6 +6,7 @@ import 'package:score_live/models/league_model/league_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
 import 'package:score_live/repositories/competition/competition_screen_repository.dart';
 
+
 part 'competition_state.dart';
 part 'competition_cubit.freezed.dart';
 
@@ -31,13 +32,13 @@ class CompetitionCubit extends Cubit<CompetitionState> {
     emit(state.copyWith(isLoading: true));
     try {
       final searchedResults = await competitionScreenRepository.fetchTeams(nameQuery);
-      emit(state.copyWith(teamResults: searchedResults, isLoading: false));
+      emit(state.copyWith(teamResults: searchedResults, isLoading: false, searchTypes: SearchTypes.team));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }
   }
 
-  Future<void> searchingLeaguesByName(String nameQuery) async {
+  Future<void> searchingLeagues(String nameQuery) async {
     String yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
     emit(state.copyWith(isLoading: true));
 
@@ -47,8 +48,7 @@ class CompetitionCubit extends Cubit<CompetitionState> {
           await competitionScreenRepository.fetchLeaguesByCountry(nameQuery, yearFromActualDate);
 
       final combinedResults = [...searchedLeaguesByName, ...searchedLeaguesByCountry];
-
-      emit(state.copyWith(leagueResults: combinedResults, isLoading: false));
+      emit(state.copyWith(leagueResults: combinedResults, isLoading: false, searchTypes: SearchTypes.league));
     } catch (error) {
       emit(state.copyWith(errorMessage: error.toString()));
     }

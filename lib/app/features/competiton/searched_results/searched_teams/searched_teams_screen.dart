@@ -22,9 +22,7 @@ class SearchedTeamsScreen extends StatelessWidget {
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
         leading: IconButton(
-            onPressed: () {
-              Modular.to.pop();
-            },
+            onPressed: () => Modular.to.pop(),
             icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,

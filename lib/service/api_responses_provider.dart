@@ -6,6 +6,7 @@ import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
+import 'package:score_live/models/topscorers_model/topscorers_model.dart';
 
 part 'api_responses_provider.g.dart';
 part 'api_responses_provider.freezed.dart';
@@ -83,10 +84,28 @@ class Team with _$Team {
 }
 
 @freezed
-class LeagueResultsDetails with _$LeagueResultsDetails {
-  factory LeagueResultsDetails({
+class ResultsDetails with _$ResultsDetails {
+  factory ResultsDetails({
     List<MatchModel>? response,
-  }) = _LeagueResultsDetails;
+  }) = _ResultsDetails;
 
-  factory LeagueResultsDetails.fromJson(Map<String, dynamic> json) => _$LeagueResultsDetailsFromJson(json);
+  factory ResultsDetails.fromJson(Map<String, dynamic> json) => _$ResultsDetailsFromJson(json);
+}
+
+@freezed
+class CurrentRounds with _$CurrentRounds {
+  const factory CurrentRounds({
+    @Default([]) List<String> response,
+  }) = _CurrentRound;
+
+  factory CurrentRounds.fromJson(Map<String, dynamic> json) => _$CurrentRoundsFromJson(json);
+}
+
+@freezed
+class TopScorers with _$TopScorers {
+  const factory TopScorers({
+    @Default([]) List<TopScorersModel> response,
+  }) = _TopScorers;
+
+  factory TopScorers.fromJson(Map<String, dynamic> json) => _$TopScorersFromJson(json);
 }
