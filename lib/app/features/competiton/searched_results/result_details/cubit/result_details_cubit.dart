@@ -24,8 +24,16 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
       final results = await _searchedResultDetailsRepository.fetchResultsByLeagueId(leagueId, yearFromActualDate);
       final fixtures = await _searchedResultDetailsRepository.fetchFixturesByLeagueId(leagueId, yearFromActualDate);
       final standings = await _searchedResultDetailsRepository.fetchStandings(leagueId, yearFromActualDate);
+      final topGoals = await _searchedResultDetailsRepository.fetchTopGoals(leagueId, yearFromActualDate);
+      final topAssists = await _searchedResultDetailsRepository.fetchTopAssists(leagueId, yearFromActualDate);
+
       emit(state.copyWith(
-          results: results, fixtures: fixtures, standings: standings, isLoading: false));
+          results: results,
+          fixtures: fixtures,
+          standings: standings,
+          topGoals: topGoals,
+          topAssists: topAssists,
+          isLoading: false));
     } catch (error) {
       emit(state.copyWith(
         errorMessage: error.toString(),

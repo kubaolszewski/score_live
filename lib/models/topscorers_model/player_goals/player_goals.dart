@@ -8,6 +8,7 @@ class PlayerGoals with _$PlayerGoals {
   const factory PlayerGoals({
     required int total,
     required int conceded,
+    required int assists,
   }) = _PlayerGoals;
 
   factory PlayerGoals.fromJson(Map<String, dynamic> json) => _$PlayerGoalsFromJson(json);

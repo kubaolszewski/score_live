@@ -65,12 +65,12 @@ abstract class BrowsingRemoteService {
   });
 
   @GET('/players/topscorers')
-  Future<TopScorers> fetchTopScorersFromLeague({
+  Future<TopScorers> fetchTopGoalsFromLeague({
     @Query("league") required String leagueID,
     @Query("season") required String season,
   });
 
-  @GET('/players/topscorers')
+  @GET('/players/topassists')
   Future<TopScorers> fetchTopAssistsFromLeague({
     @Query("league") required String leagueID,
     @Query("season") required String season,

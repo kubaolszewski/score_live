@@ -32,8 +32,13 @@ class SearchedResultDetailsRepository {
     return [];
   }
 
-  Future<List<TopScorersModel>> fetchTopScorers(String leagueId, String yearFromSeason) async {
-    // return (await browsingRemoteService.fetchTopScorersFromLeague(leagueID: leagueId, season: yearFromSeason)).response;
+  Future<List<TopScorersModel>> fetchTopGoals(String leagueId, String yearFromSeason) async {
+    return (await browsingRemoteService.fetchTopGoalsFromLeague(leagueID: leagueId, season: yearFromSeason)).response;
+    return [];
+  }
+
+  Future<List<TopScorersModel>> fetchTopAssists(String leagueId, String yearFromSeason) async {
+    return (await browsingRemoteService.fetchTopAssistsFromLeague(leagueID: leagueId, season: yearFromSeason)).response;
     return [];
   }
 
