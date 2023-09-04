@@ -6,7 +6,7 @@ import 'package:score_live/presentation/constants/app_colors.dart';
 import 'package:score_live/presentation/constants/app_const_variables.dart';
 import 'package:score_live/presentation/constants/text_styles.dart';
 
-import '../../../../../../../models/topscorers_model/topscorers_model.dart';
+import '../../../../../../../models/topscorers_model/top_scorers_model.dart';
 
 class StatsTab extends StatelessWidget {
   const StatsTab({super.key, required this.topGoals, required this.topAssists, required this.statsSwitch});

@@ -1,5 +1,5 @@
 import 'package:score_live/models/standings_model/standings_model.dart';
-import 'package:score_live/models/topscorers_model/topscorers_model.dart';
+import 'package:score_live/models/topscorers_model/top_scorers_model.dart';
 
 import '../../models/match_model/match_model.dart';
 import '../../service/remote/browsing_service/browsing_remote_service.dart';

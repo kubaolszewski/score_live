@@ -6,7 +6,7 @@ import 'package:score_live/models/match_events_model/match_events_model.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
 import 'package:score_live/models/statistics_model/statistics_model.dart';
 import 'package:score_live/models/team_model/team_model.dart';
-import 'package:score_live/models/topscorers_model/topscorers_model.dart';
+import 'package:score_live/models/topscorers_model/top_scorers_model.dart';
 
 part 'api_responses_provider.g.dart';
 part 'api_responses_provider.freezed.dart';
