@@ -10,25 +10,25 @@ class SearchedResultDetailsRepository {
   final BrowsingRemoteService browsingRemoteService;
 
   Future<List<MatchModel>?> fetchResultsByLeagueId(String leagueId, String yearFromActualDate) async {
-    // return (await browsingRemoteService.fetchResultsByLeagueId(
-    //         leagueId: leagueId,
-    //         currentRound: await Future.value(fetchCurrentRound(leagueId, yearFromActualDate)),
-    //         season: yearFromActualDate))
-    //     .response;
+    return (await browsingRemoteService.fetchResultsByLeagueId(
+            leagueId: leagueId,
+            currentRound: await Future.value(fetchCurrentRound(leagueId, yearFromActualDate)),
+            season: yearFromActualDate))
+        .response;
     return [];
   }
 
   Future<List<MatchModel>?> fetchFixturesByLeagueId(String leagueId, String yearFromActualDate) async {
-    // return (await browsingRemoteService.fetchFixturesByLeagueId(
-    //         leagueId: leagueId,
-    //         round: (await Future.value(getLastRound(leagueId, yearFromActualDate))),
-    //         season: yearFromActualDate))
-    //     .response;
+    return (await browsingRemoteService.fetchFixturesByLeagueId(
+            leagueId: leagueId,
+            round: (await Future.value(getLastRound(leagueId, yearFromActualDate))),
+            season: yearFromActualDate))
+        .response;
     return [];
   }
 
   Future<List<StandingsModel>> fetchStandings(String leagueId, String yearFromSeason) async {
-    // return (await browsingRemoteService.fetchStandings(leagueID: leagueId, season: yearFromSeason)).response;
+    return (await browsingRemoteService.fetchStandings(leagueID: leagueId, season: yearFromSeason)).response;
     return [];
   }
 
@@ -43,7 +43,7 @@ class SearchedResultDetailsRepository {
   }
 
   Future<String> fetchCurrentRound(String leagueId, String yearFromActualDate) async {
-    return (await browsingRemoteService.getCurrentRound(leagueId: leagueId, season: yearFromActualDate)).response[0];
+    return (await browsingRemoteService.getCurrentRound(leagueId: leagueId, season: yearFromActualDate)).response.first;
   }
 
   Future<List<String>> fetchAllRounds(String leagueId, String yearFromActualDate) async {
@@ -52,7 +52,7 @@ class SearchedResultDetailsRepository {
 
   Future<String> getLastRound(String leagueId, String yearFromActualDate) async {
     final currentRound =
-        (await browsingRemoteService.getCurrentRound(leagueId: leagueId, season: yearFromActualDate)).response[0];
+        (await browsingRemoteService.getCurrentRound(leagueId: leagueId, season: yearFromActualDate)).response.first;
     final allRounds =
         (await browsingRemoteService.getAllRounds(leagueId: leagueId, season: yearFromActualDate)).response;
     final lastRound = allRounds[allRounds.indexOf(currentRound) - 1];

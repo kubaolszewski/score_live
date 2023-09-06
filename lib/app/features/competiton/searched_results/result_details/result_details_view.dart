@@ -58,27 +58,30 @@ class ResultDetailsView extends StatelessWidget {
             const ResultDetailsTabBar(),
             BlocBuilder<ResultDetailsCubit, ResultDetailsState>(
               builder: (context, state) {
-                final results = state.results;
-                final fixtures = state.fixtures;
-                final standings = state.standings;
-                final topGoals = state.topGoals;
-                final topAssists = state.topAssists;
-                switch (state.resultOptions) {
-                  case ResultOptions.results:
-                    return ResultsTab(results: results);
-                  case ResultOptions.fixtures:
-                    return FixturesTab(fixtures: fixtures);
-                  case ResultOptions.standings:
-                    return StandingsTab(
-                      standings: standings,
-                      resultId: params.resultId!,
-                    );
-                  case ResultOptions.stats:
-                    return StatsTab(
-                      topGoals: topGoals,
-                      topAssists: topAssists,
-                      statsSwitch: state.statsSwitch,
-                    );
+                if (state.isLoading == true) {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.mainThemePink,
+                    ),
+                  );
+                } else {
+                  switch (state.resultOptions) {
+                    case ResultOptions.results:
+                      return ResultsTab(results: state.results);
+                    case ResultOptions.fixtures:
+                      return FixturesTab(fixtures: state.fixtures);
+                    case ResultOptions.standings:
+                      return StandingsTab(
+                        standings: state.standings,
+                        resultId: params.resultId!,
+                      );
+                    case ResultOptions.stats:
+                      return StatsTab(
+                        topGoals: state.topGoals,
+                        topAssists: state.topAssists,
+                        statsSwitch: state.statsSwitch,
+                      );
+                  }
                 }
               },
             )
