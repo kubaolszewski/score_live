@@ -22,24 +22,23 @@ class StatsTab extends StatelessWidget {
         children: [
           const StatsHeaderWithSwitch(),
           const SizedBox(height: 20),
-          if (topGoals.isEmpty || topAssists.isEmpty) ...[
-            SizedBox(
-              height: 200,
-              child: Center(
-                child: Text(
-                  context.localizations.noStats,
-                  textAlign: TextAlign.center,
-                  style: const CustomTextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-            )
-          ] else
-            Builder(
-              builder: (context) => switch (statsSwitch) {
-                StatsSwitch.goals => TopGoalsSubTab(topGoals: topGoals),
-                StatsSwitch.assists => const SizedBox(),
-              },
-            )
+          topGoals.isEmpty
+              ? SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: Text(
+                      context.localizations.noStats,
+                      textAlign: TextAlign.center,
+                      style: const CustomTextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                )
+              : Builder(
+                  builder: (context) => switch (statsSwitch) {
+                    StatsSwitch.goals => TopGoalsSubTab(topGoals: topGoals),
+                    StatsSwitch.assists => const SizedBox(),
+                  },
+                )
         ],
       ),
     );
@@ -64,7 +63,7 @@ class StatsHeaderWithSwitch extends StatelessWidget {
           ),
           const Row(
             children: [
-              // TODO :Replace with IconButton later
+              // TODO: Replace with IconButton later
               Icon(
                 Icons.arrow_back_ios,
                 color: Colors.white,

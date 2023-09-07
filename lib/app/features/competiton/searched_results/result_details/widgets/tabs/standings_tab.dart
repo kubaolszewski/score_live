@@ -3,7 +3,6 @@ import 'package:score_live/app/common/extensions/context/applocalization_context
 import 'package:score_live/models/standings_model/standings_model.dart';
 
 import '../../../../../../../presentation/constants/app_colors.dart';
-import '../../../../../../../presentation/constants/app_const_variables.dart';
 import '../../../../../../../presentation/constants/text_styles.dart';
 import '../../../../../home/match_details/match_details_tabs/match_standings_tab/elements/league_standings_header.dart';
 import '../../../../../home/match_details/match_details_tabs/match_standings_tab/elements/team_name_display.dart';

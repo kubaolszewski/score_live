@@ -45,7 +45,7 @@ class TopGoalsSubTab extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'amount',
+                    'Goals',
                     style:
                         CustomTextStyle(fontSize: 16, color: AppColors.inactiveTextGrey, fontWeight: FontWeight.w900),
                   ),

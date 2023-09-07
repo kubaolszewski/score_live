@@ -64,24 +64,23 @@ class ResultDetailsView extends StatelessWidget {
                       color: AppColors.mainThemePink,
                     ),
                   );
-                } else {
-                  switch (state.resultOptions) {
-                    case ResultOptions.results:
-                      return ResultsTab(results: state.results);
-                    case ResultOptions.fixtures:
-                      return FixturesTab(fixtures: state.fixtures);
-                    case ResultOptions.standings:
-                      return StandingsTab(
-                        standings: state.standings,
-                        resultId: params.resultId!,
-                      );
-                    case ResultOptions.stats:
-                      return StatsTab(
-                        topGoals: state.topGoals,
-                        topAssists: state.topAssists,
-                        statsSwitch: state.statsSwitch,
-                      );
-                  }
+                }
+                switch (state.resultOptions) {
+                  case ResultOptions.results:
+                    return ResultsTab(results: state.results);
+                  case ResultOptions.fixtures:
+                    return FixturesTab(fixtures: state.fixtures);
+                  case ResultOptions.standings:
+                    return StandingsTab(
+                      standings: state.standings,
+                      resultId: params.resultId!,
+                    );
+                  case ResultOptions.stats:
+                    return StatsTab(
+                      topGoals: state.topGoals,
+                      topAssists: state.topAssists,
+                      statsSwitch: state.statsSwitch,
+                    );
                 }
               },
             )

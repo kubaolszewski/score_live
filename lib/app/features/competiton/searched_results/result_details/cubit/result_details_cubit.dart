@@ -18,21 +18,33 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
 
   Future<void> fetchTabsData(String leagueId) async {
     final yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
-
     emit(state.copyWith(isLoading: true));
     try {
       final results = await _searchedResultDetailsRepository.fetchResultsByLeagueId(leagueId, yearFromActualDate);
       final fixtures = await _searchedResultDetailsRepository.fetchFixturesByLeagueId(leagueId, yearFromActualDate);
       final standings = await _searchedResultDetailsRepository.fetchStandings(leagueId, yearFromActualDate);
-      final topGoals = await _searchedResultDetailsRepository.fetchTopGoals(leagueId, yearFromActualDate);
-      final topAssists = await _searchedResultDetailsRepository.fetchTopAssists(leagueId, yearFromActualDate);
       emit(state.copyWith(
           results: results,
           fixtures: fixtures,
           standings: standings,
-          topGoals: topGoals,
-          topAssists: topAssists,
           isLoading: false));
+    } catch (error) {
+      emit(state.copyWith(
+        errorMessage: error.toString(),
+        isLoading: false,
+      ));
+    }
+  }
+
+  Future<void> fetchDataForStatsTab(String leagueId) async {
+    final yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
+    emit(state.copyWith(isLoading: true));
+    try {
+      final topGoals = await _searchedResultDetailsRepository.fetchTopGoals(leagueId, yearFromActualDate);
+      emit(state.copyWith(
+        topGoals: topGoals,
+        isLoading: false,
+      ));
     } catch (error) {
       emit(state.copyWith(
         errorMessage: error.toString(),

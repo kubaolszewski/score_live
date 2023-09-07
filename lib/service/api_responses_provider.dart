@@ -103,7 +103,7 @@ class CurrentRounds with _$CurrentRounds {
 
 @freezed
 class TopScorers with _$TopScorers {
-  const factory TopScorers({
+  factory TopScorers({
     @Default([]) List<TopScorersModel> response,
   }) = _TopScorers;
 
