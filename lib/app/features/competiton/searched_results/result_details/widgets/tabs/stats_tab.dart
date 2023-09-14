@@ -36,6 +36,7 @@ class StatsTab extends StatelessWidget {
               : Builder(
                   builder: (context) => switch (statsSwitch) {
                     StatsSwitch.goals => TopGoalsSubTab(topGoals: topGoals),
+                    //TODO: Implement TopAssistsSubTab
                     StatsSwitch.assists => const SizedBox(),
                   },
                 )
