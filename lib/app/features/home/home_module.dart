@@ -7,6 +7,8 @@ import 'home_widgets/live_now/cubit/live_now_cubit.dart';
 import 'match_details/cubit/match_details_cubit.dart';
 import 'match_details/match_details_screen.dart';
 
+import '../competiton/competition_screen.dart';
+
 class HomeModule extends Module {
   @override
   List<Bind> get binds => [
@@ -27,12 +29,17 @@ class HomeModule extends Module {
           HomePath.matchDetailsScreen,
           child: (context, args) => MatchDetailsScreen(liveMatch: args.data),
         ),
+        ChildRoute(
+          HomePath.competitionScreen,
+          child: ((context, args) => const CompetitionScreen()),
+        ),
       ];
 }
 
 mixin HomePath {
   static String homePath = '/home';
   static String matchDetailsScreen = '/match-details';
+  static String competitionScreen = '/competition';
 
   static String matchDetailsPath = '$homePath$matchDetailsScreen';
 }
