@@ -1,7 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../di/di_network_module.dart';
-import '../../di/di_repository_module.dart';
-import '../../di/di_services_module.dart';
+import '../../data/data_module.dart';
 import '../account/account_screen.dart';
 import '../account/account_module.dart';
 import '../competiton/competition_screen.dart';
@@ -22,9 +20,7 @@ import 'landing_screen.dart';
 class LandingModule extends Module {
   @override
   final List<Module> imports = [
-    DINetworkModule(),
-    DIServicesModule(),
-    DIRepositoryModule(),
+    DataModule(),
   ];
 
   @override
