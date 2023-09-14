@@ -17,7 +17,7 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
   final SearchedResultDetailsRepository _searchedResultDetailsRepository;
 
   Future<void> fetchTabsData(String leagueId) async {
-    final yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
+    final yearFromActualDate = DateTime.now().year.toString();
     emit(state.copyWith(isLoading: true));
     try {
       final results = await _searchedResultDetailsRepository.fetchResultsByLeagueId(leagueId, yearFromActualDate);

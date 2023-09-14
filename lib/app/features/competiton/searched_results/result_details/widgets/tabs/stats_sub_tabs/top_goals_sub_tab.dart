@@ -1,9 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '/presentation/constants/text_styles.dart';
 import '/presentation/constants/app_colors.dart';
 import '/models/topscorers_model/top_scorers_model.dart';
+import 'widgets/top_player_list_tile.dart';
 
 class TopGoalsSubTab extends StatelessWidget {
   const TopGoalsSubTab({
@@ -60,55 +60,11 @@ class TopGoalsSubTab extends StatelessWidget {
               primary: false,
               itemCount: 5,
               itemBuilder: (context, index) {
-                final player = topGoals[index];
-                final playerName = player.player.name;
-                final playerPhoto = player.player.photo;
-                final playerTeam = player.statistics[0].team.name;
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            (index + 1).toString(),
-                            style: const CustomTextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.w700),
-                          ),
-                          const SizedBox(width: 16),
-                          CircleAvatar(
-                            radius: 28,
-                            child: ClipOval(
-                              child: CachedNetworkImage(
-                                imageUrl: playerPhoto,
-                                fit: BoxFit.fill,
-                                progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(
-                                    value: downloadProgress.progress, color: AppColors.mainThemePink),
-                                errorWidget: (context, url, error) => const Icon(Icons.error, color: Colors.white),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(playerName,
-                                  style: const CustomTextStyle(
-                                      fontSize: 16, color: Colors.grey, fontWeight: FontWeight.w900)),
-                              const SizedBox(height: 6),
-                              Text(playerTeam,
-                                  style: const CustomTextStyle(
-                                      fontSize: 14, color: Colors.grey, fontWeight: FontWeight.w500)),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const Text('amount',
-                          style: CustomTextStyle(
-                              fontSize: 16, color: AppColors.mainThemePink, fontWeight: FontWeight.w900))
-                    ],
-                  ),
-                );
+                final playerPhoto = topGoals[index].player.photo;
+                final playerName = topGoals[index].player.name;
+                final playerTeam = topGoals[index].statistics[0].team.name;
+                return TopPlayerListTile(
+                    playerPhoto: playerPhoto, playerName: playerName, playerTeam: playerTeam, index: index);
               },
             ),
           ],
