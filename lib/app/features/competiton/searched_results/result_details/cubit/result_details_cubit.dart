@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 import 'package:score_live/models/standings_model/standings_model.dart';
-import 'package:score_live/models/topscorers_model/topscorers_model.dart';
+import 'package:score_live/models/topscorers_model/top_scorers_model.dart';
 import 'package:score_live/repositories/competition/searched_result_details_repository.dart';
 
 import '../../../../../../models/match_model/match_model.dart';
@@ -17,15 +17,37 @@ class ResultDetailsCubit extends Cubit<ResultDetailsState> {
   final SearchedResultDetailsRepository _searchedResultDetailsRepository;
 
   Future<void> fetchTabsData(String leagueId) async {
-    final yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
-
+    final yearFromActualDate = DateTime.now().year.toString();
     emit(state.copyWith(isLoading: true));
     try {
       final results = await _searchedResultDetailsRepository.fetchResultsByLeagueId(leagueId, yearFromActualDate);
       final fixtures = await _searchedResultDetailsRepository.fetchFixturesByLeagueId(leagueId, yearFromActualDate);
       final standings = await _searchedResultDetailsRepository.fetchStandings(leagueId, yearFromActualDate);
       emit(state.copyWith(
-          results: results, fixtures: fixtures, standings: standings, isLoading: false));
+        results: results,
+        fixtures: fixtures,
+        standings: standings,
+        isLoading: false,
+      ));
+    } catch (error) {
+      emit(state.copyWith(
+        errorMessage: error.toString(),
+        isLoading: false,
+      ));
+    }
+  }
+
+  Future<void> fetchDataForStatsTab(String leagueId) async {
+    final yearFromActualDate = DateFormat('yyyy').format(DateTime.now());
+    emit(state.copyWith(isLoading: true));
+    try {
+      final topGoals = await _searchedResultDetailsRepository.fetchTopGoals(leagueId, yearFromActualDate);
+      final topAssists = await _searchedResultDetailsRepository.fetchTopAssists(leagueId, yearFromActualDate);
+      emit(state.copyWith(
+        topGoals: topGoals,
+        topAssists: topAssists,
+        isLoading: false,
+      ));
     } catch (error) {
       emit(state.copyWith(
         errorMessage: error.toString(),

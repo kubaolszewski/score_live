@@ -58,23 +58,27 @@ class ResultDetailsView extends StatelessWidget {
             const ResultDetailsTabBar(),
             BlocBuilder<ResultDetailsCubit, ResultDetailsState>(
               builder: (context, state) {
-                final results = state.results;
-                final fixtures = state.fixtures;
-                final standings = state.standings;
-                final topScorers = state.topScorers;
+                if (state.isLoading == true) {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.mainThemePink,
+                    ),
+                  );
+                }
                 switch (state.resultOptions) {
                   case ResultOptions.results:
-                    return ResultsTab(results: results);
+                    return ResultsTab(results: state.results);
                   case ResultOptions.fixtures:
-                    return FixturesTab(fixtures: fixtures);
+                    return FixturesTab(fixtures: state.fixtures);
                   case ResultOptions.standings:
                     return StandingsTab(
-                      standings: standings,
+                      standings: state.standings,
                       resultId: params.resultId!,
                     );
                   case ResultOptions.stats:
                     return StatsTab(
-                      topScorers: topScorers,
+                      topGoals: state.topGoals,
+                      topAssists: state.topAssists,
                       statsSwitch: state.statsSwitch,
                     );
                 }

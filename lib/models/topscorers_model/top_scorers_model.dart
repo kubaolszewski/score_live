@@ -1,9 +1,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:score_live/models/topscorers_model/birth/birth.dart';
 
-import '../birth/birth.dart';
+import 'player_statistic/player_statistic.dart';
 
-part 'player.freezed.dart';
-part 'player.g.dart';
+part 'top_scorers_model.freezed.dart';
+part 'top_scorers_model.g.dart';
+
+@freezed
+class TopScorersModel with _$TopScorersModel {
+  const factory TopScorersModel({
+    required Player player,
+    required List<PlayerStatistic> statistics,
+  }) = _TopScorersModel;
+
+  factory TopScorersModel.fromJson(Map<String, dynamic> json) => _$TopScorersModelFromJson(json);
+}
 
 @freezed
 class Player with _$Player {

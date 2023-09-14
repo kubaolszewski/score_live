@@ -60,13 +60,19 @@ abstract class BrowsingRemoteService {
 
   @GET('/standings')
   Future<Standings> fetchStandings({
-    @Query("league") required String leagueID,
+    @Query("league") required String leagueId,
     @Query("season") required String season,
   });
 
   @GET('/players/topscorers')
-  Future<TopScorers> fetchTopScorersFromLeague({
-    @Query("league") required String leagueID,
+  Future<TopScorers> fetchTopGoalsFromLeague({
+    @Query("league") required String leagueId,
+    @Query("season") required String season,
+  });
+
+  @GET('/players/topassists')
+  Future<TopScorers> fetchTopAssistsFromLeague({
+    @Query("league") required String leagueId,
     @Query("season") required String season,
   });
 }
