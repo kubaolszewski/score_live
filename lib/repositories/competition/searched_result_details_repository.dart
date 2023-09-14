@@ -60,7 +60,14 @@ class SearchedResultDetailsRepository {
         (await browsingRemoteService.getCurrentRound(leagueId: leagueId, season: yearFromActualDate)).response.first;
     final allRounds =
         (await browsingRemoteService.getAllRounds(leagueId: leagueId, season: yearFromActualDate)).response;
-    final lastRound = allRounds[allRounds.indexOf(currentRound) - 1];
+
+    String lastRound = '';
+
+    if (allRounds.contains(currentRound)) {
+      lastRound = allRounds[allRounds.indexOf(currentRound) - 1];
+    } else {
+      return '';
+    }
     return lastRound;
   }
 }
