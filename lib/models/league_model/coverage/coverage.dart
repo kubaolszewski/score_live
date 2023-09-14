@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/league_model/fixtures/fixtures.dart';
+import '../fixtures/fixtures.dart';
 
 part 'coverage.freezed.dart';
 part 'coverage.g.dart';

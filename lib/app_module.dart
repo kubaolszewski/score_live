@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/landing/landing_module.dart';
+import 'app/features/landing/landing_module.dart';
 
 class AppModule extends Module {
   @override

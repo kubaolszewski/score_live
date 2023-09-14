@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
+import '../../../cubit/competition_cubit.dart';
 
 import '../../../../../../../presentation/constants/app_colors.dart';
 import '../../../../../../../presentation/constants/text_styles.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
+import '../../../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../../../../models/match_model/match_model.dart';
+import '../../../../../../../presentation/constants/app_const_variables.dart';
 
 class HalvesResultDisplay extends StatelessWidget {
   const HalvesResultDisplay({super.key, required this.liveMatch, required this.isFirstHalf});

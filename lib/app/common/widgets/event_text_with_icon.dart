@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/common/widgets/events_widgets/card_event_widget.dart';
-import 'package:score_live/app/common/widgets/events_widgets/goal_event_widget.dart';
-import 'package:score_live/app/common/widgets/events_widgets/substitution_event_widget.dart';
-import 'package:score_live/app/common/widgets/events_widgets/var_event_widget.dart';
-import 'package:score_live/app/common/extensions/enums.dart';
-import 'package:score_live/app/common/extensions/match_events/events_validation_ext.dart';
-import 'package:score_live/models/match_events_model/match_events_model.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import 'events_widgets/card_event_widget.dart';
+import 'events_widgets/goal_event_widget.dart';
+import 'events_widgets/substitution_event_widget.dart';
+import 'events_widgets/var_event_widget.dart';
+import '../extensions/enums.dart';
+import '../extensions/match_events/events_validation_ext.dart';
+import '../../../models/match_events_model/match_events_model.dart';
+import '../../../presentation/constants/app_colors.dart';
+import '../../../presentation/constants/app_const_variables.dart';
+import '../../../presentation/constants/text_styles.dart';
 
 class EventTextWithtIcon extends StatelessWidget {
   const EventTextWithtIcon({

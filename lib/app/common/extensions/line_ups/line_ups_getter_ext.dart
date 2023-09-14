@@ -1,6 +1,6 @@
-import 'package:score_live/models/line_up_model/line_up_model.dart';
-import 'package:score_live/models/line_up_model/start_xi/start_xi.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
+import '../../../../models/line_up_model/line_up_model.dart';
+import '../../../../models/line_up_model/start_xi/start_xi.dart';
+import '../../../../presentation/constants/app_const_variables.dart';
 
 extension LineUpsGetter on List<LineUpModel> {
   LineUpModel get homeTeam => elementAt(0);

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/standings_model/season_result/season_result.dart';
-import 'package:score_live/models/standings_model/team/team.dart';
+import '../season_result/season_result.dart';
+import '../team/team.dart';
 
 part 'standings.freezed.dart';
 part 'standings.g.dart';

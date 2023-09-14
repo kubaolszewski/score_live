@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/app/common/extensions/enums.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../../../common/extensions/enums.dart';
+import '../../../../../../../presentation/constants/app_const_variables.dart';
+import '../../../../../../../presentation/constants/text_styles.dart';
 
 import '/models/topscorers_model/top_scorers_model.dart';
 import 'stats_sub_tabs/top_goals_sub_tab.dart';

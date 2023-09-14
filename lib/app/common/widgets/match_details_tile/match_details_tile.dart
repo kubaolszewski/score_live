@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/features/home/match_details/match_details_widgets/match_goals_widget.dart';
-import 'package:score_live/app/common/widgets/header_with_league_and_timer/header_with_league_and_timer.dart';
-import 'package:score_live/app/common/widgets/match_details_tile/elements/match_result_display.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
+import '../../../features/home/match_details/match_details_widgets/match_goals_widget.dart';
+import '../header_with_league_and_timer/header_with_league_and_timer.dart';
+import 'elements/match_result_display.dart';
+import '../../../../models/match_model/match_model.dart';
+import '../../../../presentation/constants/app_colors.dart';
 
 class MatchDetailsTile extends StatelessWidget {
   const MatchDetailsTile({

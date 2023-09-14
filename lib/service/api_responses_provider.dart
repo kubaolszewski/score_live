@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/league_model/league_model.dart';
-import 'package:score_live/models/line_up_model/line_up_model.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/models/match_events_model/match_events_model.dart';
-import 'package:score_live/models/standings_model/standings_model.dart';
-import 'package:score_live/models/statistics_model/statistics_model.dart';
-import 'package:score_live/models/team_model/team_model.dart';
-import 'package:score_live/models/topscorers_model/top_scorers_model.dart';
+import '../models/league_model/league_model.dart';
+import '../models/line_up_model/line_up_model.dart';
+import '../models/match_model/match_model.dart';
+import '../models/match_events_model/match_events_model.dart';
+import '../models/standings_model/standings_model.dart';
+import '../models/statistics_model/statistics_model.dart';
+import '../models/team_model/team_model.dart';
+import '../models/topscorers_model/top_scorers_model.dart';
 
 part 'api_responses_provider.g.dart';
 part 'api_responses_provider.freezed.dart';

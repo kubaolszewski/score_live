@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/home/home_module.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../../../features/home/home_module.dart';
+import '../../../extensions/context/applocalization_context.dart';
+import '../../../../../models/match_model/match_model.dart';
+import '../../../../../presentation/constants/app_colors.dart';
+import '../../../../../presentation/constants/text_styles.dart';
 
 class LiveMatchDetailsButton extends StatelessWidget {
   const LiveMatchDetailsButton({

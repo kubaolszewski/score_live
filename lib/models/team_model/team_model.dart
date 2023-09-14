@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/team_model/team/team.dart';
-import 'package:score_live/models/team_model/venue/venue.dart';
+import 'team/team.dart';
+import 'venue/venue.dart';
 
 part 'team_model.freezed.dart';
 part 'team_model.g.dart';

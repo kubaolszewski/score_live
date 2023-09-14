@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/line_up_model/coach/coach.dart';
-import 'package:score_live/models/line_up_model/start_xi/start_xi.dart';
-import 'package:score_live/models/line_up_model/substitute/substitute.dart';
-import 'package:score_live/models/line_up_model/team/team.dart';
+import 'coach/coach.dart';
+import 'start_xi/start_xi.dart';
+import 'substitute/substitute.dart';
+import 'team/team.dart';
 
 part 'line_up_model.freezed.dart';
 part 'line_up_model.g.dart';

@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/common/widgets/custom_app_bar.dart';
-import 'package:score_live/app/common/widgets/match_details_tile/match_details_tile.dart';
-import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_h2h_tab/match_h2h_tab.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_lineup_tab/match_lineup_tab.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_standings_tab/match_standings_tab.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_stats_tab/match_stats_tab.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_summary_tab/match_summary_tab.dart';
-import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_tab_bar.dart';
-import 'package:score_live/app/features/home/match_details/match_details_widgets/match_details_title.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/app/common/extensions/enums.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
+import '../../../common/widgets/custom_app_bar.dart';
+import '../../../common/widgets/match_details_tile/match_details_tile.dart';
+import 'cubit/match_details_cubit.dart';
+import 'match_details_tabs/match_h2h_tab/match_h2h_tab.dart';
+import 'match_details_tabs/match_lineup_tab/match_lineup_tab.dart';
+import 'match_details_tabs/match_standings_tab/match_standings_tab.dart';
+import 'match_details_tabs/match_stats_tab/match_stats_tab.dart';
+import 'match_details_tabs/match_summary_tab/match_summary_tab.dart';
+import 'match_details_widgets/match_details_tab_bar.dart';
+import 'match_details_widgets/match_details_title.dart';
+import '../../../common/extensions/context/applocalization_context.dart';
+import '../../../common/extensions/enums.dart';
+import '../../../../models/match_model/match_model.dart';
+import '../../../../presentation/constants/app_colors.dart';
+import '../../../../presentation/constants/app_const_variables.dart';
 
 class MatchDetailsView extends StatelessWidget {
   const MatchDetailsView({

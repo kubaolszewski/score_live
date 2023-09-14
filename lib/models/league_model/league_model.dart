@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/league_model/league/league.dart';
-import 'package:score_live/models/league_model/country/country.dart';
-import 'package:score_live/models/league_model/season/season.dart';
+import 'league/league.dart';
+import 'country/country.dart';
+import 'season/season.dart';
 
 part 'league_model.freezed.dart';
 part 'league_model.g.dart';

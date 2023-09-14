@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/common/extensions/enums.dart';
-import 'package:score_live/app/common/extensions/match_events/events_validation_ext.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../extensions/enums.dart';
+import '../../extensions/match_events/events_validation_ext.dart';
+import '../../../../presentation/constants/app_const_variables.dart';
+import '../../../../presentation/constants/text_styles.dart';
 
 class CardEventWidget extends StatelessWidget {
   const CardEventWidget({

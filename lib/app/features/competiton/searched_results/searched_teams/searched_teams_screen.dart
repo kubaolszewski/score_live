@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/common/widgets/custom_app_bar.dart';
-import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
-import 'package:score_live/app/features/competiton/searched_results/searched_teams/searched_teams_view.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../../../common/widgets/custom_app_bar.dart';
+import '../../cubit/competition_cubit.dart';
+import 'searched_teams_view.dart';
+import '../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../../presentation/constants/app_colors.dart';
+import '../../../../../presentation/constants/text_styles.dart';
 
 class SearchedTeamsScreen extends StatelessWidget {
   const SearchedTeamsScreen(

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:score_live/service/api.client.dart';
-import 'package:score_live/service/api_responses_provider.dart';
+import '../../api.client.dart';
+import '../../api_responses_provider.dart';
 
 part 'live_matches_remote_service.g.dart';
 

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/league_model/coverage/coverage.dart';
+import '../coverage/coverage.dart';
 
 part 'season.freezed.dart';
 part 'season.g.dart';

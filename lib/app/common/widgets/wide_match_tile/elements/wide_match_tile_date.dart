@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
+import '../../../../../models/match_model/match_model.dart';
+import '../../../../../presentation/constants/app_const_variables.dart';
+import '../../../../../presentation/constants/app_colors.dart';
 
 class WideMatchTileDate extends StatelessWidget {
   const WideMatchTileDate({

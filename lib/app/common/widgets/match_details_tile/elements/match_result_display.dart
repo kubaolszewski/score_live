@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/app/common/extensions/date/date_formatter_ext.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../../extensions/context/applocalization_context.dart';
+import '../../../extensions/date/date_formatter_ext.dart';
+import '../../../../../models/match_model/match_model.dart';
+import '../../../../../presentation/constants/app_colors.dart';
+import '../../../../../presentation/constants/app_const_variables.dart';
+import '../../../../../presentation/constants/text_styles.dart';
 
 class MatchResultDisplay extends StatelessWidget {
   const MatchResultDisplay({super.key, required this.liveMatch});

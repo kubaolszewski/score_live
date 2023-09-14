@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/match_model/live_fixture/live_fixture.dart';
-import 'package:score_live/models/match_model/live_goals/live_goals.dart';
-import 'package:score_live/models/match_model/live_league/live_league.dart';
-import 'package:score_live/models/match_model/live_score/live_score.dart';
-import 'package:score_live/models/match_model/live_teams/live_teams.dart';
+import 'live_fixture/live_fixture.dart';
+import 'live_goals/live_goals.dart';
+import 'live_league/live_league.dart';
+import 'live_score/live_score.dart';
+import 'live_teams/live_teams.dart';
 
 part 'match_model.freezed.dart';
 part 'match_model.g.dart';

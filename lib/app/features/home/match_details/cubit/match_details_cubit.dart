@@ -1,13 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/app/common/extensions/enums.dart';
-import 'package:score_live/models/line_up_model/line_up_model.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/models/match_events_model/match_events_model.dart';
-import 'package:score_live/models/standings_model/standings_model.dart';
-import 'package:score_live/models/statistics_model/statistics_model.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/repositories/home/match_details_repository.dart';
+import '../../../../common/extensions/enums.dart';
+import '../../../../../models/line_up_model/line_up_model.dart';
+import '../../../../../models/match_model/match_model.dart';
+import '../../../../../models/match_events_model/match_events_model.dart';
+import '../../../../../models/standings_model/standings_model.dart';
+import '../../../../../models/statistics_model/statistics_model.dart';
+import '../../../../../presentation/constants/app_const_variables.dart';
+import '../../../../../repositories/home/match_details_repository.dart';
 
 part 'match_details_state.dart';
 part 'match_details_cubit.freezed.dart';

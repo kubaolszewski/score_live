@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/home/cubit/home_cubit.dart';
-import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/features/home/match_details/match_details_view.dart';
-import 'package:score_live/app/common/extensions/date/date_formatter_ext.dart';
-import 'package:score_live/app/common/extensions/match/match_properties_getter_ext.dart';
-import 'package:score_live/models/match_model/match_model.dart';
+import '../cubit/home_cubit.dart';
+import 'cubit/match_details_cubit.dart';
+import 'match_details_view.dart';
+import '../../../common/extensions/date/date_formatter_ext.dart';
+import '../../../common/extensions/match/match_properties_getter_ext.dart';
+import '../../../../models/match_model/match_model.dart';
 
 class MatchDetailsScreen extends StatelessWidget {
   const MatchDetailsScreen({

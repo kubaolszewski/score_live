@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/home/match_details/cubit/match_details_cubit.dart';
-import 'package:score_live/app/features/home/match_details/match_details_screen.dart';
+import 'cubit/match_details_cubit.dart';
+import 'match_details_screen.dart';
 
 class MatchDetailsModule extends Module {
   @override
