@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../constants/assets_paths.dart';
 import '../../extensions/enums.dart';
 import '../../extensions/match_events/events_validation_ext.dart';
-import '../../constants/text_styles.dart';
+import '../../theme/custom_text_style.dart';
 
 class CardEventWidget extends StatelessWidget {
   const CardEventWidget({

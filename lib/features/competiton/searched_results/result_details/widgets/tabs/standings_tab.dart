@@ -3,7 +3,7 @@ import '../../../../../../../common/extensions/context/applocalization_context.d
 import '../../../../../../data/models/standings_model/standings_model.dart';
 
 import '../../../../../../common/constants/app_colors.dart';
-import '../../../../../../common/constants/text_styles.dart';
+import '../../../../../../common/theme/custom_text_style.dart';
 import '../../../../../home/match_details/match_details_tabs/match_standings_tab/elements/league_standings_header.dart';
 import '../../../../../home/match_details/match_details_tabs/match_standings_tab/elements/team_name_display.dart';
 import '../../../../../home/match_details/match_details_tabs/match_standings_tab/elements/team_stats_display.dart';

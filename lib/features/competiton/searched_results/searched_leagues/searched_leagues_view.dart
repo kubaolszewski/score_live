@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../common/widgets/search_list_tile.dart';
+import '../../../../common/constants/assets_paths.dart';
 import '../../cubit/competition_cubit.dart';
 import '../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../../common/extensions/context/dimensions_context.dart';
@@ -57,7 +58,7 @@ class SearchedLeaguesView extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final league = leagues[index];
                       final leagueId = league.league?.id ?? AppConstVariables.intPlaceholder;
-                      final String leagueFlag = league.country?.flag ?? AppConstVariables.defaultLeagueLogo;
+                      final String leagueFlag = league.country?.flag ?? AssetsPaths.defaultLeagueLogo;
                       final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
                       final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
                       return SearchListTile(

@@ -8,7 +8,7 @@ import '../extensions/match_events/events_validation_ext.dart';
 import '../../data/models/match_events_model/match_events_model.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_const_variables.dart';
-import '../constants/text_styles.dart';
+import '../theme/custom_text_style.dart';
 
 class EventTextWithtIcon extends StatelessWidget {
   const EventTextWithtIcon({

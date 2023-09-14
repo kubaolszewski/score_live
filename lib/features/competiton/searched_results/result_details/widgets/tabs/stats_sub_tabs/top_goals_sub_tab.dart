@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../common/constants/text_styles.dart';
+import '../../../../../../../common/theme/custom_text_style.dart';
 import '../../../../../../../common/constants/app_colors.dart';
 import '../../../../../../../data/models/topscorers_model/top_scorers_model.dart';
 import 'widgets/top_player_list_tile.dart';

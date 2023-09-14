@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import '../../../../../../common/widgets/league_badge.dart';
 import '../../../../../../common/widgets/wide_match_tile/wide_match_tile.dart';
 import '../../../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../../common/constants/assets_paths.dart';
 import '../../../../../data/models/match_model/match_model.dart';
 import '../../../../../common/constants/app_const_variables.dart';
-import '../../../../../common/constants/text_styles.dart';
+import '../../../../../common/theme/custom_text_style.dart';
 
 class UpcomingTabLoadedView extends StatelessWidget {
   const UpcomingTabLoadedView({
@@ -39,7 +40,7 @@ class UpcomingTabLoadedView extends StatelessWidget {
         itemCount: upcomingMatches.length,
         itemBuilder: (context, index) {
           final match = upcomingMatches[index];
-          final String flag = match.league?.flag ?? AppConstVariables.defaultLeagueLogo;
+          final String flag = match.league?.flag ?? AssetsPaths.defaultLeagueLogo;
           final String leagueName = match.league?.name ?? AppConstVariables.stringPlaceholder;
           return Column(
             children: [

@@ -8,7 +8,7 @@ import '../../../../common/extensions/enums.dart';
 import '../../../../common/extensions/string/string_formatters_ext.dart';
 import '../../../common/constants/app_colors.dart';
 import '../../../common/constants/app_const_variables.dart';
-import '../../../common/constants/text_styles.dart';
+import '../../../common/theme/custom_text_style.dart';
 
 class CompetitionSearchBar extends StatelessWidget {
   CompetitionSearchBar({super.key});

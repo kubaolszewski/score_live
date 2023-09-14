@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import '../../../constants/assets_paths.dart';
 import '../../../extensions/context/applocalization_context.dart';
 import '../../../../data/models/match_model/match_model.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_const_variables.dart';
-import '../../../constants/text_styles.dart';
+import '../../../theme/custom_text_style.dart';
 
 class LiveMatchTileTeamsDisplay extends StatelessWidget {
   const LiveMatchTileTeamsDisplay({super.key, required this.liveMatch});
@@ -13,8 +14,8 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String homeTeamLogo = liveMatch.teams?.home?.logo ?? AppConstVariables.defaultTeamLogo;
-    final String awayTeamLogo = liveMatch.teams?.away?.logo ?? AppConstVariables.defaultTeamLogo;
+    final String homeTeamLogo = liveMatch.teams?.home?.logo ?? AssetsPaths.defaultTeamLogo;
+    final String awayTeamLogo = liveMatch.teams?.away?.logo ?? AssetsPaths.defaultTeamLogo;
     final String homeTeamName = liveMatch.teams?.home?.name ?? context.localizations.unknownHomeTeam;
     final String awayTeamName = liveMatch.teams?.away?.name ?? context.localizations.unknownAwayTeam;
     final String matchStatusShort = liveMatch.fixture?.status?.short ?? AppConstVariables.stringPlaceholder;

@@ -4,7 +4,7 @@ import '../../../../../../common/extensions/context/applocalization_context.dart
 import '../../../../../data/models/line_up_model/line_up_model.dart';
 import '../../../../../data/models/match_model/match_model.dart';
 import '../../../../../common/constants/app_colors.dart';
-import '../../../../../common/constants/text_styles.dart';
+import '../../../../../common/theme/custom_text_style.dart';
 
 class MatchLineUpTab extends StatelessWidget {
   const MatchLineUpTab({

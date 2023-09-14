@@ -10,7 +10,7 @@ import 'widgets/tabs/results_tab.dart';
 import 'widgets/tabs/standings_tab.dart';
 import 'widgets/tabs/stats_tab.dart';
 import '../../../../common/constants/app_colors.dart';
-import '../../../../common/constants/text_styles.dart';
+import '../../../../common/theme/custom_text_style.dart';
 
 import '../../../../../common/extensions/enums.dart';
 import '../../../../../common/widgets/custom_app_bar.dart';

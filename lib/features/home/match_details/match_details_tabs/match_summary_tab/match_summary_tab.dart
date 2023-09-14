@@ -5,7 +5,7 @@ import 'elements/second_half_event_display.dart';
 import '../../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../../data/models/match_model/match_model.dart';
 import '../../../../../data/models/match_events_model/match_events_model.dart';
-import '../../../../../common/constants/text_styles.dart';
+import '../../../../../common/theme/custom_text_style.dart';
 
 class MatchSummaryTab extends StatelessWidget {
   const MatchSummaryTab({

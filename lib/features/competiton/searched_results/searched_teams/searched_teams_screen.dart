@@ -6,7 +6,7 @@ import '../../cubit/competition_cubit.dart';
 import 'searched_teams_view.dart';
 import '../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../common/constants/app_colors.dart';
-import '../../../../common/constants/text_styles.dart';
+import '../../../../common/theme/custom_text_style.dart';
 
 class SearchedTeamsScreen extends StatelessWidget {
   const SearchedTeamsScreen(

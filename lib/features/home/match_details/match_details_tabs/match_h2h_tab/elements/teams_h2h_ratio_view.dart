@@ -7,7 +7,7 @@ import '../../../../../../../common/extensions/match/match_properties_getter_ext
 import '../../../../../../data/models/match_model/match_model.dart';
 import '../../../../../../common/constants/app_colors.dart';
 import '../../../../../../common/constants/app_const_variables.dart';
-import '../../../../../../common/constants/text_styles.dart';
+import '../../../../../../common/theme/custom_text_style.dart';
 
 class TeamsH2HRatioView extends StatelessWidget {
   const TeamsH2HRatioView({

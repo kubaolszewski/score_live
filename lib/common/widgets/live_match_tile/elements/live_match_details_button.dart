@@ -4,7 +4,7 @@ import '../../../../features/home/home_module.dart';
 import '../../../extensions/context/applocalization_context.dart';
 import '../../../../data/models/match_model/match_model.dart';
 import '../../../constants/app_colors.dart';
-import '../../../constants/text_styles.dart';
+import '../../../theme/custom_text_style.dart';
 
 class LiveMatchDetailsButton extends StatelessWidget {
   const LiveMatchDetailsButton({

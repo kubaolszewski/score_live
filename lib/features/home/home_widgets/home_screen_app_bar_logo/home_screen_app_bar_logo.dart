@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../common/constants/app_colors.dart';
-import '../../../../common/constants/text_styles.dart';
+import '../../../../common/theme/custom_text_style.dart';
 
 class HomeScreenAppBarLogo extends StatelessWidget {
   const HomeScreenAppBarLogo({

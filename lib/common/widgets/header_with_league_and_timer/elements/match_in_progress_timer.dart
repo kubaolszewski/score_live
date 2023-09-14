@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_const_variables.dart';
-import '../../../constants/text_styles.dart';
+import '../../../theme/custom_text_style.dart';
 
 class MatchInProgressTimer extends StatelessWidget {
   const MatchInProgressTimer({

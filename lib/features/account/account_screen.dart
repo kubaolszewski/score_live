@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../common/widgets/custom_app_bar.dart';
 import '../../../common/extensions/context/applocalization_context.dart';
 import '../../common/constants/app_colors.dart';
-import '../../common/constants/text_styles.dart';
+import '../../common/theme/custom_text_style.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({

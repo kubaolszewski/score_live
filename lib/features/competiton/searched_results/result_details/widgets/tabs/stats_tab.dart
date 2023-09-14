@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../../../../common/extensions/enums.dart';
 import '../../../../../../common/constants/app_const_variables.dart';
-import '../../../../../../common/constants/text_styles.dart';
+import '../../../../../../common/theme/custom_text_style.dart';
 
 import '../../../../../../data/models/topscorers_model/top_scorers_model.dart';
 import 'stats_sub_tabs/top_goals_sub_tab.dart';

@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import '../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../../common/extensions/date/date_formatter_ext.dart';
 import '../../../../common/constants/app_const_variables.dart';
-import '../../../../common/constants/text_styles.dart';
+import '../../../../common/theme/custom_text_style.dart';
 
 class MatchDetailsTitle extends StatelessWidget {
   const MatchDetailsTitle(this.title, this.matchDate, {super.key});

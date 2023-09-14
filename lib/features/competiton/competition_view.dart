@@ -11,7 +11,7 @@ import 'cubit/competition_cubit.dart';
 import '../../../common/extensions/context/applocalization_context.dart';
 import '../../../common/extensions/enums.dart';
 import '../../common/constants/app_colors.dart';
-import '../../common/constants/text_styles.dart';
+import '../../common/theme/custom_text_style.dart';
 
 class CompetitionView extends StatelessWidget {
   const CompetitionView({

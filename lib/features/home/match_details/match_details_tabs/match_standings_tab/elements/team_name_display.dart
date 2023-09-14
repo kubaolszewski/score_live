@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../../../data/models/standings_model/standings/standings.dart';
 import '../../../../../../common/constants/app_const_variables.dart';
-import '../../../../../../common/constants/text_styles.dart';
+import '../../../../../../common/theme/custom_text_style.dart';
 
 class TeamNameDisplay extends StatelessWidget {
   const TeamNameDisplay({

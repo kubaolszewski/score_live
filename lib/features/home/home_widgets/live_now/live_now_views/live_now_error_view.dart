@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../common/constants/text_styles.dart';
+import '../../../../../common/theme/custom_text_style.dart';
 
 class LiveNowErrorView extends StatelessWidget {
   const LiveNowErrorView({super.key, required this.errorMessage});

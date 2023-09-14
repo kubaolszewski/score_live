@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../constants/assets_paths.dart';
 import '../league_badge.dart';
 import 'elements/finished_match_info.dart';
 import 'elements/match_in_progress_timer.dart';
@@ -13,7 +14,7 @@ class HeaderWithLeagueAndTimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String flag = liveMatch.league?.flag ?? AppConstVariables.defaultLeagueLogo;
+    final String flag = liveMatch.league?.flag ?? AssetsPaths.defaultLeagueLogo;
     final String leagueName = liveMatch.league?.name ?? context.localizations.unknownLeague;
     final int matchTimeElapsed = liveMatch.fixture?.status?.elapsed ?? AppConstVariables.intPlaceholder;
     final String matchStatusShort = liveMatch.fixture?.status?.short ?? AppConstVariables.stringPlaceholder;

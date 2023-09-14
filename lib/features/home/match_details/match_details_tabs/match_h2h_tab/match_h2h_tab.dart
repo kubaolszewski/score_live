@@ -4,7 +4,7 @@ import 'elements/teams_h2h_ratio_view.dart';
 import '../../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../../data/models/match_model/match_model.dart';
 import '../../../../../common/constants/app_colors.dart';
-import '../../../../../common/constants/text_styles.dart';
+import '../../../../../common/theme/custom_text_style.dart';
 
 class MatchH2HTab extends StatelessWidget {
   const MatchH2HTab({super.key, required this.match, required this.teamsH2h});

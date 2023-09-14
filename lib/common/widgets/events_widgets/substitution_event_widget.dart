@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../constants/assets_paths.dart';
 import '../../extensions/context/applocalization_context.dart';
 import '../../constants/app_colors.dart';
-import '../../constants/text_styles.dart';
+import '../../theme/custom_text_style.dart';
 
 class SubstitutionEventWidget extends StatelessWidget {
   const SubstitutionEventWidget({

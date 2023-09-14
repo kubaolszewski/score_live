@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../common/widgets/search_list_tile.dart';
+import '../../../../common/constants/assets_paths.dart';
 import '../../cubit/competition_cubit.dart';
 import '../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../../common/extensions/context/dimensions_context.dart';
@@ -57,7 +58,7 @@ class SearchedTeamsView extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final team = teams[index];
                       final teamId = team.team?.id ?? AppConstVariables.intPlaceholder;
-                      final String teamFlag = team.team?.logo ?? AppConstVariables.defaultTeamLogo;
+                      final String teamFlag = team.team?.logo ?? AssetsPaths.defaultTeamLogo;
                       final String teamRegion = team.team?.country ?? AppConstVariables.stringPlaceholder;
                       final String teamName = team.team?.name ?? context.localizations.unknownTeam;
                       return SearchListTile(resultId: teamId, flag: teamFlag, region: teamRegion, name: teamName);

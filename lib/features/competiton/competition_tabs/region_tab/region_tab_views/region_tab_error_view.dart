@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../common/constants/text_styles.dart';
+import '../../../../../common/theme/custom_text_style.dart';
 
 class RegionTabErrorView extends StatelessWidget {
   const RegionTabErrorView({

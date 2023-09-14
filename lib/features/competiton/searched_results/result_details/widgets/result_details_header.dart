@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../cubit/competition_cubit.dart';
 
 import '../../../../../common/constants/app_colors.dart';
-import '../../../../../common/constants/text_styles.dart';
+import '../../../../../common/theme/custom_text_style.dart';
 import '../../../../../../common/widgets/search_list_tile.dart';
 
 class ResultDetailsHeader extends StatelessWidget {

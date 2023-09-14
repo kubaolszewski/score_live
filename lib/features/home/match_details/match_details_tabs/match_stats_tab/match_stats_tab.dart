@@ -5,7 +5,7 @@ import '../../../../../../common/extensions/context/applocalization_context.dart
 import '../../../../../../common/extensions/stats/stats_getter_ext.dart';
 import '../../../../../data/models/statistics_model/statistics_model.dart';
 import '../../../../../common/constants/app_colors.dart';
-import '../../../../../common/constants/text_styles.dart';
+import '../../../../../common/theme/custom_text_style.dart';
 
 class MatchStatsTab extends StatelessWidget {
   const MatchStatsTab({super.key, required this.matchStats});

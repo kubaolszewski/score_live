@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/text_styles.dart';
+import '../theme/custom_text_style.dart';
 
 class EventTextWithoutIcon extends StatelessWidget {
   const EventTextWithoutIcon({
