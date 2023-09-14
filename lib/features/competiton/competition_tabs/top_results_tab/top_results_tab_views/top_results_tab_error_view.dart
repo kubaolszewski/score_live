@@ -14,7 +14,7 @@ class TopResultsTabErrorView extends StatelessWidget {
     return Center(
       child: Text(
         errorMessage,
-        style: CommonTextStyles.basicWhiteTextWithWeight,
+        style: const CustomTextStyle(color: Colors.white, fontWeight: FontWeight.w700),
       ),
     );
   }

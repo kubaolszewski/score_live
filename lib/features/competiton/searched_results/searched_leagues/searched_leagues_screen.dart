@@ -26,7 +26,7 @@ class SearchedLeaguesScreen extends StatelessWidget {
             )),
         title: Text(
           context.localizations.searchHeader,
-          style: CommonTextStyles.basicWhiteTextWithWeight,
+          style: const CustomTextStyle(color: Colors.white, fontWeight: FontWeight.w700),
         ),
       ),
       body: BlocProvider<CompetitionCubit>(

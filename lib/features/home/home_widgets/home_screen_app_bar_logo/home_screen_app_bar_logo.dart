@@ -16,7 +16,7 @@ class HomeScreenAppBarLogo extends StatelessWidget {
         children: [
           Text(
             context.localizations.appTitle,
-            style: CommonTextStyles.basicWhiteTextWithWeight,
+            style: const CustomTextStyle(color: Colors.white, fontWeight: FontWeight.w700),
           ),
           const Positioned(
             right: 10,
