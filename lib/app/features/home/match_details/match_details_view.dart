@@ -40,6 +40,7 @@ class MatchDetailsView extends StatelessWidget {
         actions: const [
           //TODO: Replace with IconButton later
           Icon(Icons.share, color: Colors.white, size: 20),
+          SizedBox(width: 10),
           Icon(Icons.star_rate_rounded, color: Colors.white, size: 20),
         ],
       ),

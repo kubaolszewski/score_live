@@ -31,12 +31,14 @@ class ResultDetailsView extends StatelessWidget {
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(
         title: Center(
-          child: Text(
-            context.localizations.navCompetition,
-            style: const CustomTextStyle(
-              fontSize: 16,
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
+          child: FittedBox(
+            child: Text(
+              context.localizations.navCompetition,
+              style: const CustomTextStyle(
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
         ),
