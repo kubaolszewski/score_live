@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/match_events_model/event_assist/event_assist.dart';
-import 'package:score_live/models/match_events_model/event_player/event_player.dart';
-import 'package:score_live/models/match_events_model/event_team/event_team.dart';
-import 'package:score_live/models/match_events_model/event_time/event_time.dart';
+import 'event_assist/event_assist.dart';
+import 'event_player/event_player.dart';
+import 'event_team/event_team.dart';
+import 'event_time/event_time.dart';
 
 part 'match_events_model.freezed.dart';
 part 'match_events_model.g.dart';

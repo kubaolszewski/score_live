@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../../presentation/constants/app_colors.dart';
+import '../../../../../presentation/constants/text_styles.dart';
 
 class HomeScreenAppBarLogo extends StatelessWidget {
   const HomeScreenAppBarLogo({

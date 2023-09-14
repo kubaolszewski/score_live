@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
-import 'package:score_live/app/features/home/home_tabs/score_tab/score_tab_views/score_tab_error_view.dart';
-import 'package:score_live/app/features/home/home_tabs/score_tab/score_tab_views/score_tab_loaded_view.dart';
-import 'package:score_live/app/features/home/home_tabs/score_tab/score_tab_views/score_tab_loading_view.dart';
+import 'cubit/score_tab_cubit.dart';
+import 'score_tab_views/score_tab_error_view.dart';
+import 'score_tab_views/score_tab_loaded_view.dart';
+import 'score_tab_views/score_tab_loading_view.dart';
 
 class ScoreTab extends StatelessWidget {
   const ScoreTab({

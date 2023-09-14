@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:score_live/app/features/competiton/competition_tabs/region_tab/cubit/region_tab_cubit.dart';
-import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
-import 'package:score_live/app/features/competiton/competition_view.dart';
-import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
+import 'competition_tabs/region_tab/cubit/region_tab_cubit.dart';
+import 'competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
+import 'competition_view.dart';
+import 'cubit/competition_cubit.dart';
 
 class CompetitionScreen extends StatelessWidget {
   const CompetitionScreen({super.key});

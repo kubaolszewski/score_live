@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/cubit/top_results_tab_cubit.dart';
-import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/top_results_tab_views/top_results_tab_error_view.dart';
-import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/top_results_tab_views/top_results_tab_loaded_view.dart';
-import 'package:score_live/app/features/competiton/competition_tabs/top_results_tab/top_results_tab_views/top_results_tab_loading_view.dart';
+import 'cubit/top_results_tab_cubit.dart';
+import 'top_results_tab_views/top_results_tab_error_view.dart';
+import 'top_results_tab_views/top_results_tab_loaded_view.dart';
+import 'top_results_tab_views/top_results_tab_loading_view.dart';
 
 class TopResultsTab extends StatelessWidget {
   const TopResultsTab({

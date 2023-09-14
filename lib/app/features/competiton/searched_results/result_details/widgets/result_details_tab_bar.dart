@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/app/features/competiton/searched_results/result_details/cubit/result_details_cubit.dart';
+import '../../../../../common/extensions/context/applocalization_context.dart';
+import '../cubit/result_details_cubit.dart';
 
 import '../../../../../common/extensions/enums.dart';
 import '../../../../../common/widgets/options_button.dart';

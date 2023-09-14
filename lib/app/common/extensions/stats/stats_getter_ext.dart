@@ -1,5 +1,5 @@
-import 'package:score_live/models/statistics_model/statistics_model.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
+import '../../../../models/statistics_model/statistics_model.dart';
+import '../../../../presentation/constants/app_const_variables.dart';
 
 extension StatsGetter on List<StatisticsModel> {
   StatisticsModel get homeTeam => elementAt(0);

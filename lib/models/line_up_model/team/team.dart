@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/line_up_model/team_colors/team_colors.dart';
+import '../team_colors/team_colors.dart';
 
 part 'team.freezed.dart';
 part 'team.g.dart';

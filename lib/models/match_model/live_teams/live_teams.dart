@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/match_model/live_away_team/live_away_team.dart';
-import 'package:score_live/models/match_model/live_home_team/live_home_team.dart';
+import '../live_away_team/live_away_team.dart';
+import '../live_home_team/live_home_team.dart';
 
 part 'live_teams.freezed.dart';
 part 'live_teams.g.dart';

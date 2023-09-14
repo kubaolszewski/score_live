@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
-import 'package:score_live/app/features/competiton/competition_module.dart';
-import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/app/common/extensions/enums.dart';
-import 'package:score_live/app/common/extensions/string/string_formatters_ext.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../competition_module.dart';
+import '../cubit/competition_cubit.dart';
+import '../../../common/extensions/context/applocalization_context.dart';
+import '../../../common/extensions/enums.dart';
+import '../../../common/extensions/string/string_formatters_ext.dart';
+import '../../../../presentation/constants/app_colors.dart';
+import '../../../../presentation/constants/app_const_variables.dart';
+import '../../../../presentation/constants/text_styles.dart';
 
 class CompetitionSearchBar extends StatelessWidget {
   CompetitionSearchBar({super.key});

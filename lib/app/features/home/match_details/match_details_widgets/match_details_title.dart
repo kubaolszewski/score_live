@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/app/common/extensions/date/date_formatter_ext.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../common/extensions/date/date_formatter_ext.dart';
+import '../../../../../presentation/constants/app_const_variables.dart';
+import '../../../../../presentation/constants/text_styles.dart';
 
 class MatchDetailsTitle extends StatelessWidget {
   const MatchDetailsTitle(this.title, this.matchDate, {super.key});

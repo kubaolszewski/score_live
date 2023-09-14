@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/standings_model/standings/standings.dart';
+import 'standings/standings.dart';
 
 part 'standings_model.freezed.dart';
 part 'standings_model.g.dart';

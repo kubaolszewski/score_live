@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-import 'package:score_live/models/league_model/league_model.dart';
-import 'package:score_live/repositories/competition/competition_screen_repository.dart';
+import '../../../../../../models/league_model/league_model.dart';
+import '../../../../../../repositories/competition/competition_screen_repository.dart';
 
 part 'top_results_tab_state.dart';
 part 'top_results_tab_cubit.freezed.dart';

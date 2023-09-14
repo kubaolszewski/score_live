@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/features/landing/landing_view.dart';
+import 'landing_view.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({

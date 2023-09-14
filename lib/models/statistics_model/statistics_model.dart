@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/statistics_model/statistic/statistic.dart';
-import 'package:score_live/models/statistics_model/team/team.dart';
+import 'statistic/statistic.dart';
+import 'team/team.dart';
 
 part 'statistics_model.freezed.dart';
 part 'statistics_model.g.dart';

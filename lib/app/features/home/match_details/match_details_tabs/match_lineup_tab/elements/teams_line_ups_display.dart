@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:score_live/app/common/widgets/event_text_without_icon.dart';
-import 'package:score_live/app/common/extensions/line_ups/line_ups_getter_ext.dart';
-import 'package:score_live/models/line_up_model/line_up_model.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../../../../../common/widgets/event_text_without_icon.dart';
+import '../../../../../../common/extensions/line_ups/line_ups_getter_ext.dart';
+import '../../../../../../../models/line_up_model/line_up_model.dart';
+import '../../../../../../../presentation/constants/text_styles.dart';
 
 class TeamsLineUpsDisplay extends StatelessWidget {
   const TeamsLineUpsDisplay({super.key, required this.lineUps, required this.isHomeTeam});

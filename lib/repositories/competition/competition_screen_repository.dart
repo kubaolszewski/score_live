@@ -1,6 +1,6 @@
-import 'package:score_live/service/remote/browsing_service/browsing_remote_service.dart';
-import 'package:score_live/models/league_model/league_model.dart';
-import 'package:score_live/models/team_model/team_model.dart';
+import '../../service/remote/browsing_service/browsing_remote_service.dart';
+import '../../models/league_model/league_model.dart';
+import '../../models/team_model/team_model.dart';
 
 class CompetitionScreenRepository {
   CompetitionScreenRepository(this.browsingRemoteService);

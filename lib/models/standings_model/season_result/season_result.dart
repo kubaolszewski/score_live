@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/standings_model/season_goals/season_goals.dart';
+import '../season_goals/season_goals.dart';
 
 part 'season_result.freezed.dart';
 part 'season_result.g.dart';

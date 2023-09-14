@@ -1,11 +1,11 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/features/home/cubit/home_cubit.dart';
-import 'package:score_live/app/features/home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
-import 'package:score_live/app/features/home/home_tabs/upcoming_tab/cubit/upcoming_tab_cubit.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
+import '../../cubit/home_cubit.dart';
+import '../../home_tabs/score_tab/cubit/score_tab_cubit.dart';
+import '../../home_tabs/upcoming_tab/cubit/upcoming_tab_cubit.dart';
+import '../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../../presentation/constants/app_colors.dart';
 
 class HomeScreenDatePicker extends StatelessWidget {
   const HomeScreenDatePicker({super.key});

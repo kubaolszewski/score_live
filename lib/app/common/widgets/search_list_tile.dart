@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:score_live/app/features/competiton/competition_module.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
+import '../../features/competiton/competition_module.dart';
+import '../../../presentation/constants/app_colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class SearchListTile extends StatelessWidget {

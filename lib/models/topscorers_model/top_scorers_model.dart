@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:score_live/models/topscorers_model/birth/birth.dart';
+import 'birth/birth.dart';
 
 import 'player_statistic/player_statistic.dart';
 

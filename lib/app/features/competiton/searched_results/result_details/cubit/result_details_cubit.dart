@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-import 'package:score_live/models/standings_model/standings_model.dart';
-import 'package:score_live/models/topscorers_model/top_scorers_model.dart';
-import 'package:score_live/repositories/competition/searched_result_details_repository.dart';
+import '../../../../../../models/standings_model/standings_model.dart';
+import '../../../../../../models/topscorers_model/top_scorers_model.dart';
+import '../../../../../../repositories/competition/searched_result_details_repository.dart';
 
 import '../../../../../../models/match_model/match_model.dart';
 import '../../../../../common/extensions/enums.dart';

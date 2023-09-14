@@ -1,9 +1,9 @@
-import 'package:score_live/service/remote/match_details_service/match_details_remote_service.dart';
-import 'package:score_live/models/line_up_model/line_up_model.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/models/match_events_model/match_events_model.dart';
-import 'package:score_live/models/standings_model/standings_model.dart';
-import 'package:score_live/models/statistics_model/statistics_model.dart';
+import '../../service/remote/match_details_service/match_details_remote_service.dart';
+import '../../models/line_up_model/line_up_model.dart';
+import '../../models/match_model/match_model.dart';
+import '../../models/match_events_model/match_events_model.dart';
+import '../../models/standings_model/standings_model.dart';
+import '../../models/statistics_model/statistics_model.dart';
 
 class MatchDetailsRepository {
   MatchDetailsRepository(this.matchDetailsRemoteService);

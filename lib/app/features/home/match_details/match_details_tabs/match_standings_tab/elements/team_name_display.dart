@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/models/standings_model/standings/standings.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../../../../models/standings_model/standings/standings.dart';
+import '../../../../../../../presentation/constants/app_const_variables.dart';
+import '../../../../../../../presentation/constants/text_styles.dart';
 
 class TeamNameDisplay extends StatelessWidget {
   const TeamNameDisplay({

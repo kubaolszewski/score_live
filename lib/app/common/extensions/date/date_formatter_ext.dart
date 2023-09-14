@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
+import '../../../../presentation/constants/app_const_variables.dart';
 
 final _dateYyyyMmDdDashFormat = DateFormat(AppConstVariables.dateYyyyMmDdDashFormat);
 const _basicDateTimeWithHourFormat = 'yyyy-MM-ddTkk:mm';

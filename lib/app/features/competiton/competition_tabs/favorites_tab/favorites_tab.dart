@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
+import '../../../../../presentation/constants/app_colors.dart';
 
 class FavoritesTab extends StatelessWidget {
   const FavoritesTab({super.key});

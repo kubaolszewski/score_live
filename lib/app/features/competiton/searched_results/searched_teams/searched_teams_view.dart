@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/common/widgets/search_list_tile.dart';
-import 'package:score_live/app/features/competiton/cubit/competition_cubit.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/app/common/extensions/context/dimensions_context.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/app_const_variables.dart';
+import '../../../../common/widgets/search_list_tile.dart';
+import '../../cubit/competition_cubit.dart';
+import '../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../common/extensions/context/dimensions_context.dart';
+import '../../../../../presentation/constants/app_colors.dart';
+import '../../../../../presentation/constants/app_const_variables.dart';
 
 class SearchedTeamsView extends StatelessWidget {
   const SearchedTeamsView({super.key});

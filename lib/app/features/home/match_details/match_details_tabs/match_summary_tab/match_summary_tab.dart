@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_summary_tab/elements/first_half_events_display.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_summary_tab/elements/halves_results_display.dart';
-import 'package:score_live/app/features/home/match_details/match_details_tabs/match_summary_tab/elements/second_half_event_display.dart';
-import 'package:score_live/app/common/extensions/context/applocalization_context.dart';
-import 'package:score_live/models/match_model/match_model.dart';
-import 'package:score_live/models/match_events_model/match_events_model.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import 'elements/first_half_events_display.dart';
+import 'elements/halves_results_display.dart';
+import 'elements/second_half_event_display.dart';
+import '../../../../../common/extensions/context/applocalization_context.dart';
+import '../../../../../../models/match_model/match_model.dart';
+import '../../../../../../models/match_events_model/match_events_model.dart';
+import '../../../../../../presentation/constants/text_styles.dart';
 
 class MatchSummaryTab extends StatelessWidget {
   const MatchSummaryTab({

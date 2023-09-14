@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:score_live/app/common/widgets/custom_app_bar.dart';
-import 'package:score_live/app/features/home/cubit/home_cubit.dart';
-import 'package:score_live/app/features/home/home_tabs/favorites_tab/favorites_tab.dart';
-import 'package:score_live/app/features/home/home_tabs/score_tab/score_tab.dart';
-import 'package:score_live/app/features/home/home_tabs/upcoming_tab/upcoming_tab.dart';
-import 'package:score_live/app/features/home/home_widgets/home_live_section_heading/home_live_section_heading.dart';
-import 'package:score_live/app/features/home/home_widgets/home_options_tap_bar/home_options_tap_bar.dart';
-import 'package:score_live/app/features/home/home_widgets/home_screen_app_bar_logo/home_screen_app_bar_logo.dart';
-import 'package:score_live/app/features/home/home_widgets/home_screen_date_picker/home_screen_date_picker.dart';
-import 'package:score_live/app/features/home/home_widgets/live_now/live_now.dart';
-import 'package:score_live/app/common/extensions/enums.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
+import '../../common/widgets/custom_app_bar.dart';
+import 'cubit/home_cubit.dart';
+import 'home_tabs/favorites_tab/favorites_tab.dart';
+import 'home_tabs/score_tab/score_tab.dart';
+import 'home_tabs/upcoming_tab/upcoming_tab.dart';
+import 'home_widgets/home_live_section_heading/home_live_section_heading.dart';
+import 'home_widgets/home_options_tap_bar/home_options_tap_bar.dart';
+import 'home_widgets/home_screen_app_bar_logo/home_screen_app_bar_logo.dart';
+import 'home_widgets/home_screen_date_picker/home_screen_date_picker.dart';
+import 'home_widgets/live_now/live_now.dart';
+import '../../common/extensions/enums.dart';
+import '../../../presentation/constants/app_colors.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({

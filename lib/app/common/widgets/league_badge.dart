@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:score_live/presentation/constants/app_colors.dart';
-import 'package:score_live/presentation/constants/text_styles.dart';
+import '../../../presentation/constants/app_colors.dart';
+import '../../../presentation/constants/text_styles.dart';
 
 class LeagueBadge extends StatelessWidget {
   const LeagueBadge({
