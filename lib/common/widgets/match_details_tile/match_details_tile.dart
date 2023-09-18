@@ -28,7 +28,7 @@ class MatchDetailsTile extends StatelessWidget {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              HeaderWithLeagueAndTimer(liveMatch: liveMatch),
+              HeaderWithLeagueAndTimer(match: liveMatch),
               const SizedBox(height: 5),
               MatchResultDisplay(liveMatch: liveMatch),
               const SizedBox(height: 5),

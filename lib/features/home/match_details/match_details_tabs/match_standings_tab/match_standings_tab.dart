@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../common/extensions/match/match_properties_getter_ext.dart';
 import 'elements/league_standings_header.dart';
 import 'elements/team_name_display.dart';
 import 'elements/team_stats_display.dart';
@@ -48,8 +49,8 @@ class MatchStandingsTab extends StatelessWidget {
             primary: false,
             itemCount: leagueStandings.length,
             itemBuilder: (context, index) {
-              final homeTeamId = match.teams?.home?.id ?? AppConstVariables.intPlaceholder;
-              final awayTeamId = match.teams?.away?.id ?? AppConstVariables.intPlaceholder;
+              final homeTeamId = match.homeTeamId;
+              final awayTeamId = match.awayTeamId;
               final teamId = leagueStandings[index].team?.id ?? AppConstVariables.intPlaceholder;
               return Column(
                 children: [

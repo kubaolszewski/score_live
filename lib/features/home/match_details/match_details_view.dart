@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../common/widgets/custom_app_bar.dart';
 import '../../../../common/widgets/match_details_tile/match_details_tile.dart';
+import '../../../common/extensions/match/match_properties_getter_ext.dart';
 import 'cubit/match_details_cubit.dart';
 import 'match_details_tabs/match_h2h_tab/match_h2h_tab.dart';
 import 'match_details_tabs/match_lineup_tab/match_lineup_tab.dart';
@@ -15,7 +16,6 @@ import '../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../common/extensions/enums.dart';
 import '../../../data/models/match_model/match_model.dart';
 import '../../../common/constants/app_colors.dart';
-import '../../../common/constants/app_const_variables.dart';
 
 class MatchDetailsView extends StatelessWidget {
   const MatchDetailsView({
@@ -28,7 +28,7 @@ class MatchDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String leagueName = liveMatch.league?.name ?? context.localizations.unknownLeague;
-    final String matchDate = liveMatch.fixture?.date ?? AppConstVariables.stringPlaceholder;
+    final String matchDate = liveMatch.matchStartTime;
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
       appBar: CustomAppBar(

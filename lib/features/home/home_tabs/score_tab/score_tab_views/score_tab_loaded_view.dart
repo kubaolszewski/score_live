@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../common/widgets/league_badge.dart';
 import '../../../../../../common/widgets/wide_match_tile/wide_match_tile.dart';
 import '../../../../../../common/extensions/context/applocalization_context.dart';
-import '../../../../../common/constants/assets_paths.dart';
+import '../../../../../common/extensions/match/match_properties_getter_ext.dart';
 import '../../../../../data/models/match_model/match_model.dart';
 import '../../../../../common/constants/app_const_variables.dart';
 import '../../../../../common/theme/custom_text_style.dart';
@@ -40,7 +40,7 @@ class ScoreTabLoadedView extends StatelessWidget {
         itemCount: matchesByDate.length,
         itemBuilder: (context, index) {
           final match = matchesByDate[index];
-          final String flag = match.league?.flag ?? AssetsPaths.defaultLeagueLogo;
+          final String flag = match.leagueFlag;
           final String leagueName = match.league?.name ?? context.localizations.unknownLeague;
           return Column(
             children: [

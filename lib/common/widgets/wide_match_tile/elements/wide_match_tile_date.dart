@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../../../data/models/match_model/match_model.dart';
-import '../../../constants/app_const_variables.dart';
 import '../../../constants/app_colors.dart';
+import '../../../extensions/match/match_properties_getter_ext.dart';
 
 class WideMatchTileDate extends StatelessWidget {
   const WideMatchTileDate({
@@ -14,17 +14,17 @@ class WideMatchTileDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String matchStatus = match.fixture?.status?.short ?? AppConstVariables.stringPlaceholder;
-    final String longStringDate = match.fixture?.date ?? AppConstVariables.stringPlaceholder;
-    final DateTime formattedDate = DateTime.parse(longStringDate);
-    final String matchDate = DateFormat('dd/M').format(formattedDate);
+    final String matchStatusShort = match.matchStatusShort;
+    final String matchDate = DateFormat('dd/M').format(
+      DateTime.parse(match.matchStartTime),
+    );
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
       child: Column(
         children: [
           Text(
-            matchStatus,
+            matchStatusShort,
             style: const TextStyle(color: AppColors.inactiveTextGrey, fontWeight: FontWeight.bold),
           ),
           Text(
