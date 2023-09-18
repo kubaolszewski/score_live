@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../../../../../common/widgets/event_text_with_icon.dart';
 import '../../../../../../../common/extensions/match_events/events_validation_ext.dart';
+import '../../../../../../common/extensions/match/match_properties_getter_ext.dart';
 import '../../../../../../data/models/match_model/match_model.dart';
 import '../../../../../../data/models/match_events_model/match_events_model.dart';
 import '../../../../../../common/constants/app_colors.dart';
-import '../../../../../../common/constants/app_const_variables.dart';
 
 class FirstHalfEventsDisplay extends StatelessWidget {
   const FirstHalfEventsDisplay({super.key, required this.liveMatch, required this.matchEvents});
@@ -14,8 +14,8 @@ class FirstHalfEventsDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeTeamID = liveMatch.teams?.home?.id ?? AppConstVariables.intPlaceholder;
-    final awayTeamID = liveMatch.teams?.away?.id ?? AppConstVariables.intPlaceholder;
+    final homeTeamID = liveMatch.homeTeamId;
+    final awayTeamID = liveMatch.awayTeamId;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),

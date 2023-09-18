@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../common/widgets/event_text_without_icon.dart';
+import '../../../../common/extensions/match/match_properties_getter_ext.dart';
 import '../cubit/match_details_cubit.dart';
 import '../../../../../common/extensions/match_events/events_validation_ext.dart';
 import '../../../../data/models/match_model/match_model.dart';
 import '../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../common/constants/app_colors.dart';
-import '../../../../common/constants/app_const_variables.dart';
 
 class MatchGoalsWidget extends StatelessWidget {
   const MatchGoalsWidget(this.liveMatch, {super.key});
@@ -15,8 +15,8 @@ class MatchGoalsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int homeTeamID = liveMatch.teams?.home?.id ?? AppConstVariables.intPlaceholder;
-    final int awayTeamID = liveMatch.teams?.away?.id ?? AppConstVariables.intPlaceholder;
+    final int homeTeamID = liveMatch.homeTeamId;
+    final int awayTeamID = liveMatch.awayTeamId;
 
     return BlocBuilder<MatchDetailsCubit, MatchDetailsState>(
       builder: (context, state) {

@@ -28,7 +28,7 @@ class LiveMatchTile extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            HeaderWithLeagueAndTimer(liveMatch: liveMatch),
+            HeaderWithLeagueAndTimer(match: liveMatch),
             LiveMatchTileTeamsDisplay(liveMatch: liveMatch),
             LiveMatchDetailsButton(liveMatch: liveMatch),
           ],

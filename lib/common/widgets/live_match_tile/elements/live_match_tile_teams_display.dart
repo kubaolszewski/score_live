@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import '../../../constants/assets_paths.dart';
 import '../../../extensions/context/applocalization_context.dart';
 import '../../../../data/models/match_model/match_model.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_const_variables.dart';
+import '../../../extensions/match/match_properties_getter_ext.dart';
 import '../../../theme/custom_text_style.dart';
 
 class LiveMatchTileTeamsDisplay extends StatelessWidget {
@@ -14,14 +14,14 @@ class LiveMatchTileTeamsDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String homeTeamLogo = liveMatch.teams?.home?.logo ?? AssetsPaths.defaultTeamLogo;
-    final String awayTeamLogo = liveMatch.teams?.away?.logo ?? AssetsPaths.defaultTeamLogo;
     final String homeTeamName = liveMatch.teams?.home?.name ?? context.localizations.unknownHomeTeam;
     final String awayTeamName = liveMatch.teams?.away?.name ?? context.localizations.unknownAwayTeam;
-    final String matchStatusShort = liveMatch.fixture?.status?.short ?? AppConstVariables.stringPlaceholder;
-    final String matchStatusLong = liveMatch.fixture?.status?.long ?? AppConstVariables.stringPlaceholder;
-    final int homeGoals = liveMatch.goals?.home ?? AppConstVariables.intPlaceholder;
-    final int awayGoals = liveMatch.goals?.away ?? AppConstVariables.intPlaceholder;
+    final String homeTeamLogo = liveMatch.homeTeamLogo;
+    final String awayTeamLogo = liveMatch.awayTeamLogo;
+    final String matchStatusShort = liveMatch.matchStatusShort;
+    final String matchStatusLong = liveMatch.matchStatusLong;
+    final int homeGoals = liveMatch.homeTeamGoals;
+    final int awayGoals = liveMatch.awayTeamGoals;
 
     return Padding(
       padding: const EdgeInsets.all(12.0),
