@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import '../../../../../../common/widgets/search_list_tile.dart';
 import '../../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../../../common/extensions/context/dimensions_context.dart';
-import '../../../../../common/constants/assets_paths.dart';
+import '../../../../../common/extensions/league/league_getter_ext.dart';
 import '../../../../../data/models/league_model/league_model.dart';
-import '../../../../../common/constants/app_const_variables.dart';
 
 class RegionTabLoadedView extends StatelessWidget {
   const RegionTabLoadedView({super.key, required this.leaguesbyRegion});
@@ -42,10 +41,10 @@ class RegionTabLoadedView extends StatelessWidget {
                 itemCount: leaguesbyRegion.length,
                 itemBuilder: (context, index) {
                   final league = leaguesbyRegion[index];
-                  final leagueId = league.league?.id ?? AppConstVariables.intPlaceholder;
-                  final String leagueFlag = league.country?.flag ?? AssetsPaths.defaultLeagueLogo;
-                  final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
-                  final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
+                  final leagueName = league.league?.name ?? context.localizations.unknownLeague;
+                  final leagueId = league.leagueId;
+                  final leagueFlag = league.leagueFlag;
+                  final leagueRegion = league.leagueRegion;
                   return SearchListTile(resultId: leagueId, flag: leagueFlag, region: leagueRegion, name: leagueName);
                 },
               ),

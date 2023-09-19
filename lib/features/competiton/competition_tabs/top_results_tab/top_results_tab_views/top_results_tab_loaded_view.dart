@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import '../../../../../../common/widgets/search_list_tile.dart';
 import '../../../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../../../common/extensions/context/dimensions_context.dart';
-import '../../../../../common/constants/assets_paths.dart';
+import '../../../../../common/extensions/league/league_getter_ext.dart';
 import '../../../../../data/models/league_model/league_model.dart';
 import '../../../../../common/constants/app_colors.dart';
-import '../../../../../common/constants/app_const_variables.dart';
 
 class TopResultsTabLoadedView extends StatelessWidget {
   const TopResultsTabLoadedView({super.key, required this.results});
@@ -15,7 +14,7 @@ class TopResultsTabLoadedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = context.mediaQueryHeight;
-    double width = AppConstVariables.widthInfinity;
+    double width = context.mediaQueryWidth;
     if (results.isEmpty) {
       return SizedBox(
         height: 200,
@@ -51,10 +50,10 @@ class TopResultsTabLoadedView extends StatelessWidget {
               itemCount: results.length,
               itemBuilder: (context, index) {
                 final league = results[index];
-                final leagueId = league.league?.id ?? AppConstVariables.intPlaceholder;
-                final String leagueFlag = league.country?.flag ?? AssetsPaths.defaultLeagueLogo;
-                final String leagueRegion = league.country?.name ?? AppConstVariables.stringPlaceholder;
-                final String leagueName = league.league?.name ?? context.localizations.unknownLeague;
+                final leagueName = league.league?.name ?? context.localizations.unknownLeague;
+                final leagueId = league.leagueId;
+                final leagueFlag = league.leagueFlag;
+                final leagueRegion = league.leagueRegion;
                 return SearchListTile(resultId: leagueId, flag: leagueFlag, region: leagueRegion, name: leagueName);
               },
             ),
