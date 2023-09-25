@@ -67,5 +67,6 @@
   "resultStandingsTab" : "Tabela",
   "resultStatsTab" : "Statystyki",
 
-  "accountAppBarTitle" : "Moje konto"
+  "accountAppBarTitle" : "Moje konto",
+  "temporarySampleName" : "John Doe"
 }

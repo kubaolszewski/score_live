@@ -78,5 +78,6 @@
   "resultStatsTab" : "Stats",
 
   
-  "accountAppBarTitle" : "My Account"
+  "accountAppBarTitle" : "My Account",
+  "temporarySampleName" : "John Doe"
 }
