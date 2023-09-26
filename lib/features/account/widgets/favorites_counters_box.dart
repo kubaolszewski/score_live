@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../common/constants/app_colors.dart';
+import '../../../common/extensions/context/applocalization_context.dart';
 import '../../../common/theme/custom_text_style.dart';
 import 'favorites_counter_text.dart';
 
@@ -18,11 +19,11 @@ class FavoritesCountersBox extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'My favorites',
-                  style: CustomTextStyle(
+                  context.localizations.accountFavoritesHeader,
+                  style: const CustomTextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w300,
                     color: Colors.white,
@@ -37,14 +38,14 @@ class FavoritesCountersBox extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   color: AppColors.listTileGrey,
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.all(12.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FavoritesCounterText(text: 'Competitions'),
-                      FavoritesCounterText(text: 'Competitions'),
-                      FavoritesCounterText(text: 'Players'),
+                      FavoritesCounterText(text: context.localizations.accountCompetitionsCounterHeader),
+                      FavoritesCounterText(text: context.localizations.accountCompetitionsCounterHeader),
+                      FavoritesCounterText(text: context.localizations.accountPlayersCounterHeader),
                     ],
                   ),
                 ),

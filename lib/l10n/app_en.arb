@@ -79,5 +79,13 @@
 
   
   "accountAppBarTitle" : "My Account",
-  "temporarySampleName" : "John Doe"
+  "temporarySampleName" : "John Doe",
+  "accountFavoritesHeader" : "Favorites",
+  "accountCompetitionsCounterHeader" : "Competitions",
+  "accountPlayersCounterHeader" : "Players",
+  "accountGeneralSettingsHeader" : "General",
+  "accountAppNotificationsSwitch" : "App Notifications",
+  "accountDarkThemeSwitch" : "Dark Theme",
+  "accountFilterOptions" : "Filter Matches By",
+  "accountLanguageOptions" : "Language"
 }

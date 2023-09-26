@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../common/constants/app_colors.dart';
+import '../../../common/extensions/context/applocalization_context.dart';
 import '../../../common/extensions/context/dimensions_context.dart';
-import '../../../common/theme/custom_text_style.dart';
+import '../../../common/widgets/default_divider.dart';
 import 'list_tile_with_selection.dart';
 import 'list_tile_with_switch.dart';
+import 'menu_dropdown_tile.dart';
 
 class GeneralSettingsMenu extends StatefulWidget {
   const GeneralSettingsMenu({
@@ -16,7 +18,7 @@ class GeneralSettingsMenu extends StatefulWidget {
 }
 
 class _GeneralSettingsMenuState extends State<GeneralSettingsMenu> {
-  bool isVisible = false;
+  bool isVisible = true;
   bool darkTheme = false;
   bool enableNotifications = false;
 
@@ -33,29 +35,9 @@ class _GeneralSettingsMenuState extends State<GeneralSettingsMenu> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTile(
-              title: const Text(
-                'General',
-                style: CustomTextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              trailing: IconButton(
-                icon: isVisible
-                    ? const Icon(
-                        Icons.keyboard_arrow_down,
-                        size: 26,
-                        color: Colors.white,
-                      )
-                    : const Icon(
-                        Icons.keyboard_arrow_up,
-                        size: 26,
-                        color: Colors.white,
-                      ),
-                onPressed: () => setState(() => isVisible = !isVisible),
-              ),
+            MenuDropdownTile(
+              dropdownController: isVisible,
+              onPressed: () => setState(() => isVisible = !isVisible),
             ),
             isVisible
                 ? ListView(
@@ -64,28 +46,21 @@ class _GeneralSettingsMenuState extends State<GeneralSettingsMenu> {
                     children: [
                       ListTileWithSwitch(
                         switchController: enableNotifications,
-                        label: 'App Notifications',
+                        label: context.localizations.accountAppNotificationsSwitch,
                         onChanged: (bool newValue) => setState(() => enableNotifications = newValue),
                       ),
-                      const Divider(
-                        color: Colors.grey,
-                        thickness: 0.5,
-                      ),
+                      const DefaultDivider(),
                       ListTileWithSwitch(
                         switchController: darkTheme,
-                        label: 'Dark Theme',
+                        label: context.localizations.accountDarkThemeSwitch,
                         onChanged: (bool newValue) => setState(() => darkTheme = newValue),
                       ),
-                      const Divider(
-                        color: Colors.grey,
-                        thickness: 0.5,
-                      ),
-                      const ListTileWithSelection(label: 'Filter Matches By', option: 'League'),
-                      const Divider(
-                        color: Colors.grey,
-                        thickness: 0.5,
-                      ),
-                      const ListTileWithSelection(label: 'Language', option: 'English')
+                      const DefaultDivider(),
+                      //TODO: Replace hardcoded text with enum switch later
+                      ListTileWithSelection(label: context.localizations.accountFilterOptions, option: 'League'),
+                      const DefaultDivider(),
+                      //TODO: Replace hardcoded text with enum switch later
+                      ListTileWithSelection(label: context.localizations.accountLanguageOptions, option: 'English')
                     ],
                   )
                 : const SizedBox.shrink(),
