@@ -18,7 +18,7 @@ class AvatarWidget extends StatelessWidget {
           Column(
             children: [
               const CircleAvatar(
-                radius: 48,
+                radius: 36,
                 child: Icon(
                   Icons.person_outline,
                   size: 64,

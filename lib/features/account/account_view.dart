@@ -22,14 +22,16 @@ class AccountView extends StatelessWidget {
         context.localizations.accountAppBarTitle,
         style: const CustomTextStyle(color: Colors.white, fontWeight: FontWeight.w700),
       )),
-      body: const Column(
-        children: [
-          AvatarWidget(),
-          SizedBox(height: 14),
-          FavoritesCountersBox(),
-          SizedBox(height: 24),
-          GeneralSettingsMenu()
-        ],
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            AvatarWidget(),
+            SizedBox(height: 14),
+            FavoritesCountersBox(),
+            SizedBox(height: 24),
+            GeneralSettingsMenu(),
+          ],
+        ),
       ),
     );
   }
