@@ -36,6 +36,7 @@ class _GeneralSettingsMenuState extends State<GeneralSettingsMenu> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MenuDropdownTile(
+              label: context.localizations.accountGeneralSettingsHeader,
               dropdownController: isVisible,
               onPressed: () => setState(() => isVisible = !isVisible),
             ),

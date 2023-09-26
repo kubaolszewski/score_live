@@ -24,7 +24,7 @@ class FavoritesCountersBox extends StatelessWidget {
                 child: Text(
                   context.localizations.accountFavoritesHeader,
                   style: const CustomTextStyle(
-                    fontSize: 16,
+                    fontSize: 20,
                     fontWeight: FontWeight.w300,
                     color: Colors.white,
                   ),

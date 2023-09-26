@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/extensions/context/applocalization_context.dart';
 import '../../../common/theme/custom_text_style.dart';
 
 class MenuDropdownTile extends StatelessWidget {
@@ -8,18 +7,20 @@ class MenuDropdownTile extends StatelessWidget {
     super.key,
     required this.dropdownController,
     this.onPressed,
+    required this.label,
   });
 
   final bool dropdownController;
   final Function()? onPressed;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        context.localizations.accountGeneralSettingsHeader,
+        label,
         style: const CustomTextStyle(
-          fontSize: 16,
+          fontSize: 20,
           color: Colors.grey,
           fontWeight: FontWeight.w300,
         ),

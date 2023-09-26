@@ -87,5 +87,7 @@
   "accountAppNotificationsSwitch" : "App Notifications",
   "accountDarkThemeSwitch" : "Dark Theme",
   "accountFilterOptions" : "Filter Matches By",
-  "accountLanguageOptions" : "Language"
+  "accountLanguageOptions" : "Language",
+  "accounOtherSettingsHeader" : "Other",
+  "accountLogOut" : "Log Out"
 }
