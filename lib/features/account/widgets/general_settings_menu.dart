@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../common/constants/app_colors.dart';
 import '../../../common/extensions/context/applocalization_context.dart';
@@ -10,21 +11,16 @@ import 'list_tile_with_selection.dart';
 import 'list_tile_with_switch.dart';
 import 'menu_dropdown_tile.dart';
 
-class GeneralSettingsMenu extends StatefulWidget {
+class GeneralSettingsMenu extends HookWidget {
   const GeneralSettingsMenu({
     super.key,
   });
 
   @override
-  State<GeneralSettingsMenu> createState() => _GeneralSettingsMenuState();
-}
-
-class _GeneralSettingsMenuState extends State<GeneralSettingsMenu> {
-  bool enableDarkTheme = false;
-  bool enableNotifications = false;
-
-  @override
   Widget build(BuildContext context) {
+    final enableDarkTheme = useState(false);
+    final enableNotifications = useState(false);
+
     return BlocBuilder<AccountCubit, AccountState>(
       builder: (context, state) {
         return Container(
@@ -49,15 +45,15 @@ class _GeneralSettingsMenuState extends State<GeneralSettingsMenu> {
                         primary: false,
                         children: [
                           ListTileWithSwitch(
-                            switchController: enableNotifications,
+                            switchController: enableNotifications.value,
                             label: context.localizations.accountAppNotificationsSwitch,
-                            onChanged: (bool newValue) => setState(() => enableNotifications = newValue),
+                            onChanged: (bool newValue) => enableNotifications.value = newValue,
                           ),
                           const DefaultDivider(),
                           ListTileWithSwitch(
-                            switchController: enableDarkTheme,
+                            switchController: enableDarkTheme.value,
                             label: context.localizations.accountDarkThemeSwitch,
-                            onChanged: (bool newValue) => setState(() => enableDarkTheme = newValue),
+                            onChanged: (bool newValue) => enableDarkTheme.value = newValue,
                           ),
                           const DefaultDivider(),
                           ListTileWithSelection(label: context.localizations.accountFilterOptions),
