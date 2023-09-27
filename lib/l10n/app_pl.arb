@@ -67,5 +67,16 @@
   "resultStandingsTab" : "Tabela",
   "resultStatsTab" : "Statystyki",
 
-  "accountAppBarTitle" : "Moje konto"
+  "accountAppBarTitle" : "Moje konto",
+  "temporarySampleName" : "John Doe",
+  "accountFavoritesHeader" : "Ulubione",
+  "accountCompetitionsCounterHeader" : "Rozgrywki",
+  "accountPlayersCounterHeader" : "Zawodnicy",
+  "accountGeneralSettingsHeader" : "Ogólne",
+  "accountAppNotificationsSwitch" : "Powiadomienia",
+  "accountDarkThemeSwitch" : "Ciemny motyw",
+  "accountFilterOptions" : "Sortuj mecze wg.",
+  "accountLanguageOptions" : "Język",
+  "accounOtherSettingsHeader" : "Inne",
+  "accountLogOut" : "Wyloguj się"
 }

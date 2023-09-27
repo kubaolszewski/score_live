@@ -2,6 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../data/data_module.dart';
 import '../account/account_screen.dart';
 import '../account/account_module.dart';
+import '../account/cubit/account_cubit.dart';
 import '../competiton/competition_screen.dart';
 import '../competiton/competition_module.dart';
 import '../competiton/competition_tabs/region_tab/cubit/region_tab_cubit.dart';
@@ -34,6 +35,7 @@ class LandingModule extends Module {
         Bind.singleton((i) => TopResultsTabCubit(i())),
         Bind.singleton((i) => RegionTabCubit(i())),
         Bind.singleton((i) => ResultDetailsCubit(i())),
+        Bind.singleton((i) => AccountCubit()),
       ];
 
   @override
