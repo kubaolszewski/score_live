@@ -20,7 +20,7 @@ class GeneralSettingsMenu extends StatefulWidget {
 }
 
 class _GeneralSettingsMenuState extends State<GeneralSettingsMenu> {
-  bool darkTheme = false;
+  bool enableDarkTheme = false;
   bool enableNotifications = false;
 
   @override
@@ -55,9 +55,9 @@ class _GeneralSettingsMenuState extends State<GeneralSettingsMenu> {
                           ),
                           const DefaultDivider(),
                           ListTileWithSwitch(
-                            switchController: darkTheme,
+                            switchController: enableDarkTheme,
                             label: context.localizations.accountDarkThemeSwitch,
-                            onChanged: (bool newValue) => setState(() => darkTheme = newValue),
+                            onChanged: (bool newValue) => setState(() => enableDarkTheme = newValue),
                           ),
                           const DefaultDivider(),
                           ListTileWithSelection(label: context.localizations.accountFilterOptions),

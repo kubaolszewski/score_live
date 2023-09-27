@@ -9,8 +9,8 @@ part 'account_cubit.freezed.dart';
 class AccountCubit extends Cubit<AccountState> {
   AccountCubit() : super(const AccountState());
 
-  void switchFilter(SearchTypes dropdownValue) {
-    switch (dropdownValue) {
+  void switchFilter(SearchTypes filter) {
+    switch (filter) {
       case SearchTypes.team:
         emit(state.copyWith(searchFilter: SearchTypes.team));
       case SearchTypes.league:
@@ -18,7 +18,5 @@ class AccountCubit extends Cubit<AccountState> {
     }
   }
 
-  void switchSettingsVisibility() {
-    emit(state.copyWith(generalSettingsVisibility: !state.generalSettingsVisibility));
-  }
+  void switchSettingsVisibility() => emit(state.copyWith(generalSettingsVisibility: !state.generalSettingsVisibility));
 }

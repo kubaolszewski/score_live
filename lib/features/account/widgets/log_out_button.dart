@@ -17,7 +17,12 @@ class LogOutButton extends StatelessWidget {
         width: context.mediaQueryWidth,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red[900], shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+            backgroundColor: Colors.red[900],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+          //TODO: Apply log out logic later
           onPressed: () {},
           child: Text(
             context.localizations.accountLogOut,
