@@ -1,49 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/extensions/enums.dart';
+import '../../../common/extensions/string/string_formatters_ext.dart';
 import '../../../common/theme/custom_text_style.dart';
+import '../cubit/account_cubit.dart';
 
 class ListTileWithSelection extends StatelessWidget {
   const ListTileWithSelection({
     super.key,
     required this.label,
-    required this.option,
   });
 
   final String label;
-  final String option;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        label,
-        style: const CustomTextStyle(
-          fontSize: 16,
-          color: Colors.white,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      trailing: SizedBox(
-        width: 90,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              option,
-              style: const CustomTextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-                fontWeight: FontWeight.w600,
+    return BlocBuilder<AccountCubit, AccountState>(
+      builder: (context, state) {
+        SearchTypes currentFilter = state.searchFilter;
+
+        return ListTile(
+          title: Text(
+            label,
+            style: const CustomTextStyle(
+              fontSize: 16,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          trailing: ButtonTheme(
+            alignedDropdown: true,
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<SearchTypes>(
+                dropdownColor: Colors.grey,
+                value: currentFilter,
+                items: SearchTypes.values.map<DropdownMenuItem<SearchTypes>>(
+                  (SearchTypes value) {
+                    return DropdownMenuItem<SearchTypes>(
+                      value: value,
+                      child: Text(
+                        value.name.capitalize(),
+                        style: const CustomTextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+                      ),
+                    );
+                  },
+                ).toList(),
+                onChanged: (newFilter) {
+                  currentFilter = newFilter!;
+                  context.read<AccountCubit>().switchFilter(currentFilter);
+                },
               ),
             ),
-            const Icon(
-              Icons.keyboard_arrow_right_outlined,
-              size: 22,
-              color: Colors.grey,
-            )
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
