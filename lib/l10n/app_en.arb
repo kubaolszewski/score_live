@@ -59,7 +59,7 @@
 
   "competitionAppBarTitle" : "Browse Competition",
 
-  "searchBarHint" : "Search: ",
+  "searchBarHint" : "Search for competition, club...",
   "team" : "Team",
   "leagueName" : "League (name)",
   "leagueRegion" : "League (country)",
