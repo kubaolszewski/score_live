@@ -1,20 +1,26 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../../data/data_module.dart';
 import 'cubit/match_details_cubit.dart';
 import 'match_details_screen.dart';
 
 class MatchDetailsModule extends Module {
   @override
-  List<Bind> get binds => [
-        Bind.singleton((i) => MatchDetailsCubit(i())),
-      ];
+  final List<Module> imports = [
+    DataModule(),
+  ];
 
   @override
-  List<ModularRoute> get routes => [
-        ChildRoute(
-          MatchDetailsPath.matchDetailsScreen,
-          child: (context, args) => MatchDetailsScreen(liveMatch: args.data),
-        ),
-      ];
+  void binds(Injector i) {
+    i.addSingleton<MatchDetailsCubit>(MatchDetailsCubit.new);
+  }
+
+  @override
+  void routes(RouteManager r) {
+    r.child(
+      MatchDetailsPath.matchDetailsScreen,
+      child: (context) => MatchDetailsScreen(liveMatch: r.args.data),
+    );
+  }
 }
 
 mixin MatchDetailsPath {

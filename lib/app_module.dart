@@ -3,12 +3,9 @@ import 'features/landing/landing_module.dart';
 
 class AppModule extends Module {
   @override
-  List<ModularRoute> get routes => [
-        ModuleRoute(
-          AppModulePaths.landingModulePath,
-          module: LandingModule(),
-        ),
-      ];
+  void routes(RouteManager r) {
+    r.module(AppModulePaths.landingModulePath, module: LandingModule());
+  }
 }
 
 mixin AppModulePaths {

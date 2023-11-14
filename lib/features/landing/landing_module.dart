@@ -25,56 +25,56 @@ class LandingModule extends Module {
   ];
 
   @override
-  List<Bind> get binds => [
-        Bind.singleton((i) => HomeCubit()),
-        Bind.singleton((i) => MatchDetailsCubit(i())),
-        Bind.singleton((i) => CompetitionCubit(i())),
-        Bind.singleton((i) => LiveNowCubit(i())),
-        Bind.singleton((i) => UpcomingTabCubit(i())),
-        Bind.singleton((i) => ScoreTabCubit(i())),
-        Bind.singleton((i) => TopResultsTabCubit(i())),
-        Bind.singleton((i) => RegionTabCubit(i())),
-        Bind.singleton((i) => ResultDetailsCubit(i())),
-        Bind.singleton((i) => AccountCubit()),
-      ];
+  void binds(Injector i) {
+    i.addSingleton<HomeCubit>(HomeCubit.new);
+    i.addSingleton<MatchDetailsCubit>(MatchDetailsCubit.new);
+    i.addSingleton<CompetitionCubit>(CompetitionCubit.new);
+    i.addSingleton<LiveNowCubit>(LiveNowCubit.new);
+    i.addSingleton<UpcomingTabCubit>(UpcomingTabCubit.new);
+    i.addSingleton<ScoreTabCubit>(ScoreTabCubit.new);
+    i.addSingleton<TopResultsTabCubit>(TopResultsTabCubit.new);
+    i.addSingleton<RegionTabCubit>(RegionTabCubit.new);
+    i.addSingleton<ResultDetailsCubit>(ResultDetailsCubit.new);
+    i.addSingleton<AccountCubit>(AccountCubit.new);
+  }
 
   @override
-  List<ModularRoute> get routes => [
+  void routes(RouteManager r) {
+    r.child(
+      LandingScreenPaths.mainPath,
+      child: (context) => const LandingScreen(),
+      transition: TransitionType.noTransition,
+      children: [
         ChildRoute(
-          LandingScreenPaths.mainPath,
-          transition: TransitionType.noTransition,
-          child: (context, args) => const LandingScreen(),
-          children: [
-            ChildRoute(
-              LandingScreenPaths.homeModulePath,
-              transition: TransitionType.noTransition,
-              child: (context, args) => const HomeScreen(),
-            ),
-            ChildRoute(
-              LandingScreenPaths.competitionModulePath,
-              transition: TransitionType.noTransition,
-              child: (context, args) => const CompetitionScreen(),
-            ),
-            ChildRoute(
-              LandingScreenPaths.accountModulePath,
-              transition: TransitionType.noTransition,
-              child: (context, args) => const AccountScreen(),
-            ),
-          ],
-        ),
-        ModuleRoute(
           LandingScreenPaths.homeModulePath,
-          module: HomeModule(),
+          child: (context) => const HomeScreen(),
+          transition: TransitionType.noTransition,
         ),
-        ModuleRoute(
+        ChildRoute(
           LandingScreenPaths.competitionModulePath,
-          module: CompetitionModule(),
+          transition: TransitionType.noTransition,
+          child: (context) => const CompetitionScreen(),
         ),
-        ModuleRoute(
+        ChildRoute(
           LandingScreenPaths.accountModulePath,
-          module: AccountModule(),
+          transition: TransitionType.noTransition,
+          child: (context) => const AccountScreen(),
         ),
-      ];
+      ],
+    );
+    r.module(
+      LandingScreenPaths.homeModulePath,
+      module: HomeModule(),
+    );
+    r.module(
+      LandingScreenPaths.competitionModulePath,
+      module: CompetitionModule(),
+    );
+    r.module(
+      LandingScreenPaths.accountModulePath,
+      module: AccountModule(),
+    );
+  }
 }
 
 mixin LandingScreenPaths {

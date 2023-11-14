@@ -1,22 +1,26 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../data/data_module.dart';
 import 'account_screen.dart';
 import 'cubit/account_cubit.dart';
 
 class AccountModule extends Module {
   @override
-  List<Bind> get binds => [
-        Bind.singleton(
-          (i) => AccountCubit(),
-        ),
-      ];
+  final List<Module> imports = [
+    DataModule(),
+  ];
 
   @override
-  List<ModularRoute> get routes => [
-        ChildRoute(
-          AccountPath.path,
-          child: ((context, args) => const AccountScreen()),
-        ),
-      ];
+  void binds(Injector i) {
+    i.addSingleton<AccountCubit>(AccountCubit.new);
+  }
+
+  @override
+  void routes(RouteManager r) {
+    r.child(
+      AccountPath.path,
+      child: ((context) => const AccountScreen()),
+    );
+  }
 }
 
 mixin AccountPath {
