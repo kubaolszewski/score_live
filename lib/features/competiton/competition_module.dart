@@ -12,7 +12,7 @@ import 'searched_results/searched_teams/searched_teams_screen.dart';
 
 class CompetitionModule extends Module {
   @override
-  final List<Module> imports = [
+  List<Module> imports = [
     DataModule(),
   ];
 

@@ -14,7 +14,7 @@ import '../competiton/competition_screen.dart';
 
 class HomeModule extends Module {
   @override
-  final List<Module> imports = [
+  List<Module> imports = [
     DataModule(),
   ];
 

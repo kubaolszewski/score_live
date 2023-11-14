@@ -21,7 +21,7 @@ import 'landing_screen.dart';
 
 class LandingModule extends Module {
   @override
-  final List<Module> imports = [
+  List<Module> imports = [
     DataModule(),
   ];
 

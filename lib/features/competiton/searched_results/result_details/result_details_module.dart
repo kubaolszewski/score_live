@@ -6,7 +6,7 @@ import 'cubit/result_details_cubit.dart';
 
 class ResultDetailsModule extends Module {
   @override
-  final List<Module> imports = [
+  List<Module> imports = [
     DataModule(),
   ];
 

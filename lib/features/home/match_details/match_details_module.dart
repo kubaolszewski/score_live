@@ -5,7 +5,7 @@ import 'match_details_screen.dart';
 
 class MatchDetailsModule extends Module {
   @override
-  final List<Module> imports = [
+  List<Module> imports = [
     DataModule(),
   ];
 

@@ -5,7 +5,7 @@ import 'cubit/account_cubit.dart';
 
 class AccountModule extends Module {
   @override
-  final List<Module> imports = [
+  List<Module> imports = [
     DataModule(),
   ];
 
