@@ -52,6 +52,7 @@ dependencies:
   cached_network_image: ^3.2.3
   flutter_hooks: ^0.20.0
   dropdown_button2: ^2.3.9
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
