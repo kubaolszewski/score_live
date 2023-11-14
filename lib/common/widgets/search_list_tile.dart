@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../features/competiton/competition_module.dart';
+import '../../features/competiton/searched_results/result_details/result_details_screen.dart';
 import '../constants/app_colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+
+import '../extensions/navigation/navigation_on_string_ext.dart';
 
 class SearchListTile extends StatelessWidget {
   const SearchListTile({
@@ -24,7 +26,7 @@ class SearchListTile extends StatelessWidget {
     return InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: () => Modular.to.pushNamed(CompetitionPath.searchedResultDetailsPath,
+      onTap: () => Modular.to.pushNamed(ResultDetailsScreen.path.relativePath,
           arguments: ResultParams(resultId: resultId, flag: flag, region: region, name: name)),
       child: Container(
         decoration: const BoxDecoration(

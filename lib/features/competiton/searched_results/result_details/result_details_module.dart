@@ -18,15 +18,8 @@ class ResultDetailsModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      ResultDetailsPath.resultDetailsScreen,
+      ResultDetailsScreen.path,
       child: (context) => ResultDetailsScreen(params: r.args.data),
     );
   }
-}
-
-mixin ResultDetailsPath {
-  static String competitionPath = '/competition';
-  static String resultDetailsScreen = '/result-details';
-
-  static String resultDetailsPath = '$competitionPath$resultDetailsScreen';
 }

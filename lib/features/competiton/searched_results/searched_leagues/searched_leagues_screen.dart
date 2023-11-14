@@ -13,6 +13,8 @@ class SearchedLeaguesScreen extends StatelessWidget {
 
   final String nameQuery;
 
+  static const path = '/searched-leagues/';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

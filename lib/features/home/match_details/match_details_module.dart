@@ -17,15 +17,8 @@ class MatchDetailsModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      MatchDetailsPath.matchDetailsScreen,
+      MatchDetailsScreen.path,
       child: (context) => MatchDetailsScreen(liveMatch: r.args.data),
     );
   }
-}
-
-mixin MatchDetailsPath {
-  static String homePath = '/home';
-  static String matchDetailsScreen = '/match-details';
-
-  static String matchDetailsPath = '$homePath$matchDetailsScreen';
 }

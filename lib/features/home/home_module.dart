@@ -28,24 +28,16 @@ class HomeModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      HomePath.homePath,
+      HomeScreen.path,
       child: (context) => const HomeScreen(),
     );
     r.child(
-      HomePath.matchDetailsScreen,
+      MatchDetailsScreen.path,
       child: (context) => MatchDetailsScreen(liveMatch: r.args.data),
     );
     r.child(
-      HomePath.competitionScreen,
+      CompetitionScreen.path,
       child: ((context) => const CompetitionScreen()),
     );
   }
-}
-
-mixin HomePath {
-  static String homePath = '/home';
-  static String matchDetailsScreen = '/match-details';
-  static String competitionScreen = '/competition';
-
-  static String matchDetailsPath = '$homePath$matchDetailsScreen';
 }

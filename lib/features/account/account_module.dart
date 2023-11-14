@@ -17,12 +17,8 @@ class AccountModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      AccountPath.path,
+      AccountScreen.path,
       child: ((context) => const AccountScreen()),
     );
   }
-}
-
-mixin AccountPath {
-  static String path = '/account';
 }

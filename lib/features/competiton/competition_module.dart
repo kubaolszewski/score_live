@@ -26,31 +26,22 @@ class CompetitionModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      CompetitionPath.path,
+      CompetitionScreen.path,
       child: ((context) => const CompetitionScreen()),
     );
     r.child(
-      CompetitionPath.searchedLeaguesScreen,
+      SearchedLeaguesScreen.path,
       child: ((context) => SearchedLeaguesScreen(r.args.data)),
     );
     r.child(
-      CompetitionPath.searchedTeamsScreen,
+      SearchedTeamsScreen.path,
       child: ((context) => SearchedTeamsScreen(r.args.data)),
     );
     r.child(
-      CompetitionPath.searchedResultDetailsScreen,
+      ResultDetailsScreen.path,
       child: ((context) => ResultDetailsScreen(params: r.args.data)),
     );
   }
 }
 
-mixin CompetitionPath {
-  static String path = '/competition';
-  static String searchedTeamsScreen = '/teams-results';
-  static String searchedLeaguesScreen = '/leagues-results';
-  static String searchedResultDetailsScreen = '/result-details';
-
-  static String searchedTeamsPath = '$path$searchedTeamsScreen';
-  static String searchedLeaguesPath = '$path$searchedLeaguesScreen';
-  static String searchedResultDetailsPath = '$path$searchedResultDetailsScreen';
-}
+mixin CompetitionPath {}

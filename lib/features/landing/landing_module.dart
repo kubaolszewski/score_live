@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../common/constants/app_route_paths.dart';
 import '../../data/data_module.dart';
 import '../account/account_screen.dart';
 import '../account/account_module.dart';
@@ -41,45 +42,38 @@ class LandingModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      LandingScreenPaths.mainPath,
+      '/',
       child: (context) => const LandingScreen(),
       transition: TransitionType.noTransition,
       children: [
         ChildRoute(
-          LandingScreenPaths.homeModulePath,
+          HomeScreen.path,
           child: (context) => const HomeScreen(),
           transition: TransitionType.noTransition,
         ),
         ChildRoute(
-          LandingScreenPaths.competitionModulePath,
+          CompetitionScreen.path,
           transition: TransitionType.noTransition,
           child: (context) => const CompetitionScreen(),
         ),
         ChildRoute(
-          LandingScreenPaths.accountModulePath,
+          AccountScreen.path,
           transition: TransitionType.noTransition,
           child: (context) => const AccountScreen(),
         ),
       ],
     );
     r.module(
-      LandingScreenPaths.homeModulePath,
+      AppRoutePaths.homePath,
       module: HomeModule(),
     );
     r.module(
-      LandingScreenPaths.competitionModulePath,
+      AppRoutePaths.competitionPath,
       module: CompetitionModule(),
     );
     r.module(
-      LandingScreenPaths.accountModulePath,
+      AppRoutePaths.accountPath,
       module: AccountModule(),
     );
   }
-}
-
-mixin LandingScreenPaths {
-  static String mainPath = '/';
-  static String homeModulePath = '/home';
-  static String competitionModulePath = '/competition';
-  static String accountModulePath = '/account';
 }

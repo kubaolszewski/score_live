@@ -9,6 +9,8 @@ import 'cubit/competition_cubit.dart';
 class CompetitionScreen extends StatelessWidget {
   const CompetitionScreen({super.key});
 
+  static const path = '/competition/';
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
