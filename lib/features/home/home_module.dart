@@ -1,45 +1,49 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../common/constants/app_route_paths.dart';
+import '../../data/data_module.dart';
 import 'cubit/home_cubit.dart';
 import 'home_screen.dart';
 import 'home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'home_tabs/upcoming_tab/cubit/upcoming_tab_cubit.dart';
 import 'home_widgets/live_now/cubit/live_now_cubit.dart';
 import 'match_details/cubit/match_details_cubit.dart';
+import 'match_details/match_details_module.dart';
 import 'match_details/match_details_screen.dart';
 
 import '../competiton/competition_screen.dart';
 
 class HomeModule extends Module {
   @override
-  List<Bind> get binds => [
-        Bind.singleton((i) => HomeCubit()),
-        Bind.singleton((i) => MatchDetailsCubit(i())),
-        Bind.singleton((i) => LiveNowCubit(i())),
-        Bind.singleton((i) => ScoreTabCubit(i())),
-        Bind.singleton((i) => UpcomingTabCubit(i())),
-      ];
+  List<Module> imports = [
+    DataModule(),
+  ];
 
   @override
-  List<ModularRoute> get routes => [
-        ChildRoute(
-          HomePath.homePath,
-          child: (context, args) => const HomeScreen(),
-        ),
-        ChildRoute(
-          HomePath.matchDetailsScreen,
-          child: (context, args) => MatchDetailsScreen(liveMatch: args.data),
-        ),
-        ChildRoute(
-          HomePath.competitionScreen,
-          child: ((context, args) => const CompetitionScreen()),
-        ),
-      ];
-}
+  void binds(Injector i) {
+    i.addSingleton<HomeCubit>(HomeCubit.new);
+    i.addSingleton<MatchDetailsCubit>(MatchDetailsCubit.new);
+    i.addSingleton<LiveNowCubit>(LiveNowCubit.new);
+    i.addSingleton<ScoreTabCubit>(ScoreTabCubit.new);
+    i.addSingleton<UpcomingTabCubit>(UpcomingTabCubit.new);
+  }
 
-mixin HomePath {
-  static String homePath = '/home';
-  static String matchDetailsScreen = '/match-details';
-  static String competitionScreen = '/competition';
-
-  static String matchDetailsPath = '$homePath$matchDetailsScreen';
+  @override
+  void routes(RouteManager r) {
+    r.child(
+      HomeScreen.path,
+      child: (context) => const HomeScreen(),
+    );
+    r.child(
+      MatchDetailsScreen.path,
+      child: (context) => MatchDetailsScreen(liveMatch: r.args.data),
+    );
+    r.child(
+      CompetitionScreen.path,
+      child: ((context) => const CompetitionScreen()),
+    );
+    r.module(
+      AppRoutePaths.matchDetailsPath,
+      module: MatchDetailsModule(),
+    );
+  }
 }

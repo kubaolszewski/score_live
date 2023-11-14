@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../features/home/home_module.dart';
+import '../../../features/home/match_details/match_details_screen.dart';
+import '../../extensions/navigation/navigation_on_string_ext.dart';
 import 'elements/wide_match_tile_date.dart';
 import 'elements/wide_match_tile_result.dart';
 import 'elements/wide_match_tile_teams_display.dart';
@@ -22,8 +23,9 @@ class WideMatchListTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
       child: InkWell(
-        onTap:
-            isBrowsingH2HTab == true ? null : () => Modular.to.pushNamed(HomePath.matchDetailsPath, arguments: match),
+        onTap: isBrowsingH2HTab == true
+            ? null
+            : () => Modular.to.pushNamed(MatchDetailsScreen.path.relativePath, arguments: match),
         child: Container(
           decoration: BoxDecoration(
             color: AppColors.listTileGrey,

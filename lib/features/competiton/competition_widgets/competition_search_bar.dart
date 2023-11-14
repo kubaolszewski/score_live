@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
 import '../../../common/extensions/context/dimensions_context.dart';
-import '../competition_module.dart';
+import '../../../common/extensions/navigation/navigation_on_string_ext.dart';
 import '../cubit/competition_cubit.dart';
 import '../../../../common/extensions/context/applocalization_context.dart';
 import '../../../../common/extensions/enums.dart';
 import '../../../common/theme/custom_text_style.dart';
+import '../searched_results/searched_leagues/searched_leagues_screen.dart';
+import '../searched_results/searched_teams/searched_teams_screen.dart';
 import 'search_bar_dropdown_button.dart';
 
 class CompetitionSearchBar extends StatelessWidget {
@@ -47,9 +49,9 @@ class CompetitionSearchBar extends StatelessWidget {
               onSubmitted: (nameQuery) {
                 switch (dropdownValue) {
                   case SearchTypes.team:
-                    Modular.to.pushNamed(CompetitionPath.searchedTeamsPath, arguments: nameQuery);
+                    Modular.to.pushNamed(SearchedTeamsScreen.path.relativePath, arguments: nameQuery);
                   case SearchTypes.league:
-                    Modular.to.pushNamed(CompetitionPath.searchedLeaguesPath, arguments: nameQuery);
+                    Modular.to.pushNamed(SearchedLeaguesScreen.path.relativePath, arguments: nameQuery);
                 }
                 searchingController.clear();
               },
