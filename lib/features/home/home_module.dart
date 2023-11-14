@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import '../../common/constants/app_route_paths.dart';
 import '../../data/data_module.dart';
 import 'cubit/home_cubit.dart';
 import 'home_screen.dart';
@@ -6,6 +7,7 @@ import 'home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import 'home_tabs/upcoming_tab/cubit/upcoming_tab_cubit.dart';
 import 'home_widgets/live_now/cubit/live_now_cubit.dart';
 import 'match_details/cubit/match_details_cubit.dart';
+import 'match_details/match_details_module.dart';
 import 'match_details/match_details_screen.dart';
 
 import '../competiton/competition_screen.dart';
@@ -38,6 +40,10 @@ class HomeModule extends Module {
     r.child(
       CompetitionScreen.path,
       child: ((context) => const CompetitionScreen()),
+    );
+    r.module(
+      AppRoutePaths.matchDetailsPath,
+      module: MatchDetailsModule(),
     );
   }
 }

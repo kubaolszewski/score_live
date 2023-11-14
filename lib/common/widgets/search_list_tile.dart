@@ -7,6 +7,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import '../extensions/navigation/navigation_on_string_ext.dart';
 
+class ResultParams {
+  final int? resultId;
+  final String flag;
+  final String region;
+  final String name;
+
+  ResultParams({required this.resultId, required this.flag, required this.region, required this.name});
+}
+
 class SearchListTile extends StatelessWidget {
   const SearchListTile({
     super.key,
@@ -26,8 +35,10 @@ class SearchListTile extends StatelessWidget {
     return InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: () => Modular.to.pushNamed(ResultDetailsScreen.path.relativePath,
-          arguments: ResultParams(resultId: resultId, flag: flag, region: region, name: name)),
+      onTap: () => Modular.to.pushNamed(
+        ResultDetailsScreen.path.relativePath,
+        arguments: ResultParams(resultId: resultId, flag: flag, region: region, name: name),
+      ),
       child: Container(
         decoration: const BoxDecoration(
           border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey)),
@@ -91,18 +102,4 @@ class SearchListTile extends StatelessWidget {
       ),
     );
   }
-}
-
-class ResultParams {
-  final int? resultId;
-  final String flag;
-  final String region;
-  final String name;
-
-  ResultParams({
-    required this.resultId,
-    required this.flag,
-    required this.region,
-    required this.name,
-  });
 }

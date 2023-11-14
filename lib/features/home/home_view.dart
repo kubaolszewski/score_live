@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import '../../../common/widgets/custom_app_bar.dart';
-import '../../common/extensions/navigation/navigation_on_string_ext.dart';
 import 'cubit/home_cubit.dart';
-import 'home_screen.dart';
 import 'home_tabs/favorites_tab/favorites_tab.dart';
 import 'home_tabs/score_tab/score_tab.dart';
 import 'home_tabs/upcoming_tab/upcoming_tab.dart';
@@ -29,7 +26,8 @@ class HomeView extends StatelessWidget {
         title: const HomeScreenAppBarLogo(),
         actions: [
           IconButton(
-              onPressed: () => Modular.to.pushNamed(HomeScreen.path.relativePath),
+              // TODO: Implement working redirect to searchbar from home screen
+              onPressed: () {},
               icon: const Icon(Icons.search_rounded, color: Colors.white, size: 30)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.notifications_none, color: Colors.white, size: 30)),
         ],
