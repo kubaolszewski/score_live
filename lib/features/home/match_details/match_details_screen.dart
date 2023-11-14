@@ -16,6 +16,8 @@ class MatchDetailsScreen extends StatelessWidget {
 
   final MatchModel liveMatch;
 
+  static const path = '/match-details/';
+
   @override
   Widget build(BuildContext context) {
     final teamsIdNumbers = ('${liveMatch.homeTeamId}-${liveMatch.awayTeamId}');

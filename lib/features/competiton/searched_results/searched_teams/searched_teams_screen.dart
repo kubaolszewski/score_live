@@ -16,6 +16,9 @@ class SearchedTeamsScreen extends StatelessWidget {
 
   final String nameQuery;
 
+  static const path = '/searched-teams/';
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

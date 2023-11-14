@@ -10,6 +10,8 @@ class AccountScreen extends StatelessWidget {
     super.key,
   });
 
+  static const path = '/account/';
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

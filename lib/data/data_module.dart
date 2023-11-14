@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'network/api.client.dart';
@@ -11,38 +12,16 @@ import 'service/remote/match_details_service/match_details_remote_service.dart';
 
 class DataModule extends Module {
   @override
-  List<Bind> get binds => [
-        Bind.singleton<ApiClient>(
-          (i) => ApiClient(),
-          export: true,
-        ),
-        Bind.singleton<LiveMatchesRemoteService>(
-          (i) => LiveMatchesRemoteService.create(i()),
-          export: true,
-        ),
-        Bind.singleton<BrowsingRemoteService>(
-          (i) => BrowsingRemoteService.create(i()),
-          export: true,
-        ),
-        Bind.singleton<MatchDetailsRemoteService>(
-          (i) => MatchDetailsRemoteService.create(i()),
-          export: true,
-        ),
-        Bind.singleton<HomeScreenRepository>(
-          (i) => HomeScreenRepository(i()),
-          export: true,
-        ),
-        Bind.singleton<MatchDetailsRepository>(
-          (i) => MatchDetailsRepository(i()),
-          export: true,
-        ),
-        Bind.singleton<CompetitionScreenRepository>(
-          (i) => CompetitionScreenRepository(i()),
-          export: true,
-        ),
-        Bind.singleton<SearchedResultDetailsRepository>(
-          (i) => SearchedResultDetailsRepository(i()),
-          export: true,
-        ),
-      ];
+  void exportedBinds(i) {
+    i.addInstance<Dio>(Dio());
+    i.addSingleton<ApiClient>(ApiClient.new);
+    i.addSingleton<LiveMatchesRemoteService>(LiveMatchesRemoteService.create);
+    i.addSingleton<BrowsingRemoteService>(BrowsingRemoteService.create);
+    i.addSingleton<MatchDetailsRemoteService>(MatchDetailsRemoteService.create);
+    i.addSingleton<HomeScreenRepository>(HomeScreenRepository.new);
+    i.addSingleton<MatchDetailsRepository>(MatchDetailsRepository.new);
+    i.addSingleton<CompetitionScreenRepository>(CompetitionScreenRepository.new);
+    i.addSingleton<SearchedResultDetailsRepository>(SearchedResultDetailsRepository.new);
+    super.exportedBinds(i);
+  }
 }

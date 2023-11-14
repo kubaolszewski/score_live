@@ -12,6 +12,8 @@ class ResultDetailsScreen extends StatelessWidget {
 
   final ResultParams params;
 
+  static const path = '/result-details/';
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

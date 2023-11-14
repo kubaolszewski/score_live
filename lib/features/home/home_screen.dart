@@ -12,6 +12,8 @@ class HomeScreen extends StatelessWidget {
     super.key,
   });
 
+  static const path = '/home/';
+  
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
