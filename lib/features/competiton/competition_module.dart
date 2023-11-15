@@ -12,9 +12,9 @@ import 'searched_results/searched_teams/searched_teams_screen.dart';
 
 class CompetitionModule extends Module {
   @override
-  List<Module> imports = [
-    DataModule(),
-  ];
+  List<Module> get imports => [
+        DataModule(),
+      ];
 
   @override
   void binds(Injector i) {

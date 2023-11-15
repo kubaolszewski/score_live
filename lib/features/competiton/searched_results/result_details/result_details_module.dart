@@ -6,9 +6,9 @@ import 'cubit/result_details_cubit.dart';
 
 class ResultDetailsModule extends Module {
   @override
-  List<Module> imports = [
-    DataModule(),
-  ];
+  List<Module> get imports => [
+        DataModule(),
+      ];
 
   @override
   void binds(Injector i) {

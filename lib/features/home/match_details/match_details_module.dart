@@ -5,9 +5,9 @@ import 'match_details_screen.dart';
 
 class MatchDetailsModule extends Module {
   @override
-  List<Module> imports = [
-    DataModule(),
-  ];
+  List<Module> get imports => [
+        DataModule(),
+      ];
 
   @override
   void binds(Injector i) {

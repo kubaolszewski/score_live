@@ -21,9 +21,9 @@ import 'landing_screen.dart';
 
 class LandingModule extends Module {
   @override
-  List<Module> imports = [
-    DataModule(),
-  ];
+  List<Module> get imports => [
+        DataModule(),
+      ];
 
   @override
   void binds(Injector i) {
