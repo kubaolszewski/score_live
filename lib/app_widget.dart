@@ -9,15 +9,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Modular.setInitialRoute(AppRoutePaths.homePath);
+    Modular.setInitialRoute(AppRoutePaths.startPath);
     return MaterialApp.router(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       title: 'scorelive',
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Mulish',
-      ),
+      theme: ThemeData(fontFamily: 'Mulish'),
       debugShowCheckedModeBanner: false,
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,

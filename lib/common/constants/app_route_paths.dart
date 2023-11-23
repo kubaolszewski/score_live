@@ -1,5 +1,6 @@
 class AppRoutePaths {
-  static const landingPath = '/';
+  static const startPath = '/';
+  static const landingPath = '/landing/';
   static const homePath = '/home/';
   static const competitionPath = '/competition/';
   static const accountPath = '/account/';

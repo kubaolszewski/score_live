@@ -42,7 +42,7 @@ class LandingModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      '/',
+      LandingScreen.path,
       child: (context) => const LandingScreen(),
       transition: TransitionType.noTransition,
       children: [

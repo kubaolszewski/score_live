@@ -6,6 +6,8 @@ class LandingScreen extends StatelessWidget {
     super.key,
   });
 
+  static const path = '/landing/';
+
   @override
   Widget build(BuildContext context) {
     return const LandingView();
