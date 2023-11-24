@@ -18,7 +18,7 @@ class ResultDetailsModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      ResultDetailsScreen.path,
+      '/',
       child: (context) => ResultDetailsScreen(params: r.args.data),
     );
   }

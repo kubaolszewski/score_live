@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../common/extensions/context/applocalization_context.dart';
-import '../../common/constants/app_colors.dart';
-import '../../common/constants/app_route_paths.dart';
+import '../../../../common/extensions/context/applocalization_context.dart';
+import '../../../common/constants/app_colors.dart';
+import '../../../common/constants/app_route_paths.dart';
+import '../../../common/extensions/navigation/navigation_on_string_ext.dart';
 
 class LandingView extends HookWidget {
   const LandingView({super.key});
@@ -21,13 +22,13 @@ class LandingView extends HookWidget {
           currentIndex.value = newIndex;
           switch (currentIndex.value) {
             case 0:
-              Modular.to.pushNamed(AppRoutePaths.homePath);
+              Modular.to.pushNamed(AppRoutePaths.homePath.relativePath);
             case 1:
-              Modular.to.pushNamed(AppRoutePaths.competitionPath);
+              Modular.to.pushNamed(AppRoutePaths.competitionPath.relativePath);
             case 2:
-              Modular.to.pushNamed(AppRoutePaths.accountPath);
+              Modular.to.pushNamed(AppRoutePaths.accountPath.relativePath);
             default:
-              Modular.to.pushNamed(AppRoutePaths.homePath);
+              Modular.to.pushNamed(AppRoutePaths.homePath.relativePath);
           }
         },
         items: [

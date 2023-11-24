@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'cubit/auth_cubit.dart';
 import 'login_screen/login_screen.dart';
-import '../landing/landing_screen.dart';
+import '../landing/landing_screen/landing_screen.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});

@@ -27,7 +27,7 @@ class CompetitionModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      CompetitionScreen.path,
+      '/',
       child: ((context) => const CompetitionScreen()),
     );
     r.child(

@@ -17,7 +17,7 @@ import '../home/home_tabs/score_tab/cubit/score_tab_cubit.dart';
 import '../home/home_tabs/upcoming_tab/cubit/upcoming_tab_cubit.dart';
 import '../home/home_widgets/live_now/cubit/live_now_cubit.dart';
 import '../home/match_details/cubit/match_details_cubit.dart';
-import 'landing_screen.dart';
+import 'landing_screen/landing_screen.dart';
 
 class LandingModule extends Module {
   @override
@@ -42,7 +42,7 @@ class LandingModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      LandingScreen.path,
+      '/',
       child: (context) => const LandingScreen(),
       transition: TransitionType.noTransition,
       children: [

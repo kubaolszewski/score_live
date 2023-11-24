@@ -17,7 +17,7 @@ class AccountModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      AccountScreen.path,
+      '/',
       child: ((context) => const AccountScreen()),
     );
   }

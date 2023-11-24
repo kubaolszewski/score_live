@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../../features/home/match_details/match_details_screen.dart';
+import '../../../constants/app_route_paths.dart';
 import '../../../extensions/context/applocalization_context.dart';
 import '../../../../data/models/match_model/match_model.dart';
 import '../../../constants/app_colors.dart';
@@ -28,7 +28,7 @@ class LiveMatchDetailsButton extends StatelessWidget {
         ),
         backgroundColor: AppColors.mainThemePink,
       ),
-      onPressed: () => Modular.to.pushNamed(MatchDetailsScreen.path.relativePath, arguments: liveMatch),
+      onPressed: () => Modular.to.pushNamed(AppRoutePaths.matchDetailsPath.relativePath, arguments: liveMatch),
       child: Text(context.localizations.matchDetailsButton,
           style: const CustomTextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w700)),
     );

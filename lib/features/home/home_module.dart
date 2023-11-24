@@ -30,7 +30,7 @@ class HomeModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      HomeScreen.path,
+      '/',
       child: (context) => const HomeScreen(),
     );
     r.child(

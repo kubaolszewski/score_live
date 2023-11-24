@@ -17,7 +17,7 @@ class MatchDetailsModule extends Module {
   @override
   void routes(RouteManager r) {
     r.child(
-      MatchDetailsScreen.path,
+      '/',
       child: (context) => MatchDetailsScreen(liveMatch: r.args.data),
     );
   }
