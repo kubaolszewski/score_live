@@ -15,7 +15,10 @@ class LandingView extends HookWidget {
 
     return Scaffold(
       backgroundColor: AppColors.backgroundBlack,
-      body: const RouterOutlet(),
+      body: const SafeArea(
+        maintainBottomViewPadding: true,
+        child: RouterOutlet(),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex.value,
         onTap: (newIndex) {
