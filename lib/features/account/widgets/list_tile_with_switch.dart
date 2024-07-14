@@ -29,13 +29,13 @@ class ListTileWithSwitch extends StatelessWidget {
       trailing: Switch(
         value: switchController,
         onChanged: onChanged,
-        thumbColor: MaterialStateProperty.all<Color>(Colors.white),
+        thumbColor: WidgetStateProperty.all<Color>(Colors.white),
         trackColor: switchController
-            ? MaterialStateProperty.all<Color>(AppColors.mainThemePink)
-            : MaterialStateProperty.all<Color>(Colors.grey),
+            ? WidgetStateProperty.all<Color>(AppColors.mainThemePink)
+            : WidgetStateProperty.all<Color>(Colors.grey),
         trackOutlineColor: switchController
-            ? MaterialStateProperty.all<Color>(AppColors.mainThemePink)
-            : MaterialStateProperty.all<Color>(Colors.grey),
+            ? WidgetStateProperty.all<Color>(AppColors.mainThemePink)
+            : WidgetStateProperty.all<Color>(Colors.grey),
       ),
     );
   }

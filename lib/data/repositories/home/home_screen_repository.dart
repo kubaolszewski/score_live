@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import
-
 import '../../service/remote/live_matches_service/live_matches_remote_service.dart';
 import '../../models/match_model/match_model.dart';
 import '../../../common/constants/app_const_variables.dart';
@@ -188,7 +186,11 @@ class HomeScreenRepository {
           "date": "2021-08-14T14:00:00+00:00",
           "timestamp": 1628949600,
           "periods": {"first": 1628949600, "second": 1628953200},
-          "venue": {"id": 547, "name": "King Power Stadium", "city": "Leicester, Leicestershire"},
+          "venue": {
+            "id": 547,
+            "name": "King Power Stadium",
+            "city": "Leicester, Leicestershire"
+          },
           "status": {"long": "Match Finished", "short": "FT", "elapsed": 90}
         },
         "league": {
@@ -272,7 +274,11 @@ class HomeScreenRepository {
           "date": "2021-08-14T16:30:00+00:00",
           "timestamp": 1628958600,
           "periods": {"first": 1628958600, "second": 1628962200},
-          "venue": {"id": 565, "name": "Carrow Road", "city": "Norwich, Norfolk"},
+          "venue": {
+            "id": 565,
+            "name": "Carrow Road",
+            "city": "Norwich, Norfolk"
+          },
           "status": {"long": "Match Finished", "short": "FT", "elapsed": 90}
         },
         "league": {
@@ -310,7 +316,8 @@ class HomeScreenRepository {
     return response.map(MatchModel.fromJson).toList();
   }
 
-  Future<List<MatchModel>?> fetchMatchesByDate(String status, String date) async {
+  Future<List<MatchModel>?> fetchMatchesByDate(
+      String status, String date) async {
     // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.fullTime, date: date)).response;
     final response = [
       {
@@ -489,7 +496,11 @@ class HomeScreenRepository {
           "date": "2021-08-14T14:00:00+00:00",
           "timestamp": 1628949600,
           "periods": {"first": 1628949600, "second": 1628953200},
-          "venue": {"id": 547, "name": "King Power Stadium", "city": "Leicester, Leicestershire"},
+          "venue": {
+            "id": 547,
+            "name": "King Power Stadium",
+            "city": "Leicester, Leicestershire"
+          },
           "status": {"long": "Match Finished", "short": "FT", "elapsed": 90}
         },
         "league": {
@@ -573,7 +584,11 @@ class HomeScreenRepository {
           "date": "2021-08-14T16:30:00+00:00",
           "timestamp": 1628958600,
           "periods": {"first": 1628958600, "second": 1628962200},
-          "venue": {"id": 565, "name": "Carrow Road", "city": "Norwich, Norfolk"},
+          "venue": {
+            "id": 565,
+            "name": "Carrow Road",
+            "city": "Norwich, Norfolk"
+          },
           "status": {"long": "Match Finished", "short": "FT", "elapsed": 90}
         },
         "league": {
@@ -611,7 +626,8 @@ class HomeScreenRepository {
     return response.map(MatchModel.fromJson).toList();
   }
 
-  Future<List<MatchModel>?> fetchUpcomingMatches(String status, String date) async {
+  Future<List<MatchModel>?> fetchUpcomingMatches(
+      String status, String date) async {
     // return (await liveMatchesRemoteService.fetchMatchesByDate(status: AppConstVariables.matchNotStarted, date: date))
     //     .response;
     final response = [
@@ -707,7 +723,11 @@ class HomeScreenRepository {
           "date": "2023-07-21T11:30:00+00:00",
           "timestamp": 1689939000,
           "periods": {"first": null, "second": null},
-          "venue": {"id": null, "name": "Akademie Liefering - Platz 2", "city": "Salzburg"},
+          "venue": {
+            "id": null,
+            "name": "Akademie Liefering - Platz 2",
+            "city": "Salzburg"
+          },
           "status": {"long": "Not Started", "short": "NS", "elapsed": null}
         },
         "league": {
@@ -749,7 +769,11 @@ class HomeScreenRepository {
           "date": "2023-07-21T11:35:00+00:00",
           "timestamp": 1689939300,
           "periods": {"first": null, "second": null},
-          "venue": {"id": null, "name": "SAIC Motor Pudong Arena", "city": "Shanghai"},
+          "venue": {
+            "id": null,
+            "name": "SAIC Motor Pudong Arena",
+            "city": "Shanghai"
+          },
           "status": {"long": "Not Started", "short": "NS", "elapsed": null}
         },
         "league": {
@@ -791,7 +815,11 @@ class HomeScreenRepository {
           "date": "2023-07-21T11:35:00+00:00",
           "timestamp": 1689939300,
           "periods": {"first": null, "second": null},
-          "venue": {"id": 355, "name": "Zhengzhou Hanghai Stadium", "city": "Zhengzhou"},
+          "venue": {
+            "id": 355,
+            "name": "Zhengzhou Hanghai Stadium",
+            "city": "Zhengzhou"
+          },
           "status": {"long": "Not Started", "short": "NS", "elapsed": null}
         },
         "league": {
